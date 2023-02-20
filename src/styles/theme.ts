@@ -1,4 +1,4 @@
-import type { Breakpoints, Colors, Fonts, Container } from 'types/theme'
+import type { Breakpoints, Colors, Fonts, Container, Navbar } from 'types/theme'
 
 import media from 'styles/media'
 
@@ -55,11 +55,17 @@ export const container: Container = {
   padding: '2rem',
 }
 
+export const navbar: Navbar = {
+  height: '90px',
+  heightLG: '100px',
+}
+
 const theme = {
   breakpoints,
   colors,
   fonts,
   container,
+  navbar,
   media: media(),
 }
 

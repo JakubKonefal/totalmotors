@@ -53,6 +53,11 @@ export type Container = {
   padding: CSSProperties['padding']
 }
 
+export type Navbar = {
+  height: CSSProperties['height']
+  heightLG: CSSProperties['height']
+}
+
 export type Media = {
   [key in keyof Breakpoints]: {
     min: string
@@ -66,6 +71,7 @@ declare module 'styled-components' {
     colors: Colors
     breakpoints: Breakpoints
     container: Container
+    navbar: Navbar
     media: Media
   }
 }

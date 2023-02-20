@@ -2,6 +2,7 @@ import * as React from 'react'
 // import { graphql, PageProps } from 'gatsby'
 
 import Layout from 'components/layout'
+import Navigation from 'components/layout/Navigation'
 // import SEO from 'components/shared/SEO'
 
 const IndexPage: React.FC = () => {
@@ -10,6 +11,8 @@ const IndexPage: React.FC = () => {
 
   return (
     <Layout>
+      <Navigation />
+
       <main>Walbrzyska LP</main>
       {/* <SEO
         title={PAGE_SEO?.title ?? ''}
@@ -21,7 +24,6 @@ const IndexPage: React.FC = () => {
         twitterDescription={PAGE_SEO?.twitterDescription}
         twitterImage={PAGE_SEO?.twitterImage?.sourceUrl}
       /> */}
-      {/* <Navigation /> */}
     </Layout>
   )
 }
