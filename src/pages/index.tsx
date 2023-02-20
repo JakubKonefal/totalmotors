@@ -1,19 +1,22 @@
 import * as React from 'react'
-// import { graphql, PageProps } from 'gatsby'
+import { graphql, PageProps } from 'gatsby'
 
 import Layout from 'components/layout'
 import Navigation from 'components/layout/Navigation'
+import Footer from 'components/layout/Footer'
 // import SEO from 'components/shared/SEO'
 
-const IndexPage: React.FC = () => {
+const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
   // const HOMEPAGE = data?.wpPage?.Homepage
   // const PAGE_SEO = data?.wpPage?.seo
+
+  console.log(data)
 
   return (
     <Layout>
       <Navigation />
 
-      <main>Walbrzyska LP</main>
+      <main>Paweł Kulik LP</main>
       {/* <SEO
         title={PAGE_SEO?.title ?? ''}
         description={PAGE_SEO?.metaDesc ?? ''}
@@ -24,22 +27,41 @@ const IndexPage: React.FC = () => {
         twitterDescription={PAGE_SEO?.twitterDescription}
         twitterImage={PAGE_SEO?.twitterImage?.sourceUrl}
       /> */}
+      <Footer />
     </Layout>
   )
 }
 
 export default IndexPage
 
-// export const query = graphql`
-//   query IndexPage {
-//     heroImgMobile: file(name: { eq: "hero-img-mobile-1" }) {
-//       childImageSharp {
-//         gatsbyImageData(
-//           width: 992
-//           placeholder: DOMINANT_COLOR
-//           formats: [AUTO, WEBP]
-//         )
-//       }
-//     }
-//   }
-// `
+export const query = graphql`
+  query IndexPage {
+    hero1: file(name: { eq: "hero-1" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1920
+          placeholder: DOMINANT_COLOR
+          formats: [AUTO, WEBP]
+        )
+      }
+    }
+    hero2: file(name: { eq: "hero-2" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1920
+          placeholder: DOMINANT_COLOR
+          formats: [AUTO, WEBP]
+        )
+      }
+    }
+    hero3: file(name: { eq: "hero-3" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1920
+          placeholder: DOMINANT_COLOR
+          formats: [AUTO, WEBP]
+        )
+      }
+    }
+  }
+`
