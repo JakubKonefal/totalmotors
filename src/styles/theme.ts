@@ -15,8 +15,8 @@ export const breakpoints: Breakpoints = {
 }
 
 export const colors: Colors = {
-  primary: '#B19684',
-  primary100: '#867062',
+  primary: '#0e4f8b',
+  primary100: '#0d3e7a',
   primary200: '#947967',
   primary300: '#B09683',
   primary400: '#B0968385',
@@ -56,7 +56,7 @@ export const container: Container = {
 }
 
 export const navbar: Navbar = {
-  height: '90px',
+  height: '75px',
   heightLG: '100px',
 }
 

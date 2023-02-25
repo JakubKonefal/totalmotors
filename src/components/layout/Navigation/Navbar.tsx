@@ -55,10 +55,10 @@ const MenuButton = styled.button`
 
   div {
     width: 100%;
-    margin-bottom: 7px;
-    height: 4px;
+    margin-bottom: 6px;
+    height: 3px;
     border-radius: 6px;
-    background-color: ${({ theme }) => theme.colors.gray100};
+    background-color: ${({ theme }) => theme.colors.primary};
   }
 
   div:last-child {
@@ -78,6 +78,16 @@ const Logo = styled.a`
   }
 `
 
+const InnerWrapper = styled.div`
+  display: none;
+
+  align-items: center;
+
+  ${({ theme }) => theme.media.lg.min} {
+    display: flex;
+  }
+`
+
 const Links = styled.div`
   display: flex;
   align-items: center;
@@ -90,44 +100,37 @@ const LinkItem = styled.button`
   height: 100%;
   padding: 0 8px;
 
-  /* :before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 0;
-    display: block;
-    transform: translateY(-50%);
-    height: 13px;
-    width: 1px;
-    background-color: ${({ theme }) => theme.colors.black100};
-  } */
-
-  /* :last-child {
-    :after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      right: 0;
-      display: block;
-      transform: translateY(-50%);
-      height: 13px;
-      width: 1px;
-      background-color: ${({ theme }) => theme.colors.black100};
-    }
-  } */
-
   &:hover {
     ${Text} {
-      color: ${({ theme }) => theme.colors.primary200};
+      font-weight: 500;
     }
   }
 
   ${({ theme }) => theme.media.xl.min} {
-    padding: 0 10px;
+    padding: 0 12px;
   }
 
   ${({ theme }) => theme.media.xxl.min} {
-    padding: 0 12px;
+    padding: 0 14px;
+  }
+`
+
+const CallUsButton = styled.a`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 50px;
+  margin-left: 20px;
+  font-weight: 500;
+  background-color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.white};
+  border-radius: 8px;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.primary100};
   }
 `
 
@@ -143,17 +146,21 @@ const Topnav = () => {
         <Logo href="/">
           <Icon src={exampleLogo} alt="matexi" width={lg ? 135 : 110} />
         </Logo>
-        {lg && (
+
+        <InnerWrapper>
           <Links>
             {NAVIGATION_LINKS.map((link, index) => (
               <LinkItem as="a" href={link.link} key={`navbar-link-${index}`}>
-                <Text size={xl ? 16 : 14} themecolor="black">
+                <Text size={xl ? 20 : 17} themecolor="black">
                   {link.label}
                 </Text>
               </LinkItem>
             ))}
           </Links>
-        )}
+          <CallUsButton href="tel: 733 002 337" role="button">
+            Zadzwoń
+          </CallUsButton>
+        </InnerWrapper>
 
         {!lg && (
           <MenuButton type="button" onClick={openSidenav}>

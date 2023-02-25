@@ -3,6 +3,7 @@ import { graphql, PageProps } from 'gatsby'
 
 import Layout from 'components/layout'
 import Navigation from 'components/layout/Navigation'
+import Hero from 'components/layout/Hero'
 import Footer from 'components/layout/Footer'
 // import SEO from 'components/shared/SEO'
 
@@ -12,9 +13,34 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
 
   console.log(data)
 
+  const HERO_SLIDES = [
+    {
+      img: {
+        src: data?.hero1?.childImageSharp?.gatsbyImageData!,
+        alt: 'car1',
+      },
+      title: 'Samochody elektryczne 1',
+    },
+    {
+      img: {
+        src: data?.hero2?.childImageSharp?.gatsbyImageData!,
+        alt: 'car2',
+      },
+      title: 'Samochody elektryczne 2',
+    },
+    {
+      img: {
+        src: data?.hero3?.childImageSharp?.gatsbyImageData!,
+        alt: 'car3',
+      },
+      title: 'Samochody elektryczne 3',
+    },
+  ]
+
   return (
     <Layout>
       <Navigation />
+      <Hero slides={HERO_SLIDES} />
 
       <main>Paweł Kulik LP</main>
       {/* <SEO
