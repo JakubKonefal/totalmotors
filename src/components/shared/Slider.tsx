@@ -1,21 +1,22 @@
 import React, { useRef, useState } from 'react'
 import styled from 'styled-components'
-import Icon from 'components/shared/icon'
+// import Icon from 'components/shared/icon'
 import LazyImage from 'components/shared/lazyImage'
 import SwiperCore from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import arrowLeftIcon from 'assets/icons/arrow-left.svg'
-import arrowRightIcon from 'assets/icons/arrow-right.svg'
+// import arrowLeftIcon from 'assets/icons/arrow-left.svg'
+// import arrowRightIcon from 'assets/icons/arrow-right.svg'
 import type { Image } from 'types/image'
 
 import 'swiper/css'
 import useBreakpoint from 'hooks/useBreakpoint'
 
-import ZoomedModalImg from 'components/shared/ZoomedModalImg'
+// import ZoomedModalImg from 'components/shared/ZoomedModalImg'
 
-type Slide = {
+export type Slide = {
   img: Image
   title: string
+  description: string
 }
 
 type Props = {

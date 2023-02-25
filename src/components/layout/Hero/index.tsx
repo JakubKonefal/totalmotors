@@ -1,17 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import Slider from 'components/shared/Swiper'
-
-import type { Image } from 'types/image'
-
-type Slide = {
-  img: Image
-  title: string
-}
+import HeroSlider from './HeroSlider'
+import type { HeroSlide } from './HeroSlider'
 
 type Props = {
-  slides: Slide[]
+  slides: HeroSlide[]
 }
 
 const Header = styled.header`
@@ -25,7 +19,7 @@ const Header = styled.header`
 const Hero: React.FC<Props> = ({ slides }) => {
   return (
     <Header>
-      <Slider slides={slides} perView={1} />
+      <HeroSlider slides={slides} perView={1} />
     </Header>
   )
 }
