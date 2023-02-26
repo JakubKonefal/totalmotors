@@ -2,12 +2,17 @@ import React from 'react'
 import styled from 'styled-components'
 
 import LazyImage from 'components/shared/lazyImage'
+import Icon from 'components/shared/icon'
 import { Heading, Text } from 'components/shared/typography'
 
 import { Image } from 'types/image'
 import Container from 'components/shared/container'
 import Button from 'components/shared/button'
 import useBreakpoint from 'hooks/useBreakpoint'
+
+import xIcon from 'assets/icons/arrow-right.svg'
+import yIcon from 'assets/icons/arrow-right-long.svg'
+import zIcon from 'assets/icons/arrow-right-long-2.svg'
 
 export type TileSingle = {
   title: string
@@ -26,6 +31,15 @@ const Section = styled.section`
   margin-bottom: 30px;
 `
 
+const StyledContainer = styled(Container)`
+  /* padding-bottom: 30px;
+  border-bottom: 2px solid ${({ theme }) => theme.colors.black};
+
+  ${({ theme }) => theme.media.lg.min} {
+    padding-bottom: 60px;
+  } */
+`
+
 const Cards = styled.div`
   display: flex;
   flex-direction: column;
@@ -40,6 +54,7 @@ const Cards = styled.div`
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
     gap: 24px;
+    max-width: 700px;
   }
 
   ${({ theme }) => theme.media.lg.min} {
@@ -57,7 +72,7 @@ const CardWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  box-shadow: 0px 1px 5px rgb(0 0 0 / 5%);
+  box-shadow: 0px 1px 11px 1px rgb(0 0 0 / 20%);
   cursor: pointer;
 
   :not(:last-child) {
@@ -76,7 +91,7 @@ const CardWrapper = styled.div`
 `
 
 const ImgWrapper = styled.div`
-  height: 200px;
+  height: 175px;
 
   * {
     width: 100%;
@@ -92,7 +107,7 @@ const ImgWrapper = styled.div`
   }
 
   ${({ theme }) => theme.media.md.min} {
-    height: 275px;
+    height: 220px;
   }
 `
 
@@ -109,7 +124,7 @@ const BottomWrapper = styled.div`
   }
 `
 
-const StyledButton = styled(Button)`
+const CardButton = styled(Button)`
   background-color: ${({ theme }) => theme.colors.primary200};
   color: ${({ theme }) => theme.colors.white};
   font-size: 11px;
@@ -125,12 +140,64 @@ const StyledButton = styled(Button)`
   }
 `
 
+const BigButtonWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+
+  padding-bottom: 30px;
+  border-bottom: 2px dotted #b5b4b4;
+
+  ${({ theme }) => theme.media.lg.min} {
+    margin-top: 35px;
+    padding-bottom: 60px;
+  }
+`
+
+const BigButton = styled(Button)`
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 275px;
+  height: 56px;
+  margin: 0 auto;
+  background-color: ${({ theme }) => theme.colors.primary200};
+  color: ${({ theme }) => theme.colors.white};
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+
+  .arrow-right {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(120px, -50%);
+  }
+
+  ${({ theme }) => theme.media.xl.min} {
+    width: 315px;
+    font-size: 15px;
+
+    .arrow-right {
+      transform: translate(135px, -50%);
+    }
+  }
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.primary};
+  }
+`
+
 const OfferCards: React.FC<Props> = ({ tiles }) => {
   const { xl } = useBreakpoint()
 
   return (
     <Section title="Oferta">
-      <Container>
+      <StyledContainer>
         <Cards>
           {tiles.map((tile, index) => (
             <CardWrapper key={`tile-${index}`}>
@@ -150,12 +217,23 @@ const OfferCards: React.FC<Props> = ({ tiles }) => {
                   margin="20px"
                   dangerouslySetInnerHTML={{ __html: tile.description }}
                 />
-                <StyledButton>Dowiedz się więcej</StyledButton>
+                <CardButton>Dowiedz się więcej</CardButton>
               </BottomWrapper>
             </CardWrapper>
           ))}
         </Cards>
-      </Container>
+        <BigButtonWrapper>
+          <BigButton>
+            Zobacz pełną ofertę
+            <Icon
+              className="arrow-right"
+              src={yIcon}
+              size={30}
+              alt="arrow-right"
+            />
+          </BigButton>
+        </BigButtonWrapper>
+      </StyledContainer>
     </Section>
   )
 }

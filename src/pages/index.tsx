@@ -54,7 +54,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
       description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
       link: '/oferta$samochod1',
       img: {
-        src: data?.hero1?.childImageSharp?.gatsbyImageData!,
+        src: data?.hero3?.childImageSharp?.gatsbyImageData!,
         alt: 'car1',
       },
     },
@@ -63,7 +63,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
       description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
       link: '/oferta$samochod2',
       img: {
-        src: data?.hero1?.childImageSharp?.gatsbyImageData!,
+        src: data?.hero2?.childImageSharp?.gatsbyImageData!,
         alt: 'car1',
       },
     },
@@ -72,7 +72,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
       description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
       link: '/oferta$samochod3',
       img: {
-        src: data?.hero1?.childImageSharp?.gatsbyImageData!,
+        src: data?.hero3?.childImageSharp?.gatsbyImageData!,
         alt: 'car1',
       },
     },
