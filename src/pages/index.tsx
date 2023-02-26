@@ -11,7 +11,7 @@ import Footer from 'components/layout/Footer'
 import type { HeroSlide } from 'components/layout/Hero/HeroSlider'
 import type { TileSingle } from 'components/layout/OfferCards'
 
-// import SEO from 'components/shared/SEO'
+import SEO from 'components/shared/SEO'
 
 const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
   // const HOMEPAGE = data?.wpPage?.Homepage
@@ -81,22 +81,23 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
 
   return (
     <Layout>
+      <SEO
+        title={'Paweł Kulik Cars | Strona główna'}
+        description={''}
+        // ogTitle={opengraphTitle}
+        // ogDescription={opengraphDescription}
+        // ogImage={opengraphImage?.sourceUrl}
+        // twitterTitle={twitterTitle}
+        // twitterDescription={twitterDescription}
+        // twitterImage={twitterImage?.sourceUrl}
+      />
       <Navigation />
       <main>
         <Hero slides={HERO_SLIDES} />
         <OfferCards tiles={OFFER_CARDS} />
         <ContactUsCTA />
       </main>
-      {/* <SEO
-        title={PAGE_SEO?.title ?? ''}
-        description={PAGE_SEO?.metaDesc ?? ''}
-        ogTitle={PAGE_SEO?.opengraphTitle}
-        ogDescription={PAGE_SEO?.opengraphDescription}
-        ogImage={PAGE_SEO?.opengraphImage?.sourceUrl}
-        twitterTitle={PAGE_SEO?.twitterTitle}
-        twitterDescription={PAGE_SEO?.twitterDescription}
-        twitterImage={PAGE_SEO?.twitterImage?.sourceUrl}
-      /> */}
+
       <Footer />
     </Layout>
   )

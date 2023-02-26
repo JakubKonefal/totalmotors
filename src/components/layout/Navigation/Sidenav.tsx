@@ -135,12 +135,10 @@ const Sidenav: React.FC = () => {
           <Links>
             {NAVIGATION_LINKS.map((link, index) => (
               <LinkItem
+                as="a"
+                href={link.link}
                 type="button"
                 key={`navbar-link-${index}`}
-                onClick={() => {
-                  scrollToSection(link.link)
-                  closeSidenav()
-                }}
               >
                 <Text size={17} themecolor="black">
                   {link.label}

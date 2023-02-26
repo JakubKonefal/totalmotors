@@ -97,17 +97,17 @@ module.exports = {
     //     accessToken: 'pxI2o6ezoo6D4Ao9_wITL7deh-dRAe9FELfoc5NeISs',
     //   },
     // },
-    // {
-    //   resolve: `gatsby-plugin-manifest`,
-    //   options: {
-    //     name: `PageTitle`,
-    //     short_name: `PageTitle`,
-    //     start_url: `/`,
-    //     background_color: `#EEEEEE`,
-    //     theme_color: `#B19684`,
-    //     display: `standalone`,
-    //     icon: `src/assets/icons/favicon.png`,
-    //   },
-    // },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Kulik Cars`,
+        short_name: `Kulik Cars`,
+        start_url: `/`,
+        background_color: `#EEEEEE`,
+        theme_color: `#2f6fad`,
+        display: `standalone`,
+        icon: `src/assets/icons/favicon.png`,
+      },
+    },
   ],
 }

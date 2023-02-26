@@ -122,5 +122,4 @@ const Seo: React.FC<SeoProps> = ({
   )
 }
 
-
 export default Seo
