@@ -5,6 +5,7 @@ import Layout from 'components/layout'
 import Navigation from 'components/layout/Navigation'
 import Hero from 'components/layout/Hero'
 import OfferCards from 'components/layout/OfferCards'
+import ContactUsCTA from 'components/layout/ContactUsCTA'
 import Footer from 'components/layout/Footer'
 
 import type { HeroSlide } from 'components/layout/Hero/HeroSlider'
@@ -84,6 +85,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
       <main>
         <Hero slides={HERO_SLIDES} />
         <OfferCards tiles={OFFER_CARDS} />
+        <ContactUsCTA />
       </main>
       {/* <SEO
         title={PAGE_SEO?.title ?? ''}

@@ -17,7 +17,7 @@ const FooterWrapper = styled.footer`
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  margin-top: 7rem;
+  margin-top: 2rem;
 `
 
 const BottomWrapper = styled.div`
@@ -86,6 +86,10 @@ const ButtonLink = styled.a`
 
   .button-link-icon {
     margin-right: 8px;
+  }
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.primary200};
   }
 `
 

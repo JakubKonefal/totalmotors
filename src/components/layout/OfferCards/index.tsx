@@ -29,6 +29,10 @@ const Section = styled.section`
   width: 100%;
   margin-top: 30px;
   margin-bottom: 30px;
+
+  ${({ theme }) => theme.media.lg.min} {
+    margin-bottom: 60px;
+  }
 `
 
 const StyledContainer = styled(Container)`
@@ -86,7 +90,7 @@ const CardWrapper = styled.div`
   }
 
   &:hover {
-    box-shadow: 0px 1px 5px rgb(0 0 0 / 20%);
+    box-shadow: 0px 1px 11px 5px rgb(0 0 0 / 25%);
   }
 `
 
@@ -200,7 +204,11 @@ const OfferCards: React.FC<Props> = ({ tiles }) => {
       <StyledContainer>
         <Cards>
           {tiles.map((tile, index) => (
-            <CardWrapper key={`tile-${index}`}>
+            <CardWrapper
+              key={`tile-${index}`}
+              as="a"
+              href={`/oferta#samochod${index + 1}`}
+            >
               <ImgWrapper>
                 <LazyImage src={tile.img.src} alt={tile.img.alt} />
               </ImgWrapper>
@@ -223,7 +231,7 @@ const OfferCards: React.FC<Props> = ({ tiles }) => {
           ))}
         </Cards>
         <BigButtonWrapper>
-          <BigButton>
+          <BigButton as="a" href="/oferta">
             Zobacz pełną ofertę
             <Icon
               className="arrow-right"
