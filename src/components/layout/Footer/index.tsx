@@ -14,12 +14,7 @@ const FooterWrapper = styled.footer`
   margin-top: 7rem;
   padding: 15px 20px;
   border-top: 2px solid rgb(66, 84, 73);
-  background: rgb(66, 84, 73);
-  background: linear-gradient(
-    90deg,
-    rgba(66, 84, 73, 1) 0%,
-    rgba(31, 15, 31, 1) 100%
-  );
+  background: ${({ theme }) => theme.colors.primary200};
 
   transition: 150ms ease-in-out margin;
 

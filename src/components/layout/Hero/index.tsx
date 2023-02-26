@@ -9,6 +9,7 @@ type Props = {
 }
 
 const Header = styled.header`
+  margin-bottom: 60px;
   margin-top: ${({ theme }) => theme.navbar.height};
 
   ${({ theme }) => theme.media.lg.min} {

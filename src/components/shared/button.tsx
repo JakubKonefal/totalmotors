@@ -34,7 +34,7 @@ const Button = styled.button<ButtonProps>`
     square ? `${pxToRem(6)}em` : `${pxToRem(6)}em ${pxToRem(12)}em`};
 
   border: 2px solid transparent;
-  border-radius: 8px;
+  border-radius: 3px;
 
   font-size: ${pxToRem(16)}rem;
   font-weight: 400;

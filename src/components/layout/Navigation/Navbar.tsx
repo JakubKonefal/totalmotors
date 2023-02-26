@@ -25,6 +25,7 @@ const TopnavWrapper = styled.nav<{ active?: boolean }>`
   width: 100%;
   background-color: ${({ theme }) => theme.colors.white};
   box-shadow: 1px 1px 15px 4px #6262621a;
+  transition: 350ms ease-in-out;
   z-index: 999;
 
   transform: ${({ active }) =>

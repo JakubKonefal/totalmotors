@@ -17,7 +17,7 @@ export const breakpoints: Breakpoints = {
 export const colors: Colors = {
   primary: '#0e4f8b',
   primary100: '#0d3e7a',
-  primary200: '#947967',
+  primary200: '#2f6fad',
   primary300: '#B09683',
   primary400: '#B0968385',
   primary500: '#B99A86',

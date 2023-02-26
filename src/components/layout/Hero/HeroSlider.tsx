@@ -1,5 +1,5 @@
-import React, { useRef, useState } from 'react'
-import styled from 'styled-components'
+import React, { useState } from 'react'
+import styled, { css } from 'styled-components'
 import Icon from 'components/shared/icon'
 import LazyImage from 'components/shared/lazyImage'
 import SwiperCore, { Autoplay } from 'swiper'
@@ -125,34 +125,67 @@ const ControlRight = styled(ControlBtn)`
   }
 `
 
-const Slider: React.FC<Props> = ({ slides, perView = 1 }) => {
-  const { lg, xl } = useBreakpoint()
+const Indicators = styled.div`
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
 
-  const swiperRef = useRef<{ swiper: SwiperCore }>(null)
+  ${({ theme }) => theme.media.lg.min} {
+    bottom: 25px;
+  }
+`
 
-  const goNext = () => {
-    if (swiperRef.current !== null && swiperRef.current.swiper !== null) {
-      swiperRef.current.swiper.slideNext()
-    }
+const IndicatorButton = styled.button<{ active: boolean }>`
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.2);
+
+  ${({ theme }) => theme.media.lg.min} {
+    width: 12px;
+    height: 12px;
+    background-color: rgb(255 255 255 / 31%);
   }
 
+  ${({ active }) =>
+    active &&
+    css`
+      background-color: ${({ theme }) => theme.colors.primary};
+
+      ${({ theme }) => theme.media.lg.min} {
+        background-color: rgb(255 255 255 / 86%);
+    `}
+`
+
+const Slider: React.FC<Props> = ({ slides, perView = 1 }) => {
+  const [swiper, setSwiper] = useState<SwiperCore | null>(null)
+  const [activeSlideIndex, setActiveSlideIndex] = useState(0)
+  const { lg, xl } = useBreakpoint()
+
   const goPrev = () => {
-    if (swiperRef.current !== null && swiperRef.current.swiper !== null) {
-      swiperRef.current.swiper.slidePrev()
-    }
+    swiper?.slidePrev()
+  }
+
+  const goNext = () => {
+    swiper?.slideNext()
   }
 
   return (
     <SwiperWrapper>
       <Swiper
-        // @ts-ignore
-        ref={swiperRef}
         slidesPerView={perView}
+        onSwiper={(initSwiper) => setSwiper(initSwiper)}
         autoplay={{
           delay: 5000,
         }}
         speed={1000}
         modules={[Autoplay]}
+        onSlideChange={(swiperInstance) =>
+          setActiveSlideIndex(swiperInstance.realIndex)
+        }
         loop
       >
         {slides.map(({ img, title, description }, index) => (
@@ -189,6 +222,19 @@ const Slider: React.FC<Props> = ({ slides, perView = 1 }) => {
           <Icon src={arrowRightIcon} size={xl ? 26 : 18} alt="arrow-right" />
         </ControlRight>
       </>
+      <Indicators>
+        {slides.map((i, index) => (
+          <IndicatorButton
+            type="button"
+            key={`indicator-button-${index}`}
+            active={activeSlideIndex === index}
+            onClick={() => {
+              swiper?.slideTo(index)
+              setActiveSlideIndex(index)
+            }}
+          />
+        ))}
+      </Indicators>
     </SwiperWrapper>
   )
 }
