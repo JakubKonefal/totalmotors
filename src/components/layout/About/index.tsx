@@ -36,10 +36,11 @@ const About: React.FC<Props> = ({ heading, description, steps }) => {
           <TextContent>
             <Heading
               as="h1"
-              size={36}
+              size={34}
+              margin="15px"
               dangerouslySetInnerHTML={{ __html: heading }}
             />
-            <Text size={16} dangerouslySetInnerHTML={{ __html: description }} />
+            <Text size={15} dangerouslySetInnerHTML={{ __html: description }} />
           </TextContent>
         </InnerWrapper>
         <ServiceSteps steps={steps} />

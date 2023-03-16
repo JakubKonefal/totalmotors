@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import Icon from 'components/shared/icon'
 import { Heading, Text } from 'components/shared/typography'
 
-import Container from 'components/shared/container'
 import Button from 'components/shared/button'
 import useBreakpoint from 'hooks/useBreakpoint'
 
@@ -21,7 +20,7 @@ type Props = {
   steps: StepSingle[]
 }
 
-const Section = styled.section`
+const Wrapper = styled.div`
   width: 100%;
   margin-top: 30px;
   margin-bottom: 30px;
@@ -29,15 +28,6 @@ const Section = styled.section`
   ${({ theme }) => theme.media.lg.min} {
     margin-bottom: 60px;
   }
-`
-
-const StyledContainer = styled(Container)`
-  /* padding-bottom: 30px;
-  border-bottom: 2px solid ${({ theme }) => theme.colors.black};
-
-  ${({ theme }) => theme.media.lg.min} {
-    padding-bottom: 60px;
-  } */
 `
 
 const Steps = styled.div`
@@ -196,43 +186,41 @@ const ServiceSteps: React.FC<Props> = ({ steps }) => {
   const { xl } = useBreakpoint()
 
   return (
-    <Section title="About">
-      <StyledContainer>
-        <Steps>
-          {steps.map((step, index) => (
-            <StepWrapper key={`step-${index}`}>
-              <ImgWrapper>Img was here</ImgWrapper>
-              <BottomWrapper>
-                <Heading
-                  as="h3"
-                  size={26}
-                  weight={600}
-                  margin="10px"
-                  dangerouslySetInnerHTML={{ __html: step.title }}
-                />
-                <Text
-                  size={xl ? 15 : 13}
-                  margin="20px"
-                  dangerouslySetInnerHTML={{ __html: step.description }}
-                />
-                <CardButton>Dowiedz się więcej</CardButton>
-              </BottomWrapper>
-            </StepWrapper>
-          ))}
-        </Steps>
-        <BigButtonWrapper>
-          <BigButton as="a" href="/oferta">
-            Zobacz pełną ofertę
-            <Icon
-              className="arrow-right"
-              src={yIcon}
-              size={30}
-              alt="arrow-right"
-            />
-          </BigButton>
-        </BigButtonWrapper>
-      </StyledContainer>
-    </Section>
+    <Wrapper title="About">
+      <Steps>
+        {steps.map((step, index) => (
+          <StepWrapper key={`step-${index}`}>
+            <ImgWrapper>Img was here</ImgWrapper>
+            <BottomWrapper>
+              <Heading
+                as="h3"
+                size={26}
+                weight={600}
+                margin="10px"
+                dangerouslySetInnerHTML={{ __html: step.title }}
+              />
+              <Text
+                size={xl ? 15 : 13}
+                margin="20px"
+                dangerouslySetInnerHTML={{ __html: step.description }}
+              />
+              <CardButton>Dowiedz się więcej</CardButton>
+            </BottomWrapper>
+          </StepWrapper>
+        ))}
+      </Steps>
+      <BigButtonWrapper>
+        <BigButton as="a" href="/oferta">
+          Zobacz pełną ofertę
+          <Icon
+            className="arrow-right"
+            src={yIcon}
+            size={30}
+            alt="arrow-right"
+          />
+        </BigButton>
+      </BigButtonWrapper>
+    </Wrapper>
   )
 }
 
