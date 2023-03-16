@@ -1,16 +1,20 @@
 import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
-import Icon from 'components/shared/icon'
-import LazyImage from 'components/shared/lazyImage'
+
 import SwiperCore, { Autoplay } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
+
+import Icon from 'components/shared/icon'
+import LazyImage from 'components/shared/lazyImage'
+import { Heading, Text } from 'components/shared/typography'
+
+import useBreakpoint from 'hooks/useBreakpoint'
+
 import arrowLeftIcon from 'assets/icons/arrow-left.svg'
 import arrowRightIcon from 'assets/icons/arrow-right.svg'
-import type { Image } from 'types/image'
 
+import type { Image } from 'types/image'
 import 'swiper/css'
-import useBreakpoint from 'hooks/useBreakpoint'
-import { Heading, Text } from 'components/shared/typography'
 
 // import ZoomedModalImg from 'components/shared/ZoomedModalImg'
 
@@ -127,7 +131,7 @@ const ControlRight = styled(ControlBtn)`
 
 const Indicators = styled.div`
   position: absolute;
-  bottom: -30px;
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1;
@@ -142,7 +146,8 @@ const IndicatorButton = styled.button<{ active: boolean }>`
   height: 10px;
   margin: 0 5px;
   border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.2);
+  border: 2px solid ${({ theme }) => theme.colors.white};
+  /* background-color: rgba(0, 0, 0, 0.2); */
 
   ${({ theme }) => theme.media.lg.min} {
     width: 12px;
@@ -153,7 +158,7 @@ const IndicatorButton = styled.button<{ active: boolean }>`
   ${({ active }) =>
     active &&
     css`
-      background-color: ${({ theme }) => theme.colors.primary};
+      background-color: ${({ theme }) => theme.colors.white};
 
       ${({ theme }) => theme.media.lg.min} {
         background-color: rgb(255 255 255 / 86%);
