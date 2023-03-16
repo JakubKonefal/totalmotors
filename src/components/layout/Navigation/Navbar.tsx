@@ -152,7 +152,7 @@ const Topnav = () => {
           <Links>
             {NAVIGATION_LINKS.map((link, index) => (
               <LinkItem as="a" href={link.link} key={`navbar-link-${index}`}>
-                <Text size={xl ? 20 : 17} themecolor="black">
+                <Text size={xl ? 18 : 16} themecolor="black">
                   {link.label}
                 </Text>
               </LinkItem>

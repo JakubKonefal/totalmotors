@@ -13,7 +13,7 @@ const Global = css`
   }
 
   body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     position: relative;
     overflow: hidden;
   }
@@ -24,15 +24,15 @@ const Global = css`
   h4,
   h5,
   h6 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
   }
 
   p {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
   }
 
   span {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
   }
 
   input:-webkit-autofill {
@@ -47,7 +47,7 @@ const Global = css`
 
 const GlobalStyles = createGlobalStyle`
     ${Normalize}
-    ${Global} 
+    ${Global}
 `
 
 export default GlobalStyles

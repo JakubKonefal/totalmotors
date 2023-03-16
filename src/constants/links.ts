@@ -4,8 +4,12 @@ export const NAVIGATION_LINKS = [
     link: '/',
   },
   {
-    label: 'Oferta',
-    link: '/oferta',
+    label: 'O mnie',
+    link: '/o-mnie',
+  },
+  {
+    label: 'Realizacje',
+    link: '/realizacje',
   },
   {
     label: 'Kontakt',

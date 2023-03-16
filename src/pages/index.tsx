@@ -25,25 +25,25 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
         src: data?.hero1?.childImageSharp?.gatsbyImageData!,
         alt: 'car1',
       },
-      title: 'Oferta / Samochód 1',
+      title: 'Pomoc w sprzedaży auta',
       description:
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, architecto nostrum! At optio, officiis perspiciatis aliquid vel cumque quas fuga est. Pariatur!',
     },
     {
       img: {
-        src: data?.hero1?.childImageSharp?.gatsbyImageData!,
+        src: data?.hero2?.childImageSharp?.gatsbyImageData!,
         alt: 'car2',
       },
-      title: 'Oferta / Samochód 2',
+      title: 'Pomoc w sprzedaży motocyklu',
       description:
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, architecto nostrum! At optio, officiis perspiciatis aliquid vel cumque quas fuga est. Pariatur!',
     },
     {
       img: {
-        src: data?.hero1?.childImageSharp?.gatsbyImageData!,
+        src: data?.hero3?.childImageSharp?.gatsbyImageData!,
         alt: 'car3',
       },
-      title: 'Oferta / Samochód 3',
+      title: 'Profesjonalna sesja zdjęciowa',
       description:
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, architecto nostrum! At optio, officiis perspiciatis aliquid vel cumque quas fuga est. Pariatur!',
     },
@@ -51,7 +51,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
 
   const OFFER_CARDS: TileSingle[] = [
     {
-      title: 'Oferta 1 / Samochód 1',
+      title: 'Pomoc w sprzedaży auta',
       description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
       link: '/oferta$samochod1',
       img: {
@@ -60,7 +60,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
       },
     },
     {
-      title: 'Oferta 2 / Samochód 2',
+      title: 'Pomoc w sprzedaży motocyklu',
       description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
       link: '/oferta$samochod2',
       img: {
@@ -69,7 +69,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
       },
     },
     {
-      title: 'Oferta 3 / Samochód 3',
+      title: 'Profesjonalna sesja zdjęciowa',
       description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
       link: '/oferta$samochod3',
       img: {
@@ -82,7 +82,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
   return (
     <Layout>
       <SEO
-        title={'Paweł Kulik Cars | Strona główna'}
+        title={'Daniel Synoś Cars | Strona główna'}
         description={''}
         // ogTitle={opengraphTitle}
         // ogDescription={opengraphDescription}

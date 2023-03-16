@@ -24,7 +24,7 @@ const KontaktPage: React.FC<PageProps<Queries.KontaktPageQuery>> = ({
   return (
     <Layout>
       <SEO
-        title={'Paweł Kulik Cars | Kontakt'}
+        title={'Daniel Synoś Cars | Kontakt'}
         description={''}
         // ogTitle={opengraphTitle}
         // ogDescription={opengraphDescription}

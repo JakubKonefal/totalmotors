@@ -123,7 +123,7 @@ const Footer = () => {
                 margin="16px"
                 themecolor="white"
               >
-                Paweł Kulik Cars
+                Daniel Synoś Cars
               </Text>
               <Text size={xl ? 16 : 14} weight={300} themecolor="gray500">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo
@@ -178,7 +178,7 @@ const Footer = () => {
       <BottomWrapper>
         <Container>
           <Text size={lg ? 12 : 11} themecolor="white">
-            &copy; {new Date().getFullYear()} Paweł Kulik | Wszystkie prawa
+            &copy; {new Date().getFullYear()} Daniel Synoś | Wszystkie prawa
             zastrzeżone.
           </Text>
         </Container>

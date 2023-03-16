@@ -22,7 +22,7 @@ const OfertaPage: React.FC<PageProps<Queries.OfertaPageQuery>> = ({ data }) => {
   return (
     <Layout>
       <SEO
-        title={'Paweł Kulik Cars | Oferta'}
+        title={'Daniel Synoś Cars | Oferta'}
         description={''}
         // ogTitle={opengraphTitle}
         // ogDescription={opengraphDescription}
