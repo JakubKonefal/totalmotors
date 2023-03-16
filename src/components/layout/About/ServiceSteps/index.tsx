@@ -264,7 +264,7 @@ const ServiceSteps: React.FC<Props> = ({ steps }) => {
               </StepNumberOuter>
             </StepNumber>
             <Text
-              size={xl ? 15 : 13}
+              size={xl ? 15 : 14}
               themecolor="white"
               margin="0"
               dangerouslySetInnerHTML={{ __html: step.description }}

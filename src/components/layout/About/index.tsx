@@ -26,6 +26,7 @@ const InnerWrapper = styled.div`
 const TextContent = styled.div`
   display: flex;
   flex-direction: column;
+  max-width: 450px;
 `
 
 const About: React.FC<Props> = ({ heading, description, steps }) => {
@@ -36,11 +37,11 @@ const About: React.FC<Props> = ({ heading, description, steps }) => {
           <TextContent>
             <Heading
               as="h1"
-              size={34}
+              size={30}
               margin="15px"
               dangerouslySetInnerHTML={{ __html: heading }}
             />
-            <Text size={15} dangerouslySetInnerHTML={{ __html: description }} />
+            <Text size={14} dangerouslySetInnerHTML={{ __html: description }} />
           </TextContent>
         </InnerWrapper>
         <ServiceSteps steps={steps} />
