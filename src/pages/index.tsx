@@ -53,19 +53,18 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
   const SERVICE_STEPS: StepSingle[] = [
     {
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, illo voluptatum deserunt sunt ad molestias ab voluptas velit iure aperiam.',
+        'Kontakt telefoniczny, lub mailowy w celu omówienia możliwości dotyczących sprzedaży twojego pojazdu.',
     },
     {
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, illo voluptatum deserunt sunt ad molestias ab voluptas velit iure aperiam.',
+        'Oględziny pojazdu oraz wykonanie sesji fotograficznej, na podstawie której powstanie ogłoszenie.',
     },
     {
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, illo voluptatum deserunt sunt ad molestias ab voluptas velit iure aperiam.',
+        'Rozmowy / spotkania z klientami, prezentacja twojego pojazdu oraz finalizacja transakcji.',
     },
     {
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, illo voluptatum deserunt sunt ad molestias ab voluptas velit iure aperiam.',
+      description: 'Rozliczenie z Tobą według wcześniej ustalonych warunków.',
     },
   ]
 

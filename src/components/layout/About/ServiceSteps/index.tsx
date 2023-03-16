@@ -36,11 +36,11 @@ const Steps = styled.div`
   align-items: center;
   width: 100%;
 
-  max-width: 600px;
+  max-width: 450px;
   margin: 0 auto;
 
-  background-color: #3b3f4f;
-  border-radius: 4px;
+  background-color: ${({ theme }) => theme.colors.primarydark};
+  border-radius: 8px;
 
   ${({ theme }) => theme.media.md.min} {
     display: grid;
@@ -94,44 +94,62 @@ const StepNumberOuter = styled.div`
   width: 100%;
   height: 100%;
   background-color: ${({ theme }) => theme.colors.primary};
+  background-color: ${({ theme }) => theme.colors.primarydark};
 `
 
 const StepNumberInner = styled.div`
-  width: 65%;
-  height: 65%;
-  border: 2px solid black;
+  width: 70%;
+  height: 70%;
   background-color: ${({ theme }) => theme.colors.primary200};
+  box-shadow: 0px 1px 11px 1px rgb(0 0 0 / 20%);
   font-weight: bold;
   font-size: 20px;
   color: ${({ theme }) => theme.colors.white};
+
+  ${Text} {
+    letter-spacing: 1px;
+  }
 `
 
 const StepWrapper = styled.div`
   position: relative;
   width: 100%;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  /* box-shadow: 0px 1px 11px 1px rgb(0 0 0 / 20%); */
+  padding-top: 25px;
+  padding-bottom: 25px;
+
+  ${Text} {
+    line-height: 1.5;
+  }
 
   :nth-child(odd) {
-    padding-right: 20px;
+    padding-right: 30px;
     padding-left: 30px;
 
     ${StepNumber} {
       left: 0;
       transform: translate(-50%, -50%);
+
+      /* div {
+        div {
+          background-color: ${({ theme }) => theme.colors.primary300};
+        }
+      } */
     }
   }
 
   :nth-child(even) {
-    background-color: #484a64;
+    background-color: ${({ theme }) => theme.colors.primarydark100};
     padding-right: 30px;
-    padding-left: 20px;
+    padding-left: 30px;
 
     ${StepNumber} {
       right: 0;
       transform: translate(50%, -50%);
     }
+  }
+
+  :last-child {
+    border-radius: 0 0 8px 8px;
   }
 
   ${({ theme }) => theme.media.md.min} {
