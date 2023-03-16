@@ -29,6 +29,7 @@ const Button = styled.button<ButtonProps>`
   display: inline-block;
   position: relative;
   white-space: nowrap;
+  height: 40px;
 
   padding: ${({ square }) =>
     square ? `${pxToRem(6)}em` : `${pxToRem(6)}em ${pxToRem(12)}em`};
@@ -36,9 +37,14 @@ const Button = styled.button<ButtonProps>`
   border: 2px solid transparent;
   border-radius: 3px;
 
+  background-color: ${({ theme }) => theme.colors.primary200};
+  color: ${({ theme }) => theme.colors.white};
+
   font-size: ${pxToRem(16)}rem;
   font-weight: 400;
   text-decoration: none;
+
+  border-radius: 8px;
 
   cursor: pointer;
   transition: color 100ms ease, background-color 100ms ease,

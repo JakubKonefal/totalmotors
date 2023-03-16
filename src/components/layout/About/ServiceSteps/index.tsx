@@ -67,16 +67,9 @@ const StepNumber = styled.div`
     border-radius: 50%;
   }
 
-  ${({ theme }) => theme.media.s.min} {
-    /* height: 250px; */
-  }
-
-  ${({ theme }) => theme.media.sm.min} {
-    /* height: 300px; */
-  }
-
-  ${({ theme }) => theme.media.md.min} {
-    /* height: 220px; */
+  ${({ theme }) => theme.media.lg.min} {
+    width: 70px;
+    height: 70px;
   }
 `
 
@@ -106,15 +99,14 @@ const StepWrapper = styled.div`
   width: 100%;
   padding-top: 25px;
   padding-bottom: 25px;
+  padding-right: 30px;
+  padding-left: 30px;
 
   ${Text} {
     line-height: 1.5;
   }
 
   :nth-child(odd) {
-    padding-right: 30px;
-    padding-left: 30px;
-
     ${StepNumber} {
       left: 0;
       transform: translate(-50%, -50%);
@@ -129,8 +121,6 @@ const StepWrapper = styled.div`
 
   :nth-child(even) {
     background-color: ${({ theme }) => theme.colors.primarydark100};
-    padding-right: 30px;
-    padding-left: 30px;
 
     ${StepNumber} {
       right: 0;
@@ -142,7 +132,9 @@ const StepWrapper = styled.div`
     border-radius: 0 0 8px 8px;
   }
 
-  ${({ theme }) => theme.media.md.min} {
+  ${({ theme }) => theme.media.lg.min} {
+    padding-right: 45px;
+    padding-left: 45px;
   }
 
   /* &:hover {
@@ -232,7 +224,7 @@ const StepWrapper = styled.div`
 // `
 
 const ServiceSteps: React.FC<Props> = ({ steps }) => {
-  const { xl } = useBreakpoint()
+  const { lg } = useBreakpoint()
 
   return (
     <Wrapper title="About">
@@ -243,7 +235,7 @@ const ServiceSteps: React.FC<Props> = ({ steps }) => {
               <StepNumberOuter>
                 <StepNumberInner>
                   <Text
-                    size={xl ? 18 : 18}
+                    size={lg ? 20 : 18}
                     weight={600}
                     themecolor="white"
                     margin="0"
@@ -254,7 +246,7 @@ const ServiceSteps: React.FC<Props> = ({ steps }) => {
               </StepNumberOuter>
             </StepNumber>
             <Text
-              size={xl ? 15 : 14}
+              size={lg ? 15 : 14}
               themecolor="white"
               margin="0"
               dangerouslySetInnerHTML={{ __html: step.description }}

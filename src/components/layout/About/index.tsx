@@ -1,10 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import Container from 'components/shared/container'
-import { Heading, Text } from 'components/shared/typography'
+import ServiceSteps, { StepSingle } from 'components/layout/About/ServiceSteps'
 
-import ServiceSteps, { StepSingle } from './ServiceSteps'
+import Container from 'components/shared/container'
+// import Icon from 'components/shared/icon'
+import Button from 'components/shared/button'
+import { Heading, Text } from 'components/shared/typography'
+// import arrowIcon from 'assets/icons/arrow-right-long-2.svg'
+
+import useBreakpoint from 'hooks/useBreakpoint'
 
 type Props = {
   heading: string
@@ -14,8 +19,8 @@ type Props = {
 
 const Section = styled.section`
   ${({ theme }) => theme.media.lg.min} {
-    margin-top: 75px;
-    margin-bottom: 50px;
+    margin-top: 90px;
+    margin-bottom: 65px;
   }
 `
 
@@ -43,11 +48,40 @@ const TextContent = styled.div`
   max-width: 450px;
 
   ${({ theme }) => theme.media.lg.min} {
-    max-width: unset;
+    justify-self: center;
+    height: 100%;
+    max-width: 500px;
+
+    ${Text} {
+      line-height: 1.55;
+    }
   }
 `
 
+const StyledButton = styled(Button)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  margin-top: 15px;
+  background-color: ${({ theme }) => theme.colors.primary200};
+
+  ${({ theme }) => theme.media.lg.min} {
+    width: 50%;
+    margin-top: 30px;
+  }
+`
+
+// const ArrowIconWrapper = styled.div`
+//   position: absolute;
+//   top: 50%;
+//   left: calc(50% + 120px);
+//   transform: translate(-50%, -50%) rotate(90deg);
+// `
+
 const About: React.FC<Props> = ({ heading, description, steps }) => {
+  const { lg } = useBreakpoint()
   return (
     <Section title="About">
       <Container>
@@ -59,7 +93,16 @@ const About: React.FC<Props> = ({ heading, description, steps }) => {
               margin="15px"
               dangerouslySetInnerHTML={{ __html: heading }}
             />
-            <Text size={14} dangerouslySetInnerHTML={{ __html: description }} />
+            <Text
+              size={lg ? 15 : 14}
+              dangerouslySetInnerHTML={{ __html: description }}
+            />
+            <StyledButton>
+              Skontaktuj się z nami!
+              {/* <ArrowIconWrapper>
+                <Icon src={arrowIcon} size={18} alt="arrow-down" />
+              </ArrowIconWrapper> */}
+            </StyledButton>
           </TextContent>
           <ServiceSteps steps={steps} />
         </InnerWrapper>
