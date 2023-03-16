@@ -14,8 +14,6 @@ import type { StepSingle } from 'components/layout/About/ServiceSteps'
 import SEO from 'components/shared/SEO'
 import About from 'components/layout/About'
 
-const desc = ''
-
 const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
   // const HOMEPAGE = data?.wpPage?.Homepage
   // const PAGE_SEO = data?.wpPage?.seo
@@ -54,16 +52,20 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
 
   const SERVICE_STEPS: StepSingle[] = [
     {
-      title: 'Pomoc w sprzedaży auta',
-      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, illo voluptatum deserunt sunt ad molestias ab voluptas velit iure aperiam.',
     },
     {
-      title: 'Pomoc w sprzedaży motocyklu',
-      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, illo voluptatum deserunt sunt ad molestias ab voluptas velit iure aperiam.',
     },
     {
-      title: 'Profesjonalna sesja zdjęciowa',
-      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, illo voluptatum deserunt sunt ad molestias ab voluptas velit iure aperiam.',
+    },
+    {
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, illo voluptatum deserunt sunt ad molestias ab voluptas velit iure aperiam.',
     },
   ]
 

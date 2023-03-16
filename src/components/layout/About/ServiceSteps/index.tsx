@@ -12,7 +12,6 @@ import yIcon from 'assets/icons/arrow-right-long.svg'
 import zIcon from 'assets/icons/arrow-right-long-2.svg'
 
 export type StepSingle = {
-  title: string
   description: string
 }
 
@@ -22,8 +21,9 @@ type Props = {
 
 const Wrapper = styled.div`
   width: 100%;
-  margin-top: 30px;
+  margin-top: 60px;
   margin-bottom: 30px;
+  padding: 0 25px;
 
   ${({ theme }) => theme.media.lg.min} {
     margin-bottom: 60px;
@@ -38,6 +38,9 @@ const Steps = styled.div`
 
   max-width: 600px;
   margin: 0 auto;
+
+  background-color: #3b3f4f;
+  border-radius: 4px;
 
   ${({ theme }) => theme.media.md.min} {
     display: grid;
@@ -58,129 +61,167 @@ const Steps = styled.div`
   }
 `
 
-const StepWrapper = styled.div`
+const StepNumber = styled.div`
+  position: absolute;
+  top: 0;
+  width: 58px;
+  height: 58px;
   display: flex;
-  flex-direction: column;
-  width: 100%;
-  box-shadow: 0px 1px 11px 1px rgb(0 0 0 / 20%);
-  cursor: pointer;
-
-  :not(:last-child) {
-    margin-bottom: 24px;
-  }
-
-  ${({ theme }) => theme.media.md.min} {
-    :not(:last-child) {
-      margin-bottom: 0;
-    }
-  }
-
-  &:hover {
-    box-shadow: 0px 1px 11px 5px rgb(0 0 0 / 25%);
-  }
-`
-
-const ImgWrapper = styled.div`
-  height: 175px;
+  align-items: center;
+  justify-content: center;
 
   * {
-    width: 100%;
-    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
   }
 
   ${({ theme }) => theme.media.s.min} {
-    height: 250px;
+    /* height: 250px; */
   }
 
   ${({ theme }) => theme.media.sm.min} {
-    height: 300px;
+    /* height: 300px; */
   }
 
   ${({ theme }) => theme.media.md.min} {
-    height: 220px;
+    /* height: 220px; */
   }
 `
 
-const BottomWrapper = styled.div`
+const StepNumberOuter = styled.div`
   width: 100%;
-  padding: 12px;
-
-  ${({ theme }) => theme.media.md.min} {
-    padding: 15px 12px;
-  }
-
-  ${({ theme }) => theme.media.xl.min} {
-    padding: 20px 65px 20px 15px;
-  }
+  height: 100%;
+  background-color: ${({ theme }) => theme.colors.primary};
 `
 
-const CardButton = styled(Button)`
+const StepNumberInner = styled.div`
+  width: 65%;
+  height: 65%;
+  border: 2px solid black;
   background-color: ${({ theme }) => theme.colors.primary200};
+  font-weight: bold;
+  font-size: 20px;
   color: ${({ theme }) => theme.colors.white};
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-
-  ${({ theme }) => theme.media.xl.min} {
-    font-size: 13px;
-  }
-
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.primary};
-  }
 `
 
-const BigButtonWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 30px;
-
-  padding-bottom: 30px;
-  border-bottom: 2px dotted #b5b4b4;
-
-  ${({ theme }) => theme.media.lg.min} {
-    margin-top: 35px;
-    padding-bottom: 60px;
-  }
-`
-
-const BigButton = styled(Button)`
+const StepWrapper = styled.div`
   position: relative;
+  width: 100%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  /* box-shadow: 0px 1px 11px 1px rgb(0 0 0 / 20%); */
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  :nth-child(odd) {
+    padding-right: 20px;
+    padding-left: 30px;
 
-  width: 275px;
-  height: 56px;
-  margin: 0 auto;
-  background-color: ${({ theme }) => theme.colors.primary200};
-  color: ${({ theme }) => theme.colors.white};
-  font-size: 13px;
-  font-weight: 600;
-  text-transform: uppercase;
-
-  .arrow-right {
-    position: absolute;
-    top: 50%;
-    right: 50%;
-    transform: translate(120px, -50%);
-  }
-
-  ${({ theme }) => theme.media.xl.min} {
-    width: 315px;
-    font-size: 15px;
-
-    .arrow-right {
-      transform: translate(135px, -50%);
+    ${StepNumber} {
+      left: 0;
+      transform: translate(-50%, -50%);
     }
   }
 
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.primary};
+  :nth-child(even) {
+    background-color: #484a64;
+    padding-right: 30px;
+    padding-left: 20px;
+
+    ${StepNumber} {
+      right: 0;
+      transform: translate(50%, -50%);
+    }
   }
+
+  ${({ theme }) => theme.media.md.min} {
+  }
+
+  /* &:hover {
+    box-shadow: 0px 1px 11px 5px rgb(0 0 0 / 25%);
+  } */
 `
+
+// const BottomWrapper = styled.div`
+//   width: 100%;
+//   padding: 12px;
+
+//   ${({ theme }) => theme.media.md.min} {
+//     padding: 15px 12px;
+//   }
+
+//   ${({ theme }) => theme.media.xl.min} {
+//     padding: 20px 65px 20px 15px;
+//   }
+// `
+
+// const CardButton = styled(Button)`
+//   background-color: ${({ theme }) => theme.colors.primary200};
+//   color: ${({ theme }) => theme.colors.white};
+//   font-size: 11px;
+//   font-weight: 600;
+//   text-transform: uppercase;
+
+//   ${({ theme }) => theme.media.xl.min} {
+//     font-size: 13px;
+//   }
+
+//   &:hover {
+//     background-color: ${({ theme }) => theme.colors.primary};
+//   }
+// `
+
+// const BigButtonWrapper = styled.div`
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   margin-top: 30px;
+
+//   padding-bottom: 30px;
+//   border-bottom: 2px dotted #b5b4b4;
+
+//   ${({ theme }) => theme.media.lg.min} {
+//     margin-top: 35px;
+//     padding-bottom: 60px;
+//   }
+// `
+
+// const BigButton = styled(Button)`
+//   position: relative;
+
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+
+//   width: 275px;
+//   height: 56px;
+//   margin: 0 auto;
+//   background-color: ${({ theme }) => theme.colors.primary200};
+//   color: ${({ theme }) => theme.colors.white};
+//   font-size: 13px;
+//   font-weight: 600;
+//   text-transform: uppercase;
+
+//   .arrow-right {
+//     position: absolute;
+//     top: 50%;
+//     right: 50%;
+//     transform: translate(120px, -50%);
+//   }
+
+//   ${({ theme }) => theme.media.xl.min} {
+//     width: 315px;
+//     font-size: 15px;
+
+//     .arrow-right {
+//       transform: translate(135px, -50%);
+//     }
+//   }
+
+//   &:hover {
+//     background-color: ${({ theme }) => theme.colors.primary};
+//   }
+// `
 
 const ServiceSteps: React.FC<Props> = ({ steps }) => {
   const { xl } = useBreakpoint()
@@ -190,26 +231,30 @@ const ServiceSteps: React.FC<Props> = ({ steps }) => {
       <Steps>
         {steps.map((step, index) => (
           <StepWrapper key={`step-${index}`}>
-            <ImgWrapper>Img was here</ImgWrapper>
-            <BottomWrapper>
-              <Heading
-                as="h3"
-                size={26}
-                weight={600}
-                margin="10px"
-                dangerouslySetInnerHTML={{ __html: step.title }}
-              />
-              <Text
-                size={xl ? 15 : 13}
-                margin="20px"
-                dangerouslySetInnerHTML={{ __html: step.description }}
-              />
-              <CardButton>Dowiedz się więcej</CardButton>
-            </BottomWrapper>
+            <StepNumber>
+              <StepNumberOuter>
+                <StepNumberInner>
+                  <Text
+                    size={xl ? 18 : 18}
+                    weight={600}
+                    themecolor="white"
+                    margin="0"
+                  >
+                    {`0${index + 1}`}
+                  </Text>
+                </StepNumberInner>
+              </StepNumberOuter>
+            </StepNumber>
+            <Text
+              size={xl ? 15 : 13}
+              themecolor="white"
+              margin="0"
+              dangerouslySetInnerHTML={{ __html: step.description }}
+            />
           </StepWrapper>
         ))}
       </Steps>
-      <BigButtonWrapper>
+      {/* <BigButtonWrapper>
         <BigButton as="a" href="/oferta">
           Zobacz pełną ofertę
           <Icon
@@ -219,7 +264,7 @@ const ServiceSteps: React.FC<Props> = ({ steps }) => {
             alt="arrow-right"
           />
         </BigButton>
-      </BigButtonWrapper>
+      </BigButtonWrapper> */}
     </Wrapper>
   )
 }
