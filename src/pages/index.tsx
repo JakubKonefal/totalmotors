@@ -68,6 +68,24 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
     },
   ]
 
+  const BENEFITS = [
+    {
+      title: 'Pasja',
+      description:
+        'Motoryzacja od lat stanowi moją pasję, przez co wkładam całe serce w prygotowanie pojazdu oraz dopięcie transakcji. Z tego powodu posiadam także dobrą znajomość rynku oraz trendów w motoryzacji.',
+    },
+    {
+      title: 'Doświadczenie',
+      description:
+        'Przez lata prywatnej jak i zawodowej działalności przeprowadziałem wiele procesów sprzedażowych i pracowałem z różnymi typami pojazdów. W tym czasie uzyskałem sieć parterów bizesowych, która ciągle rośnie.',
+    },
+    {
+      title: 'Warsztat',
+      description:
+        'Mam do dyspozycji warsztat samochodowy ze stacją diagnostyczną, oraz uprawnienia diagnosty.',
+    },
+  ]
+
   return (
     <Layout>
       <SEO

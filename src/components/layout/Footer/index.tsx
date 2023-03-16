@@ -114,24 +114,6 @@ const Footer = () => {
         <Container>
           <TopGrid>
             <TopGridItem>
-              {/* <Logo href="/">
-                <Icon src={exampleLogo} alt="matexi" width={lg ? 135 : 135} />
-              </Logo> */}
-              <Text
-                size={xl ? 21 : 19}
-                weight={600}
-                margin="16px"
-                themecolor="white"
-              >
-                Daniel Synoś Cars
-              </Text>
-              <Text size={xl ? 16 : 14} weight={300} themecolor="gray500">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo
-                perspiciatis similique facere! Repellendus explicabo nam ducimus
-                culpa voluptas necessitatibus aliquam?
-              </Text>
-            </TopGridItem>
-            <TopGridItem>
               <Text
                 size={xl ? 21 : 19}
                 weight={600}
@@ -160,6 +142,25 @@ const Footer = () => {
               </ButtonLink>
             </TopGridItem>
             <TopGridItem>
+              {/* <Logo href="/">
+                <Icon src={exampleLogo} alt="matexi" width={lg ? 135 : 135} />
+              </Logo> */}
+              <Text
+                size={xl ? 21 : 19}
+                weight={600}
+                margin="16px"
+                themecolor="white"
+              >
+                Daniel Synoś Cars
+              </Text>
+              <Text size={xl ? 16 : 14} weight={300} themecolor="gray500">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo
+                perspiciatis similique facere! Repellendus explicabo nam ducimus
+                culpa voluptas necessitatibus aliquam?
+              </Text>
+            </TopGridItem>
+
+            {/* <TopGridItem>
               <Text
                 size={xl ? 21 : 19}
                 weight={600}
@@ -171,7 +172,7 @@ const Footer = () => {
               <Text size={16} weight={300} line={2} themecolor="gray500">
                 Ul. Podkarpacka 1/1 <br /> Rzeszów <br /> 35-555
               </Text>
-            </TopGridItem>
+            </TopGridItem> */}
           </TopGrid>
         </Container>
       </TopWrapper>
