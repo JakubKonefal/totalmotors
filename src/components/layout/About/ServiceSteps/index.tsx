@@ -26,7 +26,7 @@ const Wrapper = styled.div`
   padding: 0 25px;
 
   ${({ theme }) => theme.media.lg.min} {
-    margin-bottom: 60px;
+    margin: 0;
   }
 `
 
@@ -42,22 +42,12 @@ const Steps = styled.div`
   background-color: ${({ theme }) => theme.colors.primarydark};
   border-radius: 8px;
 
-  ${({ theme }) => theme.media.md.min} {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto;
-    gap: 24px;
-    max-width: 700px;
-  }
-
   ${({ theme }) => theme.media.lg.min} {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    max-width: unset;
+    justify-self: center;
+    /* max-width: unset; */
   }
 
   ${({ theme }) => theme.media.xl.min} {
-    gap: 34px;
   }
 `
 

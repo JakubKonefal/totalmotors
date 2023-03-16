@@ -12,7 +12,12 @@ type Props = {
   steps: StepSingle[]
 }
 
-const Section = styled.section``
+const Section = styled.section`
+  ${({ theme }) => theme.media.lg.min} {
+    margin-top: 75px;
+    margin-bottom: 50px;
+  }
+`
 
 const InnerWrapper = styled.div`
   display: flex;
@@ -21,12 +26,25 @@ const InnerWrapper = styled.div`
   justify-content: center;
   max-width: 640px;
   margin: 0 auto;
+
+  ${({ theme }) => theme.media.lg.min} {
+    max-width: unset;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 30px;
+    align-items: flex-start;
+  }
 `
 
 const TextContent = styled.div`
   display: flex;
   flex-direction: column;
   max-width: 450px;
+
+  ${({ theme }) => theme.media.lg.min} {
+    max-width: unset;
+  }
 `
 
 const About: React.FC<Props> = ({ heading, description, steps }) => {
@@ -43,8 +61,8 @@ const About: React.FC<Props> = ({ heading, description, steps }) => {
             />
             <Text size={14} dangerouslySetInnerHTML={{ __html: description }} />
           </TextContent>
+          <ServiceSteps steps={steps} />
         </InnerWrapper>
-        <ServiceSteps steps={steps} />
       </Container>
     </Section>
   )

@@ -43,7 +43,7 @@ export const fonts: Fonts = {
 export const container: Container = {
   widthNav: '1920px',
 
-  widthXL: '1400px',
+  widthXL: '1200px',
   width: '1140px',
 
   widthSlimXL: '1520px',
