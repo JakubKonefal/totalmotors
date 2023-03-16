@@ -4,14 +4,17 @@ import { graphql, PageProps } from 'gatsby'
 import Layout from 'components/layout'
 import Navigation from 'components/layout/Navigation'
 import Hero from 'components/layout/Hero'
-import OfferCards from 'components/layout/OfferCards'
+import ServiceSteps from 'components/layout/About/ServiceSteps'
 import ContactUsCTA from 'components/layout/ContactUsCTA'
 import Footer from 'components/layout/Footer'
 
 import type { HeroSlide } from 'components/layout/Hero/HeroSlider'
-import type { TileSingle } from 'components/layout/OfferCards'
+import type { StepSingle } from 'components/layout/About/ServiceSteps'
 
 import SEO from 'components/shared/SEO'
+import About from 'components/layout/About'
+
+const desc = ''
 
 const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
   // const HOMEPAGE = data?.wpPage?.Homepage
@@ -49,33 +52,18 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
     },
   ]
 
-  const OFFER_CARDS: TileSingle[] = [
+  const SERVICE_STEPS: StepSingle[] = [
     {
       title: 'Pomoc w sprzedaży auta',
       description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-      link: '/oferta$samochod1',
-      img: {
-        src: data?.hero3?.childImageSharp?.gatsbyImageData!,
-        alt: 'car1',
-      },
     },
     {
       title: 'Pomoc w sprzedaży motocyklu',
       description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-      link: '/oferta$samochod2',
-      img: {
-        src: data?.hero2?.childImageSharp?.gatsbyImageData!,
-        alt: 'car1',
-      },
     },
     {
       title: 'Profesjonalna sesja zdjęciowa',
       description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-      link: '/oferta$samochod3',
-      img: {
-        src: data?.hero3?.childImageSharp?.gatsbyImageData!,
-        alt: 'car1',
-      },
     },
   ]
 
@@ -94,7 +82,11 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
       <Navigation />
       <main>
         <Hero slides={HERO_SLIDES} />
-        <OfferCards tiles={OFFER_CARDS} />
+        <About
+          heading="Heading"
+          description="  Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, enim ipsa? Alias repellat voluptatem maxime autem dicta. Cupiditate reprehenderit accusamus exercitationem ipsam. Ut quia quisquam, veniam temporibus dolorum, alias magni nobis, fugiat eius in voluptatem."
+          steps={SERVICE_STEPS}
+        />
         <ContactUsCTA />
       </main>
 

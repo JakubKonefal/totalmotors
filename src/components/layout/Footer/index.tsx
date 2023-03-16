@@ -140,23 +140,23 @@ const Footer = () => {
               >
                 Kontakt
               </Text>
-              <ButtonLink href="tel: 733 002 337" role="button">
+              <ButtonLink href="tel: 668 074 853" role="button">
                 <Icon
                   className="button-link-icon"
                   src={phone1Icon}
                   size={26}
                   alt="phone"
                 />
-                Tel.: 733 002 337
+                Tel.: 668 074 853
               </ButtonLink>
-              <ButtonLink href="mailto: test@email.com" role="button">
+              <ButtonLink href="mailto: danielsynos@gmail.com" role="button">
                 <Icon
                   className="button-link-icon"
                   src={emailIcon}
                   size={26}
                   alt="email"
                 />
-                test@email.com
+                danielsynos@gmail.com
               </ButtonLink>
             </TopGridItem>
             <TopGridItem>

@@ -1,11 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import LazyImage from 'components/shared/lazyImage'
 import Icon from 'components/shared/icon'
 import { Heading, Text } from 'components/shared/typography'
 
-import { Image } from 'types/image'
 import Container from 'components/shared/container'
 import Button from 'components/shared/button'
 import useBreakpoint from 'hooks/useBreakpoint'
@@ -14,15 +12,13 @@ import xIcon from 'assets/icons/arrow-right.svg'
 import yIcon from 'assets/icons/arrow-right-long.svg'
 import zIcon from 'assets/icons/arrow-right-long-2.svg'
 
-export type TileSingle = {
+export type StepSingle = {
   title: string
   description: string
-  link: string
-  img: Image
 }
 
 type Props = {
-  tiles: TileSingle[]
+  steps: StepSingle[]
 }
 
 const Section = styled.section`
@@ -44,7 +40,7 @@ const StyledContainer = styled(Container)`
   } */
 `
 
-const Cards = styled.div`
+const Steps = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -72,7 +68,7 @@ const Cards = styled.div`
   }
 `
 
-const CardWrapper = styled.div`
+const StepWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -196,40 +192,34 @@ const BigButton = styled(Button)`
   }
 `
 
-const OfferCards: React.FC<Props> = ({ tiles }) => {
+const ServiceSteps: React.FC<Props> = ({ steps }) => {
   const { xl } = useBreakpoint()
 
   return (
-    <Section title="Oferta">
+    <Section title="About">
       <StyledContainer>
-        <Cards>
-          {tiles.map((tile, index) => (
-            <CardWrapper
-              key={`tile-${index}`}
-              as="a"
-              href={`/oferta#samochod${index + 1}`}
-            >
-              <ImgWrapper>
-                <LazyImage src={tile.img.src} alt={tile.img.alt} />
-              </ImgWrapper>
+        <Steps>
+          {steps.map((step, index) => (
+            <StepWrapper key={`step-${index}`}>
+              <ImgWrapper>Img was here</ImgWrapper>
               <BottomWrapper>
                 <Heading
                   as="h3"
                   size={26}
                   weight={600}
                   margin="10px"
-                  dangerouslySetInnerHTML={{ __html: tile.title }}
+                  dangerouslySetInnerHTML={{ __html: step.title }}
                 />
                 <Text
                   size={xl ? 15 : 13}
                   margin="20px"
-                  dangerouslySetInnerHTML={{ __html: tile.description }}
+                  dangerouslySetInnerHTML={{ __html: step.description }}
                 />
                 <CardButton>Dowiedz się więcej</CardButton>
               </BottomWrapper>
-            </CardWrapper>
+            </StepWrapper>
           ))}
-        </Cards>
+        </Steps>
         <BigButtonWrapper>
           <BigButton as="a" href="/oferta">
             Zobacz pełną ofertę
@@ -246,4 +236,4 @@ const OfferCards: React.FC<Props> = ({ tiles }) => {
   )
 }
 
-export default OfferCards
+export default ServiceSteps
