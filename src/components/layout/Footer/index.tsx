@@ -7,6 +7,8 @@ import Container from 'components/shared/container'
 import phone1Icon from 'assets/icons/phone-1.svg'
 import phone2Icon from 'assets/icons/phone-2.svg'
 import emailIcon from 'assets/icons/mail.svg'
+import facebookIcon from 'assets/icons/facebook.svg'
+import instagramIcon from 'assets/icons/instagram.svg'
 import useBreakpoint from 'hooks/useBreakpoint'
 import Icon from 'components/shared/icon'
 
@@ -66,13 +68,28 @@ const TopGridItem = styled.div`
     width: auto;
 
     :first-child {
-      max-width: 320px;
+      max-width: 380px;
       margin-right: auto;
     }
 
     :not(:first-child) {
       margin-left: 32px;
     }
+  }
+`
+
+const SocialMedia = styled.div`
+  display: flex;
+  align-items: center;
+
+  a {
+    :first-child {
+      margin-right: 10px;
+    }
+  }
+
+  ${({ theme }) => theme.media.lg.min} {
+    /* justify-content: flex-end; */
   }
 `
 
@@ -114,6 +131,32 @@ const Footer = () => {
         <Container>
           <TopGrid>
             <TopGridItem>
+              {/* <Logo href="/">
+                <Icon src={exampleLogo} alt="matexi" width={lg ? 135 : 135} />
+              </Logo> */}
+              <Text
+                size={xl ? 21 : 19}
+                weight={600}
+                margin="16px"
+                themecolor="white"
+              >
+                O firmie
+              </Text>
+              <Text size={xl ? 16 : 14} weight={300} themecolor="gray500">
+                Firma powstała, aby ułatwić ludziom proces sprzedaży samochodu.
+                Najczęstszymi problemami są brak czasu na zajęcie się sprzedażą,
+                brak fachowej wiedzy czy też nikła znajomość rynku.
+                <br />
+                <br />
+                Pomagam przeprowadzić cały proces sprzedażowy od A do Z, a Ty
+                zyskujesz czas i energię na inne sprawy.
+                <br />
+                <br />
+                Region działalności: <br />
+                <b>Rzeszów i okolice.</b>
+              </Text>
+            </TopGridItem>
+            <TopGridItem>
               <Text
                 size={xl ? 21 : 19}
                 weight={600}
@@ -140,24 +183,22 @@ const Footer = () => {
                 />
                 danielsynos@gmail.com
               </ButtonLink>
-            </TopGridItem>
-            <TopGridItem>
-              {/* <Logo href="/">
-                <Icon src={exampleLogo} alt="matexi" width={lg ? 135 : 135} />
-              </Logo> */}
-              <Text
-                size={xl ? 21 : 19}
-                weight={600}
-                margin="16px"
-                themecolor="white"
-              >
-                Daniel Synoś Cars
-              </Text>
-              <Text size={xl ? 16 : 14} weight={300} themecolor="gray500">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo
-                perspiciatis similique facere! Repellendus explicabo nam ducimus
-                culpa voluptas necessitatibus aliquam?
-              </Text>
+              <SocialMedia>
+                <a
+                  href="https://facebook.com"
+                  rel="noopener noreferrer nofollow"
+                  role="button"
+                >
+                  <Icon src={facebookIcon} size={30} alt="facebook" />
+                </a>
+                <a
+                  href="https://instagram.com"
+                  rel="noopener noreferrer nofollow"
+                  role="button"
+                >
+                  <Icon src={instagramIcon} size={30} alt="instagram" />
+                </a>
+              </SocialMedia>
             </TopGridItem>
 
             {/* <TopGridItem>

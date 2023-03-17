@@ -5,14 +5,15 @@ import Layout from 'components/layout'
 import Navigation from 'components/layout/Navigation'
 import Hero from 'components/layout/Hero'
 import ServiceSteps from 'components/layout/About/ServiceSteps'
+import CarForm from 'components/layout/Forms/CarForm'
 import ContactUsCTA from 'components/layout/ContactUsCTA'
 import Footer from 'components/layout/Footer'
 
-import type { HeroSlide } from 'components/layout/Hero/HeroSlider'
-import type { StepSingle } from 'components/layout/About/ServiceSteps'
-
 import SEO from 'components/shared/SEO'
 import About from 'components/layout/About'
+
+import type { StepSingle } from 'components/layout/About/ServiceSteps'
+import type { HeroSlide } from 'components/layout/Hero/HeroSlider'
 
 const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
   // const HOMEPAGE = data?.wpPage?.Homepage
@@ -108,7 +109,8 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
           Dzięki nam nie musisz poświęcać czasu na żmudny proces sprzedaży, a dzięki dobrze wynegocjowanej cenie sprzedaży zwracają Ci się koszty całej usługi! Posiadam uprawnienia diagnosty, warsztat samochodowy oraz ekipę mechaników do dyspozycji."
           steps={SERVICE_STEPS}
         />
-        <ContactUsCTA />
+        {/* <ContactUsCTA /> */}
+        <CarForm formTitle="Zapytaj o sprzedaż" />
       </main>
 
       <Footer />
