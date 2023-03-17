@@ -12,6 +12,7 @@ import { Heading, Text } from 'components/shared/typography'
 import useBreakpoint from 'hooks/useBreakpoint'
 import Icon from 'components/shared/icon'
 import arrowIcon from 'assets/icons/arrow-right-long.svg'
+import scrollToSection from 'utils/scrollToSection'
 
 type Props = {
   heading: string
@@ -114,7 +115,7 @@ const StyledButton = styled(Button)`
 const About: React.FC<Props> = ({ heading, description, steps }) => {
   const { lg } = useBreakpoint()
   return (
-    <Section title="About">
+    <Section title={heading}>
       <Container>
         <InnerWrapper>
           <TextContent>
@@ -128,7 +129,10 @@ const About: React.FC<Props> = ({ heading, description, steps }) => {
               size={lg ? 15 : 14}
               dangerouslySetInnerHTML={{ __html: description }}
             />
-            <StyledButton>
+            <StyledButton
+              type="button"
+              onClick={() => scrollToSection('#car-form')}
+            >
               Skontaktuj się z nami!
               {/* <ArrowIconWrapper>
                 <Icon src={arrowIcon} size={18} alt="arrow-down" />

@@ -239,7 +239,7 @@ const ContactForm = () => {
             </SuccessInfoWrapper>
           </Container>
         ) : (
-          <Section title="Formularz - zapytaj o sprzedaż">
+          <Section id="car-form" title="Formularz - zapytaj o sprzedaż">
             <StyledContainer>
               <TextContent>
                 <Heading
