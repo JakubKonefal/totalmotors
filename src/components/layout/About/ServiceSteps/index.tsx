@@ -22,7 +22,7 @@ type Props = {
 const Wrapper = styled.div`
   width: 100%;
   margin-top: 60px;
-  margin-bottom: 30px;
+  /* margin-bottom: 30px; */
   padding: 0 25px;
 
   ${({ theme }) => theme.media.lg.min} {

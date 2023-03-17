@@ -5,6 +5,7 @@ import Layout from 'components/layout'
 import Navigation from 'components/layout/Navigation'
 import Hero from 'components/layout/Hero'
 // import ServiceSteps from 'components/layout/About/ServiceSteps'
+import LatestRealisations from 'components/layout/LatestRealisations'
 import CarForm from 'components/layout/Forms/CarForm'
 // import ContactUsCTA from 'components/layout/ContactUsCTA'
 import Footer from 'components/layout/Footer'
@@ -87,6 +88,33 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
     },
   ]
 
+  const REALISATIONS = [
+    {
+      img: {
+        src: data?.hero1?.childImageSharp?.gatsbyImageData!,
+        alt: 'car3',
+      },
+      title: 'Mercedes-Benz C 220',
+      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
+    },
+    {
+      img: {
+        src: data?.hero1?.childImageSharp?.gatsbyImageData!,
+        alt: 'car3',
+      },
+      title: 'Mercedes-Benz C 221',
+      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
+    },
+    {
+      img: {
+        src: data?.hero1?.childImageSharp?.gatsbyImageData!,
+        alt: 'car3',
+      },
+      title: 'Mercedes-Benz C 222',
+      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
+    },
+  ]
+
   return (
     <Layout>
       <SEO
@@ -108,6 +136,11 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
           Nie masz czasu na spotkania z klientami? Masz nietypowy samochód? Z nami sprzedaż go szybciej niż myślisz! Doświadczenie w branży pozwala nam na nawet 4 razy szybszą sprzedaż samochodu niż przeciętnemu użytkownikowi.
           Dzięki nam nie musisz poświęcać czasu na żmudny proces sprzedaży, a dzięki dobrze wynegocjowanej cenie sprzedaży zwracają Ci się koszty całej usługi! Posiadam uprawnienia diagnosty, warsztat samochodowy oraz ekipę mechaników do dyspozycji."
           steps={SERVICE_STEPS}
+        />
+        <LatestRealisations
+          heading="Ostatnie realizacje"
+          description="Ostatnio sprzedane przeze mnie pojazdy"
+          realisations={REALISATIONS}
         />
         {/* <ContactUsCTA /> */}
         <CarForm />

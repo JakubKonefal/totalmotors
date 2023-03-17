@@ -20,7 +20,7 @@ import Icon from 'components/shared/icon'
 
 const Section = styled.section`
   width: 100%;
-  padding: 0 20px;
+  padding: 0 16px;
   margin-bottom: 60px;
 `
 
@@ -29,7 +29,7 @@ const StyledContainer = styled(Container)`
   flex-direction: column;
   align-items: center;
   background-color: ${({ theme }) => theme.colors.gray200};
-  max-width: 1340px;
+  max-width: 1200px;
   border-radius: 10px;
   padding-top: 30px;
   padding-bottom: 30px;

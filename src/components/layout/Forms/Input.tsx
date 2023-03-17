@@ -114,12 +114,10 @@ const ErrorMessage = styled(Text)<{
   left: 2px;
   right: 2px;
   height: calc(100% - 4px);
-  border-radius: 50px;
   font-size: 12px;
   transform: translateY(-50%);
   pointer-events: none;
   z-index: 1;
-  background-color: ${({ theme, background }) => theme.colors[background]};
   text-align: left;
 
   &:focus {
