@@ -13,7 +13,6 @@ export const CONTACT_FORM_SCHEMA = Yup.object().shape({
     )
     .required(`Proszę podać numer telefonu`),
   message: Yup.string().required(`Proszę podać wiadomość`),
-  agree1: Yup.bool().oneOf([true]).required(),
 })
 
 export const CONTACT_FORM_INIT_VALUES = {
@@ -21,7 +20,6 @@ export const CONTACT_FORM_INIT_VALUES = {
   email: '',
   phone: '',
   message: '',
-  agree1: false,
 }
 
 export type ContactFormValues = {
@@ -29,5 +27,4 @@ export type ContactFormValues = {
   phone: string
   email: string
   message: string
-  agree1: boolean
 }

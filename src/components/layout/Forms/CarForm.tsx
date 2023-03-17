@@ -1,233 +1,358 @@
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 
+import { Formik, Field, Form, FormikHelpers } from 'formik'
+
+import Container from 'components/shared/container'
 import { Heading, Text } from 'components/shared/typography'
+import Button from 'components/shared/button'
+import Input from 'components/layout/Forms/Input'
 import Spinner from 'components/shared/Spinner'
 
-// import emailjs from '@emailjs/browser'
-import useBreakpoint from 'hooks/useBreakpoint'
+import arrowIcon from 'assets/icons/arrow-right-long.svg'
 
-type Props = {
-  formTitle: string
-}
+import {
+  CONTACT_FORM_SCHEMA,
+  CONTACT_FORM_INIT_VALUES,
+  ContactFormValues,
+} from 'constants/form-schemas'
+import Icon from 'components/shared/icon'
 
-const FormWrapper = styled.div`
+const Section = styled.section`
+  width: 100%;
+  padding: 0 20px;
+  margin-bottom: 60px;
+`
+
+const StyledContainer = styled(Container)`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  max-width: 400px;
-  margin-top: 4rem;
-  margin-left: auto;
-  margin-right: auto;
+  background-color: ${({ theme }) => theme.colors.gray200};
+  max-width: 1340px;
+  border-radius: 10px;
+  padding-top: 30px;
+  padding-bottom: 30px;
 
   ${({ theme }) => theme.media.lg.min} {
-    margin-right: 0;
-    margin-top: 1rem;
-    max-width: 280px;
-  }
-
-  ${({ theme }) => theme.media.xl.min} {
-    margin-top: 4rem;
-    max-width: 340px;
+    padding-top: 50px;
+    padding-bottom: 50px;
   }
 `
 
-const ButtonWrapper = styled.div<{ isSubmitting: boolean }>`
-  position: relative;
-  width: 125px;
-  height: 47px;
-  margin-top: 2rem;
-  margin-left: auto;
-  background: rgb(15, 15, 15);
-  background: linear-gradient(
-    90deg,
-    rgba(15, 15, 15, 1) 29%,
-    rgba(84, 106, 123, 1) 100%
-  );
-  border: 2px solid black;
-  border-radius: 8px;
-
-  transition: 0.15s linear;
-
-  &:hover {
-    background: linear-gradient(
-      90deg,
-      rgba(15, 15, 15, 1) 91%,
-      rgba(84, 106, 123, 1) 100%
-    );
-  }
-`
-
-const ButtonSubmit = styled.input`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  outline: none;
-  border: none;
-  background-color: transparent;
-  color: ${({ theme }) => theme.colors.white};
-  text-transform: uppercase;
-  font-weight: 600;
-  font-size: 14px;
-  letter-spacing: 1px;
-  cursor: pointer;
-`
-
-const Form = styled.form`
+const TextContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  width: 100%;
-  padding: 24px 20px;
-  margin-bottom: 0;
-  background: rgb(15, 15, 15);
-  background: linear-gradient(
-    90deg,
-    rgba(15, 15, 15, 1) 29%,
-    rgba(84, 106, 123, 1) 100%
-  );
-  border-radius: 12px;
-  max-width: 600px;
-
-  ${Heading} {
-    margin-right: auto;
-  }
+  max-width: 450px;
 
   ${({ theme }) => theme.media.lg.min} {
     align-items: flex-start;
-    padding: 26px 22px 32px 22px;
+
+    h3,
+    p {
+      text-align: left;
+
+      br {
+        display: none;
+      }
+    }
   }
 
   ${({ theme }) => theme.media.xl.min} {
-    padding: 26px 26px 32px 26px;
+    h3 {
+      font-size: 32px;
+    }
+  }
+`
+
+const StyledForm = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  position: relative;
+  width: 100%;
+  max-width: 450px;
+  margin-top: 20px;
+
+  & > form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    margin: 0;
+  }
+
+  ${({ theme }) => theme.media.lg.min} {
+    max-width: 885px;
   }
 `
 
 const InputsWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  & > div:first-child {
+    width: 100%;
+  }
+
+  ${({ theme }) => theme.media.lg.min} {
+    & > div:first-child {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 15px;
+    }
+  }
+`
+
+const ArrowIconWrapper = styled.div`
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(135%, -50%);
+
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  svg {
+    width: 24px;
+    margin-left: 10px;
+  }
+`
+
+const StyledButton = styled(Button)`
+  position: relative;
+  /* margin-top: 20px; */
+  width: 135px;
+  /* max-width: 120px; */
+  text-align: center;
+  margin-left: auto;
+
+  svg {
+    margin-left: 10px;
+    width: 24px;
+  }
+
+  &:hover {
+    ${ArrowIconWrapper} {
+      display: block;
+    }
+  }
+
+  ${({ theme }) => theme.media.lg.min} {
+    margin-top: 30px;
+  }
+`
+
+const SuccessInfoWrapper = styled.div`
+  display: flex;
+  align-items: center;
   justify-content: center;
   width: 100%;
+  min-height: 230px;
+  margin-bottom: 60px;
+  padding: 20px;
+  background-color: ${({ theme }) => theme.colors.primary200};
+  border-radius: 10px;
 
-  overflow: hidden;
+  ${({ theme }) => theme.media.s.min} {
+    br {
+      display: none;
+    }
+  }
 `
 
-const Input = styled.input`
+const ErrorInfoWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
-  height: 40px;
-  margin-bottom: 2rem;
-  font-size: 14px;
-  padding-inline: 1.5rem;
-  padding-block-start: 0;
-  padding-block-end: 0;
-  outline: none;
-  border: none;
-  border-radius: 5px;
+  margin-top: 20px;
+  padding: 20px;
+  background-color: ${({ theme }) => theme.colors.danger};
+  border-radius: 10px;
+
+  ${({ theme }) => theme.media.lg.min} {
+    padding: 30px 20px;
+    ${Text}:first-child {
+      margin-bottom: 15px;
+    }
+  }
 `
 
-const Textarea = styled.textarea`
-  height: 150px;
-  padding: 1.5rem;
-  font-size: 14px;
-  resize: none;
-  outline: none;
-  border: none;
-  border-radius: 5px;
-`
-
-const FormMessage = styled(Text)`
-  width: 100%;
-  margin-top: 2rem;
-`
-
-const CarForm: React.FC<Props> = ({ formTitle }) => {
-  const [isSubmitting, setIsSubmitting] = useState(false)
+const ContactForm = () => {
   const [submitSuccess, setSubmitSuccess] = useState(false)
   const [formError, setFormError] = useState(false)
 
-  const { lg } = useBreakpoint()
-
-  const formRef = useRef<HTMLFormElement>(null)
-
-  const handleFormReset = () => {
-    setIsSubmitting(false)
-    setSubmitSuccess(false)
-    setFormError(false)
-    formRef.current?.reset()
-  }
-
-  const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    setIsSubmitting(true)
-
-    // emailjs
-    //   .sendForm(
-    //     'konefaljakub-gmail',
-    //     'golem-lp-contact-form',
-    //     formRef.current as HTMLFormElement,
-    //     'user_0synUJOJ7grlbPr8Dx8rD'
-    //   )
-    //   .then(
-    //     () => {
-    //       setSubmitSuccess(true)
-    //       setFormError(false)
-    //       setIsSubmitting(false)
-
-    //       setTimeout(() => {
-    //         handleFormReset()
-    //       }, 8000)
-    //     },
-    //     () => {
-    //       setSubmitSuccess(false)
-    //       setFormError(true)
-
-    //       setTimeout(() => {
-    //         handleFormReset()
-    //       }, 8000)
-    //     }
-    //   )
-  }
-
   return (
-    <FormWrapper>
-      <Form onSubmit={handleFormSubmit} ref={formRef}>
-        <Heading
-          as="h2"
-          size={lg ? 26 : 26}
-          margin="20px"
-          themecolor="white"
-          dangerouslySetInnerHTML={{ __html: formTitle }}
-        />
-        <InputsWrapper>
-          <Input
-            type="text"
-            id="name"
-            name="name"
-            placeholder={'Imię / E-mail / Telefon'}
-          />
-          <Textarea id="message" name="message" placeholder={'Wiadomość'} />
-          {submitSuccess && (
-            <FormMessage size={15} weight={600} themecolor="primary200">
-              Wiadomość została wysłana!
-            </FormMessage>
-          )}
-          {formError && (
-            <FormMessage size={15} weight={600} themecolor="danger">
-              Błąd podczas wysyłania!
-            </FormMessage>
-          )}
-        </InputsWrapper>
-        <ButtonWrapper isSubmitting={isSubmitting}>
-          <ButtonSubmit type="submit" value={isSubmitting ? '' : 'Wyślij'} />
-          {isSubmitting && <Spinner />}
-        </ButtonWrapper>
-      </Form>
-    </FormWrapper>
+    <Formik
+      initialValues={CONTACT_FORM_INIT_VALUES}
+      validationSchema={CONTACT_FORM_SCHEMA}
+      onSubmit={(
+        values: ContactFormValues,
+        { setSubmitting, resetForm }: FormikHelpers<ContactFormValues>
+      ) => {
+        if (formError) return
+        ;(async () => {
+          try {
+            setTimeout(() => {
+              setSubmitting(false)
+              setSubmitSuccess(true)
+            }, 2000)
+
+            setTimeout(() => {
+              setSubmitSuccess(false)
+              setFormError(false)
+              resetForm()
+            }, 8000)
+          } catch (err) {
+            console.log(err)
+            setSubmitting(false)
+            setFormError(true)
+            setTimeout(() => {
+              setFormError(false)
+            }, 8000)
+          }
+        })()
+      }}
+    >
+      {({ isSubmitting }) =>
+        submitSuccess ? (
+          <Container>
+            <SuccessInfoWrapper>
+              <Text
+                size={24}
+                weight={700}
+                themecolor="primary200"
+                align="center"
+                margin="10px"
+                line={1.15}
+              >
+                Wiadomość została <br /> wysłana
+              </Text>
+            </SuccessInfoWrapper>
+          </Container>
+        ) : (
+          <Section title="Formularz - zapytaj o sprzedaż">
+            <StyledContainer>
+              <TextContent>
+                <Heading
+                  as="h2"
+                  size={30}
+                  weight={600}
+                  themecolor="black"
+                  margin="0"
+                  align="center"
+                  dangerouslySetInnerHTML={{ __html: 'Zapytaj o sprzedaż' }}
+                />
+              </TextContent>
+              <StyledForm>
+                <Form>
+                  <InputsWrapper>
+                    <div>
+                      <Field
+                        name="name"
+                        placeholder="Imię i nazwisko"
+                        required
+                        themecolor="gray500"
+                        fontColor="black100"
+                        background="gray300"
+                        withIcon
+                        component={Input}
+                      />
+                      <Field
+                        name="phone"
+                        placeholder="Numer telefonu"
+                        themecolor="gray500"
+                        fontColor="black100"
+                        background="gray300"
+                        withIcon
+                        component={Input}
+                      />
+                    </div>
+                    <Field
+                      name="email"
+                      placeholder="E-mail"
+                      required
+                      themecolor="gray500"
+                      fontColor="black100"
+                      background="gray300"
+                      withIcon
+                      component={Input}
+                    />
+                    <Field
+                      name="message"
+                      placeholder="Wiadomość"
+                      themecolor="gray500"
+                      fontColor="black100"
+                      background="gray300"
+                      withIcon
+                      textarea
+                      component={Input}
+                    />
+                  </InputsWrapper>
+
+                  <StyledButton
+                    type="submit"
+                    // themecolor="primary200"
+                    // textTransform="uppercase"
+                  >
+                    {isSubmitting ? (
+                      <Spinner />
+                    ) : (
+                      <>
+                        <Text
+                          size={13}
+                          weight={700}
+                          themecolor="white"
+                          transform="uppercase"
+                          align="center"
+                        >
+                          wyślij
+                        </Text>
+                        <ArrowIconWrapper>
+                          <Icon src={arrowIcon} size={22} alt="arrow-right" />
+                        </ArrowIconWrapper>
+                      </>
+                    )}
+                  </StyledButton>
+                  {formError && (
+                    <ErrorInfoWrapper>
+                      <Text
+                        size={24}
+                        weight={700}
+                        // themecolor="red"
+                        align="center"
+                        margin="10px"
+                        line={1.15}
+                      >
+                        Wiadomość nie mogła zostać wysłana
+                      </Text>
+                      <Text
+                        size={16}
+                        weight={400}
+                        themecolor="black"
+                        align="center"
+                      >
+                        Wystąpił błąd. Spróbuj skontaktować się poprzez telefon
+                        lub mail.
+                      </Text>
+                    </ErrorInfoWrapper>
+                  )}
+                </Form>
+              </StyledForm>
+            </StyledContainer>
+          </Section>
+        )
+      }
+    </Formik>
   )
 }
 
-export default CarForm
+export default ContactForm

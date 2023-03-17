@@ -10,6 +10,8 @@ import { Heading, Text } from 'components/shared/typography'
 // import arrowIcon from 'assets/icons/arrow-right-long-2.svg'
 
 import useBreakpoint from 'hooks/useBreakpoint'
+import Icon from 'components/shared/icon'
+import arrowIcon from 'assets/icons/arrow-right-long.svg'
 
 type Props = {
   heading: string
@@ -58,6 +60,29 @@ const TextContent = styled.div`
   }
 `
 
+const ArrowIconWrapper = styled.div`
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 70%;
+  transform: translate(135%, -50%);
+
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  svg {
+    width: 24px;
+    margin-left: 10px;
+  }
+
+  ${({ theme }) => theme.media.lg.min} {
+    transform: translate(180%, -50%);
+  }
+`
+
 const StyledButton = styled(Button)`
   display: flex;
   align-items: center;
@@ -67,8 +92,14 @@ const StyledButton = styled(Button)`
   margin-top: 15px;
   background-color: ${({ theme }) => theme.colors.primary200};
 
+  &:hover {
+    ${ArrowIconWrapper} {
+      display: block;
+    }
+  }
+
   ${({ theme }) => theme.media.lg.min} {
-    width: 50%;
+    width: 52.5%;
     margin-top: 30px;
   }
 `
@@ -102,6 +133,9 @@ const About: React.FC<Props> = ({ heading, description, steps }) => {
               {/* <ArrowIconWrapper>
                 <Icon src={arrowIcon} size={18} alt="arrow-down" />
               </ArrowIconWrapper> */}
+              <ArrowIconWrapper>
+                <Icon src={arrowIcon} size={22} alt="arrow-right" />
+              </ArrowIconWrapper>
             </StyledButton>
           </TextContent>
           <ServiceSteps steps={steps} />

@@ -4,9 +4,9 @@ import { graphql, PageProps } from 'gatsby'
 import Layout from 'components/layout'
 import Navigation from 'components/layout/Navigation'
 import Hero from 'components/layout/Hero'
-import ServiceSteps from 'components/layout/About/ServiceSteps'
+// import ServiceSteps from 'components/layout/About/ServiceSteps'
 import CarForm from 'components/layout/Forms/CarForm'
-import ContactUsCTA from 'components/layout/ContactUsCTA'
+// import ContactUsCTA from 'components/layout/ContactUsCTA'
 import Footer from 'components/layout/Footer'
 
 import SEO from 'components/shared/SEO'
@@ -110,7 +110,8 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
           steps={SERVICE_STEPS}
         />
         {/* <ContactUsCTA /> */}
-        <CarForm formTitle="Zapytaj o sprzedaż" />
+        <CarForm />
+        {/* <CarForm formTitle="Zapytaj o sprzedaż" /> */}
       </main>
 
       <Footer />

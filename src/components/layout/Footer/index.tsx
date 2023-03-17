@@ -43,7 +43,7 @@ const BottomWrapper = styled.div`
 const TopWrapper = styled.div`
   width: 100%;
   padding: 32px 0;
-  background: rgb(29, 29, 29);
+  background: ${({ theme }) => theme.colors.darkgray};
 `
 
 const TopGrid = styled.div`
@@ -220,7 +220,7 @@ const Footer = () => {
       <BottomWrapper>
         <Container>
           <Text size={lg ? 12 : 11} themecolor="white">
-            &copy; {new Date().getFullYear()} Daniel Synoś | Wszystkie prawa
+            &copy; {new Date().getFullYear()} Totalmotors | Wszystkie prawa
             zastrzeżone.
           </Text>
         </Container>
