@@ -28,7 +28,7 @@ const StyledContainer = styled(Container)`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: ${({ theme }) => theme.colors.gray200};
+  background-color: ${({ theme }) => theme.colors.gray};
   max-width: 1200px;
   border-radius: 10px;
   padding-top: 30px;

@@ -23,7 +23,7 @@ type Props = {
 const Section = styled.section`
   ${({ theme }) => theme.media.lg.min} {
     margin-top: 90px;
-    margin-bottom: 50px;
+    margin-bottom: 45px;
   }
 `
 

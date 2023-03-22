@@ -7,6 +7,7 @@ import Hero from 'components/layout/Hero'
 // import ServiceSteps from 'components/layout/About/ServiceSteps'
 import LatestRealisations from 'components/layout/LatestRealisations'
 import CarForm from 'components/layout/Forms/CarForm'
+import Benefits from 'components/layout/Benefits'
 // import ContactUsCTA from 'components/layout/ContactUsCTA'
 import Footer from 'components/layout/Footer'
 
@@ -142,6 +143,28 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
           description="Ostatnio sprzedane przeze mnie pojazdy"
           realisations={REALISATIONS}
         />
+        <Benefits
+          img={{
+            src: data?.warsztat1?.childImageSharp?.gatsbyImageData!,
+            alt: 'warsztat',
+          }}
+          heading="Dlaczego My"
+          description="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem exercitationem aliquid cum consequatur! Similique optio sequi quod voluptates quas temporibus dignissimos dolores minus, praesentium perspiciatis, eveniet molestiae quia exercitationem ducimus nostrum repellat, repellendus cum quae fuga deleniti accusamus adipisci? Quam eius doloremque saepe ullam dolor corrupti iste quis veritatis magni."
+          benefits={[
+            {
+              title: 'Pasja',
+              desc: 'Motoryzacja od lat stanowi moją pasję, przez co wkładam całe serce w prygotowanie pojazdu oraz dopięcie transakcji. Z tego powodu posiadam także dobrą znajomość rynku oraz trendów w motoryzacji.',
+            },
+            {
+              title: 'Doświadczenie',
+              desc: 'Przez lata prywatnej jak i zawodowej działalności przeprowadziałem wiele procesów sprzedażowych i pracowałem z różnymi typami pojazdów. W tym czasie uzyskałem sieć parterów bizesowych, która ciągle rośnie.',
+            },
+            {
+              title: 'Warsztat',
+              desc: 'Mam do dyspozycji warsztat samochodowy ze stacją diagnostyczną, oraz uprawnienia diagnosty.',
+            },
+          ]}
+        />
         {/* <ContactUsCTA /> */}
         <CarForm />
         {/* <CarForm formTitle="Zapytaj o sprzedaż" /> */}
@@ -175,6 +198,24 @@ export const query = graphql`
       }
     }
     hero3: file(name: { eq: "hero-3" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1920
+          placeholder: DOMINANT_COLOR
+          formats: [AUTO, WEBP]
+        )
+      }
+    }
+    warsztat1: file(name: { eq: "warsztat-1" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1920
+          placeholder: DOMINANT_COLOR
+          formats: [AUTO, WEBP]
+        )
+      }
+    }
+    warsztat2: file(name: { eq: "warsztat-2" }) {
       childImageSharp {
         gatsbyImageData(
           width: 1920
