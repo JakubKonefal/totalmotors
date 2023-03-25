@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import Container from 'components/shared/container'
 import Icon from 'components/shared/icon'
 import LazyImage from 'components/shared/lazyImage'
-import { Heading, Text } from 'components/shared/typography'
+import { Text } from 'components/shared/typography'
 
 import heartIcon from 'assets/icons/heart-2.svg'
 import experienceIcon from 'assets/icons/experience-2.svg'
@@ -40,7 +40,7 @@ const getIcon = (index: number) => {
   }
 }
 
-type Benefit = {
+export type Benefit = {
   title: string
   desc: string
 }

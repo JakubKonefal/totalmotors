@@ -1,28 +1,36 @@
-import React from 'react'
-import styled from 'styled-components'
+import React, { useState } from 'react'
+import styled, { css } from 'styled-components'
+
+import SwiperCore, { Autoplay } from 'swiper'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import arrowLeftIcon from 'assets/icons/arrow-left.svg'
+import arrowRightIcon from 'assets/icons/arrow-right.svg'
 
 import Container from 'components/shared/container'
-// import Icon from 'components/shared/icon'
 import Button from 'components/shared/button'
 import { Heading, Text } from 'components/shared/typography'
 // import arrowIcon from 'assets/icons/arrow-right-long-2.svg'
-import useBreakpoint from 'hooks/useBreakpoint'
 import Icon from 'components/shared/icon'
 import arrowIcon from 'assets/icons/arrow-right-long.svg'
 import scrollToSection from 'utils/scrollToSection'
-import type { Image } from 'types/image'
 import LazyImage from 'components/shared/lazyImage'
+import useBreakpoint from 'hooks/useBreakpoint'
 
-type Testimonial = {
+import type { Image } from 'types/image'
+
+export type Testimonial = {
   img: Image
-  title: string
+  clientName: string
+  carName: string
+  carYear: string
   desc: string
 }
 
 type Props = {
   heading: string
   description: string
-  realisations: Testimonial[]
+  testimonials: Testimonial[]
+  perView: number
 }
 
 const Section = styled.section`
@@ -75,6 +83,41 @@ const Card = styled.article`
     :not(:last-child) {
       margin-bottom: 0;
     }
+  }
+`
+
+const SlideWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+
+  .slide-img {
+    width: 100%;
+    height: 100%;
+    * {
+      width: 100%;
+      height: 100%;
+    }
+  }
+`
+
+const SwiperWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  height: 350px;
+
+  .swiper {
+    height: 100%;
+  }
+
+  ${({ theme }) => theme.media.md.min} {
+    height: 460px;
+  }
+
+  ${({ theme }) => theme.media.lg.min} {
+    height: 100%;
+    width: 50%;
   }
 `
 
@@ -153,19 +196,92 @@ const StyledButton = styled(Button)`
   }
 `
 
+const SlideTextContent = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: calc(100% - 110px);
+  width: 100%;
+
+  ${({ theme }) => theme.media.s.min} {
+    max-width: 360px;
+  }
+
+  ${({ theme }) => theme.media.md.min} {
+    max-width: 400px;
+  }
+
+  ${({ theme }) => theme.media.lg.min} {
+    max-width: 520px;
+  }
+
+  ${({ theme }) => theme.media.xl.min} {
+    max-width: 620px;
+  }
+`
+
+const InnerWrapper = styled.div`
+  display: flex;
+  height: 420px;
+`
+
+const TestimonialsList = styled.div`
+  width: 50%;
+`
+
+const ListItem = styled.div<{ active: boolean }>`
+  padding: 30px 15px;
+
+  &:hover {
+    box-shadow: 1px 1px 1px 1px black;
+  }
+
+  ${({ active }) =>
+    active &&
+    css`
+      box-shadow: 1px 1px 1px 1px black;
+    `}
+`
+
+const ListItemContent = styled.div`
+  display: flex;
+  align-items: center;
+`
+
+const ThumbnailWrapper = styled.div`
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-right: 30px;
+`
+
+const LiItemTextContent = styled.div``
+
 const Testimonials: React.FC<Props> = ({
   heading,
   description,
-  realisations,
+  testimonials,
+  perView = 1,
 }) => {
-  const { lg } = useBreakpoint()
+  const [swiper, setSwiper] = useState<SwiperCore | null>(null)
+  const [activeSlideIndex, setActiveSlideIndex] = useState(0)
+  const { lg, xl } = useBreakpoint()
+
+  const goPrev = () => {
+    swiper?.slidePrev()
+  }
+
+  const goNext = () => {
+    swiper?.slideNext()
+  }
 
   return (
     <Section>
       <Container>
         <TextContent>
           <Heading
-            as="h1"
+            as="h2"
             size={30}
             margin="10px"
             dangerouslySetInnerHTML={{ __html: heading }}
@@ -175,8 +291,94 @@ const Testimonials: React.FC<Props> = ({
             dangerouslySetInnerHTML={{ __html: description }}
           />
         </TextContent>
-        <Cards>
-          {realisations.map(({ img, title, desc }, index) => (
+        {lg ? (
+          <InnerWrapper>
+            <SwiperWrapper>
+              <Swiper
+                slidesPerView={perView}
+                onSwiper={(initSwiper) => setSwiper(initSwiper)}
+                autoplay={{
+                  delay: 5000,
+                }}
+                speed={1000}
+                modules={[Autoplay]}
+                onSlideChange={(swiperInstance) =>
+                  setActiveSlideIndex(swiperInstance.realIndex)
+                }
+                loop
+              >
+                {testimonials.map(({ img, carName, desc }, index) => (
+                  <SwiperSlide key={`${img.alt}-image${index}`}>
+                    <SlideWrapper>
+                      {/* <LazyImage
+                      className="slide-img"
+                      src={img.src}
+                      alt={img.alt}
+                    /> */}
+                      <SlideTextContent>
+                        <Heading
+                          as={index === 0 ? 'h1' : 'h2'}
+                          size={lg ? 38 : 32}
+                          weight={600}
+                          themecolor="black"
+                          align="center"
+                          dangerouslySetInnerHTML={{ __html: carName }}
+                        />
+                        <Text
+                          size={lg ? 18 : 14}
+                          weight={500}
+                          themecolor="black"
+                          align="center"
+                          line={xl ? 1.6 : 1.4}
+                          dangerouslySetInnerHTML={{ __html: desc }}
+                        />
+                      </SlideTextContent>
+                    </SlideWrapper>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+              {/* <>
+            <ControlBtn onClick={goPrev} aria-label="slide-left">
+              <Icon src={arrowLeftIcon} size={xl ? 26 : 18} alt="arrow-left" />
+            </ControlBtn>
+            <ControlRight onClick={goNext} aria-label="slide-right">
+              <Icon
+                src={arrowRightIcon}
+                size={xl ? 26 : 18}
+                alt="arrow-right"
+              />
+            </ControlRight>
+          </> */}
+            </SwiperWrapper>
+            <TestimonialsList>
+              {testimonials.map(({ img, carName, carYear, desc }, index) => (
+                <ListItem key={`list-item-${index}`} active={index === 0}>
+                  <ListItemContent>
+                    <ThumbnailWrapper>
+                      <LazyImage src={img.src} alt={img.alt} />
+                    </ThumbnailWrapper>
+                    <LiItemTextContent>
+                      <Text
+                        weight={600}
+                        size={lg ? 15 : 14}
+                        dangerouslySetInnerHTML={{ __html: carName }}
+                      />
+                      <Text
+                        size={lg ? 15 : 14}
+                        themecolor="black100"
+                        dangerouslySetInnerHTML={{ __html: carYear }}
+                      />
+                    </LiItemTextContent>
+                  </ListItemContent>
+                </ListItem>
+              ))}
+            </TestimonialsList>
+          </InnerWrapper>
+        ) : (
+          <></>
+        )}
+        {/* <Cards>
+          {testimonials.map(({ img, clientName, desc }, index) => (
             <Card
               key={`realisation-${index}`}
               as="a"
@@ -188,7 +390,7 @@ const Testimonials: React.FC<Props> = ({
                   weight={700}
                   themecolor="white"
                   // align="center"
-                  dangerouslySetInnerHTML={{ __html: title }}
+                  dangerouslySetInnerHTML={{ __html: clientName }}
                 />
               </TitleWrapper>
               <ImgWrapper>
@@ -209,7 +411,7 @@ const Testimonials: React.FC<Props> = ({
               </DescriptionWrapper>
             </Card>
           ))}
-        </Cards>
+        </Cards> */}
       </Container>
     </Section>
   )
