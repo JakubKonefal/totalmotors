@@ -124,7 +124,8 @@ const CallUsButton = styled.a`
   height: 50px;
   margin-left: 20px;
   font-weight: 500;
-  background-color: ${({ theme }) => theme.colors.primary};
+  /* background-color: ${({ theme }) => theme.colors.primary}; */
+  background-color: ${({ theme }) => theme.colors.tertiary};
   color: ${({ theme }) => theme.colors.white};
   border-radius: 8px;
   letter-spacing: 0.5px;

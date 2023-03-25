@@ -134,6 +134,8 @@ const StyledButton = styled(Button)`
   text-align: center;
   margin-left: auto;
 
+  background-color: ${({ theme }) => theme.colors.tertiary};
+
   svg {
     margin-left: 10px;
     width: 24px;

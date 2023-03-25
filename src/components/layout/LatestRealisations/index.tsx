@@ -144,6 +144,9 @@ const StyledButton = styled(Button)`
   text-transform: uppercase;
 
   &:hover {
+    background-color: ${({ theme }) => theme.colors.tertiary};
+  }
+  &:hover {
     ${ArrowIconWrapper} {
       display: block;
     }

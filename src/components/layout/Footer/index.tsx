@@ -37,6 +37,12 @@ const BottomWrapper = styled.div`
   ${({ theme }) => theme.media.lg.min} {
     position: relative;
     z-index: 100;
+
+    ${Container} {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
   }
 `
 
@@ -58,6 +64,11 @@ const TopGrid = styled.div`
 const TopGridItem = styled.div`
   width: 100%;
 
+  b {
+    color: ${({ theme }) => theme.colors.primary200};
+    font-size: 16px;
+  }
+
   ${Text} {
     :not(:first-child) {
       font-family: 'Fira Sans';
@@ -66,6 +77,10 @@ const TopGridItem = styled.div`
 
   ${({ theme }) => theme.media.lg.min} {
     width: auto;
+
+    b {
+      font-size: 18px;
+    }
 
     :first-child {
       max-width: 380px;
@@ -106,7 +121,8 @@ const ButtonLink = styled.a`
   }
 
   &:hover {
-    color: ${({ theme }) => theme.colors.primary200};
+    /* color: ${({ theme }) => theme.colors.primary200}; */
+    color: ${({ theme }) => theme.colors.tertiary};
   }
 `
 
@@ -153,7 +169,7 @@ const Footer = () => {
                 <br />
                 <br />
                 Region działalności: <br />
-                <b>Rzeszów i okolice.</b>
+                <b>Województwo podkarpackie</b>
               </Text>
             </TopGridItem>
             <TopGridItem>
@@ -183,7 +199,7 @@ const Footer = () => {
                 />
                 danielsynos@gmail.com
               </ButtonLink>
-              <SocialMedia>
+              {/* <SocialMedia>
                 <a
                   href="https://facebook.com"
                   rel="noopener noreferrer nofollow"
@@ -198,7 +214,7 @@ const Footer = () => {
                 >
                   <Icon src={instagramIcon} size={30} alt="instagram" />
                 </a>
-              </SocialMedia>
+              </SocialMedia> */}
             </TopGridItem>
 
             {/* <TopGridItem>
@@ -223,6 +239,22 @@ const Footer = () => {
             &copy; {new Date().getFullYear()} Totalmotors | Wszystkie prawa
             zastrzeżone.
           </Text>
+          <SocialMedia>
+            <a
+              href="https://facebook.com"
+              rel="noopener noreferrer nofollow"
+              role="button"
+            >
+              <Icon src={facebookIcon} size={30} alt="facebook" />
+            </a>
+            <a
+              href="https://instagram.com"
+              rel="noopener noreferrer nofollow"
+              role="button"
+            >
+              <Icon src={instagramIcon} size={30} alt="instagram" />
+            </a>
+          </SocialMedia>
         </Container>
       </BottomWrapper>
       {/* <ContactMeans inFooter /> */}

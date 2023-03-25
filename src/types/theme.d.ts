@@ -22,6 +22,8 @@ export type Colors = {
   primary600: CSSProperties['color']
   primarydark: CSSProperties['color']
   primarydark100: CSSProperties['color']
+  secondary: CSSProperties['color']
+  tertiary: CSSProperties['color']
   darkgray: CSSProperties['color']
   darkgray100: CSSProperties['color']
   gray: CSSProperties['color']
