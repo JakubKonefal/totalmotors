@@ -20,21 +20,24 @@ import Icon from 'components/shared/icon'
 
 const Section = styled.section`
   width: 100%;
-  padding: 0 16px;
   margin-bottom: 60px;
 `
 
-const StyledContainer = styled(Container)`
+const StyledContainer = styled(Container)``
+
+const InnerWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: ${({ theme }) => theme.colors.gray};
-  max-width: 1200px;
+  background-color: ${({ theme }) => theme.colors.gray100};
+  width: 100%;
+  max-width: 450px;
   border-radius: 10px;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  margin: 0 auto;
+  padding: 30px;
 
   ${({ theme }) => theme.media.lg.min} {
+    max-width: unset;
     padding-top: 50px;
     padding-bottom: 50px;
   }
@@ -243,24 +246,45 @@ const ContactForm = () => {
         ) : (
           <Section id="car-form" title="Formularz - zapytaj o sprzedaż">
             <StyledContainer>
-              <TextContent>
-                <Heading
-                  as="h2"
-                  size={30}
-                  weight={600}
-                  themecolor="black"
-                  margin="0"
-                  align="center"
-                  dangerouslySetInnerHTML={{ __html: 'Zapytaj o sprzedaż' }}
-                />
-              </TextContent>
-              <StyledForm>
-                <Form>
-                  <InputsWrapper>
-                    <div>
+              <InnerWrapper>
+                <TextContent>
+                  <Heading
+                    as="h2"
+                    size={30}
+                    weight={600}
+                    themecolor="black"
+                    margin="0"
+                    align="center"
+                    dangerouslySetInnerHTML={{ __html: 'Zapytaj o sprzedaż' }}
+                  />
+                </TextContent>
+                <StyledForm>
+                  <Form>
+                    <InputsWrapper>
+                      <div>
+                        <Field
+                          name="name"
+                          placeholder="Imię i nazwisko"
+                          required
+                          themecolor="gray500"
+                          fontColor="black100"
+                          background="gray300"
+                          withIcon
+                          component={Input}
+                        />
+                        <Field
+                          name="phone"
+                          placeholder="Numer telefonu"
+                          themecolor="gray500"
+                          fontColor="black100"
+                          background="gray300"
+                          withIcon
+                          component={Input}
+                        />
+                      </div>
                       <Field
-                        name="name"
-                        placeholder="Imię i nazwisko"
+                        name="email"
+                        placeholder="E-mail"
                         required
                         themecolor="gray500"
                         fontColor="black100"
@@ -269,86 +293,67 @@ const ContactForm = () => {
                         component={Input}
                       />
                       <Field
-                        name="phone"
-                        placeholder="Numer telefonu"
+                        name="message"
+                        placeholder="Wiadomość"
                         themecolor="gray500"
                         fontColor="black100"
                         background="gray300"
                         withIcon
+                        textarea
                         component={Input}
                       />
-                    </div>
-                    <Field
-                      name="email"
-                      placeholder="E-mail"
-                      required
-                      themecolor="gray500"
-                      fontColor="black100"
-                      background="gray300"
-                      withIcon
-                      component={Input}
-                    />
-                    <Field
-                      name="message"
-                      placeholder="Wiadomość"
-                      themecolor="gray500"
-                      fontColor="black100"
-                      background="gray300"
-                      withIcon
-                      textarea
-                      component={Input}
-                    />
-                  </InputsWrapper>
+                    </InputsWrapper>
 
-                  <StyledButton
-                    type="submit"
-                    // themecolor="primary200"
-                    // textTransform="uppercase"
-                  >
-                    {isSubmitting ? (
-                      <Spinner />
-                    ) : (
-                      <>
+                    <StyledButton
+                      type="submit"
+                      // themecolor="primary200"
+                      // textTransform="uppercase"
+                    >
+                      {isSubmitting ? (
+                        <Spinner />
+                      ) : (
+                        <>
+                          <Text
+                            size={13}
+                            weight={700}
+                            themecolor="white"
+                            transform="uppercase"
+                            align="center"
+                          >
+                            wyślij
+                          </Text>
+                          <ArrowIconWrapper>
+                            <Icon src={arrowIcon} size={22} alt="arrow-right" />
+                          </ArrowIconWrapper>
+                        </>
+                      )}
+                    </StyledButton>
+                    {formError && (
+                      <ErrorInfoWrapper>
                         <Text
-                          size={13}
+                          size={24}
                           weight={700}
-                          themecolor="white"
-                          transform="uppercase"
+                          // themecolor="red"
+                          align="center"
+                          margin="10px"
+                          line={1.15}
+                        >
+                          Wiadomość nie mogła zostać wysłana
+                        </Text>
+                        <Text
+                          size={16}
+                          weight={400}
+                          themecolor="black"
                           align="center"
                         >
-                          wyślij
+                          Wystąpił błąd. Spróbuj skontaktować się poprzez
+                          telefon lub mail.
                         </Text>
-                        <ArrowIconWrapper>
-                          <Icon src={arrowIcon} size={22} alt="arrow-right" />
-                        </ArrowIconWrapper>
-                      </>
+                      </ErrorInfoWrapper>
                     )}
-                  </StyledButton>
-                  {formError && (
-                    <ErrorInfoWrapper>
-                      <Text
-                        size={24}
-                        weight={700}
-                        // themecolor="red"
-                        align="center"
-                        margin="10px"
-                        line={1.15}
-                      >
-                        Wiadomość nie mogła zostać wysłana
-                      </Text>
-                      <Text
-                        size={16}
-                        weight={400}
-                        themecolor="black"
-                        align="center"
-                      >
-                        Wystąpił błąd. Spróbuj skontaktować się poprzez telefon
-                        lub mail.
-                      </Text>
-                    </ErrorInfoWrapper>
-                  )}
-                </Form>
-              </StyledForm>
+                  </Form>
+                </StyledForm>
+              </InnerWrapper>
             </StyledContainer>
           </Section>
         )

@@ -121,30 +121,30 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
         src: data?.polonez?.childImageSharp?.gatsbyImageData!,
         alt: 'warsztat',
       },
-      carName: 'Polonez 1 ',
+      carName: 'Polonez',
       carYear: '1995',
       clientName: 'Mariusz Bigos',
-      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
+      desc: 'Mój samochód stał w komisie 3 miesiące. Gdy sprzedażą zajęła sie firma sprzedamtwojeauto.pl sprzedałem samochód w ciągu 5 dni! Robią świetne zdjęcia profesjonalnym sprzętem a nie telefonem komórkowym jak większość komisów…',
     },
     {
       img: {
         src: data?.polonez?.childImageSharp?.gatsbyImageData!,
         alt: 'warsztat',
       },
-      carName: 'Polonez 1 ',
+      carName: 'Polonez',
       carYear: '1995',
       clientName: 'Mariusz Bigos',
-      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
+      desc: 'Przyjechali do mnie zrobili piękne zdjęcia i wystawili mój samochód na sprzedaż. Dzięki temu sprzedałem samochód w 6 dni! Pozdrawiam Pana Daniela!',
     },
     {
       img: {
         src: data?.polonez?.childImageSharp?.gatsbyImageData!,
         alt: 'warsztat',
       },
-      carName: 'Polonez 1 ',
+      carName: 'Polonez',
       carYear: '1995',
       clientName: 'Mariusz Bigos',
-      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
+      desc: 'Przyjechali do mnie zrobili piękne zdjęcia i wystawili mój samochód na sprzedaż. Dzięki temu sprzedałem samochód w 6 dni! Pozdrawiam Pana Daniela!',
     },
   ]
 
