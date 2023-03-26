@@ -20,7 +20,6 @@ import Icon from 'components/shared/icon'
 
 const Section = styled.section`
   width: 100%;
-  margin-bottom: 60px;
 `
 
 const StyledContainer = styled(Container)``

@@ -37,12 +37,12 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
     },
     {
       img: {
-        src: data?.hero2?.childImageSharp?.gatsbyImageData!,
+        src: data?.hero1?.childImageSharp?.gatsbyImageData!,
         alt: 'car2',
       },
-      title: 'Pomoc w sprzedaży motocyklu',
+      title: 'Skup samochodów',
       description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, architecto nostrum! At optio, officiis perspiciatis aliquid vel cumque quas fuga est. Pariatur!',
+        'Zajmujemy się także skupem używanych samochodów. Wystarczy, że napiszesz do nas, a my przyjedziemy do Ciebie i ocenimy stan pojazdu.',
     },
     {
       img: {

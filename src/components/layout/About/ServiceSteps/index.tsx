@@ -226,7 +226,7 @@ const ServiceSteps: React.FC<Props> = ({ steps }) => {
   const { lg } = useBreakpoint()
 
   return (
-    <Wrapper title="About">
+    <Wrapper>
       <Steps>
         {steps.map((step, index) => (
           <StepWrapper key={`step-${index}`}>

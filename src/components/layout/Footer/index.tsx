@@ -19,7 +19,7 @@ const FooterWrapper = styled.footer`
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  margin-top: 2rem;
+  margin-top: 45px;
 `
 
 const BottomWrapper = styled.div`

@@ -26,6 +26,7 @@ export const colors: Colors = {
   primarydark100: '#214a72',
   secondary: '#AD4740',
   tertiary: '#E06826',
+  tertiary100: '#F17937',
   // tertiary: '#D54E2A',
   darkgray: '#1D1D1D',
   darkgray100: '#343434',
@@ -64,7 +65,7 @@ export const container: Container = {
 
 export const navbar: Navbar = {
   height: '75px',
-  heightLG: '100px',
+  heightLG: '85px',
 }
 
 const theme = {
