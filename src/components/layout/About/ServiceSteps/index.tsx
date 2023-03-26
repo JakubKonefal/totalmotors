@@ -76,7 +76,6 @@ const StepNumber = styled.div`
 const StepNumberOuter = styled.div`
   width: 100%;
   height: 100%;
-  background-color: ${({ theme }) => theme.colors.primary};
   background-color: ${({ theme }) => theme.colors.primarydark};
 `
 
@@ -227,7 +226,7 @@ const ServiceSteps: React.FC<Props> = ({ steps }) => {
   const { lg } = useBreakpoint()
 
   return (
-    <Wrapper title="About">
+    <Wrapper>
       <Steps>
         {steps.map((step, index) => (
           <StepWrapper key={`step-${index}`}>

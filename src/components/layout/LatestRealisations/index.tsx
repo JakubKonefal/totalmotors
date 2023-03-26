@@ -2,18 +2,17 @@ import React from 'react'
 import styled from 'styled-components'
 
 import Container from 'components/shared/container'
-// import Icon from 'components/shared/icon'
-import Button from 'components/shared/button'
-import { Heading, Text } from 'components/shared/typography'
-// import arrowIcon from 'assets/icons/arrow-right-long-2.svg'
-import useBreakpoint from 'hooks/useBreakpoint'
-import Icon from 'components/shared/icon'
-import arrowIcon from 'assets/icons/arrow-right-long.svg'
-import scrollToSection from 'utils/scrollToSection'
-import type { Image } from 'types/image'
 import LazyImage from 'components/shared/lazyImage'
+import Icon from 'components/shared/icon'
+import { Heading, Text } from 'components/shared/typography'
+import Button from 'components/shared/button'
+import arrowIcon from 'assets/icons/arrow-right-long.svg'
 
-type RealisationSingle = {
+import useBreakpoint from 'hooks/useBreakpoint'
+
+import type { Image } from 'types/image'
+
+export type RealisationSingle = {
   img: Image
   title: string
   desc: string
@@ -143,6 +142,9 @@ const StyledButton = styled(Button)`
   font-weight: 600;
   text-transform: uppercase;
 
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.tertiary};
+  }
   &:hover {
     ${ArrowIconWrapper} {
       display: block;

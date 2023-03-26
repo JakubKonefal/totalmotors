@@ -4,18 +4,20 @@ import { graphql, PageProps } from 'gatsby'
 import Layout from 'components/layout'
 import Navigation from 'components/layout/Navigation'
 import Hero from 'components/layout/Hero'
-// import ServiceSteps from 'components/layout/About/ServiceSteps'
+import About from 'components/layout/About'
 import LatestRealisations from 'components/layout/LatestRealisations'
 import CarForm from 'components/layout/Forms/CarForm'
 import Benefits from 'components/layout/Benefits'
-// import ContactUsCTA from 'components/layout/ContactUsCTA'
+import Testimonials from 'components/layout/Testimonials'
 import Footer from 'components/layout/Footer'
 
 import SEO from 'components/shared/SEO'
-import About from 'components/layout/About'
 
 import type { StepSingle } from 'components/layout/About/ServiceSteps'
 import type { HeroSlide } from 'components/layout/Hero/HeroSlider'
+import type { RealisationSingle } from 'components/layout/LatestRealisations'
+import type { Benefit } from 'components/layout/Benefits'
+import type { Testimonial } from 'components/layout/Testimonials'
 
 const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
   // const HOMEPAGE = data?.wpPage?.Homepage
@@ -35,12 +37,12 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
     },
     {
       img: {
-        src: data?.hero2?.childImageSharp?.gatsbyImageData!,
+        src: data?.hero1?.childImageSharp?.gatsbyImageData!,
         alt: 'car2',
       },
-      title: 'Pomoc w sprzedaży motocyklu',
+      title: 'Skup samochodów',
       description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, architecto nostrum! At optio, officiis perspiciatis aliquid vel cumque quas fuga est. Pariatur!',
+        'Zajmujemy się także skupem używanych samochodów. Wystarczy, że napiszesz do nas, a my przyjedziemy do Ciebie i ocenimy stan pojazdu.',
     },
     {
       img: {
@@ -71,25 +73,22 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
     },
   ]
 
-  const BENEFITS = [
+  const BENEFITS: Benefit[] = [
     {
       title: 'Pasja',
-      description:
-        'Motoryzacja od lat stanowi moją pasję, przez co wkładam całe serce w prygotowanie pojazdu oraz dopięcie transakcji. Z tego powodu posiadam także dobrą znajomość rynku oraz trendów w motoryzacji.',
+      desc: 'Motoryzacja od lat stanowi moją pasję, przez co wkładam całe serce w prygotowanie pojazdu oraz dopięcie transakcji. Z tego powodu posiadam także dobrą znajomość rynku oraz trendów w motoryzacji.',
     },
     {
       title: 'Doświadczenie',
-      description:
-        'Przez lata prywatnej jak i zawodowej działalności przeprowadziałem wiele procesów sprzedażowych i pracowałem z różnymi typami pojazdów. W tym czasie uzyskałem sieć parterów bizesowych, która ciągle rośnie.',
+      desc: 'Przez lata prywatnej jak i zawodowej działalności przeprowadziałem wiele procesów sprzedażowych i pracowałem z różnymi typami pojazdów. W tym czasie uzyskałem sieć parterów bizesowych, która ciągle rośnie.',
     },
     {
       title: 'Warsztat',
-      description:
-        'Mam do dyspozycji warsztat samochodowy ze stacją diagnostyczną, oraz uprawnienia diagnosty.',
+      desc: 'Mam do dyspozycji warsztat samochodowy ze stacją diagnostyczną, oraz uprawnienia diagnosty.',
     },
   ]
 
-  const REALISATIONS = [
+  const REALISATIONS: RealisationSingle[] = [
     {
       img: {
         src: data?.hero1?.childImageSharp?.gatsbyImageData!,
@@ -113,6 +112,39 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
       },
       title: 'Mercedes-Benz C 222',
       desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
+    },
+  ]
+
+  const TESTIMONIALS: Testimonial[] = [
+    {
+      img: {
+        src: data?.polonez?.childImageSharp?.gatsbyImageData!,
+        alt: 'warsztat',
+      },
+      carName: 'Polonez',
+      carYear: '1995',
+      clientName: 'Mariusz Bigos',
+      desc: 'Mój samochód stał w komisie 3 miesiące. Gdy sprzedażą zajęła sie firma sprzedamtwojeauto.pl sprzedałem samochód w ciągu 5 dni! Robią świetne zdjęcia profesjonalnym sprzętem a nie telefonem komórkowym jak większość komisów…',
+    },
+    {
+      img: {
+        src: data?.polonez?.childImageSharp?.gatsbyImageData!,
+        alt: 'warsztat',
+      },
+      carName: 'Polonez',
+      carYear: '1995',
+      clientName: 'Mariusz Bigos',
+      desc: 'Przyjechali do mnie zrobili piękne zdjęcia i wystawili mój samochód na sprzedaż. Dzięki temu sprzedałem samochód w 6 dni! Pozdrawiam Pana Daniela!',
+    },
+    {
+      img: {
+        src: data?.polonez?.childImageSharp?.gatsbyImageData!,
+        alt: 'warsztat',
+      },
+      carName: 'Polonez',
+      carYear: '1995',
+      clientName: 'Mariusz Bigos',
+      desc: 'Przyjechali do mnie zrobili piękne zdjęcia i wystawili mój samochód na sprzedaż. Dzięki temu sprzedałem samochód w 6 dni! Pozdrawiam Pana Daniela!',
     },
   ]
 
@@ -150,20 +182,12 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
           }}
           heading="Dlaczego My"
           description="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem exercitationem aliquid cum consequatur! Similique optio sequi quod voluptates quas temporibus dignissimos dolores minus, praesentium perspiciatis, eveniet molestiae quia exercitationem ducimus nostrum repellat, repellendus cum quae fuga deleniti accusamus adipisci? Quam eius doloremque saepe ullam dolor corrupti iste quis veritatis magni."
-          benefits={[
-            {
-              title: 'Pasja',
-              desc: 'Motoryzacja od lat stanowi moją pasję, przez co wkładam całe serce w prygotowanie pojazdu oraz dopięcie transakcji. Z tego powodu posiadam także dobrą znajomość rynku oraz trendów w motoryzacji.',
-            },
-            {
-              title: 'Doświadczenie',
-              desc: 'Przez lata prywatnej jak i zawodowej działalności przeprowadziałem wiele procesów sprzedażowych i pracowałem z różnymi typami pojazdów. W tym czasie uzyskałem sieć parterów bizesowych, która ciągle rośnie.',
-            },
-            {
-              title: 'Warsztat',
-              desc: 'Mam do dyspozycji warsztat samochodowy ze stacją diagnostyczną, oraz uprawnienia diagnosty.',
-            },
-          ]}
+          benefits={BENEFITS}
+        />
+        <Testimonials
+          heading="Opinie klientów"
+          description="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem exercitationem aliquid cum consequatur! Similique optio sequi quod voluptates quas temporibus dignissimos dolores minus, praesentium perspiciatis, eveniet molestiae quia exercitationem ducimus nostrum repellat, repellendus cum quae fuga deleniti accusamus adipisci? Quam eius doloremque saepe ullam dolor corrupti iste quis veritatis magni"
+          testimonials={TESTIMONIALS}
         />
         {/* <ContactUsCTA /> */}
         <CarForm />
@@ -183,7 +207,7 @@ export const query = graphql`
       childImageSharp {
         gatsbyImageData(
           width: 1920
-          placeholder: DOMINANT_COLOR
+          placeholder: BLURRED
           formats: [AUTO, WEBP]
         )
       }
@@ -192,7 +216,7 @@ export const query = graphql`
       childImageSharp {
         gatsbyImageData(
           width: 1920
-          placeholder: DOMINANT_COLOR
+          placeholder: BLURRED
           formats: [AUTO, WEBP]
         )
       }
@@ -201,7 +225,7 @@ export const query = graphql`
       childImageSharp {
         gatsbyImageData(
           width: 1920
-          placeholder: DOMINANT_COLOR
+          placeholder: BLURRED
           formats: [AUTO, WEBP]
         )
       }
@@ -219,6 +243,15 @@ export const query = graphql`
       childImageSharp {
         gatsbyImageData(
           width: 1920
+          placeholder: DOMINANT_COLOR
+          formats: [AUTO, WEBP]
+        )
+      }
+    }
+    polonez: file(name: { eq: "polonez" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 200
           placeholder: DOMINANT_COLOR
           formats: [AUTO, WEBP]
         )

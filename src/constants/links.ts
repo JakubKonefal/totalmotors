@@ -4,8 +4,12 @@ export const NAVIGATION_LINKS = [
     link: '/',
   },
   {
-    label: 'O mnie',
-    link: '/o-mnie',
+    label: 'O firmie',
+    link: '/o-firmie',
+  },
+  {
+    label: 'Skup samochodów',
+    link: '/skup-samochodow',
   },
   {
     label: 'Realizacje',

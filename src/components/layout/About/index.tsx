@@ -91,7 +91,8 @@ const StyledButton = styled(Button)`
 
   width: 100%;
   margin-top: 15px;
-  background-color: ${({ theme }) => theme.colors.primary200};
+  /* background-color: ${({ theme }) => theme.colors.primary200}; */
+  background-color: ${({ theme }) => theme.colors.tertiary};
 
   &:hover {
     ${ArrowIconWrapper} {

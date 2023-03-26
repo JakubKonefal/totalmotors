@@ -103,7 +103,8 @@ const LinkItem = styled.button`
 
   &:hover {
     ${Text} {
-      font-weight: 500;
+      color: ${({ theme }) => theme.colors.tertiary};
+      transition: 250ms ease-in-out;
     }
   }
 
@@ -121,17 +122,19 @@ const CallUsButton = styled.a`
   align-items: center;
   justify-content: center;
   width: 120px;
-  height: 50px;
+  height: 40px;
   margin-left: 20px;
   font-weight: 500;
-  background-color: ${({ theme }) => theme.colors.primary};
+  /* background-color: ${({ theme }) => theme.colors.primary}; */
+  background-color: ${({ theme }) => theme.colors.tertiary};
   color: ${({ theme }) => theme.colors.white};
   border-radius: 8px;
   letter-spacing: 0.5px;
+  transition: 250ms ease-in-out;
   cursor: pointer;
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.primary100};
+    background-color: ${({ theme }) => theme.colors.tertiary100};
   }
 `
 
@@ -148,20 +151,20 @@ const Topnav = () => {
           <Icon src={exampleLogo} alt="matexi" width={lg ? 135 : 110} />
         </Logo>
 
-        <InnerWrapper>
-          <Links>
-            {NAVIGATION_LINKS.map((link, index) => (
-              <LinkItem as="a" href={link.link} key={`navbar-link-${index}`}>
-                <Text size={xl ? 18 : 16} themecolor="black">
-                  {link.label}
-                </Text>
-              </LinkItem>
-            ))}
-          </Links>
-          <CallUsButton href="tel: 733 002 337" role="button">
-            Zadzwoń
-          </CallUsButton>
-        </InnerWrapper>
+        {/* <InnerWrapper> */}
+        <Links>
+          {NAVIGATION_LINKS.map((link, index) => (
+            <LinkItem as="a" href={link.link} key={`navbar-link-${index}`}>
+              <Text size={xl ? 16 : 14} themecolor="black">
+                {link.label}
+              </Text>
+            </LinkItem>
+          ))}
+        </Links>
+        <CallUsButton href="tel: 733 002 337" role="button">
+          Zadzwoń
+        </CallUsButton>
+        {/* </InnerWrapper> */}
 
         {!lg && (
           <MenuButton type="button" onClick={openSidenav}>

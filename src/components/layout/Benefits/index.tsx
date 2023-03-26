@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import Container from 'components/shared/container'
 import Icon from 'components/shared/icon'
 import LazyImage from 'components/shared/lazyImage'
-import { Heading, Text } from 'components/shared/typography'
+import { Text } from 'components/shared/typography'
 
 import heartIcon from 'assets/icons/heart-2.svg'
 import experienceIcon from 'assets/icons/experience-2.svg'
@@ -40,7 +40,7 @@ const getIcon = (index: number) => {
   }
 }
 
-type Benefit = {
+export type Benefit = {
   title: string
   desc: string
 }
@@ -53,14 +53,16 @@ type Props = {
 }
 
 const Section = styled.section`
+  margin-bottom: 45px;
   ${({ theme }) => theme.media.lg.min} {
-    margin-bottom: 45px;
+    /* margin-bottom: 45px; */
   }
 `
 
 const StyledContainer = styled(Container)`
   display: flex;
   flex-direction: column;
+  align-items: center;
   ${({ theme }) => theme.media.lg.min} {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -69,8 +71,19 @@ const StyledContainer = styled(Container)`
 `
 
 const ImgWrapper = styled.div`
-  border-radius: 8px;
+  max-width: 450px;
+  border-radius: 8px 8px 0 0;
   overflow: hidden;
+
+  ${({ theme }) => theme.media.lg.min} {
+    height: 100%;
+    max-width: unset;
+    border-radius: 8px;
+
+    .gatsby-image-wrapper {
+      height: 100%;
+    }
+  }
 `
 
 const Content = styled.div`
@@ -84,7 +97,10 @@ const BenefitsList = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  margin-top: 15px;
+  max-width: 450px;
+  padding: 15px;
+  border-radius: 0 0 8px 8px;
+  background-color: ${({ theme }) => theme.colors.gray};
 
   ${({ theme }) => theme.media.lg.min} {
     display: grid;
@@ -93,7 +109,11 @@ const BenefitsList = styled.div`
     align-items: flex-start;
     justify-content: flex-start;
     height: 100%;
+    max-width: unset;
     margin-top: 0;
+    padding: 0;
+    background-color: transparent;
+    border-radius: unset;
   }
 `
 
@@ -102,6 +122,8 @@ const BenefitItem = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-bottom: 30px;
+  max-width: 450px;
 
   ${Text} {
     text-align: center;
@@ -109,6 +131,7 @@ const BenefitItem = styled.div`
 
   ${({ theme }) => theme.media.lg.min} {
     height: 100%;
+    max-width: unset;
     flex-direction: row;
     padding-left: 30px;
     padding-right: 30px;
@@ -193,12 +216,13 @@ const Benefits: React.FC<Props> = ({ img, heading, description, benefits }) => {
                 <Text
                   size={18}
                   weight={700}
-                  themecolor="primary200"
+                  themecolor="black"
+                  margin="10px"
                   dangerouslySetInnerHTML={{ __html: title }}
                 />
                 <Text
                   size={12}
-                  themecolor="primary200"
+                  themecolor="black"
                   dangerouslySetInnerHTML={{ __html: desc }}
                 />
               </BenefitItem>
