@@ -4,6 +4,7 @@ import { graphql, PageProps } from 'gatsby'
 import Layout from 'components/layout'
 import Navigation from 'components/layout/Navigation'
 import Hero from 'components/layout/Hero'
+import Hero2 from 'components/layout/Hero2'
 import About from 'components/layout/About'
 import LatestRealisations from 'components/layout/LatestRealisations'
 import CarForm from 'components/layout/Forms/CarForm'
@@ -162,7 +163,19 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
       />
       <Navigation />
       <main>
-        <Hero slides={HERO_SLIDES} />
+        {/* <Hero slides={HERO_SLIDES} /> */}
+        <Hero2
+          heading="Sprzedaj swój samochód"
+          description="Z nami sprzedaż pojazdu szybciej niż myślisz!"
+          imgMobile={{
+            src: data?.heroMC?.childImageSharp?.gatsbyImageData!,
+            alt: 'hero1',
+          }}
+          imgDesktop={{
+            src: data?.heroMC?.childImageSharp?.gatsbyImageData!,
+            alt: 'hero1',
+          }}
+        />
         <About
           heading="Pomoc w sprzedaży pojazdu"
           description="Chcesz sprzedać swój pojazd, ale nie wiesz jak się za to zabrać?
@@ -221,7 +234,26 @@ export const query = graphql`
         )
       }
     }
+
     hero3: file(name: { eq: "hero-3" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1920
+          placeholder: BLURRED
+          formats: [AUTO, WEBP]
+        )
+      }
+    }
+    heroBMW: file(name: { eq: "bmw-x4" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1920
+          placeholder: BLURRED
+          formats: [AUTO, WEBP]
+        )
+      }
+    }
+    heroMC: file(name: { eq: "mc-cla-45-amg" }) {
       childImageSharp {
         gatsbyImageData(
           width: 1920

@@ -152,18 +152,22 @@ const Topnav = () => {
         </Logo>
 
         {/* <InnerWrapper> */}
-        <Links>
-          {NAVIGATION_LINKS.map((link, index) => (
-            <LinkItem as="a" href={link.link} key={`navbar-link-${index}`}>
-              <Text size={xl ? 16 : 14} themecolor="black">
-                {link.label}
-              </Text>
-            </LinkItem>
-          ))}
-        </Links>
-        <CallUsButton href="tel: 733 002 337" role="button">
-          Zadzwoń
-        </CallUsButton>
+        {lg && (
+          <Links>
+            {NAVIGATION_LINKS.map((link, index) => (
+              <LinkItem as="a" href={link.link} key={`navbar-link-${index}`}>
+                <Text size={xl ? 16 : 14} themecolor="black">
+                  {link.label}
+                </Text>
+              </LinkItem>
+            ))}
+          </Links>
+        )}
+        {lg && (
+          <CallUsButton href="tel: 733 002 337" role="button">
+            Zadzwoń
+          </CallUsButton>
+        )}
         {/* </InnerWrapper> */}
 
         {!lg && (

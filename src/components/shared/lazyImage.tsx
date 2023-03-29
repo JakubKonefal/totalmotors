@@ -13,7 +13,7 @@ type LazyImageProps = {
   height?: number
   objectFit?: React.CSSProperties['objectFit']
   objectPosition?: React.CSSProperties['objectPosition']
-
+  loading?: 'eager' | 'lazy'
   className?: string
 }
 
@@ -24,6 +24,7 @@ const LazyImage: React.FC<LazyImageProps> = ({
   height,
   objectFit,
   objectPosition,
+  loading = 'lazy',
   className,
 }) => {
   let image = getImage(src) as IGatsbyImageData
@@ -42,6 +43,7 @@ const LazyImage: React.FC<LazyImageProps> = ({
       objectFit={objectFit}
       objectPosition={objectPosition}
       className={className}
+      loading={loading}
     />
   )
 }
