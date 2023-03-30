@@ -165,13 +165,9 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
       <main>
         {/* <Hero slides={HERO_SLIDES} /> */}
         <Hero2
-          heading="Sprzedaj swój samochód"
-          description="Z nami sprzedaż pojazdu szybciej niż myślisz!"
-          imgMobile={{
-            src: data?.heroMC?.childImageSharp?.gatsbyImageData!,
-            alt: 'hero1',
-          }}
-          imgDesktop={{
+          // heading="Sprzedaj <span class='thin' > swój </span> <br/> <span  class='wrapper'> <span class='animated-first' > samochód! </span> <span class='animated-second' > motocykl! </span> </span>"
+          // description="Pomożemy Ci sprzedać samochód, <br/> lub odkupimy go od Ciebie."
+          img={{
             src: data?.heroMC?.childImageSharp?.gatsbyImageData!,
             alt: 'hero1',
           }}
@@ -257,7 +253,16 @@ export const query = graphql`
       childImageSharp {
         gatsbyImageData(
           width: 1920
-          placeholder: BLURRED
+          placeholder: DOMINANT_COLOR
+          formats: [AUTO, WEBP]
+        )
+      }
+    }
+    heroMCmobile: file(name: { eq: "mc-cla-45-cropped-mobile" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1000
+          placeholder: DOMINANT_COLOR
           formats: [AUTO, WEBP]
         )
       }

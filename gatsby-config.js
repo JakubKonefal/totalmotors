@@ -68,6 +68,11 @@ module.exports = {
               subsets: ['latin-ext'],
             },
             {
+              family: 'Montserrat',
+              variants: ['300', '400', '500', '600', '700', '800'],
+              subsets: ['latin-ext'],
+            },
+            {
               family: 'Ruge Boogie',
             },
           ],
