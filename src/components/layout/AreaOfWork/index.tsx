@@ -45,25 +45,23 @@ const AreaOfWork: React.FC<Props> = ({ heading, description }) => {
 
   return (
     <Section title={heading}>
-      <Container>
-        <Heading
-          as="h2"
-          size={30}
-          margin="10px"
-          dangerouslySetInnerHTML={{ __html: heading }}
+      <Heading
+        as="h2"
+        size={30}
+        margin="10px"
+        dangerouslySetInnerHTML={{ __html: heading }}
+      />
+      <Text
+        size={lg ? 15 : 14}
+        dangerouslySetInnerHTML={{ __html: description }}
+      />
+      <MapWrapper>
+        <Icon
+          className="map-img-wrapper"
+          src={podkapracieMap}
+          alt="podkarpackie-voivodeship"
         />
-        <Text
-          size={lg ? 15 : 14}
-          dangerouslySetInnerHTML={{ __html: description }}
-        />
-        <MapWrapper>
-          <Icon
-            className="map-img-wrapper"
-            src={podkapracieMap}
-            alt="podkarpackie-voivodeship"
-          />
-        </MapWrapper>
-      </Container>
+      </MapWrapper>
     </Section>
   )
 }

@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { graphql, PageProps } from 'gatsby'
+import styled from 'styled-components'
 
 import SEO from 'components/shared/SEO'
 
@@ -8,7 +9,16 @@ import Navigation from 'components/layout/Navigation'
 import Breadcrumbs from 'components/shared/Breadcrumbs'
 import Header from 'components/layout/Header'
 import AreaOfWork from 'components/layout/AreaOfWork'
+import CarForm from 'components/layout/Forms/CarForm'
 import Footer from 'components/layout/Footer'
+import Container from 'components/shared/container'
+
+const SectionsWrapper = styled(Container)`
+  ${({ theme }) => theme.media.lg.min} {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+`
 
 const KontaktPage: React.FC<PageProps<Queries.KontaktPageQuery>> = ({
   data,
@@ -51,10 +61,13 @@ const KontaktPage: React.FC<PageProps<Queries.KontaktPageQuery>> = ({
         ]}
       />
       <main>
-        <AreaOfWork
-          heading="Region działalności"
-          description="Obecnie region naszej działalności obejmuje województwo podkarpackie. Pozostajemy jednak otwarci na zapytania spoza wskazanego regionu. Zapraszamy do kontaktu, aby porozmawiać o możliwościach współpracy."
-        />
+        <SectionsWrapper>
+          <AreaOfWork
+            heading="Region działalności"
+            description="Obecnie region naszej działalności obejmuje województwo podkarpackie. Pozostajemy jednak otwarci na zapytania spoza wskazanego regionu. <br/> Zapraszamy do kontaktu, aby porozmawiać o możliwościach współpracy."
+          />
+          <CarForm />
+        </SectionsWrapper>
       </main>
 
       <Footer />
