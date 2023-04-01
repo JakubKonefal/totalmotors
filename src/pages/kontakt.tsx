@@ -9,7 +9,7 @@ import Navigation from 'components/layout/Navigation'
 import Breadcrumbs from 'components/shared/Breadcrumbs'
 import Header from 'components/layout/Header'
 import AreaOfWork from 'components/layout/AreaOfWork'
-import CarForm from 'components/layout/Forms/CarForm'
+import ContactSection from 'components/layout/Sections/ContactSection'
 import Footer from 'components/layout/Footer'
 import Container from 'components/shared/container'
 
@@ -17,6 +17,11 @@ const SectionsWrapper = styled(Container)`
   ${({ theme }) => theme.media.lg.min} {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    column-gap: 50px;
+  }
+
+  ${({ theme }) => theme.media.xl.min} {
+    column-gap: 100px;
   }
 `
 
@@ -66,7 +71,7 @@ const KontaktPage: React.FC<PageProps<Queries.KontaktPageQuery>> = ({
             heading="Region działalności"
             description="Obecnie region naszej działalności obejmuje województwo podkarpackie. Pozostajemy jednak otwarci na zapytania spoza wskazanego regionu. <br/> Zapraszamy do kontaktu, aby porozmawiać o możliwościach współpracy."
           />
-          <CarForm />
+          <ContactSection />
         </SectionsWrapper>
       </main>
 

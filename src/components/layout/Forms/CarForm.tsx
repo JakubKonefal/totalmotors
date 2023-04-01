@@ -25,9 +25,9 @@ type Props = {
 
 const Section = styled.section`
   width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 `
-
-const StyledContainer = styled(Container)``
 
 const InnerWrapper = styled.div`
   display: flex;
@@ -83,6 +83,7 @@ const StyledForm = styled.div`
 
   ${({ theme }) => theme.media.lg.min} {
     max-width: 885px;
+    margin-top: 40px;
   }
 `
 
@@ -240,47 +241,26 @@ const ContactForm: React.FC<Props> = ({ heading, centerHeading = false }) => {
           </Container>
         ) : (
           <Section id="car-form" title="Formularz - zapytaj o sprzedaż">
-            <StyledContainer>
-              <InnerWrapper>
-                <TextContent>
-                  <Heading
-                    as="h2"
-                    size={30}
-                    weight={600}
-                    themecolor="black"
-                    margin="0"
-                    transform="uppercase"
-                    align={centerHeading ? 'center' : 'left'}
-                    dangerouslySetInnerHTML={{ __html: heading }}
-                  />
-                </TextContent>
-                <StyledForm>
-                  <Form>
-                    <InputsWrapper>
-                      <div>
-                        <Field
-                          name="name"
-                          placeholder="Imię i nazwisko"
-                          required
-                          themecolor="gray500"
-                          fontColor="black100"
-                          background="gray300"
-                          withIcon
-                          component={Input}
-                        />
-                        <Field
-                          name="phone"
-                          placeholder="Numer telefonu"
-                          themecolor="gray500"
-                          fontColor="black100"
-                          background="gray300"
-                          withIcon
-                          component={Input}
-                        />
-                      </div>
+            <InnerWrapper>
+              <TextContent>
+                <Heading
+                  as="h2"
+                  size={26}
+                  weight={600}
+                  themecolor="black"
+                  margin="0"
+                  transform="uppercase"
+                  align={centerHeading ? 'center' : 'left'}
+                  dangerouslySetInnerHTML={{ __html: heading }}
+                />
+              </TextContent>
+              <StyledForm>
+                <Form>
+                  <InputsWrapper>
+                    <div>
                       <Field
-                        name="email"
-                        placeholder="E-mail"
+                        name="name"
+                        placeholder="Imię i nazwisko"
                         required
                         themecolor="gray500"
                         fontColor="black100"
@@ -289,68 +269,87 @@ const ContactForm: React.FC<Props> = ({ heading, centerHeading = false }) => {
                         component={Input}
                       />
                       <Field
-                        name="message"
-                        placeholder="Wiadomość"
+                        name="phone"
+                        placeholder="Numer telefonu"
                         themecolor="gray500"
                         fontColor="black100"
                         background="gray300"
                         withIcon
-                        textarea
                         component={Input}
                       />
-                    </InputsWrapper>
+                    </div>
+                    <Field
+                      name="email"
+                      placeholder="E-mail"
+                      required
+                      themecolor="gray500"
+                      fontColor="black100"
+                      background="gray300"
+                      withIcon
+                      component={Input}
+                    />
+                    <Field
+                      name="message"
+                      placeholder="Wiadomość"
+                      themecolor="gray500"
+                      fontColor="black100"
+                      background="gray300"
+                      withIcon
+                      textarea
+                      component={Input}
+                    />
+                  </InputsWrapper>
 
-                    <StyledButton
-                      type="submit"
-                      // themecolor="primary200"
-                      // textTransform="uppercase"
-                    >
-                      {isSubmitting ? (
-                        <Spinner />
-                      ) : (
-                        <>
-                          <Text
-                            size={13}
-                            weight={700}
-                            themecolor="white"
-                            transform="uppercase"
-                            align="center"
-                          >
-                            wyślij
-                          </Text>
-                          <ArrowIconWrapper>
-                            <Icon src={arrowIcon} size={22} alt="arrow-right" />
-                          </ArrowIconWrapper>
-                        </>
-                      )}
-                    </StyledButton>
-                    {formError && (
-                      <ErrorInfoWrapper>
+                  <StyledButton
+                    type="submit"
+                    // themecolor="primary200"
+                    // textTransform="uppercase"
+                  >
+                    {isSubmitting ? (
+                      <Spinner />
+                    ) : (
+                      <>
                         <Text
-                          size={24}
+                          size={13}
                           weight={700}
-                          // themecolor="red"
-                          align="center"
-                          margin="10px"
-                          line={1.15}
-                        >
-                          Wiadomość nie mogła zostać wysłana
-                        </Text>
-                        <Text
-                          size={16}
-                          weight={400}
-                          themecolor="black"
+                          themecolor="white"
+                          transform="uppercase"
                           align="center"
                         >
-                          Wystąpił błąd. Spróbuj skontaktować się poprzez
-                          telefon lub mail.
+                          wyślij
                         </Text>
-                      </ErrorInfoWrapper>
+                        <ArrowIconWrapper>
+                          <Icon src={arrowIcon} size={22} alt="arrow-right" />
+                        </ArrowIconWrapper>
+                      </>
                     )}
-                  </Form>
-                </StyledForm>
-              </InnerWrapper>
-            </StyledContainer>
+                  </StyledButton>
+                  {formError && (
+                    <ErrorInfoWrapper>
+                      <Text
+                        size={24}
+                        weight={700}
+                        // themecolor="red"
+                        align="center"
+                        margin="10px"
+                        line={1.15}
+                      >
+                        Wiadomość nie mogła zostać wysłana
+                      </Text>
+                      <Text
+                        size={16}
+                        weight={400}
+                        themecolor="black"
+                        align="center"
+                      >
+                        Wystąpił błąd. Spróbuj skontaktować się poprzez telefon
+                        lub mail.
+                      </Text>
+                    </ErrorInfoWrapper>
+                  )}
+                </Form>
+              </StyledForm>
+            </InnerWrapper>
           </Section>
         )
       }

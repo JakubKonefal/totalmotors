@@ -64,7 +64,7 @@ const TopGridItem = styled.div`
   width: 100%;
 
   b {
-    color: ${({ theme }) => theme.colors.primary200};
+    color: ${({ theme }) => theme.colors.tertiary};
     font-size: 16px;
   }
 
