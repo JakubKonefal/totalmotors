@@ -5,7 +5,6 @@ import styled from 'styled-components'
 import Container from 'components/shared/container'
 
 import phone1Icon from 'assets/icons/phone-1.svg'
-import phone2Icon from 'assets/icons/phone-2.svg'
 import emailIcon from 'assets/icons/mail.svg'
 import facebookIcon from 'assets/icons/facebook.svg'
 import instagramIcon from 'assets/icons/instagram.svg'
@@ -96,6 +95,7 @@ const TopGridItem = styled.div`
 const SocialMedia = styled.div`
   display: flex;
   align-items: center;
+  margin-top: 10px;
 
   a {
     :first-child {
@@ -104,7 +104,7 @@ const SocialMedia = styled.div`
   }
 
   ${({ theme }) => theme.media.lg.min} {
-    /* justify-content: flex-end; */
+    margin-top: 0;
   }
 `
 

@@ -4,7 +4,6 @@ import { graphql, PageProps } from 'gatsby'
 import Layout from 'components/layout'
 import Navigation from 'components/layout/Navigation'
 import Hero from 'components/layout/Hero'
-import Hero2 from 'components/layout/Hero2'
 import About from 'components/layout/About'
 import LatestRealisations from 'components/layout/LatestRealisations'
 import CarForm from 'components/layout/Forms/CarForm'
@@ -15,7 +14,6 @@ import Footer from 'components/layout/Footer'
 import SEO from 'components/shared/SEO'
 
 import type { StepSingle } from 'components/layout/About/ServiceSteps'
-import type { HeroSlide } from 'components/layout/Hero/HeroSlider'
 import type { RealisationSingle } from 'components/layout/LatestRealisations'
 import type { Benefit } from 'components/layout/Benefits'
 import type { Testimonial } from 'components/layout/Testimonials'
@@ -25,36 +23,6 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
   // const PAGE_SEO = data?.wpPage?.seo
 
   console.log(data)
-
-  const HERO_SLIDES: HeroSlide[] = [
-    {
-      img: {
-        src: data?.hero1?.childImageSharp?.gatsbyImageData!,
-        alt: 'car1',
-      },
-      title: 'Pomoc w sprzedaży auta',
-      description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, architecto nostrum! At optio, officiis perspiciatis aliquid vel cumque quas fuga est. Pariatur!',
-    },
-    {
-      img: {
-        src: data?.hero1?.childImageSharp?.gatsbyImageData!,
-        alt: 'car2',
-      },
-      title: 'Skup samochodów',
-      description:
-        'Zajmujemy się także skupem używanych samochodów. Wystarczy, że napiszesz do nas, a my przyjedziemy do Ciebie i ocenimy stan pojazdu.',
-    },
-    {
-      img: {
-        src: data?.hero3?.childImageSharp?.gatsbyImageData!,
-        alt: 'car3',
-      },
-      title: 'Profesjonalna sesja zdjęciowa',
-      description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, architecto nostrum! At optio, officiis perspiciatis aliquid vel cumque quas fuga est. Pariatur!',
-    },
-  ]
 
   const SERVICE_STEPS: StepSingle[] = [
     {
@@ -163,10 +131,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
       />
       <Navigation />
       <main>
-        {/* <Hero slides={HERO_SLIDES} /> */}
-        <Hero2
-          // heading="Sprzedaj <span class='thin' > swój </span> <br/> <span  class='wrapper'> <span class='animated-first' > samochód! </span> <span class='animated-second' > motocykl! </span> </span>"
-          // description="Pomożemy Ci sprzedać samochód, <br/> lub odkupimy go od Ciebie."
+        <Hero
           img={{
             src: data?.heroMC?.childImageSharp?.gatsbyImageData!,
             alt: 'hero1',
