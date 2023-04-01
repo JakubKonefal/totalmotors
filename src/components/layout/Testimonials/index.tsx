@@ -1,24 +1,17 @@
 import React, { useState } from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 import SwiperCore, { Autoplay } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import arrowLeftIcon from 'assets/icons/arrow-left.svg'
-import arrowRightIcon from 'assets/icons/arrow-right.svg'
-import quote1Icon from 'assets/icons/quote1.svg'
-import quote2Icon from 'assets/icons/quote2.svg'
 
 import Container from 'components/shared/container'
-import Button from 'components/shared/button'
 import { Heading, Text } from 'components/shared/typography'
-// import arrowIcon from 'assets/icons/arrow-right-long-2.svg'
-import Icon from 'components/shared/icon'
-import arrowIcon from 'assets/icons/arrow-right-long.svg'
-import scrollToSection from 'utils/scrollToSection'
 import LazyImage from 'components/shared/lazyImage'
 import useBreakpoint from 'hooks/useBreakpoint'
 
 import type { Image } from 'types/image'
+
+import 'swiper/css'
 
 export type Testimonial = {
   img: Image
