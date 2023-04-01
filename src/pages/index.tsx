@@ -14,7 +14,7 @@ import Footer from 'components/layout/Footer'
 import SEO from 'components/shared/SEO'
 
 import type { StepSingle } from 'components/layout/About/ServiceSteps'
-import type { RealisationSingle } from 'components/layout/LatestRealisations'
+import type { RealisationSingle } from 'components/layout/LatestRealisations/Card'
 import type { Benefit } from 'components/layout/Benefits'
 import type { Testimonial } from 'components/layout/Testimonials'
 

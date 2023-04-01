@@ -253,17 +253,6 @@ const ServiceSteps: React.FC<Props> = ({ steps }) => {
           </StepWrapper>
         ))}
       </Steps>
-      {/* <BigButtonWrapper>
-        <BigButton as="a" href="/oferta">
-          Zobacz pełną ofertę
-          <Icon
-            className="arrow-right"
-            src={yIcon}
-            size={30}
-            alt="arrow-right"
-          />
-        </BigButton>
-      </BigButtonWrapper> */}
     </Wrapper>
   )
 }
