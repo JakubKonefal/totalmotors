@@ -7,19 +7,23 @@ type NavigationProviderProps = {
 type NavigationContextType = {
   isDesktopNavHidden: boolean
   isSidenavVisible: boolean
+  isModalFormVisible: boolean
   hideNav: () => void
   closeSidenav: () => void
   openSidenav: () => void
-  initialSearchParam: string
+  closeModalForm: () => void
+  openModalForm: () => void
 }
 
 const defaultContextValues = {
   isDesktopNavHidden: false,
   isSidenavVisible: false,
+  isModalFormVisible: false,
   hideNav: () => null,
   closeSidenav: () => null,
   openSidenav: () => null,
-  initialSearchParam: '',
+  closeModalForm: () => null,
+  openModalForm: () => null,
 }
 
 export const NavigationContext =
@@ -30,7 +34,7 @@ const NavigationProvider: React.FC<NavigationProviderProps> = ({
 }) => {
   const [isDesktopNavHidden, setIsDesktopNavHidden] = useState(false)
   const [isSidenavVisible, setIsSidenavVisible] = useState(false)
-  const [initialSearchParam, setInitialSearchParam] = useState('')
+  const [isModalFormVisible, setIsModalFormVisible] = useState(false)
 
   let prevScroll = 0
 
@@ -47,7 +51,7 @@ const NavigationProvider: React.FC<NavigationProviderProps> = ({
 
   useEffect(() => {
     window.addEventListener('scroll', (e) => handleScroll(e))
-    setInitialSearchParam(window.location.search)
+
     return () => {
       window.removeEventListener('scroll', (e) => handleScroll(e))
     }
@@ -72,15 +76,32 @@ const NavigationProvider: React.FC<NavigationProviderProps> = ({
     }
   }
 
+  const closeModalForm = () => {
+    if (isModalFormVisible) {
+      setIsModalFormVisible(false)
+      setTimeout(hideNav, 800)
+      document.body.style.overflow = 'auto'
+    }
+  }
+
+  const openModalForm = () => {
+    if (!isModalFormVisible) {
+      setIsModalFormVisible(true)
+      document.body.style.overflow = 'hidden'
+    }
+  }
+
   return (
     <NavigationContext.Provider
       value={{
         isDesktopNavHidden,
         isSidenavVisible,
+        isModalFormVisible,
         hideNav,
         closeSidenav,
         openSidenav,
-        initialSearchParam,
+        closeModalForm,
+        openModalForm,
       }}
     >
       {children}

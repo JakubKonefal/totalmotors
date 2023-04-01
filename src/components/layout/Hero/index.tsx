@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled, { keyframes } from 'styled-components'
+import { NavigationContext } from 'contexts/NavigationContext'
 
 import Container from 'components/shared/container'
 import LazyImage from 'components/shared/lazyImage'
@@ -362,6 +363,8 @@ const StyledButton = styled(Button)`
 `
 
 const Hero: React.FC<Props> = ({ img }) => {
+  const { openModalForm } = useContext(NavigationContext)
+
   return (
     <Header>
       <ImgWrapper>
@@ -390,7 +393,9 @@ const Hero: React.FC<Props> = ({ img }) => {
           <br />
           lub odkupimy go od Ciebie.
         </StyledText>
-        <StyledButton>kontakt</StyledButton>
+        <StyledButton type="button" onClick={openModalForm}>
+          kontakt
+        </StyledButton>
       </StyledContainer>
       <Overlay />
     </Header>

@@ -241,7 +241,7 @@ const ContactForm: React.FC<Props> = ({ heading, centerHeading = false }) => {
           </Container>
         ) : (
           <Section id="car-form" title="Formularz - zapytaj o sprzedaż">
-            <InnerWrapper>
+            <InnerWrapper className="form-inner-wrapper">
               <TextContent>
                 <Heading
                   as="h2"

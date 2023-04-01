@@ -2,7 +2,10 @@ import * as React from 'react'
 import { graphql, PageProps } from 'gatsby'
 
 import Layout from 'components/layout'
+import SEO from 'components/shared/SEO'
 import Navigation from 'components/layout/Navigation'
+import ModalForm from 'components/layout/ModalForm'
+
 import Hero from 'components/layout/Hero'
 import About from 'components/layout/About'
 import LatestRealisations from 'components/layout/LatestRealisations'
@@ -10,8 +13,6 @@ import Benefits from 'components/layout/Benefits'
 import Testimonials from 'components/layout/Testimonials'
 import CarForm from 'components/layout/Forms/CarForm'
 import Footer from 'components/layout/Footer'
-
-import SEO from 'components/shared/SEO'
 
 import type { StepSingle } from 'components/layout/About/ServiceSteps'
 import type { RealisationSingle } from 'components/layout/LatestRealisations/Card'
@@ -154,6 +155,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
         // twitterImage={twitterImage?.sourceUrl}
       />
       <Navigation />
+      <ModalForm />
       <main>
         <Hero
           img={{
