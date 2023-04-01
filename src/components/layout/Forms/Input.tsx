@@ -18,7 +18,7 @@ type Props = {
   textarea?: boolean
   maxLength?: number
   themecolor?: keyof Colors
-  outlineGreen?: boolean
+  outlineValid?: boolean
   fontColor?: keyof Colors
   background: keyof Colors
   placeholderCentered?: boolean
@@ -29,7 +29,7 @@ type InputElementProps = {
   error: boolean
   themecolor?: keyof Colors
   fontColor?: keyof Colors
-  outlineGreen?: boolean
+  outlineValid?: boolean
 }
 
 const InputWrapper = styled.div`
@@ -47,7 +47,7 @@ const Placeholder = styled(Text)<{ textarea?: boolean; centered?: boolean }>`
   left: 15px;
   transform: translateY(-50%);
   width: max-content;
-  font-size: 13px;
+  font-size: 12px;
   pointer-events: none;
 
   ${({ centered }) =>
@@ -70,7 +70,7 @@ const Placeholder = styled(Text)<{ textarea?: boolean; centered?: boolean }>`
 
   span {
     font-size: 16px;
-    color: ${({ theme }) => theme.colors.primary200};
+    color: ${({ theme }) => theme.colors.tertiary};
   }
 `
 
@@ -116,6 +116,7 @@ const ErrorMessage = styled(Text)<{
   height: calc(100% - 4px);
   font-size: 12px;
   transform: translateY(-50%);
+  background-color: ${({ theme }) => theme.colors.gray100};
   pointer-events: none;
   z-index: 1;
   text-align: left;
@@ -144,14 +145,14 @@ const Input = styled.input<InputElementProps>`
   color: ${({ theme, fontColor }) => theme.colors[fontColor || 'black']};
   border: 1px solid
     ${({ theme, themecolor }) => theme.colors[themecolor || 'black']};
-  border-radius: 8px;
+  border-radius: 5px;
 
   &::placeholder {
     visibility: hidden;
   }
 
   &:focus {
-    border-color: ${({ theme }) => theme.colors.black};
+    border-color: ${({ theme }) => theme.colors.tertiary};
   }
 
   &:focus ~ ${Placeholder} {
@@ -174,14 +175,14 @@ const Input = styled.input<InputElementProps>`
   ${({ error }) =>
     error &&
     css`
-      border: 1px solid ${({ theme }) => theme.colors.danger} !important;
+      border: 2px solid ${({ theme }) => theme.colors.danger} !important;
     `}
 
-  ${({ outlineGreen }) =>
-    outlineGreen &&
+  ${({ outlineValid }) =>
+    outlineValid &&
     css`
       opacity: 0.75;
-      border-color: ${({ theme }) => theme.colors.primary200};
+      border-color: ${({ theme }) => theme.colors.tertiary};
     `}
 
     ${({ readOnly }) =>
@@ -200,10 +201,11 @@ const Textarea = styled.textarea<InputElementProps>`
   width: 100%;
   height: 135px;
   padding: 1rem 1.25rem;
+  font-size: 12px;
   background-color: transparent;
   border: 1px solid
     ${({ theme, themecolor }) => theme.colors[themecolor || 'black']};
-  border-radius: 10px;
+  border-radius: 5px;
   color: ${({ theme, fontColor }) => theme.colors[fontColor || 'black']};
   resize: none;
 
@@ -212,7 +214,7 @@ const Textarea = styled.textarea<InputElementProps>`
   }
 
   &:focus {
-    border-color: ${({ theme }) => theme.colors.black};
+    border-color: ${({ theme }) => theme.colors.tertiary};
   }
 
   &:focus ~ ${Placeholder} {
@@ -227,14 +229,14 @@ const Textarea = styled.textarea<InputElementProps>`
   ${({ error }) =>
     error &&
     css`
-      border: 1px solid ${({ theme }) => theme.colors.danger};
+      border: 2px solid ${({ theme }) => theme.colors.danger};
     `}
 
-  ${({ outlineGreen }) =>
-    outlineGreen &&
+  ${({ outlineValid }) =>
+    outlineValid &&
     css`
       opacity: 0.75;
-      border-color: ${({ theme }) => theme.colors.primary200};
+      border-color: ${({ theme }) => theme.colors.tertiary};
     `}
 `
 
@@ -249,7 +251,7 @@ const FormInput: React.FC<Props & FieldProps> = ({
   textarea,
   maxLength,
   themecolor,
-  outlineGreen,
+  outlineValid,
   fontColor,
   background,
   placeholderCentered,
@@ -274,7 +276,7 @@ const FormInput: React.FC<Props & FieldProps> = ({
         // required={required}
         error={!!isError}
         themecolor={themecolor}
-        outlineGreen={value && !isError && outlineGreen}
+        outlineValid={value && !isError && outlineValid}
         placeholder={placeholder}
       />
       {errorText && (
@@ -302,7 +304,7 @@ const FormInput: React.FC<Props & FieldProps> = ({
       )}
       {touched[name] && !errorText && withIcon && value && (
         <IconWrapper textarea>
-          <Icon src={checkIcon} size={24} alt="check" />
+          <Icon src={checkIcon} size={26} alt="check" />
         </IconWrapper>
       )}
     </InputWrapper>
@@ -324,7 +326,7 @@ const FormInput: React.FC<Props & FieldProps> = ({
         // required={required}
         error={!!isError}
         themecolor={themecolor}
-        outlineGreen={value && !isError && outlineGreen}
+        outlineValid={value && !isError && outlineValid}
         placeholder={placeholder}
       />
       {errorText && (
@@ -351,7 +353,7 @@ const FormInput: React.FC<Props & FieldProps> = ({
       )}
       {touched[name] && !errorText && withIcon && value && (
         <IconWrapper>
-          <Icon src={checkIcon} size={24} alt="check" />
+          <Icon src={checkIcon} size={26} alt="check" />
         </IconWrapper>
       )}
     </InputWrapper>

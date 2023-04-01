@@ -4,7 +4,7 @@ import Normalize from 'styles/normalize'
 
 const Global = css`
   * {
-    outline-color: ${({ theme }) => theme.colors.primary};
+    outline-color: ${({ theme }) => theme.colors.tertiary};
   }
 
   html {
@@ -36,8 +36,8 @@ const Global = css`
   }
 
   input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0px 100px white inset;
-    box-shadow: 0 0 0px 100px white inset;
+    -webkit-box-shadow: 0 0 0px 100px #eef1f4 inset;
+    box-shadow: 0 0 0px 100px #eef1f4 inset;
   }
 
   img {

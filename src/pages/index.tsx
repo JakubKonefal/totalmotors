@@ -164,7 +164,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
           testimonials={TESTIMONIALS}
         />
         {/* <ContactUsCTA /> */}
-        <CarForm />
+        <CarForm heading="Zapytaj o sprzedaż" centerHeading />
         {/* <CarForm formTitle="Zapytaj o sprzedaż" /> */}
       </main>
 

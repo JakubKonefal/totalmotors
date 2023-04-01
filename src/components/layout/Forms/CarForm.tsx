@@ -7,6 +7,7 @@ import Container from 'components/shared/container'
 import { Heading, Text } from 'components/shared/typography'
 import Button from 'components/shared/button'
 import Input from 'components/layout/Forms/Input'
+import Icon from 'components/shared/icon'
 import Spinner from 'components/shared/Spinner'
 
 import arrowIcon from 'assets/icons/arrow-right-long.svg'
@@ -16,7 +17,11 @@ import {
   CONTACT_FORM_INIT_VALUES,
   ContactFormValues,
 } from 'constants/form-schemas'
-import Icon from 'components/shared/icon'
+
+type Props = {
+  heading: string
+  centerHeading?: boolean
+}
 
 const Section = styled.section`
   width: 100%;
@@ -48,23 +53,14 @@ const TextContent = styled.div`
   align-items: center;
   max-width: 450px;
 
-  ${({ theme }) => theme.media.lg.min} {
-    align-items: flex-start;
-
-    h3,
-    p {
-      text-align: left;
-
-      br {
-        display: none;
-      }
-    }
+  h2 {
+    width: 100%;
   }
 
-  ${({ theme }) => theme.media.xl.min} {
-    h3 {
-      font-size: 32px;
-    }
+  ${({ theme }) => theme.media.lg.min} {
+    align-items: flex-start;
+    max-width: 885px;
+    width: 100%;
   }
 `
 
@@ -190,7 +186,7 @@ const ErrorInfoWrapper = styled.div`
   }
 `
 
-const ContactForm = () => {
+const ContactForm: React.FC<Props> = ({ heading, centerHeading = false }) => {
   const [submitSuccess, setSubmitSuccess] = useState(false)
   const [formError, setFormError] = useState(false)
 
@@ -253,8 +249,9 @@ const ContactForm = () => {
                     weight={600}
                     themecolor="black"
                     margin="0"
-                    align="center"
-                    dangerouslySetInnerHTML={{ __html: 'Zapytaj o sprzedaż' }}
+                    transform="uppercase"
+                    align={centerHeading ? 'center' : 'left'}
+                    dangerouslySetInnerHTML={{ __html: heading }}
                   />
                 </TextContent>
                 <StyledForm>
