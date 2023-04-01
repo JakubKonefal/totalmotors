@@ -129,12 +129,15 @@ const ImgWrapper = styled.div`
 `
 
 const StyledContainer = styled(Container)`
+  display: flex;
+  flex-direction: column;
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 40%;
+  left: 50%;
   width: 100%;
-  height: 100%;
-  padding-top: 140px;
+  /* height: 100%; */
+  transform: translate(-50%, -50%);
+  /* padding-top: 140px; */
 
   z-index: 2;
 `
@@ -166,9 +169,16 @@ const StyledHeading = styled(Heading)`
   .second {
     animation: ${animation1} 5s linear 2.5s infinite;
   }
+
+  ${({ theme }) => theme.media.lg.min} {
+    font-size: 60px;
+    text-align: left;
+  }
 `
 
 const StyledText = styled(Text)`
+  margin: 0 auto;
+
   .hidden {
     visibility: hidden;
   }
@@ -205,6 +215,19 @@ const Overlay = styled.div`
   z-index: 1;
 `
 
+const StyledButton = styled(Button)`
+  position: absolute;
+  bottom: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 50px;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+`
+
 const Hero2: React.FC<Props> = ({ img }) => {
   return (
     <Header>
@@ -234,6 +257,7 @@ const Hero2: React.FC<Props> = ({ img }) => {
           <br />
           lub odkupimy go od Ciebie.
         </StyledText>
+        <StyledButton>kontakt</StyledButton>
       </StyledContainer>
       <Overlay />
     </Header>
