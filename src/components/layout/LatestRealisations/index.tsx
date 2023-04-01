@@ -42,8 +42,12 @@ const Cards = styled.div`
   ${({ theme }) => theme.media.lg.min} {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    column-gap: 30px;
+    gap: 20px;
     max-width: unset;
+  }
+
+  ${({ theme }) => theme.media.xl.min} {
+    gap: 30px;
   }
 `
 

@@ -39,6 +39,10 @@ const RealisationsWrapper = styled.div`
   ${({ theme }) => theme.media.lg.min} {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  ${({ theme }) => theme.media.xl.min} {
+    gap: 30px;
+  }
 `
 
 const ButtonWrapper = styled.div<{ hidden: boolean }>`

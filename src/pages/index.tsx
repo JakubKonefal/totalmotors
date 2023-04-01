@@ -60,27 +60,51 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
   const REALISATIONS: RealisationSingle[] = [
     {
       img: {
-        src: data?.hero1?.childImageSharp?.gatsbyImageData!,
+        src: data?.mcAMG?.childImageSharp?.gatsbyImageData!,
         alt: 'car3',
       },
-      title: 'Mercedes-Benz C 220',
-      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
+      title: 'Mercedes AMG',
+      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
     },
     {
       img: {
-        src: data?.hero1?.childImageSharp?.gatsbyImageData!,
+        src: data?.bmwX4?.childImageSharp?.gatsbyImageData!,
         alt: 'car3',
       },
-      title: 'Mercedes-Benz C 221',
-      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
+      title: 'BMW X4',
+      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
     },
     {
       img: {
-        src: data?.hero1?.childImageSharp?.gatsbyImageData!,
+        src: data?.vwScirocco?.childImageSharp?.gatsbyImageData!,
         alt: 'car3',
       },
-      title: 'Mercedes-Benz C 222',
-      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
+      title: 'VW Scirocco',
+      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
+    },
+    {
+      img: {
+        src: data?.audiA5?.childImageSharp?.gatsbyImageData!,
+        alt: 'car3',
+      },
+      title: 'Audi A5',
+      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
+    },
+    {
+      img: {
+        src: data?.motorCross?.childImageSharp?.gatsbyImageData!,
+        alt: 'car3',
+      },
+      title: 'Cross',
+      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
+    },
+    {
+      img: {
+        src: data?.motorYamaha?.childImageSharp?.gatsbyImageData!,
+        alt: 'car3',
+      },
+      title: 'Yamaha',
+      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
     },
   ]
 
@@ -146,7 +170,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
         />
         <LatestRealisations
           heading="Ostatnie realizacje"
-          description="Ostatnio sprzedane przeze mnie pojazdy"
+          description="Ostatnio sprzedane przez nas pojazdy"
           realisations={REALISATIONS}
         />
         <Benefits
@@ -257,6 +281,36 @@ export const query = graphql`
           placeholder: DOMINANT_COLOR
           formats: [AUTO, WEBP]
         )
+      }
+    }
+    audiA5: file(name: { eq: "audi-a5" }) {
+      childImageSharp {
+        gatsbyImageData(width: 500, placeholder: BLURRED, formats: [AUTO, WEBP])
+      }
+    }
+    bmwX4: file(name: { eq: "bmw-x4" }) {
+      childImageSharp {
+        gatsbyImageData(width: 500, placeholder: BLURRED, formats: [AUTO, WEBP])
+      }
+    }
+    mcAMG: file(name: { eq: "mc-cla-45-amg" }) {
+      childImageSharp {
+        gatsbyImageData(width: 500, placeholder: BLURRED, formats: [AUTO, WEBP])
+      }
+    }
+    motorCross: file(name: { eq: "motor-cross" }) {
+      childImageSharp {
+        gatsbyImageData(width: 500, placeholder: BLURRED, formats: [AUTO, WEBP])
+      }
+    }
+    motorYamaha: file(name: { eq: "motor-yamaha" }) {
+      childImageSharp {
+        gatsbyImageData(width: 500, placeholder: BLURRED, formats: [AUTO, WEBP])
+      }
+    }
+    vwScirocco: file(name: { eq: "vw-scirocco" }) {
+      childImageSharp {
+        gatsbyImageData(width: 500, placeholder: BLURRED, formats: [AUTO, WEBP])
       }
     }
   }
