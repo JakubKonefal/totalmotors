@@ -39,10 +39,72 @@ transform: translate(-60%, 40%);
 
 `
 
+const animation1LG = keyframes`
+0% {
+opacity: 0;
+transform: translate(-3%, 40%);
+}
+
+5% {
+  opacity: 1;
+  transform: translate(0%, 40%);
+}
+
+
+
+45% {
+    opacity: 1;
+    transform: translate(0%, 40%);
+  }
+
+
+  50%{
+  opacity: 0;
+
+
+}
+
+100% {
+  opacity: 0;
+}
+
+`
+
 const animation2 = keyframes`
 0% {
 opacity: 0;
 transform: translate(-60%, -50%);
+}
+
+5% {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+
+
+
+45% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+
+
+  50%{
+  opacity: 0;
+
+
+}
+
+100% {
+  opacity: 0;
+}
+
+`
+
+const animation2LG = keyframes`
+0% {
+opacity: 0;
+transform: translate(-55%, -50%);
 }
 
 5% {
@@ -86,6 +148,37 @@ transform: translate(-60%, -50%);
 45% {
     opacity: 1;
     transform: translate(-45%, -50%);
+  }
+
+
+  50%{
+  opacity: 0;
+
+
+}
+
+100% {
+  opacity: 0;
+}
+
+`
+
+const animation3LG = keyframes`
+0% {
+opacity: 0;
+transform: translate(-48%, -50%);
+}
+
+5% {
+  opacity: 1;
+  transform: translate(-43%, -50%);
+}
+
+
+
+45% {
+    opacity: 1;
+    transform: translate(-43%, -50%);
   }
 
 
@@ -171,8 +264,23 @@ const StyledHeading = styled(Heading)`
   }
 
   ${({ theme }) => theme.media.lg.min} {
-    font-size: 60px;
+    margin-bottom: 100px;
+    font-size: 54px;
     text-align: left;
+
+    .animated-heading {
+      position: absolute;
+      left: 0;
+      transform: translate(-3%, 40%);
+    }
+
+    .first {
+      animation: ${animation1LG} 5s linear infinite;
+    }
+
+    .second {
+      animation: ${animation1LG} 5s linear 2.5s infinite;
+    }
   }
 `
 
@@ -202,6 +310,24 @@ const StyledText = styled(Text)`
   .second {
     animation: ${animation2} 5s linear 2.5s infinite;
   }
+
+  ${({ theme }) => theme.media.lg.min} {
+    font-size: 24px;
+    margin: 0 auto 0 0;
+    text-align: left;
+
+    .animated-desc {
+      transform: translate(-50%, -50%);
+    }
+
+    .first {
+      animation: ${animation3LG} 5s linear infinite;
+    }
+
+    .second {
+      animation: ${animation2LG} 5s linear 2.5s infinite;
+    }
+  }
 `
 
 const Overlay = styled.div`
@@ -226,9 +352,15 @@ const StyledButton = styled(Button)`
   font-weight: 600;
   letter-spacing: 0.5px;
   text-transform: uppercase;
+  background-color: ${({ theme }) => theme.colors.tertiary};
+
+  ${({ theme }) => theme.media.lg.min} {
+    left: calc(0% + ${({ theme }) => theme.container.paddingMD});
+    transform: translateX(0);
+  }
 `
 
-const Hero2: React.FC<Props> = ({ img }) => {
+const Hero: React.FC<Props> = ({ img }) => {
   return (
     <Header>
       <ImgWrapper>
@@ -264,4 +396,4 @@ const Hero2: React.FC<Props> = ({ img }) => {
   )
 }
 
-export default Hero2
+export default Hero
