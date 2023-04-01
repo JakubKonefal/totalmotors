@@ -3035,7 +3035,7 @@ type IndexPageQuery = { readonly hero1: { readonly childImageSharp: { readonly g
 type KontaktPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type KontaktPageQuery = { readonly hero1: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null, readonly hero2: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null, readonly hero3: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null };
+type KontaktPageQuery = { readonly hero: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null };
 
 type OfertaPageQueryVariables = Exact<{ [key: string]: never; }>;
 
