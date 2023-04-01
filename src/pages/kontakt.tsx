@@ -7,6 +7,7 @@ import Layout from 'components/layout'
 import Navigation from 'components/layout/Navigation'
 import Breadcrumbs from 'components/shared/Breadcrumbs'
 import Header from 'components/layout/Header'
+import AreaOfWork from 'components/layout/AreaOfWork'
 import Footer from 'components/layout/Footer'
 
 const KontaktPage: React.FC<PageProps<Queries.KontaktPageQuery>> = ({
@@ -49,7 +50,12 @@ const KontaktPage: React.FC<PageProps<Queries.KontaktPageQuery>> = ({
           },
         ]}
       />
-      <main></main>
+      <main>
+        <AreaOfWork
+          heading="Region działalności"
+          description="Obecnie region naszej działalności obejmuje województwo podkarpackie. Pozostajemy jednak otwarci na zapytania spoza wskazanego regionu. Zapraszamy do kontaktu, aby porozmawiać o możliwościach współpracy."
+        />
+      </main>
 
       <Footer />
     </Layout>

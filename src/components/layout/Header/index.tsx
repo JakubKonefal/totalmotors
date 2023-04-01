@@ -41,8 +41,9 @@ const ImgWrapper = styled.div`
 const StyledContainer = styled(Container)`
   position: absolute;
   bottom: 0;
-  left: 0;
+  left: 50%;
   width: 100%;
+  transform: translateX(-50%);
   padding-bottom: ${({ theme }) => theme.container.padding};
 
   z-index: 2;

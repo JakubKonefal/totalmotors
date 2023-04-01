@@ -16,10 +16,10 @@ type Props = {
 const StyledContainer = styled(Container)`
   display: flex;
   align-items: center;
-  margin: 20px 0;
+  margin: 20px auto;
 
   ${({ theme }) => theme.media.lg.min} {
-    margin: 30px 0;
+    margin: 30px auto;
   }
 `
 

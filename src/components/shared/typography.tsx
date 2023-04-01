@@ -74,6 +74,7 @@ export const Text = styled.p.withConfig<Omit<TextProps, 'sizeDiff'>>(
 )`
   position: relative;
   display: block;
+  max-width: 600px;
   line-height: ${({ line }) => line ?? '1.4'};
   font-weight: ${({ weight }) => weight ?? '400'};
   text-transform: ${({ transform }) => transform ?? 'initial'};
