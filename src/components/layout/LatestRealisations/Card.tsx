@@ -17,6 +17,8 @@ export type RealisationSingle = {
   title: string
   desc: string
   link?: boolean
+  buttonHidden?: boolean
+  className?: string
 }
 
 const Card = styled.article`
@@ -119,11 +121,17 @@ const RealisationCard: React.FC<RealisationSingle> = ({
   img,
   desc,
   link = false,
+  buttonHidden = false,
+  className,
 }) => {
   const { lg } = useBreakpoint()
 
   return (
-    <Card as={link ? 'a' : 'article'} href={`/realizacje`}>
+    <Card
+      as={link ? 'a' : 'article'}
+      href={`/realizacje`}
+      className={className}
+    >
       <TitleWrapper>
         <Text
           size={lg ? 19 : 18}
@@ -142,12 +150,14 @@ const RealisationCard: React.FC<RealisationSingle> = ({
           // themecolor="primary200"
           dangerouslySetInnerHTML={{ __html: desc }}
         />
-        <StyledButton>
-          zobacz więcej
-          <ArrowIconWrapper>
-            <Icon src={arrowIcon} size={20} alt="arrow-right" />
-          </ArrowIconWrapper>
-        </StyledButton>
+        {!buttonHidden && (
+          <StyledButton>
+            zobacz więcej
+            <ArrowIconWrapper>
+              <Icon src={arrowIcon} size={20} alt="arrow-right" />
+            </ArrowIconWrapper>
+          </StyledButton>
+        )}
       </DescriptionWrapper>
     </Card>
   )

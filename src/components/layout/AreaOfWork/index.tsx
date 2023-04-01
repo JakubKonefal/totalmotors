@@ -1,13 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import Container from 'components/shared/container'
 import { Heading, Text } from 'components/shared/typography'
 
+import Icon from 'components/shared/icon'
 import podkapracieMap from 'assets/icons/podkarpackie.svg'
 
 import useBreakpoint from 'hooks/useBreakpoint'
-import Icon from 'components/shared/icon'
 
 type Props = {
   heading: string
