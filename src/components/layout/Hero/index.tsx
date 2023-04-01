@@ -201,11 +201,12 @@ type Props = {
 const Header = styled.header`
   position: relative;
 
-  margin-bottom: 30px;
+  margin-bottom: ${({ theme }) => theme.container.marginSM};
   margin-top: ${({ theme }) => theme.navbar.height};
 
   ${({ theme }) => theme.media.lg.min} {
     margin-top: ${({ theme }) => theme.navbar.heightLG};
+    margin-bottom: calc(${({ theme }) => theme.container.marginLG} + 35px);
   }
 `
 

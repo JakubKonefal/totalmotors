@@ -18,7 +18,10 @@ const FooterWrapper = styled.footer`
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  margin-top: 45px;
+  margin-top: ${({ theme }) => theme.container.marginSM};
+  ${({ theme }) => theme.media.lg.min} {
+    margin-top: ${({ theme }) => theme.container.marginLG};
+  }
 `
 
 const BottomWrapper = styled.div`

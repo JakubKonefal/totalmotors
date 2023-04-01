@@ -59,13 +59,16 @@ export const container: Container = {
   widthNarrow: '768px',
 
   paddingMD: '2rem',
-  paddingSM: '1rem',
+  paddingSM: '1.5rem',
   padding: '2rem',
+
+  marginSM: '3rem',
+  marginLG: '5rem',
 }
 
 export const navbar: Navbar = {
-  height: '75px',
-  heightLG: '85px',
+  height: '70px',
+  heightLG: '75px',
 }
 
 const theme = {

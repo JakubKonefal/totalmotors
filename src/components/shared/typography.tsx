@@ -26,7 +26,7 @@ export const Heading = styled.h1<TextProps>`
   font-size: ${({ size }) =>
     size ? `${pxToRem(size)}rem` : `${pxToRem(70)}rem`};
   text-align: ${({ align }) => align ?? 'left'};
-  text-transform: ${({ transform }) => transform ?? 'initial'};
+  text-transform: ${({ transform }) => transform ?? 'uppercase'};
   text-decoration: ${({ decoration }) => decoration ?? 'none'};
   color: ${({ theme, themecolor }) =>
     themecolor ? theme.colors[themecolor] : theme.colors.black};

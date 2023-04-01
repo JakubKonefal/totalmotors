@@ -58,6 +58,9 @@ export type Container = {
   paddingMD: CSSProperties['padding']
   paddingSM: CSSProperties['padding']
   padding: CSSProperties['padding']
+
+  marginSM: CSSProperties['padding']
+  marginLG: CSSProperties['padding']
 }
 
 export type Navbar = {

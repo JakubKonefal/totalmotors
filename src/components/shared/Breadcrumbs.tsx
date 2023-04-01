@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 import { Text } from 'components/shared/typography'
 import Container from 'components/shared/container'
@@ -23,7 +23,7 @@ const StyledContainer = styled(Container)`
   }
 `
 
-const StyledText = styled(Text)`
+const StyledText = styled(Text)<{ hoverable: boolean }>`
   position: relative;
   margin-right: 30px;
 
@@ -43,6 +43,14 @@ const StyledText = styled(Text)`
       transform: translateY(-50%);
     }
   }
+
+  ${({ hoverable }) =>
+    hoverable &&
+    css`
+      &:hover {
+        color: ${({ theme }) => theme.colors.tertiary};
+      }
+    `}
 `
 
 const Breadcrumbs: React.FC<Props> = ({ crumbs }) => {
@@ -56,6 +64,7 @@ const Breadcrumbs: React.FC<Props> = ({ crumbs }) => {
           size={14}
           themecolor="black"
           weight={400}
+          hoverable={link}
         >
           {label}
         </StyledText>

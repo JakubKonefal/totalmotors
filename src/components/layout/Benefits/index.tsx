@@ -53,9 +53,9 @@ type Props = {
 }
 
 const Section = styled.section`
-  margin-bottom: 45px;
+  margin-bottom: ${({ theme }) => theme.container.marginSM};
   ${({ theme }) => theme.media.lg.min} {
-    /* margin-bottom: 45px; */
+    margin-bottom: ${({ theme }) => theme.container.marginLG};
   }
 `
 
