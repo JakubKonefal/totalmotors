@@ -55,6 +55,14 @@ const RealizacjePage: React.FC<PageProps<Queries.RealizacjePageQuery>> = ({
     },
     {
       img: {
+        src: data?.wolga?.childImageSharp?.gatsbyImageData!,
+        alt: 'carx',
+      },
+      title: 'Wołga',
+      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
+    },
+    {
+      img: {
         src: data?.jaguarXE?.childImageSharp?.gatsbyImageData!,
         alt: 'car3',
       },
@@ -216,7 +224,7 @@ export default RealizacjePage
 
 export const query = graphql`
   query RealizacjePage {
-    hero: file(name: { eq: "wolga" }) {
+    hero: file(name: { eq: "hero-new" }) {
       childImageSharp {
         gatsbyImageData(
           width: 1920

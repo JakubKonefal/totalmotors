@@ -158,8 +158,12 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
       <ModalForm />
       <main>
         <Hero
-          img={{
+          imgCar={{
             src: data?.heroMC?.childImageSharp?.gatsbyImageData!,
+            alt: 'hero1',
+          }}
+          imgMotor={{
+            src: data?.motorYamahaHERO?.childImageSharp?.gatsbyImageData!,
             alt: 'hero1',
           }}
         />
@@ -207,7 +211,7 @@ export const query = graphql`
       childImageSharp {
         gatsbyImageData(
           width: 1920
-          placeholder: BLURRED
+          placeholder: DOMINANT_COLOR
           formats: [AUTO, WEBP]
         )
       }
@@ -216,7 +220,7 @@ export const query = graphql`
       childImageSharp {
         gatsbyImageData(
           width: 1920
-          placeholder: BLURRED
+          placeholder: DOMINANT_COLOR
           formats: [AUTO, WEBP]
         )
       }
@@ -226,7 +230,16 @@ export const query = graphql`
       childImageSharp {
         gatsbyImageData(
           width: 1920
-          placeholder: BLURRED
+          placeholder: DOMINANT_COLOR
+          formats: [AUTO, WEBP]
+        )
+      }
+    }
+    motorYamahaHERO: file(name: { eq: "motor-yamaha-3" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1920
+          placeholder: DOMINANT_COLOR
           formats: [AUTO, WEBP]
         )
       }

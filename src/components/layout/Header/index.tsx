@@ -35,6 +35,9 @@ const ImgWrapper = styled.div`
 
   ${({ theme }) => theme.media.lg.min} {
     height: calc(60vh - ${({ theme }) => theme.navbar.heightLG});
+    img {
+      object-position: 50% 70% !important;
+    }
   }
 `
 

@@ -7,196 +7,21 @@ import LazyImage from 'components/shared/lazyImage'
 import Button from 'components/shared/button'
 import { Heading, Text } from 'components/shared/typography'
 
+import {
+  animation1,
+  animation1LG,
+  animation2,
+  animation2LG,
+  animation3,
+  animation3LG,
+  animationOPACITY,
+} from 'constants/hero-animations'
+
 import type { Image } from 'types/image'
 
-const animation1 = keyframes`
-0% {
-opacity: 0;
-transform: translate(-60%, 40%);
-}
-
-5% {
-  opacity: 1;
-  transform: translate(-50%, 40%);
-}
-
-
-
-45% {
-    opacity: 1;
-    transform: translate(-50%, 40%);
-  }
-
-
-  50%{
-  opacity: 0;
-
-
-}
-
-100% {
-  opacity: 0;
-}
-
-`
-
-const animation1LG = keyframes`
-0% {
-opacity: 0;
-transform: translate(-3%, 40%);
-}
-
-5% {
-  opacity: 1;
-  transform: translate(0%, 40%);
-}
-
-
-
-45% {
-    opacity: 1;
-    transform: translate(0%, 40%);
-  }
-
-
-  50%{
-  opacity: 0;
-
-
-}
-
-100% {
-  opacity: 0;
-}
-
-`
-
-const animation2 = keyframes`
-0% {
-opacity: 0;
-transform: translate(-60%, -50%);
-}
-
-5% {
-  opacity: 1;
-  transform: translate(-50%, -50%);
-}
-
-
-
-45% {
-    opacity: 1;
-    transform: translate(-50%, -50%);
-  }
-
-
-  50%{
-  opacity: 0;
-
-
-}
-
-100% {
-  opacity: 0;
-}
-
-`
-
-const animation2LG = keyframes`
-0% {
-opacity: 0;
-transform: translate(-55%, -50%);
-}
-
-5% {
-  opacity: 1;
-  transform: translate(-50%, -50%);
-}
-
-
-
-45% {
-    opacity: 1;
-    transform: translate(-50%, -50%);
-  }
-
-
-  50%{
-  opacity: 0;
-
-
-}
-
-100% {
-  opacity: 0;
-}
-
-`
-
-const animation3 = keyframes`
-0% {
-opacity: 0;
-transform: translate(-60%, -50%);
-}
-
-5% {
-  opacity: 1;
-  transform: translate(-45%, -50%);
-}
-
-
-
-45% {
-    opacity: 1;
-    transform: translate(-45%, -50%);
-  }
-
-
-  50%{
-  opacity: 0;
-
-
-}
-
-100% {
-  opacity: 0;
-}
-
-`
-
-const animation3LG = keyframes`
-0% {
-opacity: 0;
-transform: translate(-48%, -50%);
-}
-
-5% {
-  opacity: 1;
-  transform: translate(-43%, -50%);
-}
-
-
-
-45% {
-    opacity: 1;
-    transform: translate(-43%, -50%);
-  }
-
-
-  50%{
-  opacity: 0;
-
-
-}
-
-100% {
-  opacity: 0;
-}
-
-`
-
 type Props = {
-  img: Image
+  imgCar: Image
+  imgMotor: Image
 }
 
 const Header = styled.header`
@@ -220,6 +45,18 @@ const ImgWrapper = styled.div`
   .gatsby-image-wrapper {
     height: 100%;
     max-height: 100%;
+  }
+
+  .motor-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    animation: ${animationOPACITY} 5s linear 2.5s infinite;
+
+    img {
+      object-position: 50% 40% !important;
+    }
   }
 `
 
@@ -362,14 +199,27 @@ const StyledButton = styled(Button)`
   }
 `
 
-const Hero: React.FC<Props> = ({ img }) => {
+const Hero: React.FC<Props> = ({ imgCar, imgMotor }) => {
   const { openModalForm } = useContext(NavigationContext)
 
   return (
     <Header>
       <ImgWrapper>
-        <LazyImage src={img.src} alt={img.alt} loading="eager" />
+        <LazyImage
+          className="car-img"
+          src={imgCar.src}
+          alt={imgCar.alt}
+          loading="eager"
+        />
+        <LazyImage
+          className="motor-img"
+          src={imgMotor.src}
+          alt={imgMotor.alt}
+          loading="eager"
+        />
       </ImgWrapper>
+      {/* <ImgWrapperAnimated></ImgWrapperAnimated> */}
+
       <StyledContainer>
         <StyledHeading
           size={46}
