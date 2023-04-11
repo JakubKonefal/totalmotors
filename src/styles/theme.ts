@@ -68,7 +68,7 @@ export const container: Container = {
 
 export const navbar: Navbar = {
   height: '70px',
-  heightLG: '75px',
+  heightLG: '90px',
 }
 
 const theme = {

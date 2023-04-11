@@ -32,6 +32,7 @@ const Header = styled.header`
 
   ${({ theme }) => theme.media.lg.min} {
     margin-top: ${({ theme }) => theme.navbar.heightLG};
+    margin-top: 0;
     margin-bottom: calc(${({ theme }) => theme.container.marginLG} + 35px);
   }
 `
@@ -40,7 +41,7 @@ const ImgWrapper = styled.div`
   position: relative;
   width: 100%;
   height: calc(100vh - ${({ theme }) => theme.navbar.height});
-  max-height: 700px;
+  height: 100vh;
 
   .gatsby-image-wrapper {
     height: 100%;
@@ -57,6 +58,10 @@ const ImgWrapper = styled.div`
     img {
       object-position: 50% 40% !important;
     }
+  }
+
+  ${({ theme }) => theme.media.lg.min} {
+    /* height: calc(100vh - ${({ theme }) => theme.navbar.heightLG}); */
   }
 `
 

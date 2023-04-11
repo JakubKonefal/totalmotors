@@ -193,14 +193,17 @@ const Footer = () => {
                 />
                 Tel.: 668 074 853
               </ButtonLink>
-              <ButtonLink href="mailto: danielsynos@gmail.com" role="button">
+              <ButtonLink
+                href="mailto: biuro@sprzedamtwojsamochod.pl"
+                role="button"
+              >
                 <Icon
                   className="button-link-icon"
                   src={emailIcon}
                   size={26}
                   alt="email"
                 />
-                danielsynos@gmail.com
+                biuro@sprzedamtwojsamochod.pl
               </ButtonLink>
               {/* <SocialMedia>
                 <a
