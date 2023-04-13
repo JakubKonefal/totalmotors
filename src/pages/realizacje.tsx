@@ -1,6 +1,8 @@
 import * as React from 'react'
 import { graphql, PageProps } from 'gatsby'
 
+import { seoProps } from 'constants/seoProps'
+
 import SEO from 'components/shared/SEO'
 
 import Layout from 'components/layout'
@@ -178,7 +180,7 @@ const RealizacjePage: React.FC<PageProps<Queries.RealizacjePageQuery>> = ({
   return (
     <Layout>
       <SEO
-        title={'Daniel Synoś Cars | Realizacje'}
+        title={`${seoProps.brandName} | Realizacje`}
         description={''}
         // ogTitle={opengraphTitle}
         // ogDescription={opengraphDescription}

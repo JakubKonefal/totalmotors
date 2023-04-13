@@ -1,6 +1,8 @@
 import * as React from 'react'
 import { graphql, PageProps } from 'gatsby'
 
+import { seoProps } from 'constants/seoProps'
+
 import Layout from 'components/layout'
 import SEO from 'components/shared/SEO'
 import Navigation from 'components/layout/Navigation'
@@ -164,7 +166,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
   return (
     <Layout>
       <SEO
-        title={'Daniel Synoś Cars | Strona główna'}
+        title={`${seoProps.brandName} | Strona główna`}
         description={''}
         // ogTitle={opengraphTitle}
         // ogDescription={opengraphDescription}

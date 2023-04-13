@@ -2,6 +2,8 @@ import { Text } from 'components/shared/typography'
 import React from 'react'
 import styled from 'styled-components'
 
+import { seoProps } from 'constants/seoProps'
+
 import Container from 'components/shared/container'
 
 import phone1Icon from 'assets/icons/phone-1.svg'
@@ -205,37 +207,7 @@ const Footer = () => {
                 />
                 biuro@sprzedamtwojsamochod.pl
               </ButtonLink>
-              {/* <SocialMedia>
-                <a
-                  href="https://facebook.com"
-                  rel="noopener noreferrer nofollow"
-                  role="button"
-                >
-                  <Icon src={facebookIcon} size={30} alt="facebook" />
-                </a>
-                <a
-                  href="https://instagram.com"
-                  rel="noopener noreferrer nofollow"
-                  role="button"
-                >
-                  <Icon src={instagramIcon} size={30} alt="instagram" />
-                </a>
-              </SocialMedia> */}
             </TopGridItem>
-
-            {/* <TopGridItem>
-              <Text
-                size={xl ? 21 : 19}
-                weight={600}
-                margin="16px"
-                themecolor="white"
-              >
-                Adres
-              </Text>
-              <Text size={16} weight={300} line={2} themecolor="gray500">
-                Ul. Podkarpacka 1/1 <br /> Rzeszów <br /> 35-555
-              </Text>
-            </TopGridItem> */}
           </TopGrid>
         </Container>
       </TopWrapper>
@@ -254,7 +226,8 @@ const Footer = () => {
               <Icon src={facebookIcon} size={30} alt="facebook" />
             </a>
             <a
-              href="https://instagram.com"
+              href={seoProps.instagramLink}
+              target="blank"
               rel="noopener noreferrer nofollow"
               role="button"
             >
