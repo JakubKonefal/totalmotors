@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
 import { NavigationContext } from 'contexts/NavigationContext'
 
 import Container from 'components/shared/container'
@@ -16,12 +16,20 @@ import {
   animation3LG,
   animationOPACITY,
 } from 'constants/hero-animations'
+import useSlider from 'utils/useSlider'
 
 import type { Image } from 'types/image'
+
+export type HeroSlide = {
+  heading: string
+  subheading: string
+  img: Image
+}
 
 type Props = {
   imgCar: Image
   imgMotor: Image
+  slides?: HeroSlide[]
 }
 
 const Header = styled.header`
@@ -204,8 +212,9 @@ const StyledButton = styled(Button)`
   }
 `
 
-const Hero: React.FC<Props> = ({ imgCar, imgMotor }) => {
+const Hero: React.FC<Props> = ({ imgCar, imgMotor, slides }) => {
   const { openModalForm } = useContext(NavigationContext)
+  const { activeSlide, goNext, goPrev } = useSlider([slides])
 
   return (
     <Header>

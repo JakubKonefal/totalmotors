@@ -142,6 +142,25 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
     },
   ]
 
+  const SLIDES = [
+    {
+      heading: 'Heading 1',
+      subheading: 'Subheading 1',
+      img: {
+        src: data?.heroMC?.childImageSharp?.gatsbyImageData!,
+        alt: 'hero1',
+      },
+    },
+    {
+      heading: 'Heading 2',
+      subheading: 'Subheading 2',
+      img: {
+        src: data?.motorYamahaHERO?.childImageSharp?.gatsbyImageData!,
+        alt: 'hero1',
+      },
+    },
+  ]
+
   return (
     <Layout>
       <SEO
@@ -166,6 +185,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
             src: data?.motorYamahaHERO?.childImageSharp?.gatsbyImageData!,
             alt: 'hero1',
           }}
+          slides={SLIDES}
         />
         <About
           heading="Pomoc w sprzedaży pojazdu"
