@@ -9,6 +9,7 @@ import Navigation from 'components/layout/Navigation'
 import ModalForm from 'components/layout/ModalForm'
 
 import Hero from 'components/layout/Hero'
+import HomeHeader from 'components/layout/HomeHeader/HomeHeader'
 import About from 'components/layout/About'
 import LatestRealisations from 'components/layout/LatestRealisations'
 import Benefits from 'components/layout/Benefits'
@@ -146,28 +147,25 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
 
   const SLIDES = [
     {
-      heading: 'Heading 1',
-      subheading: 'Subheading 1',
-      img: {
-        src: data?.heroMC?.childImageSharp?.gatsbyImageData!,
-        alt: 'hero1',
-      },
+      title: 'Sprzedaj <span>swój</span> <br/> samochód',
+      subtitle:
+        'Pomożemy sprzedać ci samochód, <br/> lub odkupimy go od Ciebie!',
+      src: data?.heroMC?.childImageSharp?.gatsbyImageData!,
+      alt: 'car',
     },
     {
-      heading: 'Heading 2',
-      subheading: 'Subheading 2',
-      img: {
-        src: data?.motorYamahaHERO?.childImageSharp?.gatsbyImageData!,
-        alt: 'hero1',
-      },
+      title: 'Sprzedaj <span>swój</span> <br/> motocykl',
+      subtitle:
+        'Pomożemy sprzedać ci mototcykl, <br/> lub odkupimy go od Ciebie!',
+      src: data?.motorYamahaHERO?.childImageSharp?.gatsbyImageData!,
+      alt: 'motobike',
     },
     {
-      heading: 'Heading 2',
-      subheading: 'Subheading 2',
-      img: {
-        src: data?.purchaseHERO?.childImageSharp?.gatsbyImageData!,
-        alt: 'hero1',
-      },
+      title: 'Lorem <span>ipsum</span> <br/> dolor sit amet',
+      subtitle:
+        'Lorem  ipsum dolor sit amet <br/> consectetur adispicing elit.',
+      src: data?.purchaseHERO?.childImageSharp?.gatsbyImageData!,
+      alt: 'car-on-platform',
     },
   ]
 
@@ -186,7 +184,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
       <Navigation />
       <ModalForm />
       <main>
-        <Hero
+        {/* <Hero
           imgCar={{
             src: data?.heroMC?.childImageSharp?.gatsbyImageData!,
             alt: 'hero1',
@@ -199,6 +197,12 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
             src: data?.purchaseHERO?.childImageSharp?.gatsbyImageData!,
             alt: 'hero1',
           }}
+        /> */}
+        <HomeHeader
+          slides={SLIDES}
+          scrollDown="#investments"
+          // btnLink={activeLink}
+          btnText={'BTN TEXT'}
         />
         <About
           heading="Pomoc w sprzedaży pojazdu"

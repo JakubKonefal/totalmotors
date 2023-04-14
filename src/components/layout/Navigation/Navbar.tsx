@@ -23,7 +23,7 @@ const TopnavWrapper = styled.nav<{ active?: boolean }>`
   align-items: center;
   height: ${({ theme }) => theme.navbar.height};
   width: 100%;
-  background-color: #ffffffef;
+  background-color: #ffffffe2;
   box-shadow: 1px 1px 15px 4px #6262622b;
   transition: 350ms ease-in-out;
   z-index: 999;
