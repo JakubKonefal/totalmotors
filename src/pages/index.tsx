@@ -161,6 +161,14 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
         alt: 'hero1',
       },
     },
+    {
+      heading: 'Heading 2',
+      subheading: 'Subheading 2',
+      img: {
+        src: data?.purchaseHERO?.childImageSharp?.gatsbyImageData!,
+        alt: 'hero1',
+      },
+    },
   ]
 
   return (
@@ -187,7 +195,10 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
             src: data?.motorYamahaHERO?.childImageSharp?.gatsbyImageData!,
             alt: 'hero1',
           }}
-          slides={SLIDES}
+          imgPurchase={{
+            src: data?.purchaseHERO?.childImageSharp?.gatsbyImageData!,
+            alt: 'hero1',
+          }}
         />
         <About
           heading="Pomoc w sprzedaży pojazdu"
@@ -258,6 +269,15 @@ export const query = graphql`
       }
     }
     motorYamahaHERO: file(name: { eq: "motor-yamaha-3" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1920
+          placeholder: DOMINANT_COLOR
+          formats: [AUTO, WEBP]
+        )
+      }
+    }
+    purchaseHERO: file(name: { eq: "purchase" }) {
       childImageSharp {
         gatsbyImageData(
           width: 1920
