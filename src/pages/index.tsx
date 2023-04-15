@@ -161,7 +161,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
       alt: 'motobike',
     },
     {
-      title: 'Lorem <span>ipsum</span> <br/> dolor sit amet',
+      title: 'Kupimy <span>go</span> <br/> od Ciebie',
       subtitle:
         'Lorem  ipsum dolor sit amet <br/> consectetur adispicing elit.',
       src: data?.purchaseHERO?.childImageSharp?.gatsbyImageData!,

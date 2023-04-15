@@ -8,7 +8,7 @@ import Container from 'components/shared/container'
 import Icon from 'components/shared/icon'
 import { Text } from 'components/shared/typography'
 
-import exampleLogo from 'assets/icons/logo-placeholder.svg'
+import sprzedamLogo from 'assets/icons/logonew.svg'
 import phone1Icon from 'assets/icons/phone-1-dark.svg'
 import emailIcon from 'assets/icons/mail-dark.svg'
 
@@ -152,6 +152,8 @@ const Logo = styled.a`
     justify-content: center;
   } */
 
+  width: 200px;
+  height: 60px;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -162,6 +164,14 @@ const Logo = styled.a`
   text-transform: uppercase;
 
   color: ${({ theme }) => theme.colors.white};
+
+  div {
+    display: flex;
+  }
+
+  img {
+    object-fit: cover !important;
+  }
 
   span {
     color: ${({ theme }) => theme.colors.tertiary};
@@ -230,8 +240,8 @@ const Topnav = () => {
     <TopnavWrapper active={!isHidden}>
       <StyledContainer fullHeight>
         <Logo href="/">
-          sprzedam <br /> twój <span>samochód</span>.pl
-          {/* <Icon src={exampleLogo} alt="matexi" width={lg ? 120 : 110} /> */}
+          {/* sprzedam <br /> twój <span>samochód</span>.pl */}
+          <Icon src={sprzedamLogo} alt="matexi" auto />
         </Logo>
 
         {/* <InnerWrapper> */}
