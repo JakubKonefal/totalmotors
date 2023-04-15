@@ -16,10 +16,12 @@ type Props = {
 const StyledHeader = styled.header`
   position: relative;
 
-  margin-top: ${({ theme }) => theme.navbar.height};
+  /* margin-top: ${({ theme }) => theme.navbar.height}; */
+  margin-top: 0;
 
   ${({ theme }) => theme.media.lg.min} {
-    margin-top: ${({ theme }) => theme.navbar.heightLG};
+    /* margin-top: ${({ theme }) => theme.navbar.heightLG}; */
+    margin-top: 0;
   }
 `
 
@@ -34,9 +36,9 @@ const ImgWrapper = styled.div`
   }
 
   ${({ theme }) => theme.media.lg.min} {
-    height: calc(60vh - ${({ theme }) => theme.navbar.heightLG});
+    height: calc(70vh - ${({ theme }) => theme.navbar.heightLG});
     img {
-      object-position: 50% 70% !important;
+      object-position: 50% 54% !important;
     }
   }
 `

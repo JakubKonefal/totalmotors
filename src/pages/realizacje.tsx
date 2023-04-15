@@ -226,7 +226,7 @@ export default RealizacjePage
 
 export const query = graphql`
   query RealizacjePage {
-    hero: file(name: { eq: "warsztat-4" }) {
+    hero: file(name: { eq: "hero-5" }) {
       childImageSharp {
         gatsbyImageData(
           width: 1920
