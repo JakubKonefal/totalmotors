@@ -6,11 +6,10 @@ import { NavigationContext } from 'contexts/NavigationContext'
 import Icon from 'components/shared/icon'
 import { Text } from 'components/shared/typography'
 
-import exampleLogo from 'assets/icons/logo-placeholder.svg'
+import exampleLogo from 'assets/icons/logov6.svg'
 import closeIcon from 'assets/icons/close.svg'
 
 import { NAVIGATION_LINKS } from 'constants/links'
-import scrollToSection from 'utils/scrollToSection'
 
 const SidenavWrapper = styled.nav`
   position: fixed;
@@ -68,7 +67,7 @@ const NavHeading = styled.div`
   width: 100%;
   position: relative;
   padding: 75px 10px 40px 20px;
-  border-bottom: 2px solid rgb(251, 209, 178);
+  border-bottom: 2px solid #80808070;
 `
 
 const Logo = styled.a`
@@ -125,7 +124,7 @@ const Sidenav: React.FC = () => {
       <SidenavWrapper>
         <NavHeading>
           <Logo href="/">
-            <Icon src={exampleLogo} alt="matexi" width={160} />
+            <Icon src={exampleLogo} alt="matexi" width={220} />
           </Logo>
           <CloseBtn type="button" aria-label="close" onClick={closeSidenav}>
             <Icon src={closeIcon} alt="close" size={34} />

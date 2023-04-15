@@ -166,9 +166,9 @@ const ButtonContainer = styled(Container)`
 const StyledButton = styled(Button)`
   display: block;
   margin-inline: auto;
-  width: 185px;
+  width: 180px;
   height: 45px;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   letter-spacing: 0.5px;
   text-transform: uppercase;
@@ -203,7 +203,7 @@ const HomeHeader = ({ slides }) => {
                 <TitleWrapper isActive={activeSlide === index} openDays>
                   <StyledContainer id="title-container">
                     <StyledHeading
-                      size={46}
+                      size={42}
                       themecolor="white"
                       align="center"
                       transform="uppercase"
