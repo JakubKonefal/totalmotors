@@ -214,12 +214,12 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
             alt: 'warsztat',
           }}
           heading="Dlaczego My"
-          description="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem exercitationem aliquid cum consequatur! Similique optio sequi quod voluptates quas temporibus dignissimos dolores minus, praesentium perspiciatis, eveniet molestiae quia exercitationem ducimus nostrum repellat, repellendus cum quae fuga deleniti accusamus adipisci? Quam eius doloremque saepe ullam dolor corrupti iste quis veritatis magni."
+          description=""
           benefits={BENEFITS}
         />
         <Testimonials
           heading="Opinie klientów"
-          description="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem exercitationem aliquid cum consequatur! Similique optio sequi quod voluptates quas temporibus dignissimos dolores minus, praesentium perspiciatis, eveniet molestiae quia exercitationem ducimus nostrum repellat, repellendus cum quae fuga deleniti accusamus adipisci? Quam eius doloremque saepe ullam dolor corrupti iste quis veritatis magni"
+          description="Opinie naszych zadowolonych klientów, którzy skorzystali z naszych usług"
           testimonials={TESTIMONIALS}
         />
         {/* <ContactUsCTA /> */}
