@@ -67,7 +67,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
         src: data?.mcAMG?.childImageSharp?.gatsbyImageData!,
         alt: 'car3',
       },
-      title: 'Mercedes AMG',
+      title: 'Mercedes CLA 45 AMG',
       desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
     },
     {
@@ -99,7 +99,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
         src: data?.motorCross?.childImageSharp?.gatsbyImageData!,
         alt: 'car3',
       },
-      title: 'Cross',
+      title: 'PITBIKE 190cc',
       desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
     },
     {
@@ -107,7 +107,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
         src: data?.motorYamaha?.childImageSharp?.gatsbyImageData!,
         alt: 'car3',
       },
-      title: 'Yamaha',
+      title: 'Yamaha YZF-R125',
       desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
     },
   ]

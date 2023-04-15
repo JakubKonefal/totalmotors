@@ -58,6 +58,7 @@ const ImgWrapper = styled.div`
 `
 
 const Card = styled.article<{ hoverable: boolean }>`
+  width: 100%;
   border-radius: 8px;
   overflow: hidden;
 
@@ -129,9 +130,9 @@ const RealisationCard: React.FC<RealisationSingle> = ({
       >
         <LazyImage src={img.src} alt={img.alt} />
       </ImgWrapper>
-      <DescriptionWrapper>
+      {/* <DescriptionWrapper>
         <Text size={lg ? 14 : 13} dangerouslySetInnerHTML={{ __html: desc }} />
-      </DescriptionWrapper>
+      </DescriptionWrapper> */}
     </Card>
   )
 }
