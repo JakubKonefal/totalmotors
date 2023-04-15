@@ -37,6 +37,7 @@ export type Colors = {
   black100: CSSProperties['color']
   white: CSSProperties['color']
   danger: CSSProperties['color']
+  success: CSSProperties['color']
 }
 
 export type Fonts = {

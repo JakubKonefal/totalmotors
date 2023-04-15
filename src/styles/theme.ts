@@ -40,6 +40,7 @@ export const colors: Colors = {
   black100: '#222121',
   white: '#FFFFFF',
   danger: '#CA0F0F',
+  success: '#00d23d',
 }
 
 export const fonts: Fonts = {
