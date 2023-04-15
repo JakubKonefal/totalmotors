@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import Container from 'components/shared/container'
 import Icon from 'components/shared/icon'
 import LazyImage from 'components/shared/lazyImage'
-import { Text } from 'components/shared/typography'
+import { Heading, Text } from 'components/shared/typography'
 
 import heartIcon from 'assets/icons/heart-2.svg'
 import experienceIcon from 'assets/icons/experience-2.svg'
@@ -54,7 +54,26 @@ type Props = {
 
 const Section = styled.section`
   margin-bottom: ${({ theme }) => theme.container.marginSM};
+
+  ${Heading} {
+    width: 100%;
+  }
+
+  .heading-container {
+    max-width: 515px;
+  }
+
   ${({ theme }) => theme.media.lg.min} {
+    .heading-container {
+      max-width: ${({ theme }) =>
+        `calc(${theme.container.widthXL} + (${theme.container.padding} * 2))`};
+
+      ${({ theme }) => theme.media.xxl.max} {
+        max-width: ${({ theme }) =>
+          `calc(${theme.container.width} + (${theme.container.padding} * 2))`};
+      }
+    }
+
     margin-bottom: ${({ theme }) => theme.container.marginLG};
   }
 `
@@ -87,7 +106,10 @@ const ImgWrapper = styled.div`
 `
 
 const Content = styled.div`
+  width: 100%;
+
   ${({ theme }) => theme.media.lg.min} {
+    height: 100%;
     order: 1;
   }
 `
@@ -104,7 +126,7 @@ const BenefitsList = styled.div`
 
   ${({ theme }) => theme.media.lg.min} {
     display: grid;
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     column-gap: 15px;
     align-items: flex-start;
     justify-content: flex-start;
@@ -127,6 +149,21 @@ const BenefitItem = styled.div`
 
   ${Text} {
     text-align: center;
+  }
+
+  .title {
+    color: ${({ theme }) => theme.colors.primary200} !important;
+  }
+
+  ${({ theme }) => theme.media.lg.min} {
+    .title {
+      font-size: 1.325rem;
+      color: ${({ theme }) => theme.colors.primary200} !important;
+    }
+
+    .desc {
+      font-size: 1rem;
+    }
   }
 
   ${({ theme }) => theme.media.lg.min} {
@@ -161,18 +198,17 @@ const Benefits: React.FC<Props> = ({ img, heading, description, benefits }) => {
 
   return (
     <Section>
+      <Container className="heading-container">
+        <Heading
+          as="h2"
+          size={30}
+          margin={lg ? '40px' : '20px'}
+          align="left"
+          dangerouslySetInnerHTML={{ __html: heading }}
+        />
+      </Container>
       <StyledContainer>
         <Content>
-          {/* <Heading
-            as="h1"
-            size={30}
-            margin="10px"
-            dangerouslySetInnerHTML={{ __html: heading }}
-          />
-          <Text
-            size={lg ? 15 : 14}
-            dangerouslySetInnerHTML={{ __html: description }}
-          /> */}
           {lg && (
             <BenefitsList>
               {benefits.map(({ title, desc }, index) => (
@@ -184,6 +220,7 @@ const Benefits: React.FC<Props> = ({ img, heading, description, benefits }) => {
                   />
                   <BenefitItemTextContent>
                     <Text
+                      className="title"
                       size={18}
                       weight={700}
                       themecolor="primary200"
@@ -191,6 +228,7 @@ const Benefits: React.FC<Props> = ({ img, heading, description, benefits }) => {
                       dangerouslySetInnerHTML={{ __html: title }}
                     />
                     <Text
+                      className="desc"
                       size={14}
                       themecolor="black"
                       dangerouslySetInnerHTML={{ __html: desc }}
@@ -214,6 +252,7 @@ const Benefits: React.FC<Props> = ({ img, heading, description, benefits }) => {
                   alt={getIcon(index).alt}
                 />
                 <Text
+                  className="title"
                   size={18}
                   weight={700}
                   themecolor="black"
@@ -221,7 +260,8 @@ const Benefits: React.FC<Props> = ({ img, heading, description, benefits }) => {
                   dangerouslySetInnerHTML={{ __html: title }}
                 />
                 <Text
-                  size={12}
+                  className="desc"
+                  size={13}
                   themecolor="black"
                   dangerouslySetInnerHTML={{ __html: desc }}
                 />

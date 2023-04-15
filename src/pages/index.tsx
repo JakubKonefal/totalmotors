@@ -49,15 +49,15 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
   const BENEFITS: Benefit[] = [
     {
       title: 'Pasja',
-      desc: 'Motoryzacja od lat stanowi moją pasję, przez co wkładam całe serce w prygotowanie pojazdu oraz dopięcie transakcji. Z tego powodu posiadam także dobrą znajomość rynku oraz trendów w motoryzacji.',
+      desc: 'Motoryzacja od lat stanowi naszą pasję, przez co wkładamy całe serce w prygotowanie pojazdu oraz dopięcie transakcji. Z tego powodu posiadamy także dobrą znajomość rynku oraz trendów w motoryzacji.',
     },
+    // {
+    //   title: '',
+    //   desc: '',
+    // },
     {
-      title: 'Doświadczenie',
-      desc: 'Przez lata prywatnej jak i zawodowej działalności przeprowadziałem wiele procesów sprzedażowych i pracowałem z różnymi typami pojazdów. W tym czasie uzyskałem sieć parterów bizesowych, która ciągle rośnie.',
-    },
-    {
-      title: 'Warsztat',
-      desc: 'Mam do dyspozycji warsztat samochodowy ze stacją diagnostyczną, oraz uprawnienia diagnosty.',
+      title: 'Komplekls samochodowy',
+      desc: 'Mamy do dyspozycji warsztat samochodowy ze stacją diagnostyczną, oraz pomoc drogową.',
     },
   ]
 
@@ -199,7 +199,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
         <About
           heading="Pomoc w sprzedaży pojazdu"
           description="Chcesz sprzedać swój pojazd, ale nie wiesz jak się za to zabrać?
-          Nie masz czasu na spotkania z klientami? Masz nietypowy samochód? Z nami sprzedaż go szybciej niż myślisz! Doświadczenie w branży pozwala nam na nawet 4 razy szybszą sprzedaż samochodu niż przeciętnemu użytkownikowi.
+          Nie masz czasu na spotkania z klientami? Masz nietypowy samochód? Z nami sprzedaż go szybciej niż myślisz! Doświadczenie w branży pozwala nam na nawet 4 razy szybszą sprzedaż.
           Dzięki nam nie musisz poświęcać czasu na żmudny proces sprzedaży, a dzięki dobrze wynegocjowanej cenie sprzedaży zwracają Ci się koszty całej usługi! Posiadam uprawnienia diagnosty, warsztat samochodowy oraz ekipę mechaników do dyspozycji."
           steps={SERVICE_STEPS}
         />
@@ -213,7 +213,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
             src: data?.warsztat1?.childImageSharp?.gatsbyImageData!,
             alt: 'warsztat',
           }}
-          heading="Dlaczego My"
+          heading="Dlaczego My?"
           description=""
           benefits={BENEFITS}
         />

@@ -16,9 +16,25 @@ type Props = {
 }
 
 const Section = styled.section`
-  margin-bottom: ${({ theme }) => theme.container.marginSM};
+  position: relative;
+  margin-bottom: calc(${({ theme }) => theme.container.marginSM} * 2);
+
+  ${Container} {
+    &:after {
+      content: '';
+      position: absolute;
+      display: block;
+      bottom: -${({ theme }) => theme.container.marginSM};
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - ${({ theme }) => theme.container.marginSM});
+      height: 2px;
+      background-color: #00000021;
+    }
+  }
+
   ${({ theme }) => theme.media.lg.min} {
-    margin-bottom: ${({ theme }) => theme.container.marginLG};
+    /* margin-bottom: calc(${({ theme }) => theme.container.marginLG} * 2); */
   }
 `
 
