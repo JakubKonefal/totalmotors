@@ -159,7 +159,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
       alt: 'motobike',
     },
     {
-      title: 'Kupimy <span>go</span> <br/> od Ciebie',
+      title: 'Kupimy <span>go <br/> od </span> Ciebie',
       subtitle: '',
       src: data?.purchaseHERO?.childImageSharp?.gatsbyImageData!,
       alt: 'car-on-platform',

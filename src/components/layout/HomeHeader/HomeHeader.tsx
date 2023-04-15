@@ -15,7 +15,7 @@ const Wrapper = styled.div`
   width: 100%;
   margin-top: 0;
   margin-bottom: ${({ theme }) => theme.container.marginSM};
-  height: calc(100vh - ${({ theme }) => theme.navbar.height});
+  height: 100vh;
 
   ${({ theme }) => theme.media.lg.min} {
     height: 100vh;
@@ -93,9 +93,9 @@ const Slide = styled.div`
 
 const TitleWrapper = styled.div`
   position: absolute;
-  top: 25%;
-  left: 0;
-  transform: translateX(1%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-45%, -50%);
   opacity: 0;
   z-index: 3;
   width: 100%;
@@ -112,7 +112,7 @@ const TitleWrapper = styled.div`
     css`
       visibility: visible;
       opacity: 1;
-      transform: translateX(0%);
+      transform: translate(-50%, -50%);
       transition-delay: 0.4s;
     `}
 
@@ -126,7 +126,7 @@ const TitleWrapper = styled.div`
 const StyledHeading = styled(Heading)`
   position: relative;
   font-family: 'Montserrat';
-  margin-bottom: 15px;
+  /* margin-bottom: 15px; */
   letter-spacing: 1px;
 
   span {
@@ -159,8 +159,10 @@ const ButtonContainer = styled(Container)`
 `
 
 const StyledButton = styled(Button)`
-  width: 200px;
-  height: 50px;
+  display: block;
+  margin-inline: auto;
+  width: 185px;
+  height: 45px;
   font-size: 18px;
   font-weight: 600;
   letter-spacing: 0.5px;
@@ -179,6 +181,15 @@ const HomeHeader = ({ slides }) => {
           {slides.map(({ src, alt, title, subtitle }, index) => {
             return (
               <Slide key={index}>
+                <ImageWrapper isActive={activeSlide === index}>
+                  <LazyImage
+                    src={src}
+                    alt={alt || `hero image ${index}`}
+                    cover
+                    loading="eager"
+                  />
+                </ImageWrapper>
+
                 <TitleWrapper isActive={activeSlide === index} openDays>
                   <StyledContainer id="title-container">
                     <StyledHeading
@@ -189,30 +200,25 @@ const HomeHeader = ({ slides }) => {
                       dangerouslySetInnerHTML={{ __html: title }}
                     />
 
-                    <Text
+                    {/* <Text
                       size={20}
                       themecolor="white"
                       align="center"
                       dangerouslySetInnerHTML={{ __html: subtitle }}
-                    />
+                    /> */}
                   </StyledContainer>
+                  <StyledButton type="button" onClick={openModalForm}>
+                    kontakt
+                  </StyledButton>
                 </TitleWrapper>
-                <ImageWrapper isActive={activeSlide === index}>
-                  <LazyImage
-                    src={src}
-                    alt={alt || `hero image ${index}`}
-                    cover
-                    loading="eager"
-                  />
-                </ImageWrapper>
               </Slide>
             )
           })}
-          <ButtonContainer>
+          {/* <ButtonContainer>
             <StyledButton type="button" onClick={openModalForm}>
               kontakt
             </StyledButton>
-          </ButtonContainer>
+          </ButtonContainer> */}
         </SlideInnerWrapper>
       </SlideWrapper>
     </Wrapper>
