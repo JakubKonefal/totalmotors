@@ -52,7 +52,7 @@ const RealizacjePage: React.FC<PageProps<Queries.RealizacjePageQuery>> = ({
         src: data?.honda?.childImageSharp?.gatsbyImageData!,
         alt: 'car3',
       },
-      title: 'Honda',
+      title: 'Honda Accord Coupe',
       desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
     },
     {
@@ -60,7 +60,7 @@ const RealizacjePage: React.FC<PageProps<Queries.RealizacjePageQuery>> = ({
         src: data?.wolga?.childImageSharp?.gatsbyImageData!,
         alt: 'carx',
       },
-      title: 'Wołga',
+      title: 'Wołga GAZ 21 - 1964r.',
       desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
     },
     {
@@ -84,7 +84,7 @@ const RealizacjePage: React.FC<PageProps<Queries.RealizacjePageQuery>> = ({
         src: data?.mcAMG?.childImageSharp?.gatsbyImageData!,
         alt: 'car3',
       },
-      title: 'Mercedes AMG',
+      title: 'Mercedes CLA 45 AMG',
       desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
     },
     {
@@ -92,7 +92,7 @@ const RealizacjePage: React.FC<PageProps<Queries.RealizacjePageQuery>> = ({
         src: data?.motorCagiva?.childImageSharp?.gatsbyImageData!,
         alt: 'car3',
       },
-      title: 'Cagiva',
+      title: 'Cagiva Planet',
       desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
     },
     {
@@ -100,7 +100,7 @@ const RealizacjePage: React.FC<PageProps<Queries.RealizacjePageQuery>> = ({
         src: data?.motorCross?.childImageSharp?.gatsbyImageData!,
         alt: 'car3',
       },
-      title: 'Cross',
+      title: 'PITBIKE 190cc',
       desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
     },
     {
@@ -108,7 +108,7 @@ const RealizacjePage: React.FC<PageProps<Queries.RealizacjePageQuery>> = ({
         src: data?.motorHonda?.childImageSharp?.gatsbyImageData!,
         alt: 'car3',
       },
-      title: 'Honda',
+      title: 'Honda CBF 125',
       desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
     },
     {
@@ -116,7 +116,7 @@ const RealizacjePage: React.FC<PageProps<Queries.RealizacjePageQuery>> = ({
         src: data?.motorKawasaki?.childImageSharp?.gatsbyImageData!,
         alt: 'car3',
       },
-      title: 'Kawasaki',
+      title: 'Kawasaki ER-6N',
       desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
     },
     {
@@ -124,7 +124,7 @@ const RealizacjePage: React.FC<PageProps<Queries.RealizacjePageQuery>> = ({
         src: data?.motorKeeway?.childImageSharp?.gatsbyImageData!,
         alt: 'car3',
       },
-      title: 'Keeway',
+      title: 'Keeway Superlight 125',
       desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
     },
     {
@@ -132,7 +132,7 @@ const RealizacjePage: React.FC<PageProps<Queries.RealizacjePageQuery>> = ({
         src: data?.motorYamaha2?.childImageSharp?.gatsbyImageData!,
         alt: 'car3',
       },
-      title: 'Yamaha',
+      title: 'Yamaha YS 125',
       desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
     },
     {
@@ -140,7 +140,7 @@ const RealizacjePage: React.FC<PageProps<Queries.RealizacjePageQuery>> = ({
         src: data?.motorYamaha?.childImageSharp?.gatsbyImageData!,
         alt: 'car3',
       },
-      title: 'Yamaha',
+      title: 'Yamaha YZF-R125',
       desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
     },
     {
@@ -148,7 +148,7 @@ const RealizacjePage: React.FC<PageProps<Queries.RealizacjePageQuery>> = ({
         src: data?.polonez?.childImageSharp?.gatsbyImageData!,
         alt: 'car3',
       },
-      title: 'Polonez',
+      title: 'Polonez Caro - 1993r.',
       desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
     },
     {
@@ -156,7 +156,7 @@ const RealizacjePage: React.FC<PageProps<Queries.RealizacjePageQuery>> = ({
         src: data?.skuterPeugeot?.childImageSharp?.gatsbyImageData!,
         alt: 'car3',
       },
-      title: 'Peugeot',
+      title: 'Peugeot SPEEDFIGHT 4',
       desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
     },
     {
@@ -164,7 +164,7 @@ const RealizacjePage: React.FC<PageProps<Queries.RealizacjePageQuery>> = ({
         src: data?.szGrandVitara?.childImageSharp?.gatsbyImageData!,
         alt: 'car3',
       },
-      title: 'Suzuki',
+      title: 'Suzuki Grand Vitara',
       desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
     },
     {
