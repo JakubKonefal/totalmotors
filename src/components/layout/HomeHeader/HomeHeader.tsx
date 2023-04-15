@@ -96,9 +96,10 @@ const TitleWrapper = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-45%, -50%);
+  width: 100%;
+
   opacity: 0;
   z-index: 3;
-  width: 100%;
   color: #fff;
   transition: 0.7s;
   visibility: hidden;
@@ -116,7 +117,7 @@ const TitleWrapper = styled.div`
       transition-delay: 0.4s;
     `}
 
-  ${({ theme }) => theme.media.lg.min} {
+  ${({ theme }) => theme.media.md.min} {
     ${Text} {
       text-align: left;
     }
@@ -133,6 +134,10 @@ const StyledHeading = styled(Heading)`
     font-family: 'Montserrat';
     font-size: inherit;
     font-weight: 400;
+  }
+
+  ${({ theme }) => theme.media.md.min} {
+    text-align: left;
   }
 
   ${({ theme }) => theme.media.lg.min} {
@@ -168,6 +173,11 @@ const StyledButton = styled(Button)`
   letter-spacing: 0.5px;
   text-transform: uppercase;
   background-color: ${({ theme }) => theme.colors.primary200};
+
+  ${({ theme }) => theme.media.md.min} {
+    margin-inline: 0;
+    margin-right: auto;
+  }
 `
 
 const HomeHeader = ({ slides }) => {
@@ -206,10 +216,10 @@ const HomeHeader = ({ slides }) => {
                       align="center"
                       dangerouslySetInnerHTML={{ __html: subtitle }}
                     /> */}
+                    <StyledButton type="button" onClick={openModalForm}>
+                      kontakt
+                    </StyledButton>
                   </StyledContainer>
-                  <StyledButton type="button" onClick={openModalForm}>
-                    kontakt
-                  </StyledButton>
                 </TitleWrapper>
               </Slide>
             )

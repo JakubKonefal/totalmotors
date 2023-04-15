@@ -154,7 +154,7 @@ const Logo = styled.a`
     justify-content: center;
   } */
   width: 60%;
-  max-width: 420px;
+  max-width: 230px;
   /* height: 60px; */
   position: absolute;
   top: 50%;
