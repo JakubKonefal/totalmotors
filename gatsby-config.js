@@ -108,8 +108,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Kulik Cars`,
-        short_name: `Kulik Cars`,
+        name: `Sprzedamtójsamochód`,
+        short_name: `Sprzedamtójsamochód`,
         start_url: `/`,
         background_color: `#EEEEEE`,
         theme_color: `#2f6fad`,

@@ -23,7 +23,7 @@ const TopnavWrapper = styled.nav<{ active?: boolean }>`
   align-items: center;
   height: ${({ theme }) => theme.navbar.height};
   width: 100%;
-  background-color: #ffffffe2;
+  background-color: #0202028a;
   box-shadow: 1px 1px 15px 4px #6262622b;
   transition: 350ms ease-in-out;
   z-index: 999;
@@ -51,6 +51,7 @@ const StyledContainer = styled(Container)`
   display: flex;
   justify-content: space-between;
   ${({ theme }) => theme.media.lg.min} {
+    position: static;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -69,11 +70,17 @@ const StyledContainerBottom = styled(Container)`
     display: block;
     position: absolute;
     top: 0;
-    left: 50%;
-    width: calc(100% - 64px);
-    transform: translateX(-50%);
+    right: 32px;
+    width: calc(36% - 64px);
+    /* transform: translateX(-50%); */
     height: 1px;
-    background-color: #00000016;
+    background-color: #ffffff75;
+  }
+
+  ${({ theme }) => theme.media.lg.min} {
+    &:after {
+      /* display: none; */
+    }
   }
 `
 
@@ -83,9 +90,13 @@ const ContactLink = styled.a`
   justify-content: center;
 
   svg {
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
     margin-right: 6px;
+  }
+
+  ${Text} {
+    font-size: 0.875rem;
   }
 
   &:hover {
@@ -101,7 +112,7 @@ const ContactLink = styled.a`
   }
 
   ${Text} {
-    color: #353535;
+    color: ${({ theme }) => theme.colors.white};
   }
 
   :first-child {
@@ -131,7 +142,7 @@ const MenuButton = styled.button`
 `
 
 const Logo = styled.a`
-  display: flex;
+  /* display: flex;
   align-items: center;
   justify-content: center;
 
@@ -139,6 +150,21 @@ const Logo = styled.a`
     display: flex;
     align-items: center;
     justify-content: center;
+  } */
+
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 26px;
+  line-height: 1.3;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+
+  color: ${({ theme }) => theme.colors.white};
+
+  span {
+    color: ${({ theme }) => theme.colors.tertiary};
   }
 `
 
@@ -147,16 +173,36 @@ const Links = styled.div`
   align-items: center;
   justify-content: center;
   height: 20px;
+
+  ${({ theme }) => theme.media.lg.min} {
+    margin-left: auto;
+    * {
+      font-size: 0.95rem;
+      color: ${({ theme }) => theme.colors.white};
+    }
+  }
 `
 
-const LinkItem = styled.button`
+const LinkItem = styled.button<{ orange: boolean }>`
   position: relative;
-  height: 100%;
+  /* height: 100%; */
   padding: 0 8px;
 
   :last-child {
     padding-right: 0;
   }
+
+  ${({ orange }) =>
+    orange &&
+    css`
+      ${Text} {
+        background-color: ${({ theme }) => theme.colors.tertiary};
+        padding: 6px 16px;
+        font-weight: 600;
+        border-radius: 10px;
+        /* color: ${({ theme }) => theme.colors.white}; */
+      }
+    `}
 
   &:hover {
     ${Text} {
@@ -184,14 +230,20 @@ const Topnav = () => {
     <TopnavWrapper active={!isHidden}>
       <StyledContainer fullHeight>
         <Logo href="/">
-          <Icon src={exampleLogo} alt="matexi" width={lg ? 120 : 110} />
+          sprzedam <br /> twój <span>samochód</span>.pl
+          {/* <Icon src={exampleLogo} alt="matexi" width={lg ? 120 : 110} /> */}
         </Logo>
 
         {/* <InnerWrapper> */}
         {lg && (
           <Links>
             {NAVIGATION_LINKS.map((link, index) => (
-              <LinkItem as="a" href={link.link} key={`navbar-link-${index}`}>
+              <LinkItem
+                as="a"
+                href={link.link}
+                orange={link.label.toLowerCase().includes('realizacje')}
+                key={`navbar-link-${index}`}
+              >
                 <Text size={xl ? 14 : 14} themecolor="black">
                   {link.label}
                 </Text>
@@ -227,7 +279,7 @@ const Topnav = () => {
             >
               <path
                 d="M20.9995 19.1864V16.4767C21.0105 16.0337 20.858 15.6021 20.5709 15.264C19.7615 14.3106 16.9855 13.7008 15.8851 13.935C15.0274 14.1176 14.4272 14.9788 13.8405 15.5644C11.5747 14.2785 9.69864 12.4062 8.41026 10.1448C8.99696 9.55929 9.85994 8.96036 10.0429 8.10428C10.2772 7.00777 9.66819 4.24949 8.72138 3.43684C8.38835 3.151 7.96253 2.99577 7.52331 3.00009H4.80817C3.77364 3.00106 2.91294 3.92895 3.00713 4.96919C3.00006 13.935 10.0001 21 19.0265 20.9929C20.0723 21.0873 21.0037 20.2223 20.9995 19.1864Z"
-                stroke="#353535"
+                stroke="#ffffff"
                 stroke-width="1.5"
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -247,13 +299,13 @@ const Topnav = () => {
             >
               <path
                 d="M3 8C3 7.06812 3 6.60218 3.15224 6.23463C3.35523 5.74458 3.74458 5.35523 4.23463 5.15224C4.60218 5 5.06812 5 6 5V5H18V5C18.9319 5 19.3978 5 19.7654 5.15224C20.2554 5.35523 20.6448 5.74458 20.8478 6.23463C21 6.60218 21 7.06812 21 8V16C21 16.9319 21 17.3978 20.8478 17.7654C20.6448 18.2554 20.2554 18.6448 19.7654 18.8478C19.3978 19 18.9319 19 18 19V19H6V19C5.06812 19 4.60218 19 4.23463 18.8478C3.74458 18.6448 3.35523 18.2554 3.15224 17.7654C3 17.3978 3 16.9319 3 16V8Z"
-                stroke="#353535"
+                stroke="#ffffff"
                 stroke-width="2"
                 stroke-linejoin="round"
               />
               <path
                 d="M4 6L10.683 11.8476C11.437 12.5074 12.563 12.5074 13.317 11.8476L20 6"
-                stroke="#353535"
+                stroke="#ffffff"
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
