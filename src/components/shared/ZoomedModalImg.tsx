@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import styled, { css } from 'styled-components'
 import LazyImage from 'components/shared/lazyImage'
 import Icon from 'components/shared/icon'
-import closeIcon from 'assets/icons/close-white.svg'
+import closeIcon from 'assets/icons/close.svg'
 import useBreakpoint from 'hooks/useBreakpoint'
 
 import { ImageDataLike } from 'gatsby-plugin-image'
@@ -45,18 +45,26 @@ const InnerWrapper = styled.div`
   height: 90%;
   .gatsby-image-wrapper {
     max-height: 100%;
+    max-width: 890px;
   }
 `
 const CloseButton = styled.button`
-  position: absolute;
-  top: 10px;
-  right: 15px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  z-index: 2;
-  cursor: pointer;
-  transition: 200ms ease-in-out;
+  justify-content: center;
+
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: ${({ theme }) => theme.colors.gray100};
+  border-radius: 50%;
+  padding: 5px;
+
+  z-index: 1;
+
+  &:hover {
+    background: ${({ theme }) => theme.colors.gray200};
+  }
 `
 const ZoomedModalImg: React.FC<Props> = ({ src, modalVisible, closeModal }) => {
   useEffect(() => {
@@ -80,8 +88,8 @@ const ZoomedModalImg: React.FC<Props> = ({ src, modalVisible, closeModal }) => {
       <InnerWrapper ref={imgWrapperRef}>
         <LazyImage src={src} alt="zoomed" objectFit="contain" />
       </InnerWrapper>
-      <CloseButton type="button" onClick={closeModal} aria-label="close">
-        <Icon src={closeIcon} alt="" size={xl ? 30 : 20} />
+      <CloseButton type="button" aria-label="close" onClick={closeModal}>
+        <Icon src={closeIcon} size={20} alt="close" />
       </CloseButton>
     </Overlay>,
     document.body
