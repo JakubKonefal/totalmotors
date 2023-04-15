@@ -141,6 +141,10 @@ const MenuButton = styled.button`
   div:last-child {
     /* margin-bottom: 0; */
   }
+
+  ${({ theme }) => theme.media.lg.min} {
+    display: none;
+  }
 `
 
 const Logo = styled.a`
@@ -181,12 +185,14 @@ const Logo = styled.a`
 `
 
 const Links = styled.div`
-  display: flex;
+  display: none;
+
   align-items: center;
   justify-content: center;
   height: 20px;
 
   ${({ theme }) => theme.media.lg.min} {
+    display: flex;
     margin-left: auto;
     * {
       font-size: 0.95rem;
@@ -255,22 +261,20 @@ const Topnav = () => {
         </Logo>
 
         {/* <InnerWrapper> */}
-        {lg && (
-          <Links>
-            {NAVIGATION_LINKS.map((link, index) => (
-              <LinkItem
-                as="a"
-                href={link.link}
-                blue={link.label.toLowerCase().includes('realizacje')}
-                key={`navbar-link-${index}`}
-              >
-                <Text size={xl ? 14 : 14} themecolor="black">
-                  {link.label}
-                </Text>
-              </LinkItem>
-            ))}
-          </Links>
-        )}
+        <Links>
+          {NAVIGATION_LINKS.map((link, index) => (
+            <LinkItem
+              as="a"
+              href={link.link}
+              blue={link.label.toLowerCase().includes('realizacje')}
+              key={`navbar-link-${index}`}
+            >
+              <Text size={xl ? 14 : 14} themecolor="black">
+                {link.label}
+              </Text>
+            </LinkItem>
+          ))}
+        </Links>
 
         {/* {lg && (
           <CallUsButton href="tel: 733 002 337" role="button">
@@ -279,13 +283,11 @@ const Topnav = () => {
         )} */}
         {/* </InnerWrapper> */}
 
-        {!lg && (
-          <MenuButton type="button" onClick={openSidenav}>
-            <div />
-            <div />
-            <div />
-          </MenuButton>
-        )}
+        <MenuButton type="button" onClick={openSidenav}>
+          <div />
+          <div />
+          <div />
+        </MenuButton>
       </StyledContainer>
       {lg && (
         <StyledContainerBottom>
