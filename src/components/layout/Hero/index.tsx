@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
 import { NavigationContext } from 'contexts/NavigationContext'
 
 import Container from 'components/shared/container'
@@ -15,13 +15,24 @@ import {
   animation3,
   animation3LG,
   animationOPACITY,
+  animationOPACITY2,
+  animationOPACITYX,
+  animationOPACITYX2,
 } from 'constants/hero-animations'
 
 import type { Image } from 'types/image'
 
+export type HeroSlide = {
+  heading: string
+  subheading: string
+  img: Image
+}
+
 type Props = {
   imgCar: Image
   imgMotor: Image
+  imgPurchase: Image
+  slides?: HeroSlide[]
 }
 
 const Header = styled.header`
@@ -53,7 +64,21 @@ const ImgWrapper = styled.div`
     top: 0;
     left: 0;
     opacity: 0;
-    animation: ${animationOPACITY} 5s linear 2.5s infinite;
+    animation: ${animationOPACITYX} 9s linear 0s infinite;
+    z-index: 1;
+
+    img {
+      object-position: 50% 40% !important;
+    }
+  }
+
+  .purchase-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    animation: ${animationOPACITYX2} 9s linear 0s infinite;
+    z-index: 2;
 
     img {
       object-position: 50% 40% !important;
@@ -204,7 +229,7 @@ const StyledButton = styled(Button)`
   }
 `
 
-const Hero: React.FC<Props> = ({ imgCar, imgMotor }) => {
+const Hero: React.FC<Props> = ({ imgCar, imgMotor, imgPurchase }) => {
   const { openModalForm } = useContext(NavigationContext)
 
   return (
@@ -222,10 +247,16 @@ const Hero: React.FC<Props> = ({ imgCar, imgMotor }) => {
           alt={imgMotor.alt}
           loading="eager"
         />
+        <LazyImage
+          className="purchase-img"
+          src={imgPurchase.src}
+          alt={imgPurchase.alt}
+          loading="eager"
+        />
       </ImgWrapper>
       {/* <ImgWrapperAnimated></ImgWrapperAnimated> */}
 
-      <StyledContainer>
+      {/* <StyledContainer>
         <StyledHeading
           size={46}
           themecolor="white"
@@ -251,7 +282,7 @@ const Hero: React.FC<Props> = ({ imgCar, imgMotor }) => {
         <StyledButton type="button" onClick={openModalForm}>
           kontakt
         </StyledButton>
-      </StyledContainer>
+      </StyledContainer> */}
       <Overlay />
     </Header>
   )

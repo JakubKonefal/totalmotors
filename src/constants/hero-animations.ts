@@ -213,3 +213,82 @@ export const animationOPACITY = keyframes`
   opacity: 0;
 }
 `
+
+export const animationOPACITY2 = keyframes`
+
+0% {
+  opacity: 0;
+}
+
+5% {
+  opacity: 1;
+}
+
+
+
+45% {
+  opacity: 1;
+}
+
+
+50%{
+    opacity: 0;
+
+
+}
+
+100% {
+  opacity: 0;
+}
+`
+
+export const animationOPACITYX = keyframes`
+
+0% {
+  opacity: 0;
+}
+
+30% {
+  transform: translateX(-5%);
+  opacity: 0;
+}
+
+33.33% {
+  transform: translateX(0%);
+  opacity: 1;
+}
+
+100% {
+  transform: translateX(0%);
+  opacity: 1;
+}
+`
+
+export const animationOPACITYX2 = keyframes`
+
+0.01% {
+    transform: translateX(0%);
+  opacity: 1;
+}
+
+3.33% {
+    transform: translateX(5%);
+  opacity: 0;
+}
+
+63.33% {
+    transform: translateX(-5%);
+  opacity: 0;
+}
+
+66.66% {
+  transform: translateX(0%);
+  opacity: 1;
+}
+
+99.99% {
+  transform: translateX(0%);
+  opacity: 1;
+}
+
+`

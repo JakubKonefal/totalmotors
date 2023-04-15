@@ -2,6 +2,8 @@ import * as React from 'react'
 import { graphql, PageProps } from 'gatsby'
 import styled from 'styled-components'
 
+import { seoProps } from 'constants/seoProps'
+
 import SEO from 'components/shared/SEO'
 
 import Layout from 'components/layout'
@@ -36,7 +38,7 @@ const KontaktPage: React.FC<PageProps<Queries.KontaktPageQuery>> = ({
   return (
     <Layout>
       <SEO
-        title={'Daniel Synoś Cars | Kontakt'}
+        title={`${seoProps.brandName} | Kontakt`}
         description={''}
         // ogTitle={opengraphTitle}
         // ogDescription={opengraphDescription}

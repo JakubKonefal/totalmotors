@@ -1,12 +1,14 @@
 import * as React from 'react'
 import { graphql, PageProps } from 'gatsby'
 
+import { seoProps } from 'constants/seoProps'
+
 import Layout from 'components/layout'
 import SEO from 'components/shared/SEO'
 import Navigation from 'components/layout/Navigation'
 import ModalForm from 'components/layout/ModalForm'
 
-import Hero from 'components/layout/Hero'
+import HomeHeader from 'components/layout/HomeHeader/HomeHeader'
 import About from 'components/layout/About'
 import LatestRealisations from 'components/layout/LatestRealisations'
 import Benefits from 'components/layout/Benefits'
@@ -18,6 +20,7 @@ import type { StepSingle } from 'components/layout/About/ServiceSteps'
 import type { RealisationSingle } from 'components/layout/LatestRealisations/Card'
 import type { Benefit } from 'components/layout/Benefits'
 import type { Testimonial } from 'components/layout/Testimonials'
+import Container from 'components/shared/container'
 
 const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
   // const HOMEPAGE = data?.wpPage?.Homepage
@@ -142,10 +145,34 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
     },
   ]
 
+  const SLIDES = [
+    {
+      title: 'Sprzedaj <span>swój</span> <br/> samochód',
+      subtitle:
+        'Pomożemy sprzedać ci samochód, <br/> lub odkupimy go od Ciebie!',
+      src: data?.heroMC?.childImageSharp?.gatsbyImageData!,
+      alt: 'car',
+    },
+    {
+      title: 'Sprzedaj <span>swój</span> <br/> motocykl',
+      subtitle:
+        'Pomożemy sprzedać ci mototcykl, <br/> lub odkupimy go od Ciebie!',
+      src: data?.motorYamahaHERO?.childImageSharp?.gatsbyImageData!,
+      alt: 'motobike',
+    },
+    {
+      title: 'Lorem <span>ipsum</span> <br/> dolor sit amet',
+      subtitle:
+        'Lorem  ipsum dolor sit amet <br/> consectetur adispicing elit.',
+      src: data?.purchaseHERO?.childImageSharp?.gatsbyImageData!,
+      alt: 'car-on-platform',
+    },
+  ]
+
   return (
     <Layout>
       <SEO
-        title={'Daniel Synoś Cars | Strona główna'}
+        title={`${seoProps.brandName} | Strona główna`}
         description={''}
         // ogTitle={opengraphTitle}
         // ogDescription={opengraphDescription}
@@ -157,7 +184,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
       <Navigation />
       <ModalForm />
       <main>
-        <Hero
+        {/* <Hero
           imgCar={{
             src: data?.heroMC?.childImageSharp?.gatsbyImageData!,
             alt: 'hero1',
@@ -166,7 +193,12 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
             src: data?.motorYamahaHERO?.childImageSharp?.gatsbyImageData!,
             alt: 'hero1',
           }}
-        />
+          imgPurchase={{
+            src: data?.purchaseHERO?.childImageSharp?.gatsbyImageData!,
+            alt: 'hero1',
+          }}
+        /> */}
+        <HomeHeader slides={SLIDES} />
         <About
           heading="Pomoc w sprzedaży pojazdu"
           description="Chcesz sprzedać swój pojazd, ale nie wiesz jak się za to zabrać?
@@ -194,7 +226,9 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
           testimonials={TESTIMONIALS}
         />
         {/* <ContactUsCTA /> */}
-        <CarForm heading="Zapytaj o sprzedaż" centerHeading />
+        <Container>
+          <CarForm heading="Zapytaj o sprzedaż" centerHeading />
+        </Container>
         {/* <CarForm formTitle="Zapytaj o sprzedaż" /> */}
       </main>
 
@@ -236,6 +270,15 @@ export const query = graphql`
       }
     }
     motorYamahaHERO: file(name: { eq: "motor-yamaha-3" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1920
+          placeholder: DOMINANT_COLOR
+          formats: [AUTO, WEBP]
+        )
+      }
+    }
+    purchaseHERO: file(name: { eq: "purchase" }) {
       childImageSharp {
         gatsbyImageData(
           width: 1920

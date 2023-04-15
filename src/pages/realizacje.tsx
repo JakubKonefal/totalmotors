@@ -1,6 +1,8 @@
 import * as React from 'react'
 import { graphql, PageProps } from 'gatsby'
 
+import { seoProps } from 'constants/seoProps'
+
 import SEO from 'components/shared/SEO'
 
 import Layout from 'components/layout'
@@ -178,7 +180,7 @@ const RealizacjePage: React.FC<PageProps<Queries.RealizacjePageQuery>> = ({
   return (
     <Layout>
       <SEO
-        title={'Daniel Synoś Cars | Realizacje'}
+        title={`${seoProps.brandName} | Realizacje`}
         description={''}
         // ogTitle={opengraphTitle}
         // ogDescription={opengraphDescription}
@@ -235,97 +237,173 @@ export const query = graphql`
     }
     audiA4: file(name: { eq: "audi-a4" }) {
       childImageSharp {
-        gatsbyImageData(width: 500, placeholder: BLURRED, formats: [AUTO, WEBP])
+        gatsbyImageData(
+          width: 1200
+          placeholder: BLURRED
+          formats: [AUTO, WEBP]
+        )
       }
     }
     audiA5: file(name: { eq: "audi-a5" }) {
       childImageSharp {
-        gatsbyImageData(width: 500, placeholder: BLURRED, formats: [AUTO, WEBP])
+        gatsbyImageData(
+          width: 1200
+          placeholder: BLURRED
+          formats: [AUTO, WEBP]
+        )
       }
     }
     bmwX4: file(name: { eq: "bmw-x4" }) {
       childImageSharp {
-        gatsbyImageData(width: 500, placeholder: BLURRED, formats: [AUTO, WEBP])
+        gatsbyImageData(
+          width: 1200
+          placeholder: BLURRED
+          formats: [AUTO, WEBP]
+        )
       }
     }
     honda: file(name: { eq: "honda" }) {
       childImageSharp {
-        gatsbyImageData(width: 500, placeholder: BLURRED, formats: [AUTO, WEBP])
+        gatsbyImageData(
+          width: 1200
+          placeholder: BLURRED
+          formats: [AUTO, WEBP]
+        )
       }
     }
     jaguarXE: file(name: { eq: "jaguar-xe" }) {
       childImageSharp {
-        gatsbyImageData(width: 500, placeholder: BLURRED, formats: [AUTO, WEBP])
+        gatsbyImageData(
+          width: 1200
+          placeholder: BLURRED
+          formats: [AUTO, WEBP]
+        )
       }
     }
     kiaSorento: file(name: { eq: "kia-sorento" }) {
       childImageSharp {
-        gatsbyImageData(width: 500, placeholder: BLURRED, formats: [AUTO, WEBP])
+        gatsbyImageData(
+          width: 1200
+          placeholder: BLURRED
+          formats: [AUTO, WEBP]
+        )
       }
     }
     mcAMG: file(name: { eq: "mc-cla-45-amg" }) {
       childImageSharp {
-        gatsbyImageData(width: 500, placeholder: BLURRED, formats: [AUTO, WEBP])
+        gatsbyImageData(
+          width: 1200
+          placeholder: BLURRED
+          formats: [AUTO, WEBP]
+        )
       }
     }
     motorCagiva: file(name: { eq: "motor-cagiva" }) {
       childImageSharp {
-        gatsbyImageData(width: 500, placeholder: BLURRED, formats: [AUTO, WEBP])
+        gatsbyImageData(
+          width: 1200
+          placeholder: BLURRED
+          formats: [AUTO, WEBP]
+        )
       }
     }
     motorCross: file(name: { eq: "motor-cross" }) {
       childImageSharp {
-        gatsbyImageData(width: 500, placeholder: BLURRED, formats: [AUTO, WEBP])
+        gatsbyImageData(
+          width: 1200
+          placeholder: BLURRED
+          formats: [AUTO, WEBP]
+        )
       }
     }
     motorHonda: file(name: { eq: "motor-honda" }) {
       childImageSharp {
-        gatsbyImageData(width: 500, placeholder: BLURRED, formats: [AUTO, WEBP])
+        gatsbyImageData(
+          width: 1200
+          placeholder: BLURRED
+          formats: [AUTO, WEBP]
+        )
       }
     }
     motorKawasaki: file(name: { eq: "motor-kawasaki" }) {
       childImageSharp {
-        gatsbyImageData(width: 500, placeholder: BLURRED, formats: [AUTO, WEBP])
+        gatsbyImageData(
+          width: 1200
+          placeholder: BLURRED
+          formats: [AUTO, WEBP]
+        )
       }
     }
     motorKeeway: file(name: { eq: "motor-keeway" }) {
       childImageSharp {
-        gatsbyImageData(width: 500, placeholder: BLURRED, formats: [AUTO, WEBP])
+        gatsbyImageData(
+          width: 1200
+          placeholder: BLURRED
+          formats: [AUTO, WEBP]
+        )
       }
     }
     motorYamaha2: file(name: { eq: "motor-yamaha-2" }) {
       childImageSharp {
-        gatsbyImageData(width: 500, placeholder: BLURRED, formats: [AUTO, WEBP])
+        gatsbyImageData(
+          width: 1200
+          placeholder: BLURRED
+          formats: [AUTO, WEBP]
+        )
       }
     }
     motorYamaha: file(name: { eq: "motor-yamaha" }) {
       childImageSharp {
-        gatsbyImageData(width: 500, placeholder: BLURRED, formats: [AUTO, WEBP])
+        gatsbyImageData(
+          width: 1200
+          placeholder: BLURRED
+          formats: [AUTO, WEBP]
+        )
       }
     }
     polonez: file(name: { eq: "polonez" }) {
       childImageSharp {
-        gatsbyImageData(width: 500, placeholder: BLURRED, formats: [AUTO, WEBP])
+        gatsbyImageData(
+          width: 1200
+          placeholder: BLURRED
+          formats: [AUTO, WEBP]
+        )
       }
     }
     skuterPeugeot: file(name: { eq: "skuter-peugeot" }) {
       childImageSharp {
-        gatsbyImageData(width: 500, placeholder: BLURRED, formats: [AUTO, WEBP])
+        gatsbyImageData(
+          width: 1200
+          placeholder: BLURRED
+          formats: [AUTO, WEBP]
+        )
       }
     }
     szGrandVitara: file(name: { eq: "sz-grand-vitara" }) {
       childImageSharp {
-        gatsbyImageData(width: 500, placeholder: BLURRED, formats: [AUTO, WEBP])
+        gatsbyImageData(
+          width: 1200
+          placeholder: BLURRED
+          formats: [AUTO, WEBP]
+        )
       }
     }
     vwScirocco: file(name: { eq: "vw-scirocco" }) {
       childImageSharp {
-        gatsbyImageData(width: 500, placeholder: BLURRED, formats: [AUTO, WEBP])
+        gatsbyImageData(
+          width: 1200
+          placeholder: BLURRED
+          formats: [AUTO, WEBP]
+        )
       }
     }
     wolga: file(name: { eq: "wolga" }) {
       childImageSharp {
-        gatsbyImageData(width: 500, placeholder: BLURRED, formats: [AUTO, WEBP])
+        gatsbyImageData(
+          width: 1200
+          placeholder: BLURRED
+          formats: [AUTO, WEBP]
+        )
       }
     }
   }

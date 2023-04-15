@@ -8,6 +8,7 @@ import Icon from 'components/shared/icon'
 import closeIcon from 'assets/icons/close.svg'
 
 import useOutsideClick from 'hooks/useOutsideClick'
+import useCloseOnEscape from 'hooks/useCloseOnEscape'
 
 const Overlay = styled.aside<{
   visible: boolean
@@ -88,6 +89,7 @@ const Modal: React.FC = () => {
   const modalBodyRef = React.useRef<HTMLDivElement>(null)
 
   useOutsideClick({ ref: modalBodyRef, handler: closeModalForm })
+  useCloseOnEscape(closeModalForm)
 
   return (
     <Overlay visible={isModalFormVisible}>

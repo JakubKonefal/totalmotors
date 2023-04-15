@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
 
 import Card from 'components/layout/LatestRealisations/Card'
+import ZoomedModalImg from 'components/shared/ZoomedModalImg'
 import Container from 'components/shared/container'
 import Button from 'components/shared/button'
 import { Heading, Text } from 'components/shared/typography'
@@ -67,11 +68,22 @@ const AllRealisations: React.FC<Props> = ({
   realisations,
 }) => {
   const [displayedCards, setDisplayedCards] = useState(6)
+  const [zoomedImgIndex, setZoomedImgIndex] = useState(0)
+  const [modalVisible, setModalVisible] = useState(false)
 
   const { lg } = useBreakpoint()
 
   const handleShowMore = () => {
     setDisplayedCards(displayedCards + 3)
+  }
+
+  const handleZoom = (index: number) => {
+    setZoomedImgIndex(index)
+    setModalVisible(true)
+  }
+
+  const handleModalClose = () => {
+    setModalVisible(false)
   }
 
   return (
@@ -97,7 +109,8 @@ const AllRealisations: React.FC<Props> = ({
                 img={img}
                 title={title}
                 desc={desc}
-                buttonHidden
+                index={index}
+                onZoom={handleZoom}
               />
             ))}
         </RealisationsWrapper>
@@ -107,6 +120,11 @@ const AllRealisations: React.FC<Props> = ({
           </StyledButton>
         </ButtonWrapper>
       </Container>
+      <ZoomedModalImg
+        src={realisations[zoomedImgIndex].img.src}
+        modalVisible={modalVisible}
+        closeModal={handleModalClose}
+      />
     </Section>
   )
 }

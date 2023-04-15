@@ -1,5 +1,7 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import styled from 'styled-components'
+
+import emailjs from '@emailjs/browser'
 
 import { Formik, Field, Form, FormikHelpers } from 'formik'
 
@@ -169,20 +171,13 @@ const SuccessInfoWrapper = styled.div`
   }
 `
 
-const ErrorInfoWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+const SubmitInfoWrapper = styled.div`
   width: 100%;
-  margin-top: 20px;
-  padding: 20px;
-  background-color: ${({ theme }) => theme.colors.danger};
-  border-radius: 10px;
+  margin-bottom: 1rem;
 
   ${({ theme }) => theme.media.lg.min} {
-    padding: 30px 20px;
-    ${Text}:first-child {
-      margin-bottom: 15px;
+    ${Text} {
+      font-size: 16px;
     }
   }
 `
@@ -191,96 +186,72 @@ const ContactForm: React.FC<Props> = ({ heading, centerHeading = false }) => {
   const [submitSuccess, setSubmitSuccess] = useState(false)
   const [formError, setFormError] = useState(false)
 
+  const formRef = useRef<HTMLFormElement>(null)
+
+  const handleFormReset = () => {
+    setSubmitSuccess(false)
+    setFormError(false)
+    formRef.current?.reset()
+  }
+
   return (
     <Formik
       initialValues={CONTACT_FORM_INIT_VALUES}
       validationSchema={CONTACT_FORM_SCHEMA}
+      ref={formRef}
       onSubmit={(
         values: ContactFormValues,
         { setSubmitting, resetForm }: FormikHelpers<ContactFormValues>
       ) => {
-        if (formError) return
-        ;(async () => {
-          try {
+        emailjs
+          .sendForm(
+            'konefaljakub-gmail',
+            'sprzedamtwojsamochod-lp',
+            '#contact-form',
+            'usud7JMfpmTMhli7E'
+          )
+          .then(() => {
+            setSubmitSuccess(true)
+            setFormError(false)
+            setSubmitting(false)
             setTimeout(() => {
-              setSubmitting(false)
-              setSubmitSuccess(true)
-            }, 2000)
-
-            setTimeout(() => {
-              setSubmitSuccess(false)
-              setFormError(false)
+              handleFormReset()
               resetForm()
             }, 8000)
-          } catch (err) {
-            console.log(err)
-            setSubmitting(false)
+          })
+          .catch(() => {
+            setSubmitSuccess(false)
             setFormError(true)
+            setSubmitting(false)
             setTimeout(() => {
-              setFormError(false)
+              handleFormReset()
+              resetForm()
             }, 8000)
-          }
-        })()
+          })
       }}
     >
-      {({ isSubmitting }) =>
-        submitSuccess ? (
-          <Container>
-            <SuccessInfoWrapper>
-              <Text
-                size={24}
-                weight={700}
-                themecolor="primary200"
-                align="center"
-                margin="10px"
-                line={1.15}
-              >
-                Wiadomość została <br /> wysłana
-              </Text>
-            </SuccessInfoWrapper>
-          </Container>
-        ) : (
-          <Section id="car-form" title="Formularz - zapytaj o sprzedaż">
-            <InnerWrapper className="form-inner-wrapper">
-              <TextContent>
-                <Heading
-                  as="h2"
-                  size={26}
-                  weight={600}
-                  themecolor="black"
-                  margin="0"
-                  transform="uppercase"
-                  align={centerHeading ? 'center' : 'left'}
-                  dangerouslySetInnerHTML={{ __html: heading }}
-                />
-              </TextContent>
-              <StyledForm>
-                <Form>
-                  <InputsWrapper>
-                    <div>
-                      <Field
-                        name="name"
-                        placeholder="Imię i nazwisko"
-                        required
-                        themecolor="gray500"
-                        fontColor="black100"
-                        background="gray300"
-                        withIcon
-                        component={Input}
-                      />
-                      <Field
-                        name="phone"
-                        placeholder="Numer telefonu"
-                        themecolor="gray500"
-                        fontColor="black100"
-                        background="gray300"
-                        withIcon
-                        component={Input}
-                      />
-                    </div>
+      {({ isSubmitting }) => (
+        <Section id="car-form" title="Formularz - zapytaj o sprzedaż">
+          <InnerWrapper className="form-inner-wrapper">
+            <TextContent>
+              <Heading
+                as="h2"
+                size={26}
+                weight={600}
+                themecolor="black"
+                margin="0"
+                transform="uppercase"
+                align={centerHeading ? 'center' : 'left'}
+                dangerouslySetInnerHTML={{ __html: heading }}
+              />
+            </TextContent>
+            <StyledForm>
+              <Form id="contact-form">
+                <InputsWrapper>
+                  <div>
                     <Field
-                      name="email"
-                      placeholder="E-mail"
+                      name="name"
+                      placeholder="Imię i nazwisko"
                       required
                       themecolor="gray500"
                       fontColor="black100"
@@ -289,70 +260,79 @@ const ContactForm: React.FC<Props> = ({ heading, centerHeading = false }) => {
                       component={Input}
                     />
                     <Field
-                      name="message"
-                      placeholder="Wiadomość"
+                      name="phone"
+                      placeholder="Numer telefonu"
                       themecolor="gray500"
                       fontColor="black100"
                       background="gray300"
                       withIcon
-                      textarea
                       component={Input}
                     />
-                  </InputsWrapper>
+                  </div>
+                  <Field
+                    name="email"
+                    placeholder="E-mail"
+                    required
+                    themecolor="gray500"
+                    fontColor="black100"
+                    background="gray300"
+                    withIcon
+                    component={Input}
+                  />
+                  <Field
+                    name="message"
+                    placeholder="Wiadomość"
+                    themecolor="gray500"
+                    fontColor="black100"
+                    background="gray300"
+                    required
+                    withIcon
+                    textarea
+                    component={Input}
+                  />
+                </InputsWrapper>
 
-                  <StyledButton
-                    type="submit"
-                    // themecolor="primary200"
-                    // textTransform="uppercase"
-                  >
-                    {isSubmitting ? (
-                      <Spinner />
-                    ) : (
-                      <>
-                        <Text
-                          size={13}
-                          weight={700}
-                          themecolor="white"
-                          transform="uppercase"
-                          align="center"
-                        >
-                          wyślij
-                        </Text>
-                        <ArrowIconWrapper>
-                          <Icon src={arrowIcon} size={22} alt="arrow-right" />
-                        </ArrowIconWrapper>
-                      </>
-                    )}
-                  </StyledButton>
-                  {formError && (
-                    <ErrorInfoWrapper>
+                {formError && (
+                  <SubmitInfoWrapper>
+                    <Text size={14} weight={700} themecolor="danger">
+                      Błąd podczas wysyłania!
+                    </Text>
+                  </SubmitInfoWrapper>
+                )}
+
+                {submitSuccess && (
+                  <SubmitInfoWrapper>
+                    <Text size={14} weight={700} themecolor="success">
+                      Wiadomość wysłana pomyślnie!
+                    </Text>
+                  </SubmitInfoWrapper>
+                )}
+
+                <StyledButton type="submit">
+                  {isSubmitting ? (
+                    <Spinner />
+                  ) : (
+                    <>
                       <Text
-                        size={24}
+                        size={13}
                         weight={700}
-                        // themecolor="red"
-                        align="center"
-                        margin="10px"
-                        line={1.15}
-                      >
-                        Wiadomość nie mogła zostać wysłana
-                      </Text>
-                      <Text
-                        size={16}
-                        weight={400}
-                        themecolor="black"
+                        themecolor="white"
+                        transform="uppercase"
                         align="center"
                       >
-                        Wystąpił błąd. Spróbuj skontaktować się poprzez telefon
-                        lub mail.
+                        wyślij
                       </Text>
-                    </ErrorInfoWrapper>
+                      <ArrowIconWrapper>
+                        <Icon src={arrowIcon} size={22} alt="arrow-right" />
+                      </ArrowIconWrapper>
+                    </>
                   )}
-                </Form>
-              </StyledForm>
-            </InnerWrapper>
-          </Section>
-        )
-      }
+                </StyledButton>
+              </Form>
+            </StyledForm>
+          </InnerWrapper>
+        </Section>
+      )}
     </Formik>
   )
 }

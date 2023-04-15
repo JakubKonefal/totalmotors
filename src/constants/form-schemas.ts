@@ -10,8 +10,7 @@ export const CONTACT_FORM_SCHEMA = Yup.object().shape({
     .matches(
       /^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/i,
       `Numer telefonu jest nieprawidłowy`
-    )
-    .required(`Proszę podać numer telefonu`),
+    ),
   message: Yup.string().required(`Proszę podać wiadomość`),
 })
 

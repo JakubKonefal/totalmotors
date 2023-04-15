@@ -15,6 +15,8 @@ export type RealisationSingle = {
   link?: boolean
   buttonHidden?: boolean
   className?: string
+  index?: number
+  onZoom?: (index: number) => void
 }
 
 const TitleWrapper = styled.div`
@@ -33,6 +35,26 @@ const DescriptionWrapper = styled.div`
   border-top: none;
   border-radius: 0 0 8px 8px;
   /* background-color: ${({ theme }) => theme.colors.primary200}; */
+`
+
+const ImgWrapper = styled.div`
+  height: 185px;
+  width: 100%;
+  /* border-radius: 8px; */
+  overflow: hidden;
+
+  * {
+    width: 100%;
+    height: 100%;
+  }
+
+  ${({ theme }) => theme.media.s.min} {
+    height: 215px;
+  }
+
+  ${({ theme }) => theme.media.lg.min} {
+    height: 215px;
+  }
 `
 
 const Card = styled.article<{ hoverable: boolean }>`
@@ -57,30 +79,18 @@ const Card = styled.article<{ hoverable: boolean }>`
       }
     `}
 
+  ${({ hoverable }) =>
+    !hoverable &&
+    css`
+      ${ImgWrapper} {
+        cursor: zoom-in;
+      }
+    `}
+
   ${({ theme }) => theme.media.lg.min} {
     :not(:last-child) {
       margin-bottom: 0;
     }
-  }
-`
-
-const ImgWrapper = styled.div`
-  height: 185px;
-  width: 100%;
-  /* border-radius: 8px; */
-  overflow: hidden;
-
-  * {
-    width: 100%;
-    height: 100%;
-  }
-
-  ${({ theme }) => theme.media.s.min} {
-    height: 215px;
-  }
-
-  ${({ theme }) => theme.media.lg.min} {
-    height: 215px;
   }
 `
 
@@ -89,8 +99,9 @@ const RealisationCard: React.FC<RealisationSingle> = ({
   img,
   desc,
   link = false,
-  buttonHidden = false,
   className,
+  index,
+  onZoom,
 }) => {
   const { lg } = useBreakpoint()
 
@@ -106,27 +117,20 @@ const RealisationCard: React.FC<RealisationSingle> = ({
           size={lg ? 19 : 18}
           weight={700}
           themecolor="white"
-          // align="center"
           dangerouslySetInnerHTML={{ __html: title }}
         />
       </TitleWrapper>
-      <ImgWrapper>
+      <ImgWrapper
+        onClick={() => {
+          if (index && onZoom) {
+            onZoom(index!)
+          }
+        }}
+      >
         <LazyImage src={img.src} alt={img.alt} />
       </ImgWrapper>
       <DescriptionWrapper>
-        <Text
-          size={lg ? 14 : 13}
-          // themecolor="primary200"
-          dangerouslySetInnerHTML={{ __html: desc }}
-        />
-        {/* {!buttonHidden && (
-          <StyledButton>
-            zobacz więcej
-            <ArrowIconWrapper>
-              <Icon src={arrowIcon} size={20} alt="arrow-right" />
-            </ArrowIconWrapper>
-          </StyledButton>
-        )} */}
+        <Text size={lg ? 14 : 13} dangerouslySetInnerHTML={{ __html: desc }} />
       </DescriptionWrapper>
     </Card>
   )
