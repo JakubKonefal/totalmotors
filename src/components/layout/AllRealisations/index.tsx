@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
 
+import ClientOnly from 'components/shared/ClientOnly'
+
 import Card from 'components/layout/LatestRealisations/Card'
 import ZoomedModalImg from 'components/shared/ZoomedModalImg'
 import Container from 'components/shared/container'
@@ -120,11 +122,13 @@ const AllRealisations: React.FC<Props> = ({
           </StyledButton>
         </ButtonWrapper>
       </Container>
-      <ZoomedModalImg
-        src={realisations[zoomedImgIndex].img.src}
-        modalVisible={modalVisible}
-        closeModal={handleModalClose}
-      />
+      <ClientOnly>
+        <ZoomedModalImg
+          src={realisations[zoomedImgIndex].img.src}
+          modalVisible={modalVisible}
+          closeModal={handleModalClose}
+        />
+      </ClientOnly>
     </Section>
   )
 }
