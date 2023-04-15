@@ -8,7 +8,6 @@ import SEO from 'components/shared/SEO'
 import Navigation from 'components/layout/Navigation'
 import ModalForm from 'components/layout/ModalForm'
 
-import Hero from 'components/layout/Hero'
 import HomeHeader from 'components/layout/HomeHeader/HomeHeader'
 import About from 'components/layout/About'
 import LatestRealisations from 'components/layout/LatestRealisations'
@@ -21,6 +20,7 @@ import type { StepSingle } from 'components/layout/About/ServiceSteps'
 import type { RealisationSingle } from 'components/layout/LatestRealisations/Card'
 import type { Benefit } from 'components/layout/Benefits'
 import type { Testimonial } from 'components/layout/Testimonials'
+import Container from 'components/shared/container'
 
 const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
   // const HOMEPAGE = data?.wpPage?.Homepage
@@ -198,12 +198,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
             alt: 'hero1',
           }}
         /> */}
-        <HomeHeader
-          slides={SLIDES}
-          scrollDown="#investments"
-          // btnLink={activeLink}
-          btnText={'BTN TEXT'}
-        />
+        <HomeHeader slides={SLIDES} />
         <About
           heading="Pomoc w sprzedaży pojazdu"
           description="Chcesz sprzedać swój pojazd, ale nie wiesz jak się za to zabrać?
@@ -231,7 +226,9 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
           testimonials={TESTIMONIALS}
         />
         {/* <ContactUsCTA /> */}
-        <CarForm heading="Zapytaj o sprzedaż" centerHeading />
+        <Container>
+          <CarForm heading="Zapytaj o sprzedaż" centerHeading />
+        </Container>
         {/* <CarForm formTitle="Zapytaj o sprzedaż" /> */}
       </main>
 

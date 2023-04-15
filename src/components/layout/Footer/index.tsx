@@ -214,8 +214,8 @@ const Footer = () => {
       <BottomWrapper>
         <Container>
           <Text size={lg ? 12 : 11} themecolor="white">
-            &copy; {new Date().getFullYear()} Totalmotors | Wszystkie prawa
-            zastrzeżone.
+            &copy; {new Date().getFullYear()} Sprzedamtwojsamochód | Wszystkie
+            prawa zastrzeżone.
           </Text>
           <SocialMedia>
             <a
