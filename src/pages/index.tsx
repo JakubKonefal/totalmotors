@@ -120,8 +120,8 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
       },
       carName: 'Polonez',
       carYear: '1995',
-      clientName: 'Mariusz Bigos',
-      desc: 'Mój samochód stał w komisie 3 miesiące. Gdy sprzedażą zajęła sie firma sprzedamtwojeauto.pl sprzedałem samochód w ciągu 5 dni! Robią świetne zdjęcia profesjonalnym sprzętem a nie telefonem komórkowym jak większość komisów…',
+      clientName: 'Rafał W.',
+      desc: 'Firma sprzedamtwojsamochod.pl to rewelacyjne rozwiązanie dla osób, które chcą bezpiecznie i wygodnie sprzedać swój samochód.',
     },
     {
       img: {
@@ -130,8 +130,8 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
       },
       carName: 'Polonez',
       carYear: '1995',
-      clientName: 'Mariusz Bigos',
-      desc: 'Przyjechali do mnie zrobili piękne zdjęcia i wystawili mój samochód na sprzedaż. Dzięki temu sprzedałem samochód w 6 dni! Pozdrawiam Pana Daniela!',
+      clientName: 'Jakub K.',
+      desc: 'Jestem bardzo zadowolony z usług tej firmy. Wszystko przebiegło sprawnie i profesjonalnie, a cena, którą otrzymałem za mój samochód, była bardzo dobra.',
     },
     {
       img: {
@@ -140,8 +140,8 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
       },
       carName: 'Polonez',
       carYear: '1995',
-      clientName: 'Mariusz Bigos',
-      desc: 'Przyjechali do mnie zrobili piękne zdjęcia i wystawili mój samochód na sprzedaż. Dzięki temu sprzedałem samochód w 6 dni! Pozdrawiam Pana Daniela!',
+      clientName: 'Mariusz B.',
+      desc: 'Firma załatwiła wszystkie formalności, polecam każdemu, kto chce bezpiecznie sprzedać swój samochód.',
     },
   ]
 
