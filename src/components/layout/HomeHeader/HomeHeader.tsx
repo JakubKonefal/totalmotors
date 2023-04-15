@@ -13,7 +13,7 @@ const Wrapper = styled.div`
   position: relative;
 
   width: 100%;
-  margin-top: ${({ theme }) => theme.navbar.height};
+  margin-top: 0;
   margin-bottom: ${({ theme }) => theme.container.marginSM};
   height: calc(100vh - ${({ theme }) => theme.navbar.height});
 
@@ -165,7 +165,7 @@ const StyledButton = styled(Button)`
   font-weight: 600;
   letter-spacing: 0.5px;
   text-transform: uppercase;
-  background-color: ${({ theme }) => theme.colors.tertiary};
+  background-color: ${({ theme }) => theme.colors.primary200};
 `
 
 const HomeHeader = ({ slides }) => {

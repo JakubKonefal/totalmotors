@@ -8,7 +8,7 @@ import Container from 'components/shared/container'
 import Icon from 'components/shared/icon'
 import { Text } from 'components/shared/typography'
 
-import sprzedamLogo from 'assets/icons/logonew.svg'
+import sprzedamLogo from 'assets/icons/logov6.svg'
 import phone1Icon from 'assets/icons/phone-1-dark.svg'
 import emailIcon from 'assets/icons/mail-dark.svg'
 
@@ -125,6 +125,7 @@ const MenuButton = styled.button`
   flex-direction: column;
   align-items: stretch;
   justify-content: center;
+  margin-left: auto;
   width: 33px;
   z-index: 3;
 
@@ -132,12 +133,13 @@ const MenuButton = styled.button`
     width: 100%;
     margin-bottom: 6px;
     height: 3px;
+    min-height: 3px;
     border-radius: 6px;
-    background-color: ${({ theme }) => theme.colors.primary};
+    background-color: ${({ theme }) => theme.colors.white};
   }
 
   div:last-child {
-    margin-bottom: 0;
+    /* margin-bottom: 0; */
   }
 `
 
@@ -151,9 +153,9 @@ const Logo = styled.a`
     align-items: center;
     justify-content: center;
   } */
-
-  width: 200px;
-  height: 60px;
+  width: 60%;
+  max-width: 420px;
+  /* height: 60px; */
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -170,7 +172,7 @@ const Logo = styled.a`
   }
 
   img {
-    object-fit: cover !important;
+    /* object-fit: cover !important; */
   }
 
   span {
@@ -193,7 +195,7 @@ const Links = styled.div`
   }
 `
 
-const LinkItem = styled.button<{ orange: boolean }>`
+const LinkItem = styled.button<{ blue: boolean }>`
   position: relative;
   /* height: 100%; */
   padding: 0 8px;
@@ -202,22 +204,9 @@ const LinkItem = styled.button<{ orange: boolean }>`
     padding-right: 0;
   }
 
-  ${({ orange }) =>
-    orange &&
-    css`
-      ${Text} {
-        background-color: ${({ theme }) => theme.colors.tertiary};
-        padding: 6px 16px;
-        font-weight: 600;
-        border-radius: 10px;
-        /* color: ${({ theme }) => theme.colors.white}; */
-      }
-    `}
-
   &:hover {
     ${Text} {
       color: ${({ theme }) => theme.colors.tertiary};
-      transition: 250ms ease-in-out;
     }
   }
 
@@ -228,6 +217,27 @@ const LinkItem = styled.button<{ orange: boolean }>`
   ${({ theme }) => theme.media.xxl.min} {
     padding: 0 14px;
   }
+
+  ${({ blue }) =>
+    blue &&
+    css`
+      padding: 0 !important;
+      ${Text} {
+        background-color: ${({ theme }) => theme.colors.primary200};
+        padding: 6px 16px;
+        font-weight: 600;
+        border-radius: 10px;
+        /* color: ${({ theme }) => theme.colors.white}; */
+      }
+
+      &:hover {
+        ${Text} {
+          background-color: ${({ theme }) => theme.colors.tertiary};
+          color: ${({ theme }) => theme.colors.white};
+          transition: 250ms ease-in-out;
+        }
+      }
+    `}
 `
 
 const Topnav = () => {
@@ -241,7 +251,7 @@ const Topnav = () => {
       <StyledContainer fullHeight>
         <Logo href="/">
           {/* sprzedam <br /> twój <span>samochód</span>.pl */}
-          <Icon src={sprzedamLogo} alt="matexi" auto />
+          <Icon src={sprzedamLogo} alt="sprzedamtwojsamochod.pl - logo" auto />
         </Logo>
 
         {/* <InnerWrapper> */}
@@ -251,7 +261,7 @@ const Topnav = () => {
               <LinkItem
                 as="a"
                 href={link.link}
-                orange={link.label.toLowerCase().includes('realizacje')}
+                blue={link.label.toLowerCase().includes('realizacje')}
                 key={`navbar-link-${index}`}
               >
                 <Text size={xl ? 14 : 14} themecolor="black">

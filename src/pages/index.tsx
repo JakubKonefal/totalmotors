@@ -148,22 +148,19 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
   const SLIDES = [
     {
       title: 'Sprzedaj <span>swój</span> <br/> samochód',
-      subtitle:
-        'Pomożemy sprzedać ci samochód, <br/> lub odkupimy go od Ciebie!',
+      subtitle: 'Pomożemy sprzedać Ci twój samochód',
       src: data?.heroMC?.childImageSharp?.gatsbyImageData!,
       alt: 'car',
     },
     {
       title: 'Sprzedaj <span>swój</span> <br/> motocykl',
-      subtitle:
-        'Pomożemy sprzedać ci mototcykl, <br/> lub odkupimy go od Ciebie!',
+      subtitle: 'Pomożemy sprzedać Ci twój mototcykl',
       src: data?.motorYamahaHERO?.childImageSharp?.gatsbyImageData!,
       alt: 'motobike',
     },
     {
       title: 'Kupimy <span>go</span> <br/> od Ciebie',
-      subtitle:
-        'Lorem  ipsum dolor sit amet <br/> consectetur adispicing elit.',
+      subtitle: '',
       src: data?.purchaseHERO?.childImageSharp?.gatsbyImageData!,
       alt: 'car-on-platform',
     },
