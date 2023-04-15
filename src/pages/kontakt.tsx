@@ -38,7 +38,7 @@ const KontaktPage: React.FC<PageProps<Queries.KontaktPageQuery>> = ({
   return (
     <Layout>
       <SEO
-        title={`${seoProps.brandName} | Kontakt`}
+        title={`Kontakt`}
         description={''}
         // ogTitle={opengraphTitle}
         // ogDescription={opengraphDescription}

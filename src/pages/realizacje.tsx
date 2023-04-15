@@ -180,7 +180,7 @@ const RealizacjePage: React.FC<PageProps<Queries.RealizacjePageQuery>> = ({
   return (
     <Layout>
       <SEO
-        title={`${seoProps.brandName} | Realizacje`}
+        title={`Realizacje`}
         description={''}
         // ogTitle={opengraphTitle}
         // ogDescription={opengraphDescription}

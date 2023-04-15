@@ -1,5 +1,5 @@
 export const seoProps = {
-  brandName: 'sprzedamtwójsamochód',
+  brandName: '| ',
   instagramLink:
     'https://www.instagram.com/sprzedamtwojsamochod.pl/?igshid=YmMyMTA2M2Y%3D',
 }

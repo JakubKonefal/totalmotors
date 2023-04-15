@@ -169,7 +169,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
   return (
     <Layout>
       <SEO
-        title={`${seoProps.brandName} | Strona główna`}
+        title={`Strona główna`}
         description={''}
         // ogTitle={opengraphTitle}
         // ogDescription={opengraphDescription}
