@@ -43,6 +43,9 @@ const TopnavWrapper = styled.nav<{ active?: boolean }>`
   ${({ active }) =>
     !active &&
     css`
+      .logo {
+        transform: translateY(-85%);
+      }
       transform: translateY(-51px);
     `}
 `
@@ -254,7 +257,7 @@ const Topnav = () => {
   return (
     <TopnavWrapper active={!isHidden}>
       <StyledContainer fullHeight>
-        <Logo href="/">
+        <Logo href="/" className="logo">
           {/* sprzedam <br /> twój <span>samochód</span>.pl */}
           <Icon src={sprzedamLogo} alt="sprzedamtwojsamochod.pl - logo" auto />
         </Logo>
