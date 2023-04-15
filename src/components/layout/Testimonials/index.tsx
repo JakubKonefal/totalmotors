@@ -139,6 +139,8 @@ const SlideTextContent = styled.div`
   ${Text} {
     &:first-child {
       font-style: italic;
+      font-size: 0.925rem;
+
       span {
         font-size: 36px;
         line-height: 0.2;
@@ -165,6 +167,14 @@ const SlideTextContent = styled.div`
       span {
         font-weight: 700;
         color: ${({ theme }) => theme.colors.primary200};
+      }
+    }
+  }
+
+  ${({ theme }) => theme.media.lg.min} {
+    ${Text} {
+      &:first-child {
+        font-size: 1rem;
       }
     }
   }
@@ -264,7 +274,7 @@ const Testimonials: React.FC<Props> = ({
                           align="center"
                           line={1.6}
                           dangerouslySetInnerHTML={{
-                            __html: `<span>${clientName}</span>, ${carName}`,
+                            __html: `<span>${clientName}</span> ${carName}`,
                           }}
                         />
                       </SlideTextContent>

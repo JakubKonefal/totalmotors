@@ -115,33 +115,33 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
   const TESTIMONIALS: Testimonial[] = [
     {
       img: {
-        src: data?.polonez?.childImageSharp?.gatsbyImageData!,
+        src: data?.scirocco?.childImageSharp?.gatsbyImageData!,
         alt: 'warsztat',
       },
-      carName: 'Polonez',
-      carYear: '1995',
-      clientName: 'Rafał W.',
-      desc: 'Firma sprzedamtwojsamochod.pl to rewelacyjne rozwiązanie dla osób, które chcą bezpiecznie i wygodnie sprzedać swój samochód.',
-    },
-    {
-      img: {
-        src: data?.polonez?.childImageSharp?.gatsbyImageData!,
-        alt: 'warsztat',
-      },
-      carName: 'Polonez',
+      carName: 'VW Scirocco',
       carYear: '1995',
       clientName: 'Jakub K.',
       desc: 'Jestem bardzo zadowolony z usług tej firmy. Wszystko przebiegło sprawnie i profesjonalnie, a cena, którą otrzymałem za mój samochód, była bardzo dobra.',
     },
     {
       img: {
-        src: data?.polonez?.childImageSharp?.gatsbyImageData!,
+        src: data?.audiA5x2?.childImageSharp?.gatsbyImageData!,
         alt: 'warsztat',
       },
-      carName: 'Polonez',
+      carName: 'Audi A5',
       carYear: '1995',
       clientName: 'Mariusz B.',
       desc: 'Firma załatwiła wszystkie formalności, polecam każdemu, kto chce bezpiecznie sprzedać swój samochód.',
+    },
+    {
+      img: {
+        src: data?.polonez?.childImageSharp?.gatsbyImageData!,
+        alt: 'warsztat',
+      },
+      carName: 'Polonez Caro',
+      carYear: '1995',
+      clientName: 'Rafał W.',
+      desc: 'Firma sprzedamtwojsamochod.pl to rewelacyjne rozwiązanie dla osób, które chcą bezpiecznie i wygodnie sprzedać swój samochód.',
     },
   ]
 
@@ -329,6 +329,15 @@ export const query = graphql`
         )
       }
     }
+    scirocco: file(name: { eq: "vw-scirocco" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 200
+          placeholder: DOMINANT_COLOR
+          formats: [AUTO, WEBP]
+        )
+      }
+    }
     polonez: file(name: { eq: "polonez" }) {
       childImageSharp {
         gatsbyImageData(
@@ -336,6 +345,11 @@ export const query = graphql`
           placeholder: DOMINANT_COLOR
           formats: [AUTO, WEBP]
         )
+      }
+    }
+    audiA5x2: file(name: { eq: "audi-a5" }) {
+      childImageSharp {
+        gatsbyImageData(width: 200, placeholder: BLURRED, formats: [AUTO, WEBP])
       }
     }
     audiA5: file(name: { eq: "audi-a5" }) {
