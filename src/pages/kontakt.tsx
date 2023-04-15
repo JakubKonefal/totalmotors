@@ -86,7 +86,7 @@ export default KontaktPage
 
 export const query = graphql`
   query KontaktPage {
-    hero: file(name: { eq: "warsztat-4" }) {
+    hero: file(name: { eq: "hero-5" }) {
       childImageSharp {
         gatsbyImageData(
           width: 1920
