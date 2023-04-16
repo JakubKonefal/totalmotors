@@ -49,14 +49,14 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
   const BENEFITS: Benefit[] = [
     {
       title: 'Pasja',
-      desc: 'Motoryzacja od lat stanowi naszą pasję, przez co wkładamy całe serce w prygotowanie pojazdu oraz dopięcie transakcji. Z tego powodu posiadamy także dobrą znajomość rynku oraz trendów w motoryzacji.',
+      desc: 'Motoryzacja od lat stanowi naszą pasję, przez co wkładamy całe serce w przygotowanie pojazdu oraz dopięcie transakcji. Z tego powodu posiadamy także dobrą znajomość rynku oraz trendów w motoryzacji.',
     },
     // {
     //   title: '',
     //   desc: '',
     // },
     {
-      title: 'Komplekls samochodowy',
+      title: 'Kompleks samochodowy',
       desc: 'Mamy do dyspozycji warsztat samochodowy ze stacją diagnostyczną, oraz pomoc drogową.',
     },
   ]
