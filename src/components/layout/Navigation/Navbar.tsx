@@ -54,11 +54,25 @@ const TopnavWrapper = styled.nav<{ active?: boolean }>`
   ${({ active }) =>
     !active &&
     css`
-      .logo {
-        transform: translateY(-85%);
-      }
-      transform: translateY(-51px);
+      transform: translateY(-80px);
     `}
+
+      ${({ theme }) => theme.media.lg.min} {
+    ${({ active }) =>
+      active &&
+      css`
+        transform: translateY(0);
+      `}
+
+    ${({ active }) =>
+      !active &&
+      css`
+        .logo {
+          transform: translateY(-85%);
+        }
+        transform: translateY(-51px);
+      `}
+  }
 `
 
 const StyledContainer = styled(Container)`
@@ -162,9 +176,9 @@ const MenuButton = styled.button`
 
 const Logo = styled.a`
   width: 60%;
-  max-width: 145px;
+  max-width: 220px;
   position: absolute;
-  top: 50%;
+  top: 40%;
   transform: translateY(-50%);
   font-size: 26px;
   line-height: 1.3;
@@ -178,16 +192,8 @@ const Logo = styled.a`
     display: flex;
   }
 
-  img {
-    /* object-fit: cover !important; */
-  }
-
-  span {
-    color: ${({ theme }) => theme.colors.tertiary};
-  }
-
   ${({ theme }) => theme.media.lg.min} {
-    max-width: 185px;
+    max-width: 275px;
   }
 `
 
@@ -264,7 +270,7 @@ const Topnav = () => {
       <StyledContainer fullHeight>
         <Logo href="/" className="logo">
           <Icon
-            src={sprzedamLogo2V3}
+            src={sprzedamLogo2V4}
             alt="sprzedamtwojsamochod.pl - logo"
             auto
           />
