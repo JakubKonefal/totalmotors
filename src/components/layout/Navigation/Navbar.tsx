@@ -10,7 +10,7 @@ import { Text } from 'components/shared/typography'
 
 import sprzedamLogo from 'assets/icons/logov6.svg'
 
-import sprzedamLogo1 from 'assets/icons/logosSvg/logo1.svg'
+import sprzedamLogo1 from 'assets/icons/logosSvg/logo1-cropped.svg'
 import sprzedamLogo1V2 from 'assets/icons/logosSvg/logo1V2.svg'
 import sprzedamLogo2 from 'assets/icons/logosSvg/logo2.svg'
 import sprzedamLogo2V2 from 'assets/icons/logosSvg/logo2V2.svg'
@@ -161,18 +161,8 @@ const MenuButton = styled.button`
 `
 
 const Logo = styled.a`
-  /* display: flex;
-  align-items: center;
-  justify-content: center;
-
-  & > div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  } */
   width: 60%;
-  max-width: 230px;
-  /* height: 60px; */
+  max-width: 145px;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -194,6 +184,10 @@ const Logo = styled.a`
 
   span {
     color: ${({ theme }) => theme.colors.tertiary};
+  }
+
+  ${({ theme }) => theme.media.lg.min} {
+    max-width: 185px;
   }
 `
 
