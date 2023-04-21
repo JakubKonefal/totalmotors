@@ -264,7 +264,7 @@ const Topnav = () => {
       <StyledContainer fullHeight>
         <Logo href="/" className="logo">
           <Icon
-            src={sprzedamLogo2V2}
+            src={sprzedamLogo2V3}
             alt="sprzedamtwojsamochod.pl - logo"
             auto
           />
