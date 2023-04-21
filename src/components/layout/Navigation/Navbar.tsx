@@ -10,6 +10,15 @@ import { Text } from 'components/shared/typography'
 
 import sprzedamLogo from 'assets/icons/logov6.svg'
 
+import sprzedamLogo1 from 'assets/icons/logosSvg/logo1-cropped.svg'
+import sprzedamLogo1V2 from 'assets/icons/logosSvg/logo1V2.svg'
+import sprzedamLogo2 from 'assets/icons/logosSvg/logo2.svg'
+import sprzedamLogo2V2 from 'assets/icons/logosSvg/logo2V2.svg'
+import sprzedamLogo2V3 from 'assets/icons/logosSvg/logo2V3.svg'
+import sprzedamLogo2V4 from 'assets/icons/logosSvg/logo2V4.svg'
+import sprzedamLogo2V5 from 'assets/icons/logosSvg/logo2V5.svg'
+import sprzedamLogo3 from 'assets/icons/logosSvg/logo3.svg'
+
 // These svgs are used below in HTML
 // import phone1Icon from 'assets/icons/phone-1-dark.svg'
 // import emailIcon from 'assets/icons/mail-dark.svg'
@@ -45,11 +54,25 @@ const TopnavWrapper = styled.nav<{ active?: boolean }>`
   ${({ active }) =>
     !active &&
     css`
-      .logo {
-        transform: translateY(-85%);
-      }
-      transform: translateY(-51px);
+      transform: translateY(-80px);
     `}
+
+      ${({ theme }) => theme.media.lg.min} {
+    ${({ active }) =>
+      active &&
+      css`
+        transform: translateY(0);
+      `}
+
+    ${({ active }) =>
+      !active &&
+      css`
+        .logo {
+          transform: translateY(-85%);
+        }
+        transform: translateY(-51px);
+      `}
+  }
 `
 
 const StyledContainer = styled(Container)`
@@ -152,20 +175,10 @@ const MenuButton = styled.button`
 `
 
 const Logo = styled.a`
-  /* display: flex;
-  align-items: center;
-  justify-content: center;
-
-  & > div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  } */
-  width: 60%;
-  max-width: 230px;
-  /* height: 60px; */
+  width: 65%;
+  max-width: 150px;
   position: absolute;
-  top: 50%;
+  top: 40%;
   transform: translateY(-50%);
   font-size: 26px;
   line-height: 1.3;
@@ -179,12 +192,9 @@ const Logo = styled.a`
     display: flex;
   }
 
-  img {
-    /* object-fit: cover !important; */
-  }
-
-  span {
-    color: ${({ theme }) => theme.colors.tertiary};
+  ${({ theme }) => theme.media.lg.min} {
+    top: 40%;
+    max-width: 185px;
   }
 `
 
@@ -260,11 +270,9 @@ const Topnav = () => {
     <TopnavWrapper active={!isHidden}>
       <StyledContainer fullHeight>
         <Logo href="/" className="logo">
-          {/* sprzedam <br /> twój <span>samochód</span>.pl */}
-          <Icon src={sprzedamLogo} alt="sprzedamtwojsamochod.pl - logo" auto />
+          <Icon src={sprzedamLogo3} alt="sprzedamtwojsamochod.pl - logo" auto />
         </Logo>
 
-        {/* <InnerWrapper> */}
         <Links>
           {NAVIGATION_LINKS.map((link, index) => (
             <LinkItem
@@ -279,13 +287,6 @@ const Topnav = () => {
             </LinkItem>
           ))}
         </Links>
-
-        {/* {lg && (
-          <CallUsButton href="tel: 733 002 337" role="button">
-            Zadzwoń
-          </CallUsButton>
-        )} */}
-        {/* </InnerWrapper> */}
 
         <MenuButton type="button" onClick={openSidenav}>
           <div />
