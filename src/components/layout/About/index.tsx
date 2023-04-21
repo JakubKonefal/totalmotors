@@ -1,6 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import { motion } from 'framer-motion'
+import { variants, transitions } from 'constants/animations'
+
 import ServiceSteps, { StepSingle } from 'components/layout/About/ServiceSteps'
 
 import Container from 'components/shared/container'
@@ -9,6 +12,7 @@ import Button from 'components/shared/button'
 import { Heading, Text } from 'components/shared/typography'
 // import arrowIcon from 'assets/icons/arrow-right-long-2.svg'
 
+import useAnimateOnScroll from 'hooks/useAnimateOnScroll'
 import useBreakpoint from 'hooks/useBreakpoint'
 import Icon from 'components/shared/icon'
 import arrowIcon from 'assets/icons/arrow-right-long.svg'
@@ -115,9 +119,19 @@ const StyledButton = styled(Button)`
 
 const About: React.FC<Props> = ({ heading, description, steps }) => {
   const { lg } = useBreakpoint()
+
+  const { control, ref } = useAnimateOnScroll()
+
   return (
     <Section title={heading}>
-      <Container>
+      <Container
+      // as={motion.div}
+      // ref={ref}
+      // variants={variants.fadeIn}
+      // initial="hidden"
+      // animate={control}
+      // transition={transitions.quick}
+      >
         <InnerWrapper>
           <TextContent>
             <Heading

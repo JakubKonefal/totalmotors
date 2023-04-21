@@ -9,8 +9,10 @@ import Icon from 'components/shared/icon'
 import { Text } from 'components/shared/typography'
 
 import sprzedamLogo from 'assets/icons/logov6.svg'
-import phone1Icon from 'assets/icons/phone-1-dark.svg'
-import emailIcon from 'assets/icons/mail-dark.svg'
+
+// These svgs are used below in HTML
+// import phone1Icon from 'assets/icons/phone-1-dark.svg'
+// import emailIcon from 'assets/icons/mail-dark.svg'
 
 import useBreakpoint from 'hooks/useBreakpoint'
 import useScrollHide from 'hooks/useScrollHide'
