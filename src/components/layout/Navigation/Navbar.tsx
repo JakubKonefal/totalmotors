@@ -176,9 +176,9 @@ const MenuButton = styled.button`
 
 const Logo = styled.a`
   width: 60%;
-  max-width: 220px;
+  max-width: 230px;
   position: absolute;
-  top: 40%;
+  top: 50%;
   transform: translateY(-50%);
   font-size: 26px;
   line-height: 1.3;
@@ -193,7 +193,7 @@ const Logo = styled.a`
   }
 
   ${({ theme }) => theme.media.lg.min} {
-    max-width: 275px;
+    max-width: 255px;
   }
 `
 
@@ -269,11 +269,7 @@ const Topnav = () => {
     <TopnavWrapper active={!isHidden}>
       <StyledContainer fullHeight>
         <Logo href="/" className="logo">
-          <Icon
-            src={sprzedamLogo2V4}
-            alt="sprzedamtwojsamochod.pl - logo"
-            auto
-          />
+          <Icon src={sprzedamLogo} alt="sprzedamtwojsamochod.pl - logo" auto />
         </Logo>
 
         <Links>

@@ -73,12 +73,20 @@ const Overlay = styled.div<{ isVisible: boolean }>`
 `
 
 const NavHeading = styled.div`
-  display: flex;
+  /* display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   position: relative;
   padding: 0px 10px 0px 20px;
+  border-bottom: 2px solid #80808070; */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  padding: 75px 10px 40px 20px;
   border-bottom: 2px solid #80808070;
 `
 
@@ -156,7 +164,7 @@ const Sidenav: React.FC = () => {
       <SidenavWrapper>
         <NavHeading>
           <Logo href="/">
-            <Icon src={sprzedamLogo2V4} alt="matexi" width={290} />
+            <Icon src={sprzedamLogo} alt="matexi" width={290} />
           </Logo>
           <CloseBtn type="button" aria-label="close" onClick={closeSidenav}>
             <Icon src={closeIcon} alt="close" size={34} />
