@@ -156,7 +156,7 @@ const Sidenav: React.FC = () => {
       <SidenavWrapper>
         <NavHeading>
           <Logo href="/">
-            <Icon src={sprzedamLogo2V2} alt="matexi" width={220} />
+            <Icon src={sprzedamLogo2V3} alt="matexi" width={220} />
           </Logo>
           <CloseBtn type="button" aria-label="close" onClick={closeSidenav}>
             <Icon src={closeIcon} alt="close" size={34} />
