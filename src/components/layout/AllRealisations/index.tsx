@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
 
+import { motion } from 'framer-motion'
+import { variants, transitions } from 'constants/animations'
+
 import ClientOnly from 'components/shared/ClientOnly'
 
 import Card from 'components/layout/LatestRealisations/Card'
@@ -10,6 +13,7 @@ import Button from 'components/shared/button'
 import { Heading, Text } from 'components/shared/typography'
 
 import useBreakpoint from 'hooks/useBreakpoint'
+import useAnimateOnScroll from 'hooks/useAnimateOnScroll'
 
 import type { RealisationSingle } from 'components/layout/LatestRealisations/Card'
 
@@ -26,7 +30,7 @@ const Section = styled.section`
   }
 `
 
-const RealisationsWrapper = styled.div`
+const RealisationsWrapper = styled(motion.div)`
   display: grid;
   margin-top: 30px;
 
@@ -75,6 +79,8 @@ const AllRealisations: React.FC<Props> = ({
 
   const { lg } = useBreakpoint()
 
+  const animateCards = useAnimateOnScroll()
+
   const handleShowMore = () => {
     setDisplayedCards(displayedCards + 3)
   }
@@ -101,7 +107,13 @@ const AllRealisations: React.FC<Props> = ({
           size={lg ? 15 : 14}
           dangerouslySetInnerHTML={{ __html: description }}
         />
-        <RealisationsWrapper>
+        <RealisationsWrapper
+          as={motion.div}
+          ref={animateCards.ref}
+          variants={variants.fadeInLeftToRight}
+          initial="hidden"
+          animate={animateCards.control}
+        >
           {realisations
             .slice(0, displayedCards)
             .map(({ img, title, desc }, index) => (

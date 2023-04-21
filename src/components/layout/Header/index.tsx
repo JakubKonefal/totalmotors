@@ -1,9 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import { motion } from 'framer-motion'
+import { variants, transitions } from 'constants/animations'
+
 import Container from 'components/shared/container'
 import LazyImage from 'components/shared/lazyImage'
 import { Heading, Text } from 'components/shared/typography'
+
+import useAnimateOnScroll from 'hooks/useAnimateOnScroll'
 
 import type { Image } from 'types/image'
 
@@ -74,25 +79,34 @@ const Overlay = styled.div`
 `
 
 const Header: React.FC<Props> = ({ heading, description, img }) => {
+  const animateHeroText = useAnimateOnScroll()
+
   return (
     <StyledHeader>
       <ImgWrapper>
         <LazyImage src={img.src} alt={img.alt} loading="eager" />
       </ImgWrapper>
       <StyledContainer>
-        <StyledHeading
-          size={40}
-          themecolor="white"
-          transform="uppercase"
-          margin="10px"
-          dangerouslySetInnerHTML={{ __html: heading }}
-        />
+        <motion.div
+          ref={animateHeroText.ref}
+          variants={variants.fadeInLeftToRight}
+          initial="hidden"
+          animate={animateHeroText.control}
+        >
+          <StyledHeading
+            size={40}
+            themecolor="white"
+            transform="uppercase"
+            margin="10px"
+            dangerouslySetInnerHTML={{ __html: heading }}
+          />
 
-        <StyledText
-          size={16}
-          themecolor="white"
-          dangerouslySetInnerHTML={{ __html: description }}
-        />
+          <StyledText
+            size={16}
+            themecolor="white"
+            dangerouslySetInnerHTML={{ __html: description }}
+          />
+        </motion.div>
       </StyledContainer>
       <Overlay />
     </StyledHeader>

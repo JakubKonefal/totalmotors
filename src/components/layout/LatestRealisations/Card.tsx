@@ -1,10 +1,14 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 
+import { motion } from 'framer-motion'
+import { variants, transitions } from 'constants/animations'
+
 import LazyImage from 'components/shared/lazyImage'
 import { Text } from 'components/shared/typography'
 
 import useBreakpoint from 'hooks/useBreakpoint'
+import useAnimateOnScroll from 'hooks/useAnimateOnScroll'
 
 import type { Image } from 'types/image'
 
@@ -106,12 +110,18 @@ const RealisationCard: React.FC<RealisationSingle> = ({
 }) => {
   const { lg } = useBreakpoint()
 
+  const animateAllSteps = useAnimateOnScroll()
+
   return (
     <Card
-      as={link ? 'a' : 'article'}
+      as={link ? motion.a : motion.article}
       href={`/realizacje`}
       className={className}
       hoverable={link}
+      ref={animateAllSteps.ref}
+      variants={Number(index) > 5 ? variants.fadeInTopToBottom : variants.none}
+      initial="hidden"
+      animate={animateAllSteps.control}
     >
       <TitleWrapper>
         <Text

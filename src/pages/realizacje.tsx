@@ -1,6 +1,9 @@
 import * as React from 'react'
 import { graphql, PageProps } from 'gatsby'
 
+import { motion } from 'framer-motion'
+import { variants, transitions } from 'constants/animations'
+
 import { seoProps } from 'constants/seoProps'
 
 import SEO from 'components/shared/SEO'
@@ -11,6 +14,8 @@ import Breadcrumbs from 'components/shared/Breadcrumbs'
 import Header from 'components/layout/Header'
 import AllRealisations from 'components/layout/AllRealisations'
 import Footer from 'components/layout/Footer'
+
+import useAnimateOnScroll from 'hooks/useAnimateOnScroll'
 
 import type { RealisationSingle } from 'components/layout/LatestRealisations/Card'
 
