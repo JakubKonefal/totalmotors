@@ -230,7 +230,7 @@ const StyledButton = styled(Button)`
 `
 
 const Hero: React.FC<Props> = ({ imgCar, imgMotor, imgPurchase }) => {
-  const { openModalForm } = useContext(NavigationContext)
+  // const { openModalForm } = useContext(NavigationContext)
 
   return (
     <Header>
@@ -254,35 +254,6 @@ const Hero: React.FC<Props> = ({ imgCar, imgMotor, imgPurchase }) => {
           loading="eager"
         />
       </ImgWrapper>
-      {/* <ImgWrapperAnimated></ImgWrapperAnimated> */}
-
-      {/* <StyledContainer>
-        <StyledHeading
-          size={46}
-          themecolor="white"
-          align="center"
-          transform="uppercase"
-        >
-          Sprzedaj
-          <span className="thin">swój</span>
-          <br />
-          <span className="animated-heading first">samochód</span>
-          <span className="animated-heading second">motocykl</span>
-        </StyledHeading>
-        <StyledText size={20} themecolor="white" align="center">
-          Pomożemy sprzedać Ci
-          <span className="animated-desc-container">
-            <span className="hidden"> samochód </span>
-            <span className="animated-desc first"> samochód, </span>
-            <span className="animated-desc second"> motocykl, </span>
-          </span>
-          <br />
-          lub odkupimy go od Ciebie.
-        </StyledText>
-        <StyledButton type="button" onClick={openModalForm}>
-          kontakt
-        </StyledButton>
-      </StyledContainer> */}
       <Overlay />
     </Header>
   )

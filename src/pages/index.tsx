@@ -51,10 +51,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
       title: 'Pasja',
       desc: 'Motoryzacja od lat stanowi naszą pasję, przez co wkładamy całe serce w przygotowanie pojazdu oraz dopięcie transakcji. Z tego powodu posiadamy także dobrą znajomość rynku oraz trendów w motoryzacji.',
     },
-    // {
-    //   title: '',
-    //   desc: '',
-    // },
+
     {
       title: 'Kompleks samochodowy',
       desc: 'Mamy do dyspozycji warsztat samochodowy ze stacją diagnostyczną, oraz pomoc drogową.',
@@ -159,7 +156,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
       alt: 'motobike',
     },
     {
-      title: 'Kupimy <span>go <br/> od </span> Ciebie',
+      title: 'Kupimy <span>go <br/> </span>  od Ciebie',
       subtitle: '',
       src: data?.purchaseHERO?.childImageSharp?.gatsbyImageData!,
       alt: 'car-on-platform',
@@ -181,20 +178,6 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
       <Navigation />
       <ModalForm />
       <main>
-        {/* <Hero
-          imgCar={{
-            src: data?.heroMC?.childImageSharp?.gatsbyImageData!,
-            alt: 'hero1',
-          }}
-          imgMotor={{
-            src: data?.motorYamahaHERO?.childImageSharp?.gatsbyImageData!,
-            alt: 'hero1',
-          }}
-          imgPurchase={{
-            src: data?.purchaseHERO?.childImageSharp?.gatsbyImageData!,
-            alt: 'hero1',
-          }}
-        /> */}
         <HomeHeader slides={SLIDES} />
         <About
           heading="Pomoc w sprzedaży pojazdu"
@@ -222,13 +205,10 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
           description="Opinie naszych zadowolonych klientów, którzy skorzystali z naszych usług"
           testimonials={TESTIMONIALS}
         />
-        {/* <ContactUsCTA /> */}
         <Container>
           <CarForm heading="Zapytaj o sprzedaż" centerHeading />
         </Container>
-        {/* <CarForm formTitle="Zapytaj o sprzedaż" /> */}
       </main>
-
       <Footer />
     </Layout>
   )
