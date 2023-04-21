@@ -10,6 +10,15 @@ import { Text } from 'components/shared/typography'
 
 import sprzedamLogo from 'assets/icons/logov6.svg'
 
+import sprzedamLogo1 from 'assets/icons/logosSvg/logo1.svg'
+import sprzedamLogo1V2 from 'assets/icons/logosSvg/logo1V2.svg'
+import sprzedamLogo2 from 'assets/icons/logosSvg/logo2.svg'
+import sprzedamLogo2V2 from 'assets/icons/logosSvg/logo2V2.svg'
+import sprzedamLogo2V3 from 'assets/icons/logosSvg/logo2V3.svg'
+import sprzedamLogo2V4 from 'assets/icons/logosSvg/logo2V4.svg'
+import sprzedamLogo2V5 from 'assets/icons/logosSvg/logo2V5.svg'
+import sprzedamLogo3 from 'assets/icons/logosSvg/logo3.svg'
+
 // These svgs are used below in HTML
 // import phone1Icon from 'assets/icons/phone-1-dark.svg'
 // import emailIcon from 'assets/icons/mail-dark.svg'
@@ -260,11 +269,9 @@ const Topnav = () => {
     <TopnavWrapper active={!isHidden}>
       <StyledContainer fullHeight>
         <Logo href="/" className="logo">
-          {/* sprzedam <br /> twój <span>samochód</span>.pl */}
-          <Icon src={sprzedamLogo} alt="sprzedamtwojsamochod.pl - logo" auto />
+          <Icon src={sprzedamLogo1} alt="sprzedamtwojsamochod.pl - logo" auto />
         </Logo>
 
-        {/* <InnerWrapper> */}
         <Links>
           {NAVIGATION_LINKS.map((link, index) => (
             <LinkItem
@@ -279,13 +286,6 @@ const Topnav = () => {
             </LinkItem>
           ))}
         </Links>
-
-        {/* {lg && (
-          <CallUsButton href="tel: 733 002 337" role="button">
-            Zadzwoń
-          </CallUsButton>
-        )} */}
-        {/* </InnerWrapper> */}
 
         <MenuButton type="button" onClick={openSidenav}>
           <div />

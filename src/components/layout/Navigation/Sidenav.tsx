@@ -6,8 +6,20 @@ import { NavigationContext } from 'contexts/NavigationContext'
 import Icon from 'components/shared/icon'
 import { Text } from 'components/shared/typography'
 
-import exampleLogo from 'assets/icons/logov6.svg'
+import sprzedamLogo from 'assets/icons/logov6.svg'
+
+import sprzedamLogo1 from 'assets/icons/logosSvg/logo1.svg'
+import sprzedamLogo1V2 from 'assets/icons/logosSvg/logo1V2.svg'
+import sprzedamLogo2 from 'assets/icons/logosSvg/logo2.svg'
+import sprzedamLogo2V2 from 'assets/icons/logosSvg/logo2V2.svg'
+import sprzedamLogo2V3 from 'assets/icons/logosSvg/logo2V3.svg'
+import sprzedamLogo2V4 from 'assets/icons/logosSvg/logo2V4.svg'
+import sprzedamLogo2V5 from 'assets/icons/logosSvg/logo2V5.svg'
+import sprzedamLogo3 from 'assets/icons/logosSvg/logo3.svg'
+
 import closeIcon from 'assets/icons/close.svg'
+
+import useLocation from 'hooks/useLocation'
 
 import { NAVIGATION_LINKS } from 'constants/links'
 
@@ -66,7 +78,7 @@ const NavHeading = styled.div`
   justify-content: center;
   width: 100%;
   position: relative;
-  padding: 75px 10px 40px 20px;
+  padding: 0px 10px 0px 20px;
   border-bottom: 2px solid #80808070;
 `
 
@@ -81,7 +93,7 @@ const Links = styled.div`
   width: 100%;
 `
 
-const LinkItem = styled.button`
+const LinkItem = styled.button<{ active: boolean }>`
   position: relative;
   height: 100%;
   margin: 14px 0;
@@ -89,6 +101,24 @@ const LinkItem = styled.button`
   :first-child {
     margin-top: 25px;
   }
+
+  ${({ active }) =>
+    active &&
+    css`
+      &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: -12px;
+        width: 5px;
+        min-width: 5px;
+        min-height: 5px;
+        border-radius: 50%;
+        background-color: ${({ theme }) => theme.colors.tertiary};
+        transform: translateY(-50%);
+      }
+    `}
 
   &:hover {
     ${Text} {
@@ -119,12 +149,17 @@ const CloseBtn = styled.button`
 const Sidenav: React.FC = () => {
   const { isSidenavVisible, closeSidenav } = useContext(NavigationContext)
 
+  const pathname = useLocation()
+
+  console.log(pathname)
+  console.log(NAVIGATION_LINKS)
+
   return (
     <Overlay isVisible={isSidenavVisible}>
       <SidenavWrapper>
         <NavHeading>
           <Logo href="/">
-            <Icon src={exampleLogo} alt="matexi" width={220} />
+            <Icon src={sprzedamLogo1} alt="matexi" width={220} />
           </Logo>
           <CloseBtn type="button" aria-label="close" onClick={closeSidenav}>
             <Icon src={closeIcon} alt="close" size={34} />
@@ -134,12 +169,13 @@ const Sidenav: React.FC = () => {
           <Links>
             {NAVIGATION_LINKS.map((link, index) => (
               <LinkItem
+                key={`sidenav-link-${index}`}
                 as="a"
                 href={link.link}
                 type="button"
-                key={`navbar-link-${index}`}
+                active={link.link === pathname}
               >
-                <Text size={17} themecolor="black">
+                <Text size={19} themecolor="black">
                   {link.label}
                 </Text>
               </LinkItem>
