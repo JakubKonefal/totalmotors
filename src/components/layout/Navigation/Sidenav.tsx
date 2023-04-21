@@ -151,15 +151,12 @@ const Sidenav: React.FC = () => {
 
   const pathname = useLocation()
 
-  console.log(pathname)
-  console.log(NAVIGATION_LINKS)
-
   return (
     <Overlay isVisible={isSidenavVisible}>
       <SidenavWrapper>
         <NavHeading>
           <Logo href="/">
-            <Icon src={sprzedamLogo1} alt="matexi" width={220} />
+            <Icon src={sprzedamLogo2V2} alt="matexi" width={220} />
           </Logo>
           <CloseBtn type="button" aria-label="close" onClick={closeSidenav}>
             <Icon src={closeIcon} alt="close" size={34} />

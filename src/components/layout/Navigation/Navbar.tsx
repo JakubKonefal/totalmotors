@@ -263,7 +263,11 @@ const Topnav = () => {
     <TopnavWrapper active={!isHidden}>
       <StyledContainer fullHeight>
         <Logo href="/" className="logo">
-          <Icon src={sprzedamLogo1} alt="sprzedamtwojsamochod.pl - logo" auto />
+          <Icon
+            src={sprzedamLogo2V2}
+            alt="sprzedamtwojsamochod.pl - logo"
+            auto
+          />
         </Logo>
 
         <Links>
