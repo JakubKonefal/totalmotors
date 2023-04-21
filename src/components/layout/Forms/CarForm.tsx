@@ -1,6 +1,9 @@
 import React, { useRef, useState } from 'react'
 import styled from 'styled-components'
 
+import { motion } from 'framer-motion'
+import { variants, transitions } from 'constants/animations'
+
 import emailjs from '@emailjs/browser'
 
 import { Formik, Field, Form, FormikHelpers } from 'formik'
@@ -13,6 +16,8 @@ import Icon from 'components/shared/icon'
 import Spinner from 'components/shared/Spinner'
 
 import arrowIcon from 'assets/icons/arrow-right-long.svg'
+
+import useAnimateOnScroll from 'hooks/useAnimateOnScroll'
 
 import {
   CONTACT_FORM_SCHEMA,
@@ -66,7 +71,7 @@ const TextContent = styled.div`
   }
 `
 
-const StyledForm = styled.div`
+const StyledForm = styled(motion.div)`
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -194,6 +199,8 @@ const ContactForm: React.FC<Props> = ({ heading, centerHeading = false }) => {
     formRef.current?.reset()
   }
 
+  const animateForm = useAnimateOnScroll()
+
   return (
     <Formik
       initialValues={CONTACT_FORM_INIT_VALUES}
@@ -245,7 +252,13 @@ const ContactForm: React.FC<Props> = ({ heading, centerHeading = false }) => {
                 dangerouslySetInnerHTML={{ __html: heading }}
               />
             </TextContent>
-            <StyledForm>
+            <StyledForm
+              ref={animateForm.ref}
+              variants={variants.fadeInBottomToTop}
+              initial="hidden"
+              animate={animateForm.control}
+              transition={transitions.quicker}
+            >
               <Form id="contact-form">
                 <InputsWrapper>
                   <div>

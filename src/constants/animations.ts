@@ -23,6 +23,14 @@ export const variants = {
     visible: { width: '100%' },
     hidden: { width: '0%' },
   },
+  scaleUp: {
+    visible: { scale: 1 },
+    hidden: { scale: 0.72 },
+  },
+  flip: {
+    visible: { rotateX: 0 },
+    hidden: { rotateX: -180 },
+  },
 }
 
 export const transitions = {
@@ -33,6 +41,11 @@ export const transitions = {
 
   quick: {
     duration: 0.5,
+    ease: 'easeIn',
+  },
+
+  quicker: {
+    duration: 0.25,
     ease: 'easeIn',
   },
 }

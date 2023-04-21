@@ -1,6 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import { motion } from 'framer-motion'
+import { variants, transitions } from 'constants/animations'
+
 import Icon from 'components/shared/icon'
 import { Heading, Text } from 'components/shared/typography'
 
@@ -10,6 +13,8 @@ import useBreakpoint from 'hooks/useBreakpoint'
 import xIcon from 'assets/icons/arrow-right.svg'
 import yIcon from 'assets/icons/arrow-right-long.svg'
 import zIcon from 'assets/icons/arrow-right-long-2.svg'
+
+import useAnimateOnScroll from 'hooks/useAnimateOnScroll'
 
 export type StepSingle = {
   description: string
@@ -30,7 +35,7 @@ const Wrapper = styled.div`
   }
 `
 
-const Steps = styled.div`
+const Steps = styled(motion.div)`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -79,7 +84,7 @@ const StepNumberOuter = styled.div`
   background-color: ${({ theme }) => theme.colors.primarydark};
 `
 
-const StepNumberInner = styled.div`
+const StepNumberInner = styled(motion.div)`
   width: 70%;
   height: 70%;
   background-color: ${({ theme }) => theme.colors.primary200};
@@ -225,14 +230,67 @@ const StepWrapper = styled.div`
 const ServiceSteps: React.FC<Props> = ({ steps }) => {
   const { lg } = useBreakpoint()
 
+  // const animateStep1 = useAnimateOnScroll()
+  // const animateStep2 = useAnimateOnScroll()
+  // const animateStep3 = useAnimateOnScroll()
+  // const animateStep4 = useAnimateOnScroll()
+
+  const animateAllSteps = useAnimateOnScroll()
+
+  // const getRef = (stepNumber: number) => {
+  //   if (stepNumber === 1) {
+  //     return animateStep1
+  //   }
+  //   if (stepNumber === 2) {
+  //     return animateStep2
+  //   }
+  //   if (stepNumber === 3) {
+  //     return animateStep3
+  //   }
+  //   if (stepNumber === 4) {
+  //     return animateStep4
+  //   }
+
+  //   return animateStep1
+  // }
+
+  // const getDelay = (stepNumber: number) => {
+  //   if (stepNumber === 1) {
+  //     return 0
+  //   }
+  //   if (stepNumber === 2) {
+  //     return 0.12
+  //   }
+  //   if (stepNumber === 3) {
+  //     return 0.24
+  //   }
+  //   if (stepNumber === 4) {
+  //     return 0.36
+  //   }
+
+  //   return 0
+  // }
+
   return (
     <Wrapper>
-      <Steps>
+      <Steps
+        ref={animateAllSteps.ref}
+        variants={variants.fadeInRightToLeft}
+        initial="hidden"
+        animate={animateAllSteps.control}
+        transition={transitions.quicker}
+      >
         {steps.map((step, index) => (
           <StepWrapper key={`step-${index}`}>
             <StepNumber>
               <StepNumberOuter>
-                <StepNumberInner>
+                <StepNumberInner
+                // ref={getRef(index).ref}
+                // variants={variants.flip}
+                // initial="hidden"
+                // animate={getRef(index).control}
+                // transition={{ ...transitions.quick, delay: getDelay(index) }}
+                >
                   <Text
                     size={lg ? 20 : 18}
                     weight={600}

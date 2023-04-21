@@ -1,6 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import { motion } from 'framer-motion'
+import { variants, transitions } from 'constants/animations'
+
 import Container from 'components/shared/container'
 import Icon from 'components/shared/icon'
 import LazyImage from 'components/shared/lazyImage'
@@ -11,6 +14,7 @@ import experienceIcon from 'assets/icons/experience-2.svg'
 import repairIcon from 'assets/icons/repair2.svg'
 
 import useBreakpoint from 'hooks/useBreakpoint'
+import useAnimateOnScroll from 'hooks/useAnimateOnScroll'
 
 import type { Image } from 'types/image'
 
@@ -114,7 +118,7 @@ const Content = styled.div`
   }
 `
 
-const BenefitsList = styled.div`
+const BenefitsList = styled(motion.div)`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -196,6 +200,8 @@ const BenefitItemTextContent = styled.div`
 const Benefits: React.FC<Props> = ({ img, heading, description, benefits }) => {
   const { lg } = useBreakpoint()
 
+  const animateBenefits = useAnimateOnScroll()
+
   return (
     <Section>
       <Container className="heading-container">
@@ -210,7 +216,13 @@ const Benefits: React.FC<Props> = ({ img, heading, description, benefits }) => {
       <StyledContainer>
         <Content>
           {lg && (
-            <BenefitsList>
+            <BenefitsList
+              ref={animateBenefits.ref}
+              variants={variants.fadeInRightToLeft}
+              initial="hidden"
+              animate={animateBenefits.control}
+              transition={transitions.quicker}
+            >
               {benefits.map(({ title, desc }, index) => (
                 <BenefitItem key={`benefit-${index}`}>
                   <Icon
@@ -243,7 +255,13 @@ const Benefits: React.FC<Props> = ({ img, heading, description, benefits }) => {
           <LazyImage src={img.src} alt={img.alt} />
         </ImgWrapper>
         {!lg && (
-          <BenefitsList>
+          <BenefitsList
+            ref={animateBenefits.ref}
+            variants={variants.fadeInRightToLeft}
+            initial="hidden"
+            animate={animateBenefits.control}
+            transition={transitions.quicker}
+          >
             {benefits.map(({ title, desc }, index) => (
               <BenefitItem key={`benefit-${index}`}>
                 <Icon

@@ -1,6 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import { motion } from 'framer-motion'
+import { variants, transitions } from 'constants/animations'
+
 import Card, {
   RealisationSingle,
 } from 'components/layout/LatestRealisations/Card'
@@ -8,6 +11,8 @@ import Container from 'components/shared/container'
 import { Heading, Text } from 'components/shared/typography'
 
 import useBreakpoint from 'hooks/useBreakpoint'
+
+import useAnimateOnScroll from 'hooks/useAnimateOnScroll'
 
 type Props = {
   heading: string
@@ -47,7 +52,7 @@ const TextContent = styled.div`
   }
 `
 
-const Cards = styled.div`
+const Cards = styled(motion.div)`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -74,6 +79,8 @@ const LatestRealisations: React.FC<Props> = ({
 }) => {
   const { lg } = useBreakpoint()
 
+  const animateAllSteps = useAnimateOnScroll()
+
   return (
     <Section>
       <Container>
@@ -89,7 +96,13 @@ const LatestRealisations: React.FC<Props> = ({
             dangerouslySetInnerHTML={{ __html: description }}
           />
         </TextContent>
-        <Cards>
+        <Cards
+          ref={animateAllSteps.ref}
+          variants={variants.fadeInLeftToRight}
+          initial="hidden"
+          animate={animateAllSteps.control}
+          transition={transitions.quicker}
+        >
           {realisations.map(({ img, title, desc }, index) => (
             <Card
               key={`realisation-card-${index}`}
