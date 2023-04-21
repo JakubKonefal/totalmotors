@@ -31,6 +31,10 @@ export const variants = {
     visible: { rotateX: 0 },
     hidden: { rotateX: -180 },
   },
+  none: {
+    visible: { rotateX: 0 },
+    hidden: { rotateX: -180 },
+  },
 }
 
 export const transitions = {
