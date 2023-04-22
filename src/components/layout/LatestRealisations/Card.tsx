@@ -119,7 +119,7 @@ const RealisationCard: React.FC<RealisationSingle> = ({
       className={className}
       hoverable={link}
       ref={animateAllSteps.ref}
-      variants={Number(index) > 5 ? variants.fadeInTopToBottom : variants.none}
+      variants={Number(index) > 5 ? variants.fadeInTopToBottom : {}}
       initial="hidden"
       animate={animateAllSteps.control}
     >
