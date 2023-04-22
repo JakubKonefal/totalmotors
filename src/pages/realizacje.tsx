@@ -92,62 +92,62 @@ const RealizacjePage: React.FC<PageProps<Queries.RealizacjePageQuery>> = ({
       title: 'Mercedes CLA 45 AMG',
       desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
     },
-    {
-      img: {
-        src: data?.motorCagiva?.childImageSharp?.gatsbyImageData!,
-        alt: 'car3',
-      },
-      title: 'Cagiva Planet',
-      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
-    },
-    {
-      img: {
-        src: data?.motorCross?.childImageSharp?.gatsbyImageData!,
-        alt: 'car3',
-      },
-      title: 'PITBIKE 190cc',
-      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
-    },
-    {
-      img: {
-        src: data?.motorHonda?.childImageSharp?.gatsbyImageData!,
-        alt: 'car3',
-      },
-      title: 'Honda CBF 125',
-      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
-    },
-    {
-      img: {
-        src: data?.motorKawasaki?.childImageSharp?.gatsbyImageData!,
-        alt: 'car3',
-      },
-      title: 'Kawasaki ER-6N',
-      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
-    },
-    {
-      img: {
-        src: data?.motorKeeway?.childImageSharp?.gatsbyImageData!,
-        alt: 'car3',
-      },
-      title: 'Keeway Superlight 125',
-      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
-    },
-    {
-      img: {
-        src: data?.motorYamaha2?.childImageSharp?.gatsbyImageData!,
-        alt: 'car3',
-      },
-      title: 'Yamaha YS 125',
-      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
-    },
-    {
-      img: {
-        src: data?.motorYamaha?.childImageSharp?.gatsbyImageData!,
-        alt: 'car3',
-      },
-      title: 'Yamaha YZF-R125',
-      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
-    },
+    // {
+    //   img: {
+    //     src: data?.motorCagiva?.childImageSharp?.gatsbyImageData!,
+    //     alt: 'car3',
+    //   },
+    //   title: 'Cagiva Planet',
+    //   desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
+    // },
+    // {
+    //   img: {
+    //     src: data?.motorCross?.childImageSharp?.gatsbyImageData!,
+    //     alt: 'car3',
+    //   },
+    //   title: 'PITBIKE 190cc',
+    //   desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
+    // },
+    // {
+    //   img: {
+    //     src: data?.motorHonda?.childImageSharp?.gatsbyImageData!,
+    //     alt: 'car3',
+    //   },
+    //   title: 'Honda CBF 125',
+    //   desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
+    // },
+    // {
+    //   img: {
+    //     src: data?.motorKawasaki?.childImageSharp?.gatsbyImageData!,
+    //     alt: 'car3',
+    //   },
+    //   title: 'Kawasaki ER-6N',
+    //   desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
+    // },
+    // {
+    //   img: {
+    //     src: data?.motorKeeway?.childImageSharp?.gatsbyImageData!,
+    //     alt: 'car3',
+    //   },
+    //   title: 'Keeway Superlight 125',
+    //   desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
+    // },
+    // {
+    //   img: {
+    //     src: data?.motorYamaha2?.childImageSharp?.gatsbyImageData!,
+    //     alt: 'car3',
+    //   },
+    //   title: 'Yamaha YS 125',
+    //   desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
+    // },
+    // {
+    //   img: {
+    //     src: data?.motorYamaha?.childImageSharp?.gatsbyImageData!,
+    //     alt: 'car3',
+    //   },
+    //   title: 'Yamaha YZF-R125',
+    //   desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
+    // },
     {
       img: {
         src: data?.polonez?.childImageSharp?.gatsbyImageData!,
@@ -156,14 +156,14 @@ const RealizacjePage: React.FC<PageProps<Queries.RealizacjePageQuery>> = ({
       title: 'Polonez Caro - 1993r.',
       desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
     },
-    {
-      img: {
-        src: data?.skuterPeugeot?.childImageSharp?.gatsbyImageData!,
-        alt: 'car3',
-      },
-      title: 'Peugeot SPEEDFIGHT 4',
-      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
-    },
+    // {
+    //   img: {
+    //     src: data?.skuterPeugeot?.childImageSharp?.gatsbyImageData!,
+    //     alt: 'car3',
+    //   },
+    //   title: 'Peugeot SPEEDFIGHT 4',
+    //   desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
+    // },
     {
       img: {
         src: data?.szGrandVitara?.childImageSharp?.gatsbyImageData!,

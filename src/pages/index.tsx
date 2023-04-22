@@ -61,20 +61,37 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
   const REALISATIONS: RealisationSingle[] = [
     {
       img: {
-        src: data?.mcAMG?.childImageSharp?.gatsbyImageData!,
-        alt: 'car3',
-      },
-      title: 'Mercedes CLA 45 AMG',
-      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
-    },
-    {
-      img: {
         src: data?.bmwX4?.childImageSharp?.gatsbyImageData!,
         alt: 'car3',
       },
       title: 'BMW X4',
       desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
     },
+    {
+      img: {
+        src: data?.wolga?.childImageSharp?.gatsbyImageData!,
+        alt: 'car3',
+      },
+      title: 'Wołga GAZ 21 - 1964r.',
+      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
+    },
+    {
+      img: {
+        src: data?.jaguarXE?.childImageSharp?.gatsbyImageData!,
+        alt: 'car3',
+      },
+      title: 'Jaguar XE',
+      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
+    },
+    {
+      img: {
+        src: data?.mcAMG?.childImageSharp?.gatsbyImageData!,
+        alt: 'car3',
+      },
+      title: 'Mercedes CLA 45 AMG',
+      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
+    },
+
     {
       img: {
         src: data?.vwScirocco?.childImageSharp?.gatsbyImageData!,
@@ -89,22 +106,6 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
         alt: 'car3',
       },
       title: 'Audi A5',
-      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
-    },
-    {
-      img: {
-        src: data?.motorCross?.childImageSharp?.gatsbyImageData!,
-        alt: 'car3',
-      },
-      title: 'PITBIKE 190cc',
-      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
-    },
-    {
-      img: {
-        src: data?.motorYamaha?.childImageSharp?.gatsbyImageData!,
-        alt: 'car3',
-      },
-      title: 'Yamaha YZF-R125',
       desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
     },
   ]
@@ -146,15 +147,15 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
     {
       title: 'Sprzedaj <span>swój</span> <br/> samochód',
       subtitle: 'Pomożemy sprzedać Ci twój samochód',
-      src: data?.heroMC?.childImageSharp?.gatsbyImageData!,
+      src: data?.car6?.childImageSharp?.gatsbyImageData!,
       alt: 'car',
     },
-    {
-      title: 'Sprzedaj <span>swój</span> <br/> motocykl',
-      subtitle: 'Pomożemy sprzedać Ci twój mototcykl',
-      src: data?.motorYamahaHERO?.childImageSharp?.gatsbyImageData!,
-      alt: 'motobike',
-    },
+    // {
+    //   title: 'Sprzedaj <span>swój</span> <br/> motocykl',
+    //   subtitle: 'Pomożemy sprzedać Ci twój mototcykl',
+    //   src: data?.motorYamahaHERO?.childImageSharp?.gatsbyImageData!,
+    //   alt: 'motobike',
+    // },
     {
       title: 'Kupimy <span>go <br/> </span>  od Ciebie',
       subtitle: '',
@@ -218,34 +219,6 @@ export default IndexPage
 
 export const query = graphql`
   query IndexPage {
-    hero1: file(name: { eq: "hero-1" }) {
-      childImageSharp {
-        gatsbyImageData(
-          width: 1920
-          placeholder: DOMINANT_COLOR
-          formats: [AUTO, WEBP]
-        )
-      }
-    }
-    hero2: file(name: { eq: "hero-2" }) {
-      childImageSharp {
-        gatsbyImageData(
-          width: 1920
-          placeholder: DOMINANT_COLOR
-          formats: [AUTO, WEBP]
-        )
-      }
-    }
-
-    hero3: file(name: { eq: "hero-3" }) {
-      childImageSharp {
-        gatsbyImageData(
-          width: 1920
-          placeholder: DOMINANT_COLOR
-          formats: [AUTO, WEBP]
-        )
-      }
-    }
     motorYamahaHERO: file(name: { eq: "motor-yamaha-3" }) {
       childImageSharp {
         gatsbyImageData(
@@ -264,15 +237,6 @@ export const query = graphql`
         )
       }
     }
-    heroBMW: file(name: { eq: "bmw-x4" }) {
-      childImageSharp {
-        gatsbyImageData(
-          width: 1920
-          placeholder: BLURRED
-          formats: [AUTO, WEBP]
-        )
-      }
-    }
     heroMC: file(name: { eq: "mc-cla-45-amg" }) {
       childImageSharp {
         gatsbyImageData(
@@ -286,6 +250,159 @@ export const query = graphql`
       childImageSharp {
         gatsbyImageData(
           width: 1000
+          placeholder: DOMINANT_COLOR
+          formats: [AUTO, WEBP]
+        )
+      }
+    }
+    car1: file(name: { eq: "car1" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1920
+          placeholder: DOMINANT_COLOR
+          formats: [AUTO, WEBP]
+        )
+      }
+    }
+    car2: file(name: { eq: "car2" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1920
+          placeholder: DOMINANT_COLOR
+          formats: [AUTO, WEBP]
+        )
+      }
+    }
+    car3: file(name: { eq: "car3" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1920
+          placeholder: DOMINANT_COLOR
+          formats: [AUTO, WEBP]
+        )
+      }
+    }
+    car4: file(name: { eq: "car4" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1920
+          placeholder: DOMINANT_COLOR
+          formats: [AUTO, WEBP]
+        )
+      }
+    }
+    car5: file(name: { eq: "car5" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1920
+          placeholder: DOMINANT_COLOR
+          formats: [AUTO, WEBP]
+        )
+      }
+    }
+    car6: file(name: { eq: "car6" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1920
+          placeholder: DOMINANT_COLOR
+          formats: [AUTO, WEBP]
+        )
+      }
+    }
+    car6cropped: file(name: { eq: "car6-cropped" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1000
+          placeholder: DOMINANT_COLOR
+          formats: [AUTO, WEBP]
+        )
+      }
+    }
+    car7: file(name: { eq: "car7" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1920
+          placeholder: DOMINANT_COLOR
+          formats: [AUTO, WEBP]
+        )
+      }
+    }
+    car8: file(name: { eq: "car8" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1920
+          placeholder: DOMINANT_COLOR
+          formats: [AUTO, WEBP]
+        )
+      }
+    }
+    car9: file(name: { eq: "car9" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1920
+          placeholder: DOMINANT_COLOR
+          formats: [AUTO, WEBP]
+        )
+      }
+    }
+    car10: file(name: { eq: "car10" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1920
+          placeholder: DOMINANT_COLOR
+          formats: [AUTO, WEBP]
+        )
+      }
+    }
+    car11: file(name: { eq: "car11" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1920
+          placeholder: DOMINANT_COLOR
+          formats: [AUTO, WEBP]
+        )
+      }
+    }
+    car12: file(name: { eq: "car12" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1920
+          placeholder: DOMINANT_COLOR
+          formats: [AUTO, WEBP]
+        )
+      }
+    }
+    car13: file(name: { eq: "car13" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1920
+          placeholder: DOMINANT_COLOR
+          formats: [AUTO, WEBP]
+        )
+      }
+    }
+    car14: file(name: { eq: "car14" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1920
+          placeholder: DOMINANT_COLOR
+          formats: [AUTO, WEBP]
+        )
+      }
+    }
+    car15: file(name: { eq: "car15" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1920
+          placeholder: DOMINANT_COLOR
+          formats: [AUTO, WEBP]
+        )
+      }
+    }
+    car16: file(name: { eq: "car16" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1920
           placeholder: DOMINANT_COLOR
           formats: [AUTO, WEBP]
         )
@@ -332,7 +449,18 @@ export const query = graphql`
         gatsbyImageData(width: 200, placeholder: BLURRED, formats: [AUTO, WEBP])
       }
     }
+
     audiA5: file(name: { eq: "audi-a5" }) {
+      childImageSharp {
+        gatsbyImageData(width: 500, placeholder: BLURRED, formats: [AUTO, WEBP])
+      }
+    }
+    jaguarXE: file(name: { eq: "jaguar-xe" }) {
+      childImageSharp {
+        gatsbyImageData(width: 500, placeholder: BLURRED, formats: [AUTO, WEBP])
+      }
+    }
+    wolga: file(name: { eq: "wolga" }) {
       childImageSharp {
         gatsbyImageData(width: 500, placeholder: BLURRED, formats: [AUTO, WEBP])
       }

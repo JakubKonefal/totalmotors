@@ -182,7 +182,7 @@ const StyledButton = styled(Button)`
 
 const HomeHeader = ({ slides }) => {
   const { openModalForm } = useContext(NavigationContext)
-  const { activeSlide, changeToSlide } = useSlider(slides)
+  const { activeSlide, changeToSlide } = useSlider(slides, 2500)
 
   return (
     <Wrapper>

@@ -154,6 +154,15 @@ const CloseBtn = styled.button`
   cursor: pointer;
 `
 
+const Shader = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  box-shadow: 1px -7px 20px 30px #0a06066d;
+`
+
 const Sidenav: React.FC = () => {
   const { isSidenavVisible, closeSidenav } = useContext(NavigationContext)
 
@@ -187,6 +196,7 @@ const Sidenav: React.FC = () => {
             ))}
           </Links>
         </InnerWrapper>
+        {/* <Shader /> */}
       </SidenavWrapper>
     </Overlay>
   )
