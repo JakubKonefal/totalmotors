@@ -110,6 +110,7 @@ const LatestRealisations: React.FC<Props> = ({
               title={title}
               desc={desc}
               link
+              index={index}
             />
           ))}
         </Cards>
