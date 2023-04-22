@@ -8,7 +8,7 @@ import Container from 'components/shared/container'
 import Icon from 'components/shared/icon'
 import { Text } from 'components/shared/typography'
 
-import sprzedamLogo from 'assets/icons/logov6.svg'
+import sprzedamLogo from 'assets/icons/sprzedamlogo.svg'
 
 import sprzedamLogo1 from 'assets/icons/logosSvg/logo1-cropped.svg'
 import sprzedamLogo1V2 from 'assets/icons/logosSvg/logo1V2.svg'
@@ -176,7 +176,7 @@ const MenuButton = styled.button`
 
 const Logo = styled.a`
   width: 60%;
-  max-width: 230px;
+  max-width: 145px;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -193,7 +193,7 @@ const Logo = styled.a`
   }
 
   ${({ theme }) => theme.media.lg.min} {
-    max-width: 255px;
+    max-width: 190px;
   }
 `
 

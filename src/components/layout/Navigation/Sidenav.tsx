@@ -6,7 +6,7 @@ import { NavigationContext } from 'contexts/NavigationContext'
 import Icon from 'components/shared/icon'
 import { Text } from 'components/shared/typography'
 
-import sprzedamLogo from 'assets/icons/logov6.svg'
+import sprzedamLogo from 'assets/icons/sprzedamlogo2.svg'
 
 import sprzedamLogo1 from 'assets/icons/logosSvg/logo1.svg'
 import sprzedamLogo1V2 from 'assets/icons/logosSvg/logo1V2.svg'
@@ -86,7 +86,7 @@ const NavHeading = styled.div`
   justify-content: center;
   width: 100%;
   position: relative;
-  padding: 75px 10px 40px 20px;
+  padding: 25px 10px 0 20px;
   border-bottom: 2px solid #80808070;
 `
 
@@ -164,7 +164,7 @@ const Sidenav: React.FC = () => {
       <SidenavWrapper>
         <NavHeading>
           <Logo href="/">
-            <Icon src={sprzedamLogo} alt="matexi" width={290} />
+            <Icon src={sprzedamLogo} alt="matexi" width={260} />
           </Logo>
           <CloseBtn type="button" aria-label="close" onClick={closeSidenav}>
             <Icon src={closeIcon} alt="close" size={34} />
