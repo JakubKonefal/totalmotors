@@ -228,7 +228,7 @@ export const query = graphql`
         )
       }
     }
-    purchaseHERO: file(name: { eq: "purchase" }) {
+    purchaseHERO: file(name: { eq: "agreement" }) {
       childImageSharp {
         gatsbyImageData(
           width: 1920
@@ -237,6 +237,7 @@ export const query = graphql`
         )
       }
     }
+
     heroMC: file(name: { eq: "mc-cla-45-amg" }) {
       childImageSharp {
         gatsbyImageData(
