@@ -26,8 +26,6 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
   // const HOMEPAGE = data?.wpPage?.Homepage
   // const PAGE_SEO = data?.wpPage?.seo
 
-  console.log(data)
-
   const SERVICE_STEPS: StepSingle[] = [
     {
       description:
@@ -62,7 +60,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
     {
       img: {
         src: data?.bmwX4?.childImageSharp?.gatsbyImageData!,
-        alt: 'car3',
+        alt: 'BMW X4',
       },
       title: 'BMW X4',
       desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
@@ -70,7 +68,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
     {
       img: {
         src: data?.wolga?.childImageSharp?.gatsbyImageData!,
-        alt: 'car3',
+        alt: 'Wołga GAZ 21 - 1964r.',
       },
       title: 'Wołga GAZ 21 - 1964r.',
       desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
@@ -78,7 +76,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
     {
       img: {
         src: data?.jaguarXE?.childImageSharp?.gatsbyImageData!,
-        alt: 'car3',
+        alt: 'Jaguar XE',
       },
       title: 'Jaguar XE',
       desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
@@ -86,7 +84,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
     {
       img: {
         src: data?.mcAMG?.childImageSharp?.gatsbyImageData!,
-        alt: 'car3',
+        alt: 'Mercedes CLA 45 AMG',
       },
       title: 'Mercedes CLA 45 AMG',
       desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
@@ -95,7 +93,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
     {
       img: {
         src: data?.vwScirocco?.childImageSharp?.gatsbyImageData!,
-        alt: 'car3',
+        alt: 'VW Scirocco',
       },
       title: 'VW Scirocco',
       desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
@@ -103,7 +101,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
     {
       img: {
         src: data?.audiA5?.childImageSharp?.gatsbyImageData!,
-        alt: 'car3',
+        alt: 'Audi A5',
       },
       title: 'Audi A5',
       desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
@@ -114,7 +112,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
     {
       img: {
         src: data?.scirocco?.childImageSharp?.gatsbyImageData!,
-        alt: 'warsztat',
+        alt: 'VW Scirocco',
       },
       carName: 'VW Scirocco',
       carYear: '1995',
@@ -124,7 +122,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
     {
       img: {
         src: data?.audiA5x2?.childImageSharp?.gatsbyImageData!,
-        alt: 'warsztat',
+        alt: 'Audi A5',
       },
       carName: 'Audi A5',
       carYear: '1995',
@@ -134,7 +132,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
     {
       img: {
         src: data?.polonez?.childImageSharp?.gatsbyImageData!,
-        alt: 'warsztat',
+        alt: 'Polonez Caro',
       },
       carName: 'Polonez Caro',
       carYear: '1995',
@@ -148,7 +146,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
       title: 'Sprzedaj <span>swój</span> <br/> samochód',
       subtitle: 'Pomożemy sprzedać Ci twój samochód',
       src: data?.car6?.childImageSharp?.gatsbyImageData!,
-      alt: 'car',
+      alt: 'Orange sports car',
     },
     // {
     //   title: 'Sprzedaj <span>swój</span> <br/> motocykl',
@@ -160,7 +158,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
       title: 'Kupimy <span>go <br/> </span>  od Ciebie',
       subtitle: '',
       src: data?.purchaseHERO?.childImageSharp?.gatsbyImageData!,
-      alt: 'car-on-platform',
+      alt: 'Handshake',
     },
   ]
 

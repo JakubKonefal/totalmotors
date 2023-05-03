@@ -45,8 +45,6 @@ const KontaktPage: React.FC<PageProps<Queries.KontaktPageQuery>> = ({
   const animateLeft = useAnimateOnScroll()
   const animateRight = useAnimateOnScroll()
 
-  console.log(data)
-
   return (
     <Layout>
       <SEO
@@ -65,7 +63,7 @@ const KontaktPage: React.FC<PageProps<Queries.KontaktPageQuery>> = ({
         description="Skontaktuj się z nami i dowiedz się więcej!"
         img={{
           src: data?.hero?.childImageSharp?.gatsbyImageData!,
-          alt: 'header',
+          alt: 'Handshake',
         }}
       />
       <Breadcrumbs

@@ -30,10 +30,42 @@ const RealizacjePage: React.FC<PageProps<Queries.RealizacjePageQuery>> = ({
   const REALISATIONS: RealisationSingle[] = [
     {
       img: {
-        src: data?.audiA4?.childImageSharp?.gatsbyImageData!,
-        alt: 'car3',
+        src: data?.bmwX4?.childImageSharp?.gatsbyImageData!,
+        alt: 'BMW X4',
       },
-      title: 'Audi A4',
+      title: 'BMW X4',
+      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
+    },
+    {
+      img: {
+        src: data?.wolga?.childImageSharp?.gatsbyImageData!,
+        alt: 'Wołga GAZ 21 - 1964r.',
+      },
+      title: 'Wołga GAZ 21 - 1964r.',
+      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
+    },
+    {
+      img: {
+        src: data?.jaguarXE?.childImageSharp?.gatsbyImageData!,
+        alt: 'Jaguar XE',
+      },
+      title: 'Jaguar XE',
+      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
+    },
+    {
+      img: {
+        src: data?.mcAMG?.childImageSharp?.gatsbyImageData!,
+        alt: 'Mercedes CLA 45 AMG',
+      },
+      title: 'Mercedes CLA 45 AMG',
+      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
+    },
+    {
+      img: {
+        src: data?.vwScirocco?.childImageSharp?.gatsbyImageData!,
+        alt: 'VW Scirocco',
+      },
+      title: 'VW Scirocco',
       desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
     },
     {
@@ -46,52 +78,39 @@ const RealizacjePage: React.FC<PageProps<Queries.RealizacjePageQuery>> = ({
     },
     {
       img: {
-        src: data?.bmwX4?.childImageSharp?.gatsbyImageData!,
+        src: data?.bmwE32?.childImageSharp?.gatsbyImageData!,
         alt: 'car3',
       },
-      title: 'BMW X4',
+      title: 'BMW E32',
       desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
     },
     {
       img: {
+        src: data?.audiA4?.childImageSharp?.gatsbyImageData!,
+        alt: 'Audi A4',
+      },
+      title: 'Audi A4',
+      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
+    },
+
+    {
+      img: {
         src: data?.honda?.childImageSharp?.gatsbyImageData!,
-        alt: 'car3',
+        alt: 'Honda Accord Coupe',
       },
       title: 'Honda Accord Coupe',
       desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
     },
-    {
-      img: {
-        src: data?.wolga?.childImageSharp?.gatsbyImageData!,
-        alt: 'carx',
-      },
-      title: 'Wołga GAZ 21 - 1964r.',
-      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
-    },
-    {
-      img: {
-        src: data?.jaguarXE?.childImageSharp?.gatsbyImageData!,
-        alt: 'car3',
-      },
-      title: 'Jaguar XE',
-      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
-    },
+
     {
       img: {
         src: data?.kiaSorento?.childImageSharp?.gatsbyImageData!,
-        alt: 'car3',
+        alt: 'Kia Sorento',
       },
       title: 'Kia Sorento',
       desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
     },
-    {
-      img: {
-        src: data?.mcAMG?.childImageSharp?.gatsbyImageData!,
-        alt: 'car3',
-      },
-      title: 'Mercedes CLA 45 AMG',
-      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
-    },
+
     // {
     //   img: {
     //     src: data?.motorCagiva?.childImageSharp?.gatsbyImageData!,
@@ -151,7 +170,7 @@ const RealizacjePage: React.FC<PageProps<Queries.RealizacjePageQuery>> = ({
     {
       img: {
         src: data?.polonez?.childImageSharp?.gatsbyImageData!,
-        alt: 'car3',
+        alt: 'Polonez Caro - 1993r.',
       },
       title: 'Polonez Caro - 1993r.',
       desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
@@ -167,17 +186,9 @@ const RealizacjePage: React.FC<PageProps<Queries.RealizacjePageQuery>> = ({
     {
       img: {
         src: data?.szGrandVitara?.childImageSharp?.gatsbyImageData!,
-        alt: 'car3',
+        alt: 'Suzuki Grand Vitara',
       },
       title: 'Suzuki Grand Vitara',
-      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
-    },
-    {
-      img: {
-        src: data?.vwScirocco?.childImageSharp?.gatsbyImageData!,
-        alt: 'car3',
-      },
-      title: 'VW Scirocco',
       desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
     },
   ]
@@ -200,7 +211,7 @@ const RealizacjePage: React.FC<PageProps<Queries.RealizacjePageQuery>> = ({
         description="Nasze ostatnie realizacje sprzedażowe"
         img={{
           src: data?.hero?.childImageSharp?.gatsbyImageData!,
-          alt: 'header',
+          alt: 'Handshake',
         }}
       />
       <Breadcrumbs
@@ -259,6 +270,15 @@ export const query = graphql`
       }
     }
     bmwX4: file(name: { eq: "bmw-x4" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1200
+          placeholder: BLURRED
+          formats: [AUTO, WEBP]
+        )
+      }
+    }
+    bmwE32: file(name: { eq: "BMW" }) {
       childImageSharp {
         gatsbyImageData(
           width: 1200
