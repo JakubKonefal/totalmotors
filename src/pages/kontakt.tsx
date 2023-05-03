@@ -2,10 +2,8 @@ import * as React from 'react'
 import { graphql, PageProps } from 'gatsby'
 import styled from 'styled-components'
 
-import { seoProps } from 'constants/seoProps'
-
 import { motion } from 'framer-motion'
-import { variants, transitions } from 'constants/animations'
+import { variants } from 'constants/animations'
 
 import SEO from 'components/shared/SEO'
 
