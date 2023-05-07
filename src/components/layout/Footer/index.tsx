@@ -1,6 +1,6 @@
 import { Text } from 'components/shared/typography'
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 import { seoProps } from 'constants/seoProps'
 
@@ -8,6 +8,8 @@ import Container from 'components/shared/container'
 
 import phone1Icon from 'assets/icons/phone-1.svg'
 import emailIcon from 'assets/icons/mail.svg'
+import locationIcon from 'assets/icons/location.svg'
+import location2Icon from 'assets/icons/location2.svg'
 import facebookIcon from 'assets/icons/facebook.svg'
 import instagramIcon from 'assets/icons/instagram.svg'
 import useBreakpoint from 'hooks/useBreakpoint'
@@ -113,7 +115,7 @@ const SocialMedia = styled.div`
   }
 `
 
-const ButtonLink = styled.a`
+const ButtonLink = styled.a<{ nohover?: boolean }>`
   display: flex;
   align-items: center;
   color: ${({ theme }) => theme.colors.gray500};
@@ -129,6 +131,14 @@ const ButtonLink = styled.a`
     /* color: ${({ theme }) => theme.colors.primary200}; */
     color: ${({ theme }) => theme.colors.tertiary};
   }
+
+  ${({ nohover }) =>
+    nohover &&
+    css`
+      &:hover {
+        color: ${({ theme }) => theme.colors.gray500};
+      }
+    `}
 `
 
 // const Logo = styled.a`
@@ -206,6 +216,16 @@ const Footer = () => {
                   alt="email"
                 />
                 biuro@sprzedamtwojsamochod.pl
+              </ButtonLink>
+              <ButtonLink as="div" nohover>
+                <Icon
+                  className="button-link-icon"
+                  src={locationIcon}
+                  size={26}
+                  alt="email"
+                />
+                Klęczany 299A, 39-127 Będziemyśl <br />
+                (15 km od Rzeszowa)
               </ButtonLink>
             </TopGridItem>
           </TopGrid>
