@@ -28,6 +28,11 @@ const Section = styled.section`
   margin-bottom: ${({ theme }) => theme.container.marginSM};
   ${({ theme }) => theme.media.lg.min} {
     margin-bottom: ${({ theme }) => theme.container.marginLG};
+
+    ${Container} {
+      /* padding-left: 0; */
+      padding-right: 0;
+    }
   }
 `
 
@@ -57,7 +62,7 @@ const TextContent = styled.div`
   ${({ theme }) => theme.media.lg.min} {
     justify-self: center;
     height: 100%;
-    max-width: 500px;
+    max-width: unset;
 
     ${Text} {
       line-height: 1.55;
@@ -136,12 +141,12 @@ const About: React.FC<Props> = ({ heading, description, steps }) => {
           <TextContent>
             <Heading
               as="h1"
-              size={30}
+              size={lg ? 36 : 30}
               margin="15px"
               dangerouslySetInnerHTML={{ __html: heading }}
             />
             <Text
-              size={lg ? 15 : 14}
+              size={lg ? 17 : 14}
               dangerouslySetInnerHTML={{ __html: description }}
             />
             <StyledButton

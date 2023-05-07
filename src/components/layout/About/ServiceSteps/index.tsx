@@ -32,6 +32,7 @@ const Wrapper = styled.div`
 
   ${({ theme }) => theme.media.lg.min} {
     margin: 0;
+    padding-right: 0;
   }
 `
 
@@ -49,6 +50,7 @@ const Steps = styled(motion.div)`
 
   ${({ theme }) => theme.media.lg.min} {
     justify-self: center;
+
     /* max-width: unset; */
   }
 
@@ -303,7 +305,7 @@ const ServiceSteps: React.FC<Props> = ({ steps }) => {
               </StepNumberOuter>
             </StepNumber>
             <Text
-              size={lg ? 15 : 14}
+              size={lg ? 17 : 14}
               themecolor="white"
               margin="0"
               dangerouslySetInnerHTML={{ __html: step.description }}

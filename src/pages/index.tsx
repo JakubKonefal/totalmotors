@@ -204,7 +204,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
             src: data?.warsztat1?.childImageSharp?.gatsbyImageData!,
             alt: 'warsztat',
           }}
-          heading="Dlaczego My?"
+          heading="O nas"
           description=""
           benefits={BENEFITS}
         />
