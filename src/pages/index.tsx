@@ -143,10 +143,18 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
 
   const SLIDES = [
     {
-      title: 'Sprzedaj <span>swój</span> <br/> samochód',
-      subtitle: 'Pomożemy sprzedać Ci twój samochód',
+      title: 'Chcesz sprzedać <br/> samochód?',
+      // subtitle: 'Pomożemy sprzedać Ci twój samochód',
+      subtitle: 'Zleć to profesjonalistom i zaoszczędź swój czas!',
       src: data?.car6?.childImageSharp?.gatsbyImageData!,
       alt: 'Orange sports car',
+    },
+    {
+      title: 'Kupimy go od Ciebie <br/> za gotówkę!',
+      // subtitle: '',
+      // subtitle: 'Ze stacją diagnostyczną i pomocą drogową',
+      src: data?.purchaseHERO?.childImageSharp?.gatsbyImageData!,
+      alt: 'Handshake',
     },
     // {
     //   title: 'Sprzedaj <span>swój</span> <br/> motocykl',
@@ -154,11 +162,12 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
     //   src: data?.motorYamahaHERO?.childImageSharp?.gatsbyImageData!,
     //   alt: 'motobike',
     // },
+
     {
-      title: 'Kupimy <span>go <br/> </span>  od Ciebie',
-      subtitle: '',
-      src: data?.purchaseHERO?.childImageSharp?.gatsbyImageData!,
-      alt: 'Handshake',
+      title: '<span>Posiadamy</span> kompleks <br/> samochodowy <span>',
+      subtitle: 'Ze stacją diagnostyczną i pomocą drogową',
+      src: data?.p10?.childImageSharp?.gatsbyImageData!,
+      alt: 'Orange sports car',
     },
   ]
 
@@ -227,6 +236,132 @@ export const query = graphql`
       }
     }
     purchaseHERO: file(name: { eq: "agreement" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1920
+          placeholder: DOMINANT_COLOR
+          formats: [AUTO, WEBP]
+        )
+      }
+    }
+    p1: file(name: { eq: "p1" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1920
+          placeholder: DOMINANT_COLOR
+          formats: [AUTO, WEBP]
+        )
+      }
+    }
+    p2: file(name: { eq: "p2" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1920
+          placeholder: DOMINANT_COLOR
+          formats: [AUTO, WEBP]
+        )
+      }
+    }
+    p3: file(name: { eq: "p3" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1920
+          placeholder: DOMINANT_COLOR
+          formats: [AUTO, WEBP]
+        )
+      }
+    }
+    p4: file(name: { eq: "p4" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1920
+          placeholder: DOMINANT_COLOR
+          formats: [AUTO, WEBP]
+        )
+      }
+    }
+    p5: file(name: { eq: "p5" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1920
+          placeholder: DOMINANT_COLOR
+          formats: [AUTO, WEBP]
+        )
+      }
+    }
+    p6: file(name: { eq: "p6" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1920
+          placeholder: DOMINANT_COLOR
+          formats: [AUTO, WEBP]
+        )
+      }
+    }
+    p7: file(name: { eq: "p7" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1920
+          placeholder: DOMINANT_COLOR
+          formats: [AUTO, WEBP]
+        )
+      }
+    }
+    p8: file(name: { eq: "p8" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1920
+          placeholder: DOMINANT_COLOR
+          formats: [AUTO, WEBP]
+        )
+      }
+    }
+    p9: file(name: { eq: "p9" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1920
+          placeholder: DOMINANT_COLOR
+          formats: [AUTO, WEBP]
+        )
+      }
+    }
+    p10: file(name: { eq: "p10" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1920
+          placeholder: DOMINANT_COLOR
+          formats: [AUTO, WEBP]
+        )
+      }
+    }
+    p11: file(name: { eq: "p11" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1920
+          placeholder: DOMINANT_COLOR
+          formats: [AUTO, WEBP]
+        )
+      }
+    }
+    p12: file(name: { eq: "p12" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1920
+          placeholder: DOMINANT_COLOR
+          formats: [AUTO, WEBP]
+        )
+      }
+    }
+    p13: file(name: { eq: "p13" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1920
+          placeholder: DOMINANT_COLOR
+          formats: [AUTO, WEBP]
+        )
+      }
+    }
+    car14: file(name: { eq: "car14" }) {
       childImageSharp {
         gatsbyImageData(
           width: 1920

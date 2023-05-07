@@ -91,7 +91,7 @@ const Slide = styled.div`
   overflow: hidden;
 `
 
-const TitleWrapper = styled.div`
+const TitleWrapper = styled.div<{ shiftedBottom?: boolean }>`
   position: absolute;
   top: 50%;
   left: 50%;
@@ -122,12 +122,20 @@ const TitleWrapper = styled.div`
       text-align: left;
     }
   }
+
+  ${({ theme }) => theme.media.lg.min} {
+    ${({ shiftedBottom }) =>
+      shiftedBottom &&
+      css`
+        top: 55%;
+      `}
+  }
 `
 
 const StyledHeading = styled(Heading)`
   position: relative;
   font-family: 'Montserrat';
-  /* margin-bottom: 15px; */
+  margin-bottom: 1rem;
   letter-spacing: 1px;
 
   span {
@@ -178,17 +186,23 @@ const StyledButton = styled(Button)`
     margin-inline: 0;
     margin-right: auto;
   }
+
+  ${({ theme }) => theme.media.lg.min} {
+    margin-top: 32px;
+  }
 `
 
 const HomeHeader = ({ slides }) => {
+  const slidez = slides
+
   const { openModalForm } = useContext(NavigationContext)
-  const { activeSlide, changeToSlide } = useSlider(slides, 2500)
+  const { activeSlide, changeToSlide } = useSlider(slidez, 2500)
 
   return (
     <Wrapper>
       <SlideWrapper>
         <SlideInnerWrapper>
-          {slides.map(({ src, alt, title, subtitle }, index) => {
+          {slidez.map(({ src, alt, title, subtitle }, index) => {
             return (
               <Slide key={index}>
                 <ImageWrapper isActive={activeSlide === index}>
@@ -200,7 +214,11 @@ const HomeHeader = ({ slides }) => {
                   />
                 </ImageWrapper>
 
-                <TitleWrapper isActive={activeSlide === index} openDays>
+                <TitleWrapper
+                  isActive={activeSlide === index}
+                  openDays
+                  shiftedBottom={index === 1}
+                >
                   <StyledContainer id="title-container">
                     <StyledHeading
                       size={42}
@@ -210,12 +228,12 @@ const HomeHeader = ({ slides }) => {
                       dangerouslySetInnerHTML={{ __html: title }}
                     />
 
-                    {/* <Text
-                      size={20}
+                    <Text
+                      size={24}
                       themecolor="white"
                       align="center"
                       dangerouslySetInnerHTML={{ __html: subtitle }}
-                    /> */}
+                    />
                     <StyledButton type="button" onClick={openModalForm}>
                       kontakt
                     </StyledButton>

@@ -10,16 +10,8 @@ import { Text } from 'components/shared/typography'
 
 import sprzedamLogo from 'assets/icons/sprzedamlogolatest.svg'
 
-import sprzedamLogo1 from 'assets/icons/logosSvg/logo1-cropped.svg'
-import sprzedamLogo1V2 from 'assets/icons/logosSvg/logo1V2.svg'
-import sprzedamLogo2 from 'assets/icons/logosSvg/logo2.svg'
-import sprzedamLogo2V2 from 'assets/icons/logosSvg/logo2V2.svg'
-import sprzedamLogo2V3 from 'assets/icons/logosSvg/logo2V3.svg'
-import sprzedamLogo2V4 from 'assets/icons/logosSvg/logo2V4.svg'
-import sprzedamLogo2V5 from 'assets/icons/logosSvg/logo2V5.svg'
-import sprzedamLogo3 from 'assets/icons/logosSvg/logo3.svg'
-
 // These svgs are used below in HTML
+
 // import phone1Icon from 'assets/icons/phone-1-dark.svg'
 // import emailIcon from 'assets/icons/mail-dark.svg'
 
@@ -68,7 +60,7 @@ const TopnavWrapper = styled.nav<{ active?: boolean }>`
       !active &&
       css`
         .logo {
-          transform: translateY(-85%);
+          transform: translateY(-90%);
         }
         transform: translateY(-51px);
       `}

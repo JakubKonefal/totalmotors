@@ -133,7 +133,7 @@ const RealisationCard: React.FC<RealisationSingle> = ({
       </TitleWrapper>
       <ImgWrapper
         onClick={() => {
-          if (index && onZoom) {
+          if (onZoom) {
             onZoom(index!)
           }
         }}

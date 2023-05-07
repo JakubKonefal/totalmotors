@@ -86,6 +86,8 @@ const AllRealisations: React.FC<Props> = ({
   }
 
   const handleZoom = (index: number) => {
+    console.log(index)
+
     setZoomedImgIndex(index)
     setModalVisible(true)
   }
