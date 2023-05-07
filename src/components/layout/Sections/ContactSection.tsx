@@ -5,6 +5,7 @@ import CarForm from 'components/layout/Forms/CarForm'
 
 import phone1Icon from 'assets/icons/phone-1.svg'
 import emailIcon from 'assets/icons/mail.svg'
+import locationIcon from 'assets/icons/locationv2.svg'
 import Icon from 'components/shared/icon'
 
 const Wrapper = styled.div`
@@ -40,6 +41,10 @@ const BottomWrapper = styled.div`
     justify-content: space-between;
     max-width: unset;
     padding: 30px;
+
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 30px;
   }
 `
 
@@ -47,6 +52,8 @@ const ButtonLink = styled.a`
   display: flex;
   align-items: center;
   color: ${({ theme }) => theme.colors.black};
+  min-width: max-content;
+
   :not(:last-child) {
     margin-bottom: 16px;
   }
@@ -88,6 +95,16 @@ const ContactSection = () => {
             alt="email"
           />
           biuro@sprzedamtwojsamochod.pl
+        </ButtonLink>
+        <ButtonLink href="mailto: biuro@sprzedamtwojsamochod.pl" role="button">
+          <Icon
+            className="button-link-icon"
+            src={locationIcon}
+            size={26}
+            alt="email"
+          />
+          Klęczany 299A, 39-127 Będziemyśl <br />
+          (15 km od Rzeszowa)
         </ButtonLink>
       </BottomWrapper>
     </Wrapper>
