@@ -173,7 +173,7 @@ const ButtonContainer = styled(Container)`
 
 const StyledButton = styled(Button)`
   display: block;
-  margin-inline: auto;
+  /* margin-inline: auto; */
   width: 180px;
   height: 45px;
   font-size: 16px;
@@ -228,7 +228,7 @@ const HomeHeader = ({ slides }) => {
                     <StyledHeading
                       size={42}
                       themecolor="white"
-                      align="center"
+                      // align="center"
                       transform="uppercase"
                       dangerouslySetInnerHTML={{ __html: title }}
                     />
@@ -236,7 +236,7 @@ const HomeHeader = ({ slides }) => {
                     <Text
                       size={24}
                       themecolor="white"
-                      align="center"
+                      // align="center"
                       dangerouslySetInnerHTML={{ __html: subtitle }}
                     />
                     <StyledButton type="button" onClick={openModalForm}>
