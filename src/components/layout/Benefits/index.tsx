@@ -163,12 +163,12 @@ const BenefitItem = styled.div`
 
   ${({ theme }) => theme.media.lg.min} {
     .title {
-      font-size: 1.325rem;
+      font-size: 24px;
       color: ${({ theme }) => theme.colors.primary200} !important;
     }
 
     .desc {
-      font-size: 1rem;
+      font-size: 17px;
     }
   }
 

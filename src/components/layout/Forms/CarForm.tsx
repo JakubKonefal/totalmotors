@@ -265,7 +265,7 @@ const ContactForm: React.FC<Props> = ({ heading, centerHeading = false }) => {
                     <Field
                       name="name"
                       placeholder="Imię i nazwisko"
-                      required
+                      // required
                       themecolor="gray500"
                       fontColor="black100"
                       background="gray300"
@@ -285,7 +285,7 @@ const ContactForm: React.FC<Props> = ({ heading, centerHeading = false }) => {
                   <Field
                     name="email"
                     placeholder="E-mail"
-                    required
+                    // required
                     themecolor="gray500"
                     fontColor="black100"
                     background="gray300"
@@ -298,7 +298,7 @@ const ContactForm: React.FC<Props> = ({ heading, centerHeading = false }) => {
                     themecolor="gray500"
                     fontColor="black100"
                     background="gray300"
-                    required
+                    // required
                     withIcon
                     textarea
                     component={Input}
