@@ -37,14 +37,22 @@ const BottomWrapper = styled.div`
   }
 
   ${({ theme }) => theme.media.lg.min} {
-    flex-direction: row;
-    justify-content: space-between;
     max-width: unset;
     padding: 30px;
+  }
+`
 
-    display: grid;
-    grid-template-columns: auto auto;
-    gap: 30px;
+const LinksTop = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  width: 100%;
+  margin-bottom: 15px;
+
+  ${({ theme }) => theme.media.lg.min} {
+    flex-direction: row;
+    justify-content: space-between;
   }
 `
 
@@ -73,39 +81,50 @@ const ButtonLink = styled.a`
   }
 `
 
+const NonLink = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: auto;
+
+  .icon {
+    margin-right: 8px;
+  }
+`
+
 const ContactSection = () => {
   return (
     <Wrapper>
       <CarForm heading="Zapytaj o sprzedaż" />
       <BottomWrapper>
-        <ButtonLink href="tel: 668 074 853" role="button">
-          <Icon
-            className="button-link-icon"
-            src={phone1Icon}
-            size={26}
-            alt="phone"
-          />
-          Tel.: 668 074 853
-        </ButtonLink>
-        <ButtonLink href="mailto: biuro@sprzedamtwojsamochod.pl" role="button">
-          <Icon
-            className="button-link-icon"
-            src={emailIcon}
-            size={26}
-            alt="email"
-          />
-          biuro@sprzedamtwojsamochod.pl
-        </ButtonLink>
-        <ButtonLink href="mailto: biuro@sprzedamtwojsamochod.pl" role="button">
-          <Icon
-            className="button-link-icon"
-            src={locationIcon}
-            size={26}
-            alt="email"
-          />
+        <LinksTop>
+          <ButtonLink href="tel: 668 074 853" role="button">
+            <Icon
+              className="button-link-icon"
+              src={phone1Icon}
+              size={26}
+              alt="phone"
+            />
+            Tel.: 668 074 853
+          </ButtonLink>
+          <ButtonLink
+            href="mailto: biuro@sprzedamtwojsamochod.pl"
+            role="button"
+          >
+            <Icon
+              className="button-link-icon"
+              src={emailIcon}
+              size={26}
+              alt="email"
+            />
+            biuro@sprzedamtwojsamochod.pl
+          </ButtonLink>
+        </LinksTop>
+        <NonLink>
+          <Icon className="icon" src={locationIcon} size={26} alt="email" />
           Klęczany 299A, 39-127 Będziemyśl <br />
           (15 km od Rzeszowa)
-        </ButtonLink>
+        </NonLink>
       </BottomWrapper>
     </Wrapper>
   )

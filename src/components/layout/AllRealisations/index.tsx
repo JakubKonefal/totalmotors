@@ -25,8 +25,13 @@ type Props = {
 
 const Section = styled.section`
   margin-bottom: ${({ theme }) => theme.container.marginSM};
+
   ${({ theme }) => theme.media.lg.min} {
     margin-bottom: ${({ theme }) => theme.container.marginLG};
+
+    ${Text} {
+      max-width: unset;
+    }
   }
 `
 
@@ -86,8 +91,6 @@ const AllRealisations: React.FC<Props> = ({
   }
 
   const handleZoom = (index: number) => {
-    console.log(index)
-
     setZoomedImgIndex(index)
     setModalVisible(true)
   }
@@ -101,12 +104,12 @@ const AllRealisations: React.FC<Props> = ({
       <Container>
         <Heading
           as="h2"
-          size={30}
+          size={lg ? 36 : 30}
           margin="10px"
           dangerouslySetInnerHTML={{ __html: heading }}
         />
         <Text
-          size={lg ? 15 : 14}
+          size={lg ? 17 : 14}
           dangerouslySetInnerHTML={{ __html: description }}
         />
         <RealisationsWrapper

@@ -204,6 +204,14 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
             src: data?.warsztat1?.childImageSharp?.gatsbyImageData!,
             alt: 'warsztat',
           }}
+          img2={{
+            src: data?.warsztat1?.childImageSharp?.gatsbyImageData!,
+            alt: 'warsztat',
+          }}
+          img3={{
+            src: data?.warsztat1?.childImageSharp?.gatsbyImageData!,
+            alt: 'warsztat',
+          }}
           heading="O nas"
           description=""
           benefits={BENEFITS}

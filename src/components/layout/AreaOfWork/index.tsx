@@ -46,12 +46,12 @@ const AreaOfWork: React.FC<Props> = ({ heading, description }) => {
     <Section title={heading}>
       <Heading
         as="h2"
-        size={30}
+        size={lg ? 36 : 30}
         margin="10px"
         dangerouslySetInnerHTML={{ __html: heading }}
       />
       <Text
-        size={lg ? 15 : 14}
+        size={lg ? 17 : 14}
         dangerouslySetInnerHTML={{ __html: description }}
       />
       <MapWrapper>

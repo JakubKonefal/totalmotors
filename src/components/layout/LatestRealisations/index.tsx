@@ -86,13 +86,13 @@ const LatestRealisations: React.FC<Props> = ({
       <Container>
         <TextContent>
           <Heading
-            as="h1"
-            size={30}
-            margin="10px"
+            as="h2"
+            size={lg ? 36 : 30}
+            margin="15px"
             dangerouslySetInnerHTML={{ __html: heading }}
           />
           <Text
-            size={lg ? 15 : 14}
+            size={lg ? 17 : 14}
             dangerouslySetInnerHTML={{ __html: description }}
           />
         </TextContent>

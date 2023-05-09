@@ -11,6 +11,7 @@ import { Heading, Text } from 'components/shared/typography'
 import useAnimateOnScroll from 'hooks/useAnimateOnScroll'
 
 import type { Image } from 'types/image'
+import useBreakpoint from 'hooks/useBreakpoint'
 
 type Props = {
   heading: string
@@ -81,6 +82,8 @@ const Overlay = styled.div`
 const Header: React.FC<Props> = ({ heading, description, img }) => {
   const animateHeroText = useAnimateOnScroll()
 
+  const { lg } = useBreakpoint()
+
   return (
     <StyledHeader>
       <ImgWrapper>
@@ -102,7 +105,7 @@ const Header: React.FC<Props> = ({ heading, description, img }) => {
           />
 
           <StyledText
-            size={16}
+            size={lg ? 17 : 16}
             themecolor="white"
             dangerouslySetInnerHTML={{ __html: description }}
           />

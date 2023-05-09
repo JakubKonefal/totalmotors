@@ -223,12 +223,12 @@ const Testimonials: React.FC<Props> = ({
         <TextContent>
           <Heading
             as="h2"
-            size={30}
-            margin="10px"
+            size={lg ? 36 : 30}
+            margin="15px"
             dangerouslySetInnerHTML={{ __html: heading }}
           />
           <Text
-            size={lg ? 15 : 14}
+            size={lg ? 17 : 14}
             dangerouslySetInnerHTML={{ __html: description }}
           />
         </TextContent>

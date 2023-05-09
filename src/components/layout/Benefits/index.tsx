@@ -51,6 +51,8 @@ export type Benefit = {
 
 type Props = {
   img: Image
+  img2: Image
+  img3: Image
   heading: string
   description: string
   benefits: Benefit[]
@@ -197,7 +199,14 @@ const BenefitItemTextContent = styled.div`
   margin-left: 30px;
 `
 
-const Benefits: React.FC<Props> = ({ img, heading, description, benefits }) => {
+const AboutUs: React.FC<Props> = ({
+  img,
+  img2,
+  img3,
+  heading,
+  description,
+  benefits,
+}) => {
   const { lg } = useBreakpoint()
 
   const animateBenefits = useAnimateOnScroll()
@@ -207,7 +216,7 @@ const Benefits: React.FC<Props> = ({ img, heading, description, benefits }) => {
       <Container className="heading-container">
         <Heading
           as="h2"
-          size={30}
+          size={lg ? 36 : 30}
           margin={lg ? '40px' : '20px'}
           align="left"
           dangerouslySetInnerHTML={{ __html: heading }}
@@ -215,7 +224,7 @@ const Benefits: React.FC<Props> = ({ img, heading, description, benefits }) => {
       </Container>
       <StyledContainer>
         <Content>
-          {lg && (
+          {/* {lg && (
             <BenefitsList
               ref={animateBenefits.ref}
               variants={variants.fadeInRightToLeft}
@@ -249,12 +258,12 @@ const Benefits: React.FC<Props> = ({ img, heading, description, benefits }) => {
                 </BenefitItem>
               ))}
             </BenefitsList>
-          )}
+          )} */}
         </Content>
         <ImgWrapper>
           <LazyImage src={img.src} alt={img.alt} />
         </ImgWrapper>
-        {!lg && (
+        {/* {!lg && (
           <BenefitsList
             ref={animateBenefits.ref}
             variants={variants.fadeInRightToLeft}
@@ -286,10 +295,10 @@ const Benefits: React.FC<Props> = ({ img, heading, description, benefits }) => {
               </BenefitItem>
             ))}
           </BenefitsList>
-        )}
+        )} */}
       </StyledContainer>
     </Section>
   )
 }
 
-export default Benefits
+export default AboutUs
