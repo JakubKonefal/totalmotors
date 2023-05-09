@@ -178,6 +178,7 @@ const StyledButton = styled(Button)`
   height: 45px;
   font-size: 16px;
   font-weight: 600;
+  margin-top: 32px;
   letter-spacing: 0.5px;
   text-transform: uppercase;
   background-color: ${({ theme }) => theme.colors.tertiary};
@@ -200,7 +201,7 @@ const HomeHeader = ({ slides }) => {
   const slidez = slides
 
   const { openModalForm } = useContext(NavigationContext)
-  const { activeSlide, changeToSlide } = useSlider(slidez, 2500)
+  const { activeSlide, changeToSlide } = useSlider(slidez, 3000)
 
   return (
     <Wrapper>

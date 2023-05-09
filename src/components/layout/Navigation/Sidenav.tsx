@@ -6,7 +6,7 @@ import { NavigationContext } from 'contexts/NavigationContext'
 import Icon from 'components/shared/icon'
 import { Text } from 'components/shared/typography'
 
-import sprzedamLogo from 'assets/icons/sprzedamlogo2.svg'
+import sprzedamLogo from 'assets/icons/sprzedamlogolatest.svg'
 
 import sprzedamLogo1 from 'assets/icons/logosSvg/logo1.svg'
 import sprzedamLogo1V2 from 'assets/icons/logosSvg/logo1V2.svg'
@@ -17,7 +17,7 @@ import sprzedamLogo2V4 from 'assets/icons/logosSvg/logo2V4.svg'
 import sprzedamLogo2V5 from 'assets/icons/logosSvg/logo2V5.svg'
 import sprzedamLogo3 from 'assets/icons/logosSvg/logo3.svg'
 
-import closeIcon from 'assets/icons/close.svg'
+import closeIcon from 'assets/icons/close-white.svg'
 
 import useLocation from 'hooks/useLocation'
 
@@ -86,8 +86,9 @@ const NavHeading = styled.div`
   justify-content: center;
   width: 100%;
   position: relative;
-  padding: 25px 10px 0 20px;
+  padding: 50px 20px;
   border-bottom: 2px solid #80808070;
+  background-color: rgb(52, 52, 52);
 `
 
 const Logo = styled.a`
