@@ -224,7 +224,7 @@ const AboutUs: React.FC<Props> = ({
       </Container>
       <StyledContainer>
         <Content>
-          {/* {lg && (
+          {lg && (
             <BenefitsList
               ref={animateBenefits.ref}
               variants={variants.fadeInRightToLeft}
@@ -258,12 +258,12 @@ const AboutUs: React.FC<Props> = ({
                 </BenefitItem>
               ))}
             </BenefitsList>
-          )} */}
+          )}
         </Content>
         <ImgWrapper>
           <LazyImage src={img.src} alt={img.alt} />
         </ImgWrapper>
-        {/* {!lg && (
+        {!lg && (
           <BenefitsList
             ref={animateBenefits.ref}
             variants={variants.fadeInRightToLeft}
@@ -295,7 +295,7 @@ const AboutUs: React.FC<Props> = ({
               </BenefitItem>
             ))}
           </BenefitsList>
-        )} */}
+        )}
       </StyledContainer>
     </Section>
   )
