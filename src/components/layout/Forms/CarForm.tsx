@@ -28,6 +28,7 @@ import {
 type Props = {
   heading: string
   centerHeading?: boolean
+  formBottom?: boolean
 }
 
 const Section = styled.section`
@@ -187,7 +188,11 @@ const SubmitInfoWrapper = styled.div`
   }
 `
 
-const ContactForm: React.FC<Props> = ({ heading, centerHeading = false }) => {
+const ContactForm: React.FC<Props> = ({
+  heading,
+  centerHeading = false,
+  formBottom = false,
+}) => {
   const [submitSuccess, setSubmitSuccess] = useState(false)
   const [formError, setFormError] = useState(false)
 

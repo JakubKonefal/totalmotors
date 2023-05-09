@@ -222,7 +222,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
           testimonials={TESTIMONIALS}
         />
         <Container>
-          <CarForm heading="Zapytaj o sprzedaż" centerHeading />
+          <CarForm heading="Zapytaj o sprzedaż" centerHeading formBottom />
         </Container>
       </main>
       <Footer />
