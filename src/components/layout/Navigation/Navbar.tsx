@@ -18,7 +18,7 @@ import sprzedamLogo from 'assets/icons/sprzedamlogolatest.svg'
 import useBreakpoint from 'hooks/useBreakpoint'
 import useScrollHide from 'hooks/useScrollHide'
 
-const TopnavWrapper = styled.nav<{ active?: boolean }>`
+const NavbarWrapper = styled.nav<{ active?: boolean }>`
   position: fixed;
   top: 0;
   left: 0;
@@ -206,7 +206,7 @@ const Links = styled.div`
   }
 `
 
-const LinkItem = styled.button<{ blue: boolean }>`
+const LinkItem = styled.button<{ orange: boolean }>`
   position: relative;
   /* height: 100%; */
   padding: 0 8px;
@@ -229,21 +229,20 @@ const LinkItem = styled.button<{ blue: boolean }>`
     padding: 0 14px;
   }
 
-  ${({ blue }) =>
-    blue &&
+  ${({ orange }) =>
+    orange &&
     css`
       padding: 0 !important;
       ${Text} {
-        background-color: ${({ theme }) => theme.colors.primary200};
+        background-color: ${({ theme }) => theme.colors.tertiary};
         padding: 6px 16px;
         font-weight: 600;
         border-radius: 10px;
-        /* color: ${({ theme }) => theme.colors.white}; */
       }
 
       &:hover {
         ${Text} {
-          background-color: ${({ theme }) => theme.colors.tertiary};
+          background-color: ${({ theme }) => theme.colors.tertiary200};
           color: ${({ theme }) => theme.colors.white};
           transition: 250ms ease-in-out;
         }
@@ -251,14 +250,14 @@ const LinkItem = styled.button<{ blue: boolean }>`
     `}
 `
 
-const Topnav = () => {
+const Navbar = () => {
   const { lg, xl } = useBreakpoint()
   const { openSidenav } = useContext(NavigationContext)
 
   const isHidden = useScrollHide(0, 150)
 
   return (
-    <TopnavWrapper active={!isHidden}>
+    <NavbarWrapper active={!isHidden}>
       <StyledContainer fullHeight>
         <Logo href="/" className="logo">
           <Icon src={sprzedamLogo} alt="sprzedamtwojsamochod.pl - logo" auto />
@@ -269,7 +268,7 @@ const Topnav = () => {
             <LinkItem
               as="a"
               href={link.link}
-              blue={link.label.toLowerCase().includes('realizacje')}
+              orange={link.label.toLowerCase().includes('realizacje')}
               key={`navbar-link-${index}`}
             >
               <Text size={xl ? 14 : 14} themecolor="black">
@@ -333,8 +332,8 @@ const Topnav = () => {
           </Text>
         </ContactLink>
       </StyledContainerBottom>
-    </TopnavWrapper>
+    </NavbarWrapper>
   )
 }
 
-export default Topnav
+export default Navbar

@@ -27,6 +27,7 @@ export const colors: Colors = {
   secondary: '#AD4740',
   tertiary: '#E06826',
   tertiary100: '#F17937',
+  tertiary200: '#D05715',
   // tertiary: '#D54E2A',
   darkgray: '#1D1D1D',
   darkgray100: '#343434',

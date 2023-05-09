@@ -180,7 +180,11 @@ const StyledButton = styled(Button)`
   font-weight: 600;
   letter-spacing: 0.5px;
   text-transform: uppercase;
-  background-color: ${({ theme }) => theme.colors.primary200};
+  background-color: ${({ theme }) => theme.colors.tertiary};
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.tertiary200};
+  }
 
   ${({ theme }) => theme.media.md.min} {
     margin-inline: 0;
