@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { graphql, PageProps } from 'gatsby'
+import { NavigationContext } from 'contexts/NavigationContext'
 
 import { seoProps } from 'constants/seoProps'
 
@@ -25,6 +26,8 @@ import Container from 'components/shared/container'
 const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
   // const HOMEPAGE = data?.wpPage?.Homepage
   // const PAGE_SEO = data?.wpPage?.seo
+
+  const { isModalFormVisible } = React.useContext(NavigationContext)
 
   const SERVICE_STEPS: StepSingle[] = [
     {
@@ -184,7 +187,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
         // twitterImage={twitterImage?.sourceUrl}
       />
       <Navigation />
-      <ModalForm />
+      {isModalFormVisible && <ModalForm />}
       <main>
         <HomeHeader slides={SLIDES} />
         <About
