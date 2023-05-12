@@ -49,7 +49,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
 
   const ABOUTS: AboutSingle[] = [
     {
-      title: 'Pasja',
+      title: 'Kompleks <br/> samochodowy',
       description:
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur obcaecati nobis reprehenderit dolorum quas vel temporibus asperiores cumque? Architecto ducimus enim placeat ex rerum sit repudiandae, commodi unde. Voluptatum, ut.',
       img: {
@@ -59,7 +59,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
     },
 
     {
-      title: 'Kompleks samochodowy',
+      title: 'Stacja <br/> diagnostyczna',
       description:
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur obcaecati nobis reprehenderit dolorum quas vel temporibus asperiores cumque? Architecto ducimus enim placeat ex rerum sit repudiandae, commodi unde. Voluptatum, ut.',
       img: {
@@ -69,7 +69,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
     },
 
     {
-      title: 'Pomoc drogowa',
+      title: 'Pomoc <br/> drogowa',
       description:
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur obcaecati nobis reprehenderit dolorum quas vel temporibus asperiores cumque? Architecto ducimus enim placeat ex rerum sit repudiandae, commodi unde. Voluptatum, ut.',
       img: {
