@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 import { motion } from 'framer-motion'
 import { variants, transitions } from 'constants/animations'
@@ -9,9 +9,9 @@ import Icon from 'components/shared/icon'
 import LazyImage from 'components/shared/lazyImage'
 import { Heading, Text } from 'components/shared/typography'
 
-import heartIcon from 'assets/icons/heart-2.svg'
-import experienceIcon from 'assets/icons/experience.svg'
-import repairIcon from 'assets/icons/repair2.svg'
+import troubleshootIcon from 'assets/icons/troubleshoot.svg'
+import diagnoseIcon from 'assets/icons/diagnose-2.png'
+import towTruckIcon from 'assets/icons/tow-truck.png'
 
 import useBreakpoint from 'hooks/useBreakpoint'
 import useAnimateOnScroll from 'hooks/useAnimateOnScroll'
@@ -22,24 +22,32 @@ const getIcon = (index: number) => {
   switch (index) {
     case 0:
       return {
-        src: heartIcon,
-        alt: 'passion',
+        src: diagnoseIcon,
+        alt: 'diagnose',
+        sizeSM: 40,
+        sizeLG: 64,
       }
     case 1:
       return {
-        src: experienceIcon,
-        alt: 'passion',
+        src: troubleshootIcon,
+        alt: 'repair',
+        sizeSM: 34,
+        sizeLG: 58,
       }
     case 2:
       return {
-        src: repairIcon,
-        alt: 'repair',
+        src: towTruckIcon,
+        alt: 'tow truck',
+        sizeSM: 50,
+        sizeLG: 84,
       }
 
     default:
       return {
-        src: heartIcon,
-        alt: 'passion',
+        src: troubleshootIcon,
+        alt: 'repair',
+        sizeSM: 50,
+        sizeLG: 70,
       }
   }
 }
@@ -84,9 +92,13 @@ const Section = styled.section`
 const AboutsWrapper = styled.div`
   display: grid;
   row-gap: 24px;
+
   ${({ theme }) => theme.media.lg.min} {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    row-gap: 48px;
+  }
+
+  ${({ theme }) => theme.media.xl.min} {
+    row-gap: 48px;
   }
 `
 
@@ -95,6 +107,10 @@ const Dots = styled.div`
   align-items: center;
   justify-content: center;
   margin-bottom: 24px;
+
+  ${({ theme }) => theme.media.lg.min} {
+    display: none;
+  }
 `
 
 const Dot = styled.div`
@@ -106,21 +122,38 @@ const Dot = styled.div`
   border-radius: 50%;
 `
 
-const AboutItem = styled.article`
+const AboutItem = styled(motion.article)`
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
   justify-content: center;
+
+  ${({ theme }) => theme.media.lg.min} {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 48px;
+  }
 `
 
-const AboutContent = styled.div`
+const AboutContent = styled.div<{ imgLeftSide: boolean }>`
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
 
-  .about-icon {
-    /* margin: 12px 0; */
+  ${({ theme }) => theme.media.lg.min} {
+    max-width: 450px;
+    margin: 0 auto;
+
+    .about-icon {
+      margin-top: 24px;
+    }
+
+    ${({ imgLeftSide }) =>
+      imgLeftSide &&
+      css`
+        order: 1;
+      `}
   }
 `
 
@@ -139,20 +172,31 @@ const ImgWrapper = styled.div`
   margin-bottom: 24px;
 
   ${({ theme }) => theme.media.lg.min} {
-    height: 100%;
+    margin-bottom: 0;
     max-width: unset;
-    border-radius: 8px;
-
-    .gatsby-image-wrapper {
-      height: 100%;
-    }
   }
 `
 
 const About: React.FC<Props> = ({ heading, abouts }) => {
   const { lg } = useBreakpoint()
 
-  const animateAbout = useAnimateOnScroll()
+  const animateAbout1 = useAnimateOnScroll()
+  const animateAbout2 = useAnimateOnScroll()
+  const animateAbout3 = useAnimateOnScroll()
+
+  const getAnimateAndVariant = (index: number) => {
+    switch (index) {
+      case 0:
+        return animateAbout1
+      case 1:
+        return animateAbout2
+      case 2:
+        return animateAbout3
+
+      default:
+        return animateAbout1
+    }
+  }
 
   return (
     <Section>
@@ -166,31 +210,52 @@ const About: React.FC<Props> = ({ heading, abouts }) => {
         />
         <AboutsWrapper>
           {abouts.map((about, index) => (
-            <AboutItem key={`about-${index}`}>
-              <AboutContent>
+            <AboutItem
+              key={`about-${index}`}
+              ref={getAnimateAndVariant(index).ref}
+              variants={
+                index === 1
+                  ? variants.fadeInRightToLeft
+                  : variants.fadeInLeftToRight
+              }
+              animate={getAnimateAndVariant(index).control}
+            >
+              <AboutContent imgLeftSide={index === 0 || index === 2}>
                 <AboutHeader>
                   <Heading
                     as="h3"
-                    size={lg ? 32 : 26}
+                    size={lg ? 30 : 26}
                     margin="0"
+                    align={lg ? 'center' : 'left'}
                     dangerouslySetInnerHTML={{ __html: about.title }}
                   />
-                  <Icon
-                    className="about-icon"
-                    src={experienceIcon}
-                    size={38}
-                    alt="experience"
-                  />
+                  {!lg && (
+                    <Icon
+                      className="about-icon"
+                      src={getIcon(index).src}
+                      size={getIcon(index).sizeSM}
+                      alt={getIcon(index).alt}
+                    />
+                  )}
                 </AboutHeader>
                 <Text
                   size={lg ? 17 : 14}
+                  align={lg ? 'center' : 'left'}
                   dangerouslySetInnerHTML={{ __html: about.description }}
                 />
+                {lg && (
+                  <Icon
+                    className="about-icon"
+                    src={getIcon(index).src}
+                    size={getIcon(index).sizeLG}
+                    alt={getIcon(index).alt}
+                  />
+                )}
               </AboutContent>
               <ImgWrapper>
                 <LazyImage src={about.img.src} alt={about.img.alt} />
               </ImgWrapper>
-              {index !== 0 && (
+              {index !== 0 && !lg && (
                 <Dots>
                   <Dot />
                   <Dot />
