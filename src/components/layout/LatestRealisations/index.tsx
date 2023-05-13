@@ -29,7 +29,7 @@ const Section = styled.section`
       content: '';
       position: absolute;
       display: block;
-      bottom: -${({ theme }) => theme.container.marginSM};
+      bottom: -3.25rem;
       left: 50%;
       transform: translateX(-50%);
       width: calc(100% - ${({ theme }) => theme.container.marginSM});

@@ -10,16 +10,16 @@ import Navigation from 'components/layout/Navigation'
 import ModalForm from 'components/layout/ModalForm'
 
 import HomeHeader from 'components/layout/HomeHeader/HomeHeader'
-import About from 'components/layout/About'
+import Steps from 'components/layout/Steps'
 import LatestRealisations from 'components/layout/LatestRealisations'
-import Benefits from 'components/layout/Benefits'
+import About from 'components/layout/About'
 import Testimonials from 'components/layout/Testimonials'
 import CarForm from 'components/layout/Forms/CarForm'
 import Footer from 'components/layout/Footer'
 
-import type { StepSingle } from 'components/layout/About/ServiceSteps'
+import type { StepSingle } from 'components/layout/Steps/ServiceSteps'
 import type { RealisationSingle } from 'components/layout/LatestRealisations/Card'
-import type { Benefit } from 'components/layout/Benefits'
+import type { AboutSingle } from 'components/layout/About'
 import type { Testimonial } from 'components/layout/Testimonials'
 import Container from 'components/shared/container'
 
@@ -47,15 +47,35 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
     },
   ]
 
-  const BENEFITS: Benefit[] = [
+  const ABOUTS: AboutSingle[] = [
     {
-      title: 'Pasja',
-      desc: 'Motoryzacja od lat stanowi naszą pasję, przez co wkładamy całe serce w przygotowanie pojazdu oraz dopięcie transakcji. Z tego powodu posiadamy także dobrą znajomość rynku oraz trendów w motoryzacji.',
+      title: 'Stacja <br/> diagnostyczna',
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur obcaecati nobis reprehenderit dolorum quas vel temporibus asperiores cumque? Architecto ducimus enim placeat ex rerum sit repudiandae, commodi unde. Voluptatum, ut.',
+      img: {
+        src: data?.about1?.childImageSharp?.gatsbyImageData!,
+        alt: 'warsztat',
+      },
     },
 
     {
-      title: 'Kompleks samochodowy',
-      desc: 'Mamy do dyspozycji warsztat samochodowy ze stacją diagnostyczną, oraz pomoc drogową.',
+      title: 'Kompleks <br/> samochodowy',
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur obcaecati nobis reprehenderit dolorum quas vel temporibus asperiores cumque? Architecto ducimus enim placeat ex rerum sit repudiandae, commodi unde. Voluptatum, ut.',
+      img: {
+        src: data?.about2?.childImageSharp?.gatsbyImageData!,
+        alt: 'warsztat',
+      },
+    },
+
+    {
+      title: 'Pomoc <br/> drogowa',
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur obcaecati nobis reprehenderit dolorum quas vel temporibus asperiores cumque? Architecto ducimus enim placeat ex rerum sit repudiandae, commodi unde. Voluptatum, ut.',
+      img: {
+        src: data?.p10?.childImageSharp?.gatsbyImageData!,
+        alt: 'warsztat',
+      },
     },
   ]
 
@@ -159,13 +179,6 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
       src: data?.purchaseHERO?.childImageSharp?.gatsbyImageData!,
       alt: 'Handshake',
     },
-    // {
-    //   title: 'Sprzedaj <span>swój</span> <br/> motocykl',
-    //   subtitle: 'Pomożemy sprzedać Ci twój mototcykl',
-    //   src: data?.motorYamahaHERO?.childImageSharp?.gatsbyImageData!,
-    //   alt: 'motobike',
-    // },
-
     {
       title: '<span>Posiadamy</span> kompleks <br/> samochodowy <span>',
       subtitle: 'Ze stacją diagnostyczną i pomocą drogową',
@@ -190,7 +203,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
       {isModalFormVisible && <ModalForm />}
       <main>
         <HomeHeader slides={SLIDES} />
-        <About
+        <Steps
           heading="Pomoc w sprzedaży pojazdu"
           description="Chcesz sprzedać swój pojazd, ale nie wiesz jak się za to zabrać?
           Nie masz czasu na spotkania z klientami? Masz nietypowy samochód? Z nami sprzedasz go szybciej niż myślisz! Doświadczenie w branży pozwala nam na nawet 4 razy szybszą sprzedaż.
@@ -202,23 +215,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
           description="Ostatnio sprzedane przez nas pojazdy"
           realisations={REALISATIONS}
         />
-        <Benefits
-          img={{
-            src: data?.warsztat1?.childImageSharp?.gatsbyImageData!,
-            alt: 'warsztat',
-          }}
-          img2={{
-            src: data?.warsztat1?.childImageSharp?.gatsbyImageData!,
-            alt: 'warsztat',
-          }}
-          img3={{
-            src: data?.warsztat1?.childImageSharp?.gatsbyImageData!,
-            alt: 'warsztat',
-          }}
-          heading="O nas"
-          description=""
-          benefits={BENEFITS}
-        />
+        <About heading="O nas" abouts={ABOUTS} />
         <Testimonials
           heading="Opinie klientów"
           description="Opinie naszych zadowolonych klientów, którzy skorzystali z naszych usług"
@@ -558,6 +555,33 @@ export const query = graphql`
         gatsbyImageData(
           width: 1920
           placeholder: DOMINANT_COLOR
+          formats: [AUTO, WEBP]
+        )
+      }
+    }
+    about1: file(name: { eq: "about-1" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1024
+          placeholder: BLURRED
+          formats: [AUTO, WEBP]
+        )
+      }
+    }
+    about2: file(name: { eq: "about-2" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1024
+          placeholder: BLURRED
+          formats: [AUTO, WEBP]
+        )
+      }
+    }
+    about3: file(name: { eq: "about-3" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1024
+          placeholder: BLURRED
           formats: [AUTO, WEBP]
         )
       }

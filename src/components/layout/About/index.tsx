@@ -1,169 +1,270 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 import { motion } from 'framer-motion'
 import { variants, transitions } from 'constants/animations'
 
-import ServiceSteps, { StepSingle } from 'components/layout/About/ServiceSteps'
-
 import Container from 'components/shared/container'
-// import Icon from 'components/shared/icon'
-import Button from 'components/shared/button'
-import { Heading, Text } from 'components/shared/typography'
-// import arrowIcon from 'assets/icons/arrow-right-long-2.svg'
-
-import useAnimateOnScroll from 'hooks/useAnimateOnScroll'
-import useBreakpoint from 'hooks/useBreakpoint'
 import Icon from 'components/shared/icon'
-import arrowIcon from 'assets/icons/arrow-right-long.svg'
-import scrollToSection from 'utils/scrollToSection'
+import LazyImage from 'components/shared/lazyImage'
+import { Heading, Text } from 'components/shared/typography'
+
+import troubleshootIcon from 'assets/icons/troubleshoot.svg'
+import diagnoseIcon from 'assets/icons/diagnose-2.png'
+import towTruckIcon from 'assets/icons/tow-truck.png'
+
+import useBreakpoint from 'hooks/useBreakpoint'
+import useAnimateOnScroll from 'hooks/useAnimateOnScroll'
+
+import type { Image } from 'types/image'
+
+const getIcon = (index: number) => {
+  switch (index) {
+    case 0:
+      return {
+        src: diagnoseIcon,
+        alt: 'diagnose',
+        sizeSM: 40,
+        sizeLG: 64,
+      }
+    case 1:
+      return {
+        src: troubleshootIcon,
+        alt: 'repair',
+        sizeSM: 34,
+        sizeLG: 58,
+      }
+    case 2:
+      return {
+        src: towTruckIcon,
+        alt: 'tow truck',
+        sizeSM: 50,
+        sizeLG: 84,
+      }
+
+    default:
+      return {
+        src: troubleshootIcon,
+        alt: 'repair',
+        sizeSM: 50,
+        sizeLG: 70,
+      }
+  }
+}
+
+export type AboutSingle = {
+  title: string
+  description: string
+  img: Image
+}
 
 type Props = {
   heading: string
-  description: string
-  steps: StepSingle[]
+  abouts: AboutSingle[]
 }
 
 const Section = styled.section`
   margin-bottom: ${({ theme }) => theme.container.marginSM};
+
+  ${Heading} {
+    width: 100%;
+  }
+
+  .heading-container {
+    max-width: 515px;
+  }
+
   ${({ theme }) => theme.media.lg.min} {
+    .heading-container {
+      max-width: ${({ theme }) =>
+        `calc(${theme.container.widthXL} + (${theme.container.padding} * 2))`};
+
+      ${({ theme }) => theme.media.xxl.max} {
+        max-width: ${({ theme }) =>
+          `calc(${theme.container.width} + (${theme.container.padding} * 2))`};
+      }
+    }
+
     margin-bottom: ${({ theme }) => theme.container.marginLG};
-
-    ${Container} {
-      /* padding-left: 0; */
-      padding-right: 0;
-    }
   }
 `
 
-const InnerWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  max-width: 640px;
-  margin: 0 auto;
+const AboutsWrapper = styled.div`
+  display: grid;
+  row-gap: 24px;
 
   ${({ theme }) => theme.media.lg.min} {
-    max-width: unset;
+    row-gap: 48px;
+  }
 
+  ${({ theme }) => theme.media.xl.min} {
+    row-gap: 48px;
+  }
+`
+
+const Dots = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+
+  ${({ theme }) => theme.media.lg.min} {
+    display: none;
+  }
+`
+
+const Dot = styled.div`
+  margin: 0 4px;
+  width: 12px;
+  height: 12px;
+  background-color: ${({ theme }) => theme.colors.white};
+  border: 2px solid ${({ theme }) => theme.colors.primary};
+  border-radius: 50%;
+`
+
+const AboutItem = styled(motion.article)`
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: center;
+
+  ${({ theme }) => theme.media.lg.min} {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 30px;
-    align-items: flex-start;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 48px;
   }
 `
 
-const TextContent = styled.div`
+const AboutContent = styled.div<{ imgLeftSide: boolean }>`
   display: flex;
   flex-direction: column;
-  max-width: 450px;
+  align-items: center;
+  width: 100%;
 
   ${({ theme }) => theme.media.lg.min} {
-    justify-self: center;
-    height: 100%;
-    max-width: unset;
+    max-width: 450px;
+    margin: 0 auto;
 
-    ${Text} {
-      line-height: 1.55;
+    .about-icon {
+      margin-top: 24px;
     }
+
+    ${({ imgLeftSide }) =>
+      imgLeftSide &&
+      css`
+        order: 1;
+      `}
   }
 `
 
-const ArrowIconWrapper = styled.div`
-  display: none;
-  position: absolute;
-  top: 50%;
-  left: 70%;
-  transform: translate(135%, -50%);
-
-  div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  svg {
-    width: 24px;
-    margin-left: 10px;
-  }
-
-  ${({ theme }) => theme.media.lg.min} {
-    transform: translate(180%, -50%);
-  }
-`
-
-const StyledButton = styled(Button)`
+const AboutHeader = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
-
+  justify-content: space-between;
   width: 100%;
-  margin-top: 15px;
-  /* background-color: ${({ theme }) => theme.colors.primary200}; */
-  background-color: ${({ theme }) => theme.colors.tertiary};
+  margin-bottom: 12px;
+`
 
-  &:hover {
-    ${ArrowIconWrapper} {
-      display: block;
-    }
-  }
+const ImgWrapper = styled.div`
+  max-width: 450px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 24px;
 
   ${({ theme }) => theme.media.lg.min} {
-    width: 52.5%;
-    margin-top: 30px;
+    margin-bottom: 0;
+    max-width: unset;
   }
 `
 
-// const ArrowIconWrapper = styled.div`
-//   position: absolute;
-//   top: 50%;
-//   left: calc(50% + 120px);
-//   transform: translate(-50%, -50%) rotate(90deg);
-// `
-
-const About: React.FC<Props> = ({ heading, description, steps }) => {
+const About: React.FC<Props> = ({ heading, abouts }) => {
   const { lg } = useBreakpoint()
 
-  const { control, ref } = useAnimateOnScroll()
+  const animateAbout1 = useAnimateOnScroll()
+  const animateAbout2 = useAnimateOnScroll()
+  const animateAbout3 = useAnimateOnScroll()
+
+  const getAnimateAndVariant = (index: number) => {
+    switch (index) {
+      case 0:
+        return animateAbout1
+      case 1:
+        return animateAbout2
+      case 2:
+        return animateAbout3
+
+      default:
+        return animateAbout1
+    }
+  }
 
   return (
-    <Section title={heading}>
-      <Container
-      // as={motion.div}
-      // ref={ref}
-      // variants={variants.fadeIn}
-      // initial="hidden"
-      // animate={control}
-      // transition={transitions.quick}
-      >
-        <InnerWrapper>
-          <TextContent>
-            <Heading
-              as="h1"
-              size={lg ? 36 : 30}
-              margin="15px"
-              dangerouslySetInnerHTML={{ __html: heading }}
-            />
-            <Text
-              size={lg ? 17 : 14}
-              dangerouslySetInnerHTML={{ __html: description }}
-            />
-            <StyledButton
-              type="button"
-              onClick={() => scrollToSection('#car-form')}
+    <Section>
+      <Container className="heading-container">
+        <Heading
+          as="h2"
+          size={lg ? 36 : 30}
+          margin={lg ? '40px' : '20px'}
+          align="left"
+          dangerouslySetInnerHTML={{ __html: heading }}
+        />
+        <AboutsWrapper>
+          {abouts.map((about, index) => (
+            <AboutItem
+              key={`about-${index}`}
+              ref={getAnimateAndVariant(index).ref}
+              variants={
+                index === 1
+                  ? variants.fadeInRightToLeft
+                  : variants.fadeInLeftToRight
+              }
+              animate={getAnimateAndVariant(index).control}
             >
-              Skontaktuj się z nami!
-              {/* <ArrowIconWrapper>
-                <Icon src={arrowIcon} size={18} alt="arrow-down" />
-              </ArrowIconWrapper> */}
-              <ArrowIconWrapper>
-                <Icon src={arrowIcon} size={22} alt="arrow-right" />
-              </ArrowIconWrapper>
-            </StyledButton>
-          </TextContent>
-          <ServiceSteps steps={steps} />
-        </InnerWrapper>
+              <AboutContent imgLeftSide={index === 0 || index === 2}>
+                <AboutHeader>
+                  <Heading
+                    as="h3"
+                    size={lg ? 30 : 26}
+                    margin="0"
+                    align={lg ? 'center' : 'left'}
+                    dangerouslySetInnerHTML={{ __html: about.title }}
+                  />
+                  {!lg && (
+                    <Icon
+                      className="about-icon"
+                      src={getIcon(index).src}
+                      size={getIcon(index).sizeSM}
+                      alt={getIcon(index).alt}
+                    />
+                  )}
+                </AboutHeader>
+                <Text
+                  size={lg ? 17 : 14}
+                  align={lg ? 'center' : 'left'}
+                  dangerouslySetInnerHTML={{ __html: about.description }}
+                />
+                {lg && (
+                  <Icon
+                    className="about-icon"
+                    src={getIcon(index).src}
+                    size={getIcon(index).sizeLG}
+                    alt={getIcon(index).alt}
+                  />
+                )}
+              </AboutContent>
+              <ImgWrapper>
+                <LazyImage src={about.img.src} alt={about.img.alt} />
+              </ImgWrapper>
+              {index !== 0 && !lg && (
+                <Dots>
+                  <Dot />
+                  <Dot />
+                  <Dot />
+                </Dots>
+              )}
+            </AboutItem>
+          ))}
+        </AboutsWrapper>
       </Container>
     </Section>
   )
