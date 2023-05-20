@@ -177,6 +177,7 @@ const Logo = styled.a`
   font-family: 'Montserrat', sans-serif;
   font-weight: 900;
   text-transform: uppercase;
+  z-index: 1;
 
   color: ${({ theme }) => theme.colors.white};
 
