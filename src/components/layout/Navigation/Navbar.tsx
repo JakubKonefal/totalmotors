@@ -252,7 +252,8 @@ const LinkItem = styled.button<{ orange: boolean }>`
 
 const Navbar = () => {
   const { lg, xl } = useBreakpoint()
-  const { openSidenav } = useContext(NavigationContext)
+  const { isSidenavVisible, openSidenav, closeSidenav } =
+    useContext(NavigationContext)
 
   const isHidden = useScrollHide(0, 150)
 
@@ -278,7 +279,10 @@ const Navbar = () => {
           ))}
         </Links>
 
-        <MenuButton type="button" onClick={openSidenav}>
+        <MenuButton
+          type="button"
+          onClick={isSidenavVisible ? closeSidenav : openSidenav}
+        >
           <div />
           <div />
           <div />

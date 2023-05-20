@@ -29,9 +29,9 @@ const SidenavWrapper = styled.nav`
   flex-direction: column;
   align-items: center;
   width: 100vw;
-  height: 100vh;
-  top: 0;
-  bottom: 0;
+  /* height: 100vh; */
+  top: ${({ theme }) => theme.navbar.height};
+  /* bottom: 0; */
   right: 0;
   z-index: 14;
   visibility: hidden;
@@ -39,7 +39,7 @@ const SidenavWrapper = styled.nav`
   overflow: auto;
   will-change: transform;
   transition: all 0.35s cubic-bezier(0.645, 0.045, 0.355, 1);
-  background-color: ${({ theme }) => theme.colors.white};
+  background-color: #0202028a;
   color: ${({ theme }) => theme.colors.black};
   transform: translateX(100vw);
   ${({ theme }) => theme.media.s.min} {
@@ -50,10 +50,10 @@ const SidenavWrapper = styled.nav`
 
 const Overlay = styled.div<{ isVisible: boolean }>`
   position: fixed;
-  top: 0;
+  top: ${({ theme }) => theme.navbar.height};
   left: 0;
   right: 0;
-  bottom: 0;
+  /* bottom: 0; */
   background: rgba(255, 255, 255, 0.35);
   z-index: 11000;
   transition: 0.3s;
@@ -98,17 +98,18 @@ const Logo = styled.a`
 const Links = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
   width: 100%;
 `
 
 const LinkItem = styled.button<{ active: boolean }>`
   position: relative;
   height: 100%;
+  width: fit-content;
   margin: 14px 0;
 
   :first-child {
-    margin-top: 25px;
+    /* margin-top: 25px; */
   }
 
   ${({ active }) =>
@@ -119,10 +120,10 @@ const LinkItem = styled.button<{ active: boolean }>`
         display: block;
         position: absolute;
         top: 50%;
-        left: -12px;
-        width: 5px;
-        min-width: 5px;
-        min-height: 5px;
+        right: -12px;
+        width: 6px;
+        min-width: 6px;
+        min-height: 6px;
         border-radius: 50%;
         background-color: ${({ theme }) => theme.colors.tertiary};
         transform: translateY(-50%);
@@ -131,7 +132,7 @@ const LinkItem = styled.button<{ active: boolean }>`
 
   &:hover {
     ${Text} {
-      color: ${({ theme }) => theme.colors.primary200};
+      color: ${({ theme }) => theme.colors.tertiary};
     }
   }
 `
@@ -140,7 +141,7 @@ const InnerWrapper = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: 0 20px 20px 20px;
   width: 100%;
   height: 100%;
 `
@@ -172,14 +173,14 @@ const Sidenav: React.FC = () => {
   return (
     <Overlay isVisible={isSidenavVisible}>
       <SidenavWrapper>
-        <NavHeading>
+        {/* <NavHeading>
           <Logo href="/">
             <Icon src={sprzedamLogo} alt="matexi" width={260} />
           </Logo>
           <CloseBtn type="button" aria-label="close" onClick={closeSidenav}>
             <Icon src={closeIcon} alt="close" size={34} />
           </CloseBtn>
-        </NavHeading>
+        </NavHeading> */}
         <InnerWrapper>
           <Links>
             {NAVIGATION_LINKS.map((link, index) => (
@@ -190,7 +191,7 @@ const Sidenav: React.FC = () => {
                 type="button"
                 active={link.link === pathname}
               >
-                <Text size={19} themecolor="black">
+                <Text size={18} themecolor="white">
                   {link.label}
                 </Text>
               </LinkItem>

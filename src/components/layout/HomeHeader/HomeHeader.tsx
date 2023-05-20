@@ -20,7 +20,7 @@ const Wrapper = styled.div`
   ${({ theme }) => theme.media.lg.min} {
     height: 100vh;
     margin-top: 0;
-    margin-bottom: calc(${({ theme }) => theme.container.marginLG} + 35px);
+    margin-bottom: ${({ theme }) => theme.container.marginLG};
   }
 `
 

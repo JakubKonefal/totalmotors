@@ -54,6 +54,25 @@ const InnerWrapper = styled.div`
   }
 `
 
+const Dots = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+`
+
+const Dot = styled.div`
+  margin: 0 4px;
+  width: 12px;
+  height: 12px;
+  background-color: ${({ theme }) => theme.colors.white};
+  border: 2px solid ${({ theme }) => theme.colors.primary};
+  border-radius: 50%;
+`
+
 const TextContent = styled.div`
   display: flex;
   flex-direction: column;
@@ -68,6 +87,7 @@ const TextContent = styled.div`
   }
 
   ${({ theme }) => theme.media.lg.min} {
+    position: relative;
     justify-self: center;
     justify-content: center;
     height: 100%;
@@ -171,6 +191,43 @@ const Steps: React.FC<Props> = ({ heading, description, steps }) => {
                 <Icon src={arrowIcon} size={22} alt="arrow-right" />
               </ArrowIconWrapper>
             </StyledButton>
+
+            {/* {lg && (
+              <Dots>
+                <Dot />
+                <Dot />
+                <Dot />
+                <Dot />
+                <Dot />
+                <Dot />
+                <Dot />
+                <Dot />
+                <Dot />
+                <Dot />
+                <Dot />
+                <Dot />
+                <Dot />
+                <Dot />
+                <Dot />
+                <Dot />
+                <Dot />
+                <Dot />
+                <Dot />
+                <Dot />
+                <Dot />
+                <Dot />
+                <Dot />
+                <Dot />
+                <Dot />
+                <Dot />
+                <Dot />
+                <Dot />
+                <Dot />
+                <Dot />
+                <Dot />
+                <Dot />
+              </Dots>
+            )} */}
           </TextContent>
           <ServiceSteps
             heading="Jak odbywa się <br/> proces sprzedaży?"
