@@ -169,7 +169,7 @@ const Steps: React.FC<Props> = ({ heading, description, steps }) => {
         <InnerWrapper>
           <TextContent>
             <Heading
-              as="h1"
+              as="h2"
               size={lg ? 36 : 30}
               margin="15px"
               dangerouslySetInnerHTML={{ __html: heading }}

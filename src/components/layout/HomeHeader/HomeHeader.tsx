@@ -257,6 +257,7 @@ const HomeHeader = ({ slides }) => {
                 >
                   <StyledContainer id="title-container">
                     <StyledHeading
+                      as={index === 0 ? 'h1' : 'h2'}
                       size={42}
                       themecolor="white"
                       // align="center"
