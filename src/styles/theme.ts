@@ -42,6 +42,7 @@ export const colors: Colors = {
   white: '#FFFFFF',
   danger: '#CA0F0F',
   success: '#00d23d',
+  text: '#000000c2',
 }
 
 export const fonts: Fonts = {

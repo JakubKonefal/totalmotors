@@ -40,7 +40,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
     },
     {
       description:
-        'Rozmowy / spotkania z klientami, prezentacja twojego pojazdu oraz finalizacja transakcji.',
+        'Rozmowy oraz spotkania z klientami, prezentacja twojego pojazdu oraz finalizacja transakcji.',
     },
     {
       description: 'Rozliczenie z Tobą według wcześniej ustalonych warunków.',
@@ -49,31 +49,29 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
 
   const ABOUTS: AboutSingle[] = [
     {
-      title: 'Stacja <br/> diagnostyczna',
+      title: 'Kompleks <br/> samochodowy',
       description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur obcaecati nobis reprehenderit dolorum quas vel temporibus asperiores cumque? Architecto ducimus enim placeat ex rerum sit repudiandae, commodi unde. Voluptatum, ut.',
+        'Serwis znajduje się 15km od Rzeszowa bezpośrednio przy bardzo ruchliwej drodze DK94 w stronę Krakowa. Na terenie serwisu posiadamy podstawową stację kontroli pojazdów oraz sklep z częściami. Do dyspozycji mamy 5 stanowisk roboczych oraz duży plac parkingowy, na którym możemy przechowywać pojazdy. Dodatkowo mamy duża liczbę klientów zainteresowanych zakupem samochodów prezentowanych na placu, co zwiększa szansę na sprzedaż.',
       img: {
-        src: data?.about1?.childImageSharp?.gatsbyImageData!,
+        src: data?.p10?.childImageSharp?.gatsbyImageData!,
         alt: 'warsztat',
       },
     },
-
     {
-      title: 'Kompleks <br/> samochodowy',
+      title: 'Stacja <br/> diagnostyczna',
       description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur obcaecati nobis reprehenderit dolorum quas vel temporibus asperiores cumque? Architecto ducimus enim placeat ex rerum sit repudiandae, commodi unde. Voluptatum, ut.',
+        'Każdy samochód przed sprzedażą jest sprawdzany na stacji diagnostycznej co gwarantuje kupującemu, że pojazd jest w pełni sprawny.',
       img: {
         src: data?.about2?.childImageSharp?.gatsbyImageData!,
         alt: 'warsztat',
       },
     },
-
     {
       title: 'Pomoc <br/> drogowa',
       description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur obcaecati nobis reprehenderit dolorum quas vel temporibus asperiores cumque? Architecto ducimus enim placeat ex rerum sit repudiandae, commodi unde. Voluptatum, ut.',
+        'Jeśli Twój pojazd od dawna nie był użytkowany, a chcesz doprowadzić samochód do dobrego stanu technicznego przed sprzedażą, możemy zająć się tym za Ciebie. Posiadamy własną pomoc drogową, która może odebrać Twój pojazd z dowolnego miejsca i dostarczyć go do naszego serwisu.',
       img: {
-        src: data?.p10?.childImageSharp?.gatsbyImageData!,
+        src: data?.about3?.childImageSharp?.gatsbyImageData!,
         alt: 'warsztat',
       },
     },
@@ -577,7 +575,7 @@ export const query = graphql`
         )
       }
     }
-    about3: file(name: { eq: "about-3" }) {
+    about3: file(name: { eq: "about3" }) {
       childImageSharp {
         gatsbyImageData(
           width: 1024

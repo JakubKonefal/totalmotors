@@ -82,7 +82,7 @@ export const Text = styled.p.withConfig<Omit<TextProps, 'sizeDiff'>>(
   text-align: ${({ align }) => align ?? 'left'};
   text-decoration: ${({ decoration }) => decoration ?? 'none'};
   color: ${({ theme, themecolor }) =>
-    themecolor ? theme.colors[themecolor] : theme.colors.black};
+    themecolor ? theme.colors[themecolor] : theme.colors.text};
 
   margin-bottom: ${({ margin }) => margin ?? '0'};
 

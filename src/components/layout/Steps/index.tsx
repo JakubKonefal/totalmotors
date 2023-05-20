@@ -69,6 +69,7 @@ const TextContent = styled.div`
 
   ${({ theme }) => theme.media.lg.min} {
     justify-self: center;
+    justify-content: center;
     height: 100%;
     max-width: unset;
 
@@ -171,7 +172,10 @@ const Steps: React.FC<Props> = ({ heading, description, steps }) => {
               </ArrowIconWrapper>
             </StyledButton>
           </TextContent>
-          <ServiceSteps steps={steps} />
+          <ServiceSteps
+            heading="Jak odbywa się <br/> proces sprzedaży?"
+            steps={steps}
+          />
         </InnerWrapper>
       </Container>
     </Section>

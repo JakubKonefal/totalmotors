@@ -21,12 +21,13 @@ export type StepSingle = {
 }
 
 type Props = {
+  heading: string
   steps: StepSingle[]
 }
 
 const Wrapper = styled.div`
   width: 100%;
-  margin-top: 60px;
+  margin-top: 45px;
   /* margin-bottom: 30px; */
   padding: 0 25px;
 
@@ -142,11 +143,14 @@ const StepWrapper = styled.div`
     padding-right: 45px;
     padding-left: 45px;
   }
+`
 
-  /* &:hover {
+const StyledHeading = styled(Heading)`
+  /* margin-left: -25px; */
+`
+/* &:hover {
     box-shadow: 0px 1px 11px 5px rgb(0 0 0 / 25%);
   } */
-`
 
 // const BottomWrapper = styled.div`
 //   width: 100%;
@@ -229,7 +233,7 @@ const StepWrapper = styled.div`
 //   }
 // `
 
-const ServiceSteps: React.FC<Props> = ({ steps }) => {
+const ServiceSteps: React.FC<Props> = ({ steps, heading }) => {
   const { lg } = useBreakpoint()
 
   // const animateStep1 = useAnimateOnScroll()
@@ -275,6 +279,13 @@ const ServiceSteps: React.FC<Props> = ({ steps }) => {
 
   return (
     <Wrapper>
+      <StyledHeading
+        as="h2"
+        size={lg ? 36 : 30}
+        margin="50px"
+        align="center"
+        dangerouslySetInnerHTML={{ __html: heading }}
+      />
       <Steps
         ref={animateAllSteps.ref}
         variants={variants.fadeInRightToLeft}
