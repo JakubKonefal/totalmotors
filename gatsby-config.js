@@ -7,6 +7,8 @@ require('dotenv').config({
   path: `.env.${activeEnv}`,
 })
 
+const SITE_URL = 'https://www.sprzedamtwojsamochod.pl/'
+
 const gatsbyRequiredRules = path.join(
   process.cwd(),
   'node_modules',
@@ -18,8 +20,8 @@ const gatsbyRequiredRules = path.join(
 
 module.exports = {
   siteMetadata: {
-    title: `PageTitle`,
-    description: ``,
+    title: `Sprzedamtójsamochód`,
+    siteUrl: SITE_URL,
     author: `Jakub Konefał`,
   },
   graphqlTypegen: true,
@@ -29,6 +31,13 @@ module.exports = {
       resolve: `gatsby-plugin-styled-components`,
       options: {
         displayName: true,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-react-helmet-canonical-urls`,
+      options: {
+        siteUrl: SITE_URL,
+        noQueryString: true,
       },
     },
     `gatsby-plugin-image`,
@@ -103,6 +112,7 @@ module.exports = {
         id: 'GTM-N8B4BRL',
       },
     },
+    `gatsby-plugin-sitemap`,
     // {
     //   resolve: `gatsby-source-contentful`,
     //   options: {
