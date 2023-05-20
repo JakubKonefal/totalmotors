@@ -145,6 +145,19 @@ const Seo: React.FC<SeoProps> = ({
           ],
         })}
       </script>
+      <script type="application/ld+json">
+        {JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'Organization',
+          name: 'sprzedamtwojsamochod.pl',
+          url: 'https://www.sprzedamtwojsamochod.pl/',
+          logo: '',
+          sameAs: [
+            'https://www.facebook.com/profile.php?id=100063037878603',
+            'https://www.instagram.com/sprzedamtwojsamochod.pl/?igshid=YmMyMTA2M2Y%3D',
+          ],
+        })}
+      </script>
     </Helmet>
   )
 }
