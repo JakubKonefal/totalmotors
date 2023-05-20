@@ -231,7 +231,7 @@ const HomeHeader = ({ slides }) => {
   const slidez = slides.slice(0, 3)
 
   const { openModalForm } = useContext(NavigationContext)
-  const { activeSlide, changeToSlide } = useSlider(slidez, 3500)
+  const { activeSlide, changeToSlide } = useSlider(slidez, 3000)
 
   return (
     <Wrapper>
