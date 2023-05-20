@@ -40,6 +40,10 @@ const TextContent = styled.div`
 
   ${({ theme }) => theme.media.lg.min} {
     max-width: unset;
+
+    .description {
+      max-width: 650px;
+    }
   }
 `
 
@@ -228,6 +232,7 @@ const Testimonials: React.FC<Props> = ({
             dangerouslySetInnerHTML={{ __html: heading }}
           />
           <Text
+            className="description"
             size={lg ? 17 : 14}
             dangerouslySetInnerHTML={{ __html: description }}
           />
@@ -237,7 +242,7 @@ const Testimonials: React.FC<Props> = ({
             slidesPerView={lg ? 3 : 1}
             onSwiper={(initSwiper) => setSwiper(initSwiper)}
             autoplay={{
-              delay: 2000,
+              delay: 3500,
             }}
             speed={1000}
             modules={[Autoplay]}

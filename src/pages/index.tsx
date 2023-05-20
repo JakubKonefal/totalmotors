@@ -148,7 +148,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
       carName: 'Audi A5',
       carYear: '1995',
       clientName: 'Mariusz B.',
-      desc: 'Firma załatwiła wszystkie formalności, polecam każdemu, kto chce bezpiecznie sprzedać swój samochód.',
+      desc: 'Firma załatwiła wszystkie formalności, polecam każdemu, kto chce szybko sprzedać swój samochód.',
     },
     {
       img: {

@@ -10,12 +10,19 @@ const Global = css`
   html {
     font-size: ${({ theme }) => theme.fonts.size};
     scroll-behavior: smooth;
+    /* height: 100%;
+    overflow: hidden;
+    width: 100%; */
   }
 
   body {
     font-family: 'Open Sans', sans-serif;
     position: relative;
     overflow: hidden;
+    /* height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 100%; */
   }
 
   h1,
