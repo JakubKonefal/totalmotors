@@ -173,14 +173,14 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
       alt: 'Orange sports car',
     },
     {
-      title: 'Kupimy go od Ciebie <br/> za gotówkę!',
+      title: 'Kupimy go <br/> od Ciebie <br/> za gotówkę!',
       // subtitle: '',
       // subtitle: 'Ze stacją diagnostyczną i pomocą drogową',
       src: data?.purchaseHERO?.childImageSharp?.gatsbyImageData!,
       alt: 'Handshake',
     },
     {
-      title: '<span>Posiadamy</span> kompleks <br/> samochodowy <span>',
+      title: 'Posiadamy kompleks <br/> samochodowy ',
       subtitle: 'Ze stacją diagnostyczną i pomocą drogową',
       src: data?.p10?.childImageSharp?.gatsbyImageData!,
       alt: 'Orange sports car',

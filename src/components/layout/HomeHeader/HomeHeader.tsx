@@ -91,7 +91,10 @@ const Slide = styled.div`
   overflow: hidden;
 `
 
-const TitleWrapper = styled.div<{ shiftedBottom?: boolean }>`
+const TitleWrapper = styled.div<{
+  shiftedBottom?: boolean
+  shiftedBottom2?: boolean
+}>`
   position: absolute;
   top: 50%;
   left: 50%;
@@ -117,6 +120,24 @@ const TitleWrapper = styled.div<{ shiftedBottom?: boolean }>`
       transition-delay: 0.4s;
     `}
 
+  ${({ shiftedBottom }) =>
+    shiftedBottom &&
+    css`
+      br {
+        :nth-of-type(2) {
+          display: none;
+        }
+      }
+    `}
+
+  ${({ shiftedBottom2 }) =>
+    shiftedBottom2 &&
+    css`
+      top: 55%;
+    `}
+
+
+
   ${({ theme }) => theme.media.md.min} {
     ${Text} {
       text-align: left;
@@ -128,6 +149,15 @@ const TitleWrapper = styled.div<{ shiftedBottom?: boolean }>`
       shiftedBottom &&
       css`
         top: 55%;
+
+        br {
+          :nth-of-type(1) {
+            display: none;
+          }
+          :nth-of-type(2) {
+            display: block;
+          }
+        }
       `}
   }
 `
@@ -198,10 +228,10 @@ const StyledButton = styled(Button)`
 `
 
 const HomeHeader = ({ slides }) => {
-  const slidez = slides
+  const slidez = slides.slice(0, 3)
 
   const { openModalForm } = useContext(NavigationContext)
-  const { activeSlide, changeToSlide } = useSlider(slidez, 3000)
+  const { activeSlide, changeToSlide } = useSlider(slidez, 3500)
 
   return (
     <Wrapper>
@@ -223,6 +253,7 @@ const HomeHeader = ({ slides }) => {
                   isActive={activeSlide === index}
                   openDays
                   shiftedBottom={index === 1}
+                  shiftedBottom2={index === 2}
                 >
                   <StyledContainer id="title-container">
                     <StyledHeading
