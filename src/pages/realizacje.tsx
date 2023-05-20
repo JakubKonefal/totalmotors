@@ -228,7 +228,7 @@ const RealizacjePage: React.FC<PageProps<Queries.RealizacjePageQuery>> = ({
       <main>
         <AllRealisations
           heading="Sprzedane pojazdy"
-          description="Poniżej przedstawiamy państwu nasze dotychczasowe realizacje sprzedażowe."
+          description="Poniżej przedstawiamy państwu nasze ostatnie realizacje sprzedażowe."
           realisations={REALISATIONS}
         />
       </main>
