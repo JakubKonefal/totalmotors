@@ -13,6 +13,7 @@ import Breadcrumbs from 'components/shared/Breadcrumbs'
 import Header from 'components/layout/Header'
 import AreaOfWork from 'components/layout/AreaOfWork'
 import ContactSection from 'components/layout/Sections/ContactSection'
+import Map from 'components/layout/Map/Map'
 import Footer from 'components/layout/Footer'
 import Container from 'components/shared/container'
 
@@ -97,6 +98,7 @@ const KontaktPage: React.FC<PageProps<Queries.KontaktPageQuery>> = ({
             <ContactSection />
           </MotionDivRight>
         </SectionsWrapper>
+        <Map />
       </main>
 
       <Footer />
