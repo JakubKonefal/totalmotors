@@ -142,7 +142,7 @@ const AboutContent = styled.div<{ imgLeftSide: boolean }>`
   width: 100%;
 
   ${({ theme }) => theme.media.lg.min} {
-    max-width: 450px;
+    max-width: 500px;
     margin: 0 auto;
 
     .about-icon {
