@@ -206,7 +206,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
         <Steps
           heading="Pomoc w sprzedaży samochodu"
           description="Chcesz sprzedać swój samochód, ale nie wiesz jak się za to zabrać? <br/>
-          Dzięki firmie sprzedamtwojsamochod.pl możesz to zrobić szybko i skutecznie.
+          Dzięki firmie <span>Sprzedamtwojsamochod.pl</span> możesz to zrobić szybko i skutecznie.
           Nie musisz poświęcać czasu na żmudny proces sprzedaży, a dzięki dobrze wynegocjowanej cenie zwracają Ci się koszty całej usługi! Posiadamy kompleks samochodowy ze stacją diagnostyczną oraz pomocą drogową. Jeżeli Twój pojazd wymaga naprawy, również się tym zajmiemy i przygotujemy do sprzedaży."
           steps={SERVICE_STEPS}
         />

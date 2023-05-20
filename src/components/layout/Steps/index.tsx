@@ -59,6 +59,14 @@ const TextContent = styled.div`
   flex-direction: column;
   max-width: 450px;
 
+  .description {
+    font-weight: 600;
+    color: #000000c2;
+    span {
+      font-weight: 800;
+    }
+  }
+
   ${({ theme }) => theme.media.lg.min} {
     justify-self: center;
     height: 100%;
@@ -146,6 +154,7 @@ const Steps: React.FC<Props> = ({ heading, description, steps }) => {
               dangerouslySetInnerHTML={{ __html: heading }}
             />
             <Text
+              className="description"
               size={lg ? 17 : 14}
               dangerouslySetInnerHTML={{ __html: description }}
             />

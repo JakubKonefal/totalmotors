@@ -76,7 +76,7 @@ export const Text = styled.p.withConfig<Omit<TextProps, 'sizeDiff'>>(
   display: block;
   max-width: 600px;
   line-height: ${({ line }) => line ?? '1.4'};
-  font-weight: ${({ weight }) => weight ?? '400'};
+  font-weight: ${({ weight }) => weight ?? '600'};
   text-transform: ${({ transform }) => transform ?? 'initial'};
   font-size: ${({ size }) => (size ? `${pxToRem(size)}rem` : '1rem')};
   text-align: ${({ align }) => align ?? 'left'};
