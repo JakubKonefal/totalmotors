@@ -189,10 +189,13 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
   return (
     <Layout>
       <SEO
-        title={`Strona główna`}
-        description={''}
-        // ogTitle={opengraphTitle}
-        // ogDescription={opengraphDescription}
+        title={`Profesjonalna pomoc w sprzedaży samochodów | Sprzedamtwójsamochód.pl`}
+        description={
+          'Zleć profesjonalistom sprzedaż swojego samochodu i zaoszczędź swój czas. Sprzedamtwojsamochod.pl oferuje szybką i skuteczną pomoc w sprzedaży. Skontaktuj się z nami, a omówimy możliwości dotyczące sprzedaży Twojego pojazdu. Oględziny, sesja fotograficzna, spotkania z klientami i rozliczenie - wszystko zrobimy za Ciebie.'
+        }
+        ogTitle=" Profesjonalna pomoc w sprzedaży samochodów | Sprzedamtwojsamochod.pl"
+        ogDescription="Zleć profesjonalistom sprzedaż swojego samochodu i zaoszczędź swój czas. Sprzedamtwojsamochod.pl oferuje szybką i skuteczną pomoc w sprzedaży samochodów. Skontaktuj się z nami i omówimy możliwości dotyczące sprzedaży Twojego pojazdu. Oględziny, sesja fotograficzna, spotkania z klientami i rozliczenie - wszystko zrobimy za Ciebie."
+
         // ogImage={opengraphImage?.sourceUrl}
         // twitterTitle={twitterTitle}
         // twitterDescription={twitterDescription}

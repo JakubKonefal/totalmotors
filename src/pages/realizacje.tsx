@@ -196,10 +196,12 @@ const RealizacjePage: React.FC<PageProps<Queries.RealizacjePageQuery>> = ({
   return (
     <Layout>
       <SEO
-        title={`Realizacje`}
-        description={''}
-        // ogTitle={opengraphTitle}
-        // ogDescription={opengraphDescription}
+        title={`Realizacje | Sprzedamtwójsamochód.pl`}
+        description={
+          'Zapoznaj się z naszymi najnowszymi realizacjami sprzedażowymi. Przejrzyj sprzedane pojazdy i przekonaj się, jak skutecznie pomagamy naszym klientom w sprzedaży samochodów.'
+        }
+        ogTitle="Ostatnie sprzedane samochody | Sprzedamtwojsamochod.pl"
+        ogDescription="Zapoznaj się z naszymi ostatnimi realizacjami sprzedażowymi. Sprawdź, jak skutecznie sprzedajemy samochody dla naszych klientów. Skontaktuj się z nami, jeśli chcesz sprzedać swój samochód."
         // ogImage={opengraphImage?.sourceUrl}
         // twitterTitle={twitterTitle}
         // twitterDescription={twitterDescription}

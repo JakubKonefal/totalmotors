@@ -47,10 +47,12 @@ const KontaktPage: React.FC<PageProps<Queries.KontaktPageQuery>> = ({
   return (
     <Layout>
       <SEO
-        title={`Kontakt`}
-        description={''}
-        // ogTitle={opengraphTitle}
-        // ogDescription={opengraphDescription}
+        title={`Kontakt | Sprzedamtwójsamochód.pl`}
+        description={
+          'Potrzebujesz pomocy w sprzedaży samochodu? Jesteśmy firmą działającą głównie w województwie podkarpackim, ale jesteśmy otwarci na zapytania spoza tego regionu. Skontaktuj się z nami, aby porozmawiać o możliwościach współpracy.'
+        }
+        ogTitle="Kontakt | Sprzedamtwojsamochod.pl"
+        ogDescription="Potrzebujesz naszej pomocy w sprzedaży samochodu? Skontaktuj się z nami, aby omówić możliwości sprzedaży Twojego pojazdu. Jesteśmy dostępni telefonicznie i mailowo. Sprzedamtwojsamochod.pl - profesjonalna pomoc w sprzedaży samochodów."
         // ogImage={opengraphImage?.sourceUrl}
         // twitterTitle={twitterTitle}
         // twitterDescription={twitterDescription}
