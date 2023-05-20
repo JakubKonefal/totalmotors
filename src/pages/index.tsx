@@ -139,7 +139,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
       carName: 'VW Scirocco',
       carYear: '1995',
       clientName: 'Jakub K.',
-      desc: 'Jestem bardzo zadowolony z usług tej firmy. Wszystko przebiegło sprawnie i profesjonalnie, a cena, którą otrzymałem za mój samochód, była bardzo dobra.',
+      desc: 'Samochód kupili szybko i bez marudzenia. Z ceną dogadaliśmy się bez problemu, ogólnie polecam.',
     },
     {
       img: {
@@ -149,7 +149,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
       carName: 'Audi A5',
       carYear: '1995',
       clientName: 'Mariusz B.',
-      desc: 'Firma załatwiła wszystkie formalności, polecam każdemu, kto chce szybko sprzedać swój samochód.',
+      desc: 'Zawsze przerażały mnie formalności po sprzedaży samochodu. Tutaj wszystko zostało załatwione przez firmę, a ja dostałem gotówkę od ręki. Polecam.',
     },
     {
       img: {
@@ -159,7 +159,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
       carName: 'Polonez Caro',
       carYear: '1995',
       clientName: 'Rafał W.',
-      desc: 'Firma sprzedamtwojsamochod.pl to rewelacyjne rozwiązanie dla osób, które chcą bezpiecznie i wygodnie sprzedać swój samochód.',
+      desc: 'Kupiłem samochód od tej firmy, bez problemu mogłem go zweryfikować na stacji diagnostycznej i uniknąć nieprzewidzianych napraw.',
     },
   ]
 
