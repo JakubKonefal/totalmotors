@@ -239,7 +239,7 @@ const Footer = () => {
           </Text>
           <SocialMedia>
             <a
-              href="https://facebook.com"
+              href="https://www.facebook.com/profile.php?id=100063037878603"
               rel="noopener noreferrer nofollow"
               role="button"
             >
