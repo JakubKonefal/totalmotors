@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import styled, { css } from 'styled-components'
 
 import { NavigationContext } from 'contexts/NavigationContext'
@@ -22,6 +22,7 @@ import closeIcon from 'assets/icons/close-white.svg'
 import useLocation from 'hooks/useLocation'
 
 import { NAVIGATION_LINKS } from 'constants/links'
+import useScrollHide from 'hooks/useScrollHide'
 
 const SidenavWrapper = styled.nav`
   position: fixed;
@@ -170,8 +171,16 @@ const Sidenav: React.FC = () => {
 
   const pathname = useLocation()
 
+  const isHidden = useScrollHide(0, 150)
+
+  useEffect(() => {
+    if (isHidden) {
+      closeSidenav()
+    }
+  }, [isHidden])
+
   return (
-    <Overlay isVisible={isSidenavVisible}>
+    <Overlay isVisible={isSidenavVisible && !isHidden}>
       <SidenavWrapper>
         {/* <NavHeading>
           <Logo href="/">
