@@ -60,7 +60,7 @@ const Seo: React.FC<SeoProps> = ({
   const defaultMeta = [
     {
       name: `robots`,
-      content: 'noindex, nofollow',
+      content: 'index, follow',
     },
     {
       name: `description`,
