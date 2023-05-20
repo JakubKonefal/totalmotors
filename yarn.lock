@@ -1013,6 +1013,13 @@
   dependencies:
     regenerator-runtime "^0.13.11"
 
+"@babel/runtime@^7.20.13":
+  version "7.21.5"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.21.5.tgz#8492dddda9644ae3bda3b45eabe87382caee7200"
+  integrity sha512-8jI69toZqqcsnqGGqwGS4Qb1VwLOEp4hz+CXPywcvjs60u3B4Pom/U/7rm4W8tMOYEB+E9wgD0mW1l3r8qlI9Q==
+  dependencies:
+    regenerator-runtime "^0.13.11"
+
 "@babel/template@^7.16.7", "@babel/template@^7.18.10", "@babel/template@^7.20.7":
   version "7.20.7"
   resolved "https://registry.yarnpkg.com/@babel/template/-/template-7.20.7.tgz#a15090c2839a83b02aa996c0b4994005841fd5a8"
@@ -5916,12 +5923,12 @@ gatsby-plugin-gatsby-cloud@^4.15.0:
     lodash "^4.17.21"
     webpack-assets-manifest "^5.1.0"
 
-gatsby-plugin-google-tagmanager@^4.17.0:
-  version "4.25.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-google-tagmanager/-/gatsby-plugin-google-tagmanager-4.25.0.tgz#bc24b4c34964813374c4f0d5ef77e5d370b3d675"
-  integrity sha512-9l2AoS2eY7O4hPq+Rp/Q1Gg7KcVb2H3+4a6sE7rF0Vo98LQfdLS8/ED/wSY5fQ5+WVR1h7Sm9OEf3wIjTNGXlA==
+gatsby-plugin-google-tagmanager@^5.10.0:
+  version "5.10.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-google-tagmanager/-/gatsby-plugin-google-tagmanager-5.10.0.tgz#5ee83802d764c3e655d3027c1dc55b6cca22f351"
+  integrity sha512-ZotWQC0Gtybm9J7CyRkI07TukH6YKIQGMKqiNv2EjtypN1iARf7x0qPcKZUqM89Njwy7fGjKJOgLVmP2LVuK+A==
   dependencies:
-    "@babel/runtime" "^7.15.4"
+    "@babel/runtime" "^7.20.13"
     web-vitals "^1.1.2"
 
 gatsby-plugin-image@^2.22.0:

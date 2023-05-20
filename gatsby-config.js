@@ -97,6 +97,12 @@ module.exports = {
         exclude: ['node_modules', '.cache', 'public'],
       },
     },
+    {
+      resolve: 'gatsby-plugin-google-tagmanager',
+      options: {
+        id: 'GTM-N8B4BRL',
+      },
+    },
     // {
     //   resolve: `gatsby-source-contentful`,
     //   options: {
