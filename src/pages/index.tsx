@@ -22,6 +22,7 @@ import type { RealisationSingle } from 'components/layout/LatestRealisations/Car
 import type { AboutSingle } from 'components/layout/About'
 import type { Testimonial } from 'components/layout/Testimonials'
 import Container from 'components/shared/container'
+import Map from 'components/layout/Map/Map'
 
 const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
   // const HOMEPAGE = data?.wpPage?.Homepage
@@ -222,6 +223,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
         <Container>
           <CarForm heading="Zapytaj o sprzedaż" centerHeading formBottom />
         </Container>
+        <Map pins={[]} />
       </main>
       <Footer />
     </Layout>
