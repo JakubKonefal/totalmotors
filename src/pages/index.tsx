@@ -204,10 +204,10 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
       <main>
         <HomeHeader slides={SLIDES} />
         <Steps
-          heading="Pomoc w sprzedaży pojazdu"
-          description="Chcesz sprzedać swój pojazd, ale nie wiesz jak się za to zabrać?
-          Nie masz czasu na spotkania z klientami? Masz nietypowy samochód? Z nami sprzedasz go szybciej niż myślisz! Doświadczenie w branży pozwala nam na nawet 4 razy szybszą sprzedaż.
-          Dzięki nam nie musisz poświęcać czasu na żmudny proces sprzedaży, a dzięki dobrze wynegocjowanej cenie sprzedaży zwracają Ci się koszty całej usługi! Posiadamy stację diagnostyczną, warsztat samochodowy oraz ekipę mechaników do dyspozycji."
+          heading="Pomoc w sprzedaży samochodu"
+          description="Chcesz sprzedać swój samochód, ale nie wiesz jak się za to zabrać? <br/>
+          Dzięki firmie sprzedamtwojsamochod.pl możesz to zrobić szybko i skutecznie.
+          Nie musisz poświęcać czasu na żmudny proces sprzedaży, a dzięki dobrze wynegocjowanej cenie zwracają Ci się koszty całej usługi! Posiadamy kompleks samochodowy ze stacją diagnostyczną oraz pomocą drogową. Jeżeli Twój pojazd wymaga naprawy, również się tym zajmiemy i przygotujemy do sprzedaży."
           steps={SERVICE_STEPS}
         />
         <LatestRealisations
