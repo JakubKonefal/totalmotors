@@ -118,7 +118,34 @@ const Seo: React.FC<SeoProps> = ({
       title={metaTitle}
       titleTemplate="%s"
       meta={combinedMeta}
-    />
+    >
+      <script type="application/ld+json">
+        {JSON.stringify({
+          '@context': 'https://schema.org/',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            {
+              '@type': 'ListItem',
+              position: 1,
+              name: 'Strona główna',
+              item: 'https://www.sprzedamtwojsamochod.pl/',
+            },
+            {
+              '@type': 'ListItem',
+              position: 2,
+              name: 'Realizacje',
+              item: 'https://www.sprzedamtwojsamochod.pl/realizacje',
+            },
+            {
+              '@type': 'ListItem',
+              position: 3,
+              name: 'Kontakt',
+              item: 'https://www.sprzedamtwojsamochod.pl/kontakt',
+            },
+          ],
+        })}
+      </script>
+    </Helmet>
   )
 }
 
