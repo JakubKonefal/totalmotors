@@ -1,11 +1,6 @@
 import * as React from 'react'
 import { graphql, PageProps } from 'gatsby'
 
-import { motion } from 'framer-motion'
-import { variants, transitions } from 'constants/animations'
-
-import { seoProps } from 'constants/seoProps'
-
 import SEO from 'components/shared/SEO'
 
 import Layout from 'components/layout'
@@ -15,18 +10,11 @@ import Header from 'components/layout/Header'
 import AllRealisations from 'components/layout/AllRealisations'
 import Footer from 'components/layout/Footer'
 
-import useAnimateOnScroll from 'hooks/useAnimateOnScroll'
-
 import type { RealisationSingle } from 'components/layout/LatestRealisations/Card'
 
 const RealizacjePage: React.FC<PageProps<Queries.RealizacjePageQuery>> = ({
   data,
 }) => {
-  // const HOMEPAGE = data?.wpPage?.Homepage
-  // const PAGE_SEO = data?.wpPage?.seo
-
-  console.log(data)
-
   const REALISATIONS: RealisationSingle[] = [
     {
       img: {
@@ -110,63 +98,6 @@ const RealizacjePage: React.FC<PageProps<Queries.RealizacjePageQuery>> = ({
       title: 'Kia Sorento',
       desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
     },
-
-    // {
-    //   img: {
-    //     src: data?.motorCagiva?.childImageSharp?.gatsbyImageData!,
-    //     alt: 'car3',
-    //   },
-    //   title: 'Cagiva Planet',
-    //   desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
-    // },
-    // {
-    //   img: {
-    //     src: data?.motorCross?.childImageSharp?.gatsbyImageData!,
-    //     alt: 'car3',
-    //   },
-    //   title: 'PITBIKE 190cc',
-    //   desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
-    // },
-    // {
-    //   img: {
-    //     src: data?.motorHonda?.childImageSharp?.gatsbyImageData!,
-    //     alt: 'car3',
-    //   },
-    //   title: 'Honda CBF 125',
-    //   desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
-    // },
-    // {
-    //   img: {
-    //     src: data?.motorKawasaki?.childImageSharp?.gatsbyImageData!,
-    //     alt: 'car3',
-    //   },
-    //   title: 'Kawasaki ER-6N',
-    //   desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
-    // },
-    // {
-    //   img: {
-    //     src: data?.motorKeeway?.childImageSharp?.gatsbyImageData!,
-    //     alt: 'car3',
-    //   },
-    //   title: 'Keeway Superlight 125',
-    //   desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
-    // },
-    // {
-    //   img: {
-    //     src: data?.motorYamaha2?.childImageSharp?.gatsbyImageData!,
-    //     alt: 'car3',
-    //   },
-    //   title: 'Yamaha YS 125',
-    //   desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
-    // },
-    // {
-    //   img: {
-    //     src: data?.motorYamaha?.childImageSharp?.gatsbyImageData!,
-    //     alt: 'car3',
-    //   },
-    //   title: 'Yamaha YZF-R125',
-    //   desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
-    // },
     {
       img: {
         src: data?.polonez?.childImageSharp?.gatsbyImageData!,
@@ -175,14 +106,7 @@ const RealizacjePage: React.FC<PageProps<Queries.RealizacjePageQuery>> = ({
       title: 'Polonez Caro - 1993r.',
       desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
     },
-    // {
-    //   img: {
-    //     src: data?.skuterPeugeot?.childImageSharp?.gatsbyImageData!,
-    //     alt: 'car3',
-    //   },
-    //   title: 'Peugeot SPEEDFIGHT 4',
-    //   desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
-    // },
+
     {
       img: {
         src: data?.szGrandVitara?.childImageSharp?.gatsbyImageData!,
@@ -202,10 +126,6 @@ const RealizacjePage: React.FC<PageProps<Queries.RealizacjePageQuery>> = ({
         }
         ogTitle="Ostatnie sprzedane samochody | Sprzedamtwojsamochod.pl"
         ogDescription="Zapoznaj się z naszymi ostatnimi realizacjami sprzedażowymi. Sprawdź, jak skutecznie sprzedajemy samochody dla naszych klientów. Skontaktuj się z nami, jeśli chcesz sprzedać swój samochód."
-        // ogImage={opengraphImage?.sourceUrl}
-        // twitterTitle={twitterTitle}
-        // twitterDescription={twitterDescription}
-        // twitterImage={twitterImage?.sourceUrl}
       />
       <Navigation />
       <Header

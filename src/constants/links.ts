@@ -13,10 +13,10 @@ export const NAVIGATION_LINKS = [
   // },
   {
     label: 'Realizacje',
-    link: '/realizacje',
+    link: '/realizacje/',
   },
   {
     label: 'Kontakt',
-    link: '/kontakt',
+    link: '/kontakt/',
   },
 ]
