@@ -100,7 +100,7 @@ const KontaktPage: React.FC<PageProps<Queries.KontaktPageQuery>> = ({
             <ContactSection />
           </MotionDivRight>
         </SectionsWrapper>
-        <Map />
+        <Map pins={[]} />
       </main>
 
       <Footer />

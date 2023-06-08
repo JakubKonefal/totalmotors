@@ -23,7 +23,6 @@ const BottomWrapper = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-width: 450px;
   padding: 30px 0;
 
   &:after {
