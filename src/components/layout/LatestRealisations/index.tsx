@@ -44,12 +44,7 @@ const Section = styled.section`
 `
 
 const TextContent = styled.div`
-  max-width: 450px;
   margin: 0 auto;
-
-  ${({ theme }) => theme.media.lg.min} {
-    max-width: unset;
-  }
 `
 
 const Cards = styled(motion.div)`
@@ -57,14 +52,16 @@ const Cards = styled(motion.div)`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-width: 450px;
   margin: 30px auto 0;
 
-  ${({ theme }) => theme.media.lg.min} {
+  ${({ theme }) => theme.media.md.min} {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
-    max-width: unset;
+  }
+
+  ${({ theme }) => theme.media.lg.min} {
+    grid-template-columns: repeat(3, 1fr);
   }
 
   ${({ theme }) => theme.media.xl.min} {

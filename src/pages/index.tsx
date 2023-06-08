@@ -195,11 +195,6 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
         }
         ogTitle=" Profesjonalna pomoc w sprzedaży samochodów | Sprzedamtwojsamochod.pl"
         ogDescription="Zleć profesjonalistom sprzedaż swojego samochodu i zaoszczędź swój czas. Sprzedamtwojsamochod.pl oferuje szybką i skuteczną pomoc w sprzedaży samochodów. Skontaktuj się z nami i omówimy możliwości dotyczące sprzedaży Twojego pojazdu. Oględziny, sesja fotograficzna, spotkania z klientami i rozliczenie - wszystko zrobimy za Ciebie."
-
-        // ogImage={opengraphImage?.sourceUrl}
-        // twitterTitle={twitterTitle}
-        // twitterDescription={twitterDescription}
-        // twitterImage={twitterImage?.sourceUrl}
       />
       <Navigation />
       {isModalFormVisible && <ModalForm />}

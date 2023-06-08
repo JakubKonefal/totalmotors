@@ -43,7 +43,6 @@ const InnerWrapper = styled.div`
   align-items: center;
   background-color: ${({ theme }) => theme.colors.gray100};
   width: 100%;
-  max-width: 450px;
   border-radius: 10px;
   margin: 0 auto;
   padding: 30px;
@@ -78,7 +77,6 @@ const StyledForm = styled(motion.div)`
   align-items: stretch;
   position: relative;
   width: 100%;
-  max-width: 450px;
   margin-top: 20px;
 
   & > form {

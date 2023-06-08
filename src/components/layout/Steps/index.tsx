@@ -1,18 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { motion } from 'framer-motion'
-import { variants, transitions } from 'constants/animations'
-
 import ServiceSteps, { StepSingle } from 'components/layout/Steps/ServiceSteps'
 
 import Container from 'components/shared/container'
-// import Icon from 'components/shared/icon'
 import Button from 'components/shared/button'
 import { Heading, Text } from 'components/shared/typography'
-// import arrowIcon from 'assets/icons/arrow-right-long-2.svg'
 
-import useAnimateOnScroll from 'hooks/useAnimateOnScroll'
 import useBreakpoint from 'hooks/useBreakpoint'
 import Icon from 'components/shared/icon'
 import arrowIcon from 'assets/icons/arrow-right-long.svg'
@@ -41,46 +35,35 @@ const InnerWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-width: 640px;
   margin: 0 auto;
 
   ${({ theme }) => theme.media.lg.min} {
     max-width: unset;
 
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 0.65fr 1fr;
     column-gap: 30px;
     align-items: flex-start;
   }
-`
 
-const Dots = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @media (min-width: 1140px) {
+    grid-template-columns: 0.8fr 1fr;
+  }
 
-  position: absolute;
-  top: 0;
-  left: 0;
-`
-
-const Dot = styled.div`
-  margin: 0 4px;
-  width: 12px;
-  height: 12px;
-  background-color: ${({ theme }) => theme.colors.white};
-  border: 2px solid ${({ theme }) => theme.colors.primary};
-  border-radius: 50%;
+  ${({ theme }) => theme.media.xl.min} {
+    grid-template-columns: 1fr 1fr;
+  }
 `
 
 const TextContent = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 450px;
+  width: 100%;
 
   .description {
     font-weight: 600;
     color: #000000c2;
+    max-width: unset;
     span {
       font-weight: 800;
     }
@@ -92,6 +75,10 @@ const TextContent = styled.div`
     justify-content: center;
     height: 100%;
     max-width: unset;
+
+    .description {
+      max-width: 600px;
+    }
 
     ${Text} {
       line-height: 1.55;
@@ -144,28 +131,12 @@ const StyledButton = styled(Button)`
   }
 `
 
-// const ArrowIconWrapper = styled.div`
-//   position: absolute;
-//   top: 50%;
-//   left: calc(50% + 120px);
-//   transform: translate(-50%, -50%) rotate(90deg);
-// `
-
 const Steps: React.FC<Props> = ({ heading, description, steps }) => {
   const { lg } = useBreakpoint()
 
-  const { control, ref } = useAnimateOnScroll()
-
   return (
     <Section title={heading}>
-      <Container
-      // as={motion.div}
-      // ref={ref}
-      // variants={variants.fadeIn}
-      // initial="hidden"
-      // animate={control}
-      // transition={transitions.quick}
-      >
+      <Container>
         <InnerWrapper>
           <TextContent>
             <Heading
@@ -184,50 +155,10 @@ const Steps: React.FC<Props> = ({ heading, description, steps }) => {
               onClick={() => scrollToSection('#car-form')}
             >
               Skontaktuj się z nami!
-              {/* <ArrowIconWrapper>
-                <Icon src={arrowIcon} size={18} alt="arrow-down" />
-              </ArrowIconWrapper> */}
               <ArrowIconWrapper>
                 <Icon src={arrowIcon} size={22} alt="arrow-right" />
               </ArrowIconWrapper>
             </StyledButton>
-
-            {/* {lg && (
-              <Dots>
-                <Dot />
-                <Dot />
-                <Dot />
-                <Dot />
-                <Dot />
-                <Dot />
-                <Dot />
-                <Dot />
-                <Dot />
-                <Dot />
-                <Dot />
-                <Dot />
-                <Dot />
-                <Dot />
-                <Dot />
-                <Dot />
-                <Dot />
-                <Dot />
-                <Dot />
-                <Dot />
-                <Dot />
-                <Dot />
-                <Dot />
-                <Dot />
-                <Dot />
-                <Dot />
-                <Dot />
-                <Dot />
-                <Dot />
-                <Dot />
-                <Dot />
-                <Dot />
-              </Dots>
-            )} */}
           </TextContent>
           <ServiceSteps
             heading="Jak odbywa się <br/> proces sprzedaży?"

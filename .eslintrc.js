@@ -42,6 +42,7 @@ module.exports = {
     'arrow-body-style': 'off',
     'import/extensions': 'off',
     'import/prefer-default-export': 'off',
+    'no-nested-ternary': 'off',
     'prettier/prettier': [
       'error',
       {

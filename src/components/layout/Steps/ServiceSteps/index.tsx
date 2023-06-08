@@ -43,7 +43,6 @@ const Steps = styled(motion.div)`
   align-items: center;
   width: 100%;
 
-  max-width: 450px;
   margin: 0 auto;
 
   background-color: ${({ theme }) => theme.colors.primarydark};
@@ -51,6 +50,7 @@ const Steps = styled(motion.div)`
 
   ${({ theme }) => theme.media.lg.min} {
     justify-self: center;
+    max-width: 450px;
 
     /* max-width: unset; */
   }
@@ -148,134 +148,11 @@ const StepWrapper = styled.div`
 const StyledHeading = styled(Heading)`
   /* margin-left: -25px; */
 `
-/* &:hover {
-    box-shadow: 0px 1px 11px 5px rgb(0 0 0 / 25%);
-  } */
-
-// const BottomWrapper = styled.div`
-//   width: 100%;
-//   padding: 12px;
-
-//   ${({ theme }) => theme.media.md.min} {
-//     padding: 15px 12px;
-//   }
-
-//   ${({ theme }) => theme.media.xl.min} {
-//     padding: 20px 65px 20px 15px;
-//   }
-// `
-
-// const CardButton = styled(Button)`
-//   background-color: ${({ theme }) => theme.colors.primary200};
-//   color: ${({ theme }) => theme.colors.white};
-//   font-size: 11px;
-//   font-weight: 600;
-//   text-transform: uppercase;
-
-//   ${({ theme }) => theme.media.xl.min} {
-//     font-size: 13px;
-//   }
-
-//   &:hover {
-//     background-color: ${({ theme }) => theme.colors.primary};
-//   }
-// `
-
-// const BigButtonWrapper = styled.div`
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   margin-top: 30px;
-
-//   padding-bottom: 30px;
-//   border-bottom: 2px dotted #b5b4b4;
-
-//   ${({ theme }) => theme.media.lg.min} {
-//     margin-top: 35px;
-//     padding-bottom: 60px;
-//   }
-// `
-
-// const BigButton = styled(Button)`
-//   position: relative;
-
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-
-//   width: 275px;
-//   height: 56px;
-//   margin: 0 auto;
-//   background-color: ${({ theme }) => theme.colors.primary200};
-//   color: ${({ theme }) => theme.colors.white};
-//   font-size: 13px;
-//   font-weight: 600;
-//   text-transform: uppercase;
-
-//   .arrow-right {
-//     position: absolute;
-//     top: 50%;
-//     right: 50%;
-//     transform: translate(120px, -50%);
-//   }
-
-//   ${({ theme }) => theme.media.xl.min} {
-//     width: 315px;
-//     font-size: 15px;
-
-//     .arrow-right {
-//       transform: translate(135px, -50%);
-//     }
-//   }
-
-//   &:hover {
-//     background-color: ${({ theme }) => theme.colors.primary};
-//   }
-// `
 
 const ServiceSteps: React.FC<Props> = ({ steps, heading }) => {
   const { lg } = useBreakpoint()
 
-  // const animateStep1 = useAnimateOnScroll()
-  // const animateStep2 = useAnimateOnScroll()
-  // const animateStep3 = useAnimateOnScroll()
-  // const animateStep4 = useAnimateOnScroll()
-
   const animateAllSteps = useAnimateOnScroll()
-
-  // const getRef = (stepNumber: number) => {
-  //   if (stepNumber === 1) {
-  //     return animateStep1
-  //   }
-  //   if (stepNumber === 2) {
-  //     return animateStep2
-  //   }
-  //   if (stepNumber === 3) {
-  //     return animateStep3
-  //   }
-  //   if (stepNumber === 4) {
-  //     return animateStep4
-  //   }
-
-  //   return animateStep1
-  // }
-
-  // const getDelay = (stepNumber: number) => {
-  //   if (stepNumber === 1) {
-  //     return 0
-  //   }
-  //   if (stepNumber === 2) {
-  //     return 0.12
-  //   }
-  //   if (stepNumber === 3) {
-  //     return 0.24
-  //   }
-  //   if (stepNumber === 4) {
-  //     return 0.36
-  //   }
-
-  //   return 0
-  // }
 
   return (
     <Wrapper>

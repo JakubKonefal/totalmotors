@@ -56,8 +56,12 @@ const ImgWrapper = styled.div`
     height: 215px;
   }
 
+  ${({ theme }) => theme.media.sm.min} {
+    height: 275px;
+  }
+
   ${({ theme }) => theme.media.lg.min} {
-    height: 215px;
+    height: 225px;
   }
 `
 
@@ -92,7 +96,7 @@ const Card = styled.article<{ hoverable: boolean }>`
       }
     `}
 
-  ${({ theme }) => theme.media.lg.min} {
+  ${({ theme }) => theme.media.md.min} {
     :not(:last-child) {
       margin-bottom: 0;
     }

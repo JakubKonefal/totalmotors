@@ -70,10 +70,6 @@ const Section = styled.section`
     width: 100%;
   }
 
-  .heading-container {
-    max-width: 515px;
-  }
-
   ${({ theme }) => theme.media.lg.min} {
     .heading-container {
       max-width: ${({ theme }) =>
@@ -114,12 +110,16 @@ const Dots = styled.div`
 `
 
 const Dot = styled.div`
-  margin: 0 4px;
+  /* margin: 0 4px;
   width: 12px;
   height: 12px;
   background-color: ${({ theme }) => theme.colors.white};
   border: 2px solid ${({ theme }) => theme.colors.primary};
-  border-radius: 50%;
+  border-radius: 50%; */
+
+  width: 60px;
+  height: 1px;
+  background-color: ${({ theme }) => theme.colors.primary};
 `
 
 const AboutItem = styled(motion.article)`
@@ -140,6 +140,10 @@ const AboutContent = styled.div<{ imgLeftSide: boolean }>`
   flex-direction: column;
   align-items: center;
   width: 100%;
+
+  .description {
+    max-width: unset;
+  }
 
   ${({ theme }) => theme.media.lg.min} {
     max-width: 500px;
@@ -166,7 +170,6 @@ const AboutHeader = styled.div`
 `
 
 const ImgWrapper = styled.div`
-  max-width: 450px;
   border-radius: 8px;
   overflow: hidden;
   margin-bottom: 24px;
@@ -239,6 +242,7 @@ const About: React.FC<Props> = ({ heading, abouts }) => {
                   )}
                 </AboutHeader>
                 <Text
+                  className="description"
                   size={lg ? 17 : 14}
                   align={lg ? 'center' : 'left'}
                   dangerouslySetInnerHTML={{ __html: about.description }}
@@ -258,8 +262,8 @@ const About: React.FC<Props> = ({ heading, abouts }) => {
               {index !== 0 && !lg && (
                 <Dots>
                   <Dot />
-                  <Dot />
-                  <Dot />
+                  {/* <Dot /> */}
+                  {/* <Dot /> */}
                 </Dots>
               )}
             </AboutItem>

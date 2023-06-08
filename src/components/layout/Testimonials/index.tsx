@@ -35,7 +35,6 @@ const Section = styled.section`
 `
 
 const TextContent = styled.div`
-  max-width: 450px;
   margin: 0 auto;
 
   ${({ theme }) => theme.media.lg.min} {
@@ -43,42 +42,6 @@ const TextContent = styled.div`
 
     .description {
       max-width: 650px;
-    }
-  }
-`
-
-const Cards = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  max-width: 450px;
-  margin: 30px auto 0;
-
-  ${({ theme }) => theme.media.lg.min} {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    column-gap: 30px;
-    max-width: unset;
-  }
-`
-
-const Card = styled.article`
-  border-radius: 8px;
-  overflow: hidden;
-  cursor: pointer;
-
-  :not(:last-child) {
-    margin-bottom: 30px;
-  }
-
-  &:hover {
-    box-shadow: 1px 1px 10px 1px #2f6fad24;
-  }
-
-  ${({ theme }) => theme.media.lg.min} {
-    :not(:last-child) {
-      margin-bottom: 0;
     }
   }
 `
@@ -116,7 +79,6 @@ const SlideCard = styled.article`
 const SwiperWrapper = styled.div`
   position: relative;
   width: 100%;
-  max-width: 450px;
   height: 350px;
   margin: 15px auto 0;
 
@@ -134,6 +96,7 @@ const SlideTextContent = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   width: 100%;
   height: calc(100% - 60px);
   margin-top: 60px;
@@ -211,7 +174,7 @@ const Testimonials: React.FC<Props> = ({
 }) => {
   const [swiper, setSwiper] = useState<SwiperCore | null>(null)
   const [activeSlideIndex, setActiveSlideIndex] = useState(0)
-  const { lg, xl } = useBreakpoint()
+  const { sm, lg } = useBreakpoint()
 
   const goPrev = () => {
     swiper?.slidePrev()
@@ -239,10 +202,10 @@ const Testimonials: React.FC<Props> = ({
         </TextContent>
         <SwiperWrapper>
           <Swiper
-            slidesPerView={lg ? 3 : 1}
+            slidesPerView={lg ? 3 : sm ? 2 : 1}
             onSwiper={(initSwiper) => setSwiper(initSwiper)}
             autoplay={{
-              delay: 3500,
+              delay: 3750,
             }}
             speed={1000}
             modules={[Autoplay]}
