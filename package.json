@@ -12,7 +12,7 @@
     "formik": "^2.2.9",
     "framer-motion": "^10.12.4",
     "gatsby": "^4.22.0",
-    "gatsby-plugin-canonical-urls": "4.24.0",
+    "gatsby-plugin-canonical-urls": "^5.11.0",
     "gatsby-plugin-eslint": "^4.0.2",
     "gatsby-plugin-gatsby-cloud": "^4.15.0",
     "gatsby-plugin-google-tagmanager": "^5.10.0",

@@ -7,7 +7,7 @@ require('dotenv').config({
   path: `.env.${activeEnv}`,
 })
 
-const SITE_URL = 'https://www.sprzedamtwojsamochod.pl/'
+const SITE_URL = 'https://www.sprzedamtwojsamochod.pl'
 
 const gatsbyRequiredRules = path.join(
   process.cwd(),
