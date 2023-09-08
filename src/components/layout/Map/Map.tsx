@@ -66,7 +66,7 @@ type Props = {
 
 const Map: React.FC<Props> = ({ pins }) => {
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: 'AIzaSyAdJbmbj8BUZxkpo0V0O7ZE01pNWBxtvRg',
+    googleMapsApiKey: process.env.GOOGLE_MAPS_API_KEY!,
   })
 
   const [infoState, setInfoState] = useState({
