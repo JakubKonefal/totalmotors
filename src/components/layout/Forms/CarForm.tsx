@@ -221,8 +221,6 @@ const ContactForm: React.FC<Props> = ({
             'vXjOlPWGulGIO3iFt'
           )
           .then((res) => {
-            console.log(res)
-
             setSubmitSuccess(true)
             setFormError(false)
             setSubmitting(false)
@@ -232,8 +230,6 @@ const ContactForm: React.FC<Props> = ({
             }, 8000)
           })
           .catch((err) => {
-            console.log(err)
-
             setSubmitSuccess(false)
             setFormError(true)
             setSubmitting(false)
