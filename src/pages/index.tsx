@@ -89,18 +89,18 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
     },
     {
       img: {
-        src: data?.wolga?.childImageSharp?.gatsbyImageData!,
-        alt: 'Wołga GAZ 21 - 1964r.',
+        src: data?.vwTiguan?.childImageSharp?.gatsbyImageData!,
+        alt: 'VW TIGUAN R',
       },
-      title: 'Wołga GAZ 21 - 1964r.',
+      title: 'VW TIGUAN R',
       desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
     },
     {
       img: {
-        src: data?.jaguarXE?.childImageSharp?.gatsbyImageData!,
-        alt: 'Jaguar XE',
+        src: data?.volvoS90?.childImageSharp?.gatsbyImageData!,
+        alt: 'VOLVO S90 T5 INSCRIPTION',
       },
-      title: 'Jaguar XE',
+      title: 'VOLVO S90 T5 INSCRIPTION',
       desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
     },
     {
@@ -622,12 +622,12 @@ export const query = graphql`
         gatsbyImageData(width: 500, placeholder: BLURRED, formats: [AUTO, WEBP])
       }
     }
-    jaguarXE: file(name: { eq: "jaguar-xe" }) {
+    volvoS90: file(name: { eq: "volvo-s90" }) {
       childImageSharp {
         gatsbyImageData(width: 500, placeholder: BLURRED, formats: [AUTO, WEBP])
       }
     }
-    wolga: file(name: { eq: "wolga" }) {
+    vwTiguan: file(name: { eq: "vw-tiguan" }) {
       childImageSharp {
         gatsbyImageData(width: 500, placeholder: BLURRED, formats: [AUTO, WEBP])
       }

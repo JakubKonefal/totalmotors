@@ -18,6 +18,30 @@ const RealizacjePage: React.FC<PageProps<Queries.RealizacjePageQuery>> = ({
   const REALISATIONS: RealisationSingle[] = [
     {
       img: {
+        src: data?.volvoS90?.childImageSharp?.gatsbyImageData!,
+        alt: 'VOLVO S90 T5 INSCRIPTION',
+      },
+      title: 'VOLVO S90 T5 INSCRIPTION',
+      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
+    },
+    {
+      img: {
+        src: data?.vwTiguan?.childImageSharp?.gatsbyImageData!,
+        alt: 'VW TIGUAN R',
+      },
+      title: 'VW TIGUAN R',
+      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
+    },
+    {
+      img: {
+        src: data?.mcS500?.childImageSharp?.gatsbyImageData!,
+        alt: 'Mercedes S500 w pakiecie BRABUS',
+      },
+      title: 'Mercedes S500 w pakiecie BRABUS',
+      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quod architecto quia molestias dolorem fugit tempore possimus qui quibusdam nobis.',
+    },
+    {
+      img: {
         src: data?.bmwX4?.childImageSharp?.gatsbyImageData!,
         alt: 'BMW X4',
       },
@@ -345,6 +369,33 @@ export const query = graphql`
       }
     }
     wolga: file(name: { eq: "wolga" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1200
+          placeholder: BLURRED
+          formats: [AUTO, WEBP]
+        )
+      }
+    }
+    volvoS90: file(name: { eq: "volvo-s90" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1200
+          placeholder: BLURRED
+          formats: [AUTO, WEBP]
+        )
+      }
+    }
+    vwTiguan: file(name: { eq: "vw-tiguan" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1200
+          placeholder: BLURRED
+          formats: [AUTO, WEBP]
+        )
+      }
+    }
+    mcS500: file(name: { eq: "mc-s500" }) {
       childImageSharp {
         gatsbyImageData(
           width: 1200
