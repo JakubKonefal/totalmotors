@@ -8,7 +8,7 @@ import Container from 'components/shared/container'
 import Icon from 'components/shared/icon'
 import { Text } from 'components/shared/typography'
 
-import sprzedamLogo from 'assets/icons/sprzedamlogolatest.svg'
+import sprzedamLogo from 'assets/icons/logonew-transparent-cropped.png'
 
 // These svgs are used below in HTML
 
@@ -167,8 +167,7 @@ const MenuButton = styled.button`
 `
 
 const Logo = styled.a`
-  width: 60%;
-  max-width: 175px;
+  width: 120px;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -177,6 +176,8 @@ const Logo = styled.a`
   font-family: 'Montserrat', sans-serif;
   font-weight: 900;
   text-transform: uppercase;
+
+  transition: 350ms ease-in-out;
   z-index: 1;
 
   color: ${({ theme }) => theme.colors.white};
@@ -186,7 +187,7 @@ const Logo = styled.a`
   }
 
   ${({ theme }) => theme.media.lg.min} {
-    max-width: 270px;
+    width: 170px;
   }
 `
 
